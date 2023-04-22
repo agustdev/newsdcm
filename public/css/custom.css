@@ -1,0 +1,23 @@
+.bg-custom{
+    background-color: rgba(44, 45, 104, 1) !important;
+}
+.border-custom {
+    border-color: rgba(44, 45, 104, 1) !important;
+    transition: 0.1s;
+}
+.border-custom:hover{
+    border: 7px solid rgb(151, 105, 19) !important;
+    transition: 0.1s;
+}
+.sombra{
+    box-shadow: -14px 19px 26px 0px rgba(0, 0, 0, 0.2);
+}
+.btn-outline-custom {
+    color: rgba(44, 45, 104, 1) !important;
+    border-color: rgba(44, 45, 104, 1) !important;
+}
+.btn-outline-custom:hover {
+    color: rgb(255, 255, 255) !important;
+    border-color: rgba(87, 89, 170, 1) !important;
+    background-color: rgba(44, 45, 104, 1) !important;
+}

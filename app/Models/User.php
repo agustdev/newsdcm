@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'documento'
     ];
 
     /**
@@ -58,4 +59,15 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    // relacion uno a muchos
+    public function movimientos()
+    {
+        return $this->hasMany(Movimientos::class);
+    }
+
+    public function embarcaciones()
+    {
+        return $this->hasMany(Embarcaciones::class, 'no_documento');
+    }
 }

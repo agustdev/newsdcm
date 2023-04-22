@@ -1,45 +1,207 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+@include('layouts.template.header')
+<!-- Begin page -->
+<div class="wrapper">
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="leftside-menu">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <!-- LOGO -->
+        <a href="/" class="logo text-center logo-light">
+            <span class="logo-lg" style="padding: 5px">
+                <img src="{{ asset('assets/images/capitania_web2.png') }}" alt="" height="32">
+            </span>
+            <span class="logo-sm" style="padding: 5px">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+                <img src="{{ asset('assets/images/capitania_web2_sm.png') }}" alt="" height="32">
+            </span>
+        </a>
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <!-- LOGO -->
+        <a href="/" class="logo text-center logo-dark">
+            <span class="logo-lg">
+                <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="16">
+            </span>
+            <span class="logo-sm">
+                <img src="{{ asset('assets/images/logo_sm_dark.png') }}" alt="" height="16">
+            </span>
+        </a>
 
-        <!-- Styles -->
-        @livewireStyles
-    </head>
-    <body class="font-sans antialiased">
-        <x-banner />
+        <div class="h-100" id="leftside-menu-container" data-simplebar>
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+            <!--- Sidemenu -->
+            @include('layouts.template.menu')
+            <!-- End Sidebar -->
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+            <div class="clearfix"></div>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
         </div>
+        <!-- Sidebar -left -->
 
-        @stack('modals')
+    </div>
+    <!-- Left Sidebar End -->
 
-        @livewireScripts
-    </body>
-</html>
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+            <!-- Topbar Start -->
+            <div class="navbar-custom">
+                <ul class="list-unstyled topbar-menu float-end mb-0">
+                    <li class="dropdown notification-list d-lg-none">
+                        <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="dripicons-search noti-icon"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
+                            <form class="p-3">
+                                <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                            </form>
+                        </div>
+                    </li>
+
+                    {{-- notifications --}}
+                    {{-- <x-notifications-admin></x-notifications-admin> --}}
+                    {{-- end notifications --}}
+
+
+                    <li class="dropdown notification-list">
+                        <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                            <span class="account-user-avatar">
+                                <img src="{{ Auth::user()->profile_photo_url }}" alt="user-image" class="rounded-circle">
+                            </span>
+                            <span>
+                                <span class="account-user-name">{{ Auth::user()->name }}</span>
+                                {{-- <span class="account-position">{{ !empty(Auth::user()->roles)? Auth::user()->roles()->first()->name: '' }}</span> --}}
+                            </span>
+                            @else
+                            <span>
+                                <span class="account-user-name">{{ Auth::user()->name }}</span>
+                                {{-- <span class="account-position">{{ !empty(Auth::user()->roles)? Auth::user()->roles()->first()->name: '' }}</span> --}}
+                            </span>
+                            @endif
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
+                            <!-- item-->
+                            <div class=" dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Administrar cuenta</h6>
+                            </div>
+                            <a href="{{ route('profile.show') }}" class="dropdown-item"><i class="mdi mdi-account-cog me-1"></i>Perfil</a>
+                            <!-- item-->
+                            <a href="{{ route('logout') }}" class="dropdown-item notify-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="mdi mdi-logout me-1"></i>
+                                <span>Cerrar Sesión</span>
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+
+                </ul>
+                <button class="button-menu-mobile open-left">
+                    <i class="mdi mdi-menu"></i>
+                </button>
+                <div class="app-search dropdown d-none d-lg-block">
+
+                    <div class="dropdown-menu dropdown-menu-animated dropdown-lg" id="search-dropdown">
+                        <!-- item-->
+                        <div class="dropdown-header noti-title">
+                            <h5 class="text-overflow mb-2">Found <span class="text-danger">17</span> results</h5>
+                        </div>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="uil-notes font-16 me-1"></i>
+                            <span>Analytics Report</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="uil-life-ring font-16 me-1"></i>
+                            <span>How can I help you?</span>
+                        </a>
+
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <i class="uil-cog font-16 me-1"></i>
+                            <span>User profile settings</span>
+                        </a>
+
+                        <!-- item-->
+                        <div class="dropdown-header noti-title">
+                            <h6 class="text-overflow mb-2 text-uppercase">Users</h6>
+                        </div>
+
+                        <div class="notification-list">
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <div class="d-flex">
+                                    <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-2.jpg" alt="Generic placeholder image" height="32">
+                                    <div class="w-100">
+                                        <h5 class="m-0 font-14">Erwin Brown</h5>
+                                        <span class="font-12 mb-0">UI Designer</span>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <div class="d-flex">
+                                    <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32">
+                                    <div class="w-100">
+                                        <h5 class="m-0 font-14">Jacob Deo</h5>
+                                        <span class="font-12 mb-0">Developer</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end Topbar -->
+
+            <!-- Start Content-->
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                @yield('breadcrumbs')
+                            </div>
+                            <h4 class="page-title">
+                                @if (isset($header))
+                                {{ $header }}
+                                @endif
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+                {{ $slot }}
+
+            </div> <!-- container -->
+
+        </div> <!-- content -->
+
+        <!-- Footer Start -->
+        @include('layouts.template.copyright')
+        <!-- end Footer -->
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
+
+</div>
+<!-- END wrapper -->
+
+
+<!-- Right Sidebar -->
+
+<!-- /End-bar -->
+@include('layouts.template.footer')
