@@ -5,6 +5,14 @@
     border-color: rgba(44, 45, 104, 1) !important;
     transition: 0.1s;
 }
+.border-custom-red {
+    border-color: rgb(187, 0, 0) !important;
+    transition: 0.1s;
+}
+.border-custom-red:hover {
+    border: 7px solid rgb(161, 161, 161) !important;
+    transition: 0.1s;
+}
 .border-custom:hover{
     border: 7px solid rgb(151, 105, 19) !important;
     transition: 0.1s;

@@ -16,4 +16,9 @@ class Capitanes extends Model
     {
         return $this->belongsTo(Movimiento::class);
     }
+
+    public function destinos()
+    {
+        return $this->belongsTo(Destinos::class);
+    }
 }

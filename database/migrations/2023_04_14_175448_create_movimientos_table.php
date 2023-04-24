@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('movimientos', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha')->comment('Fecha de la solicitud');
+            $table->date('fecha')->comment('Fecha de salida');
             $table->enum('tipo_movimiento', ['D', 'C'])->comment('D => Despacho, C => Conduce');
             $table->string('nombre')->comment('Nombre de la embarcación');
             $table->string('matricula')->comment('Matricula de la embarcación');

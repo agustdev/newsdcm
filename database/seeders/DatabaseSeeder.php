@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(EmbarcacionSeeder::class);
+        $this->call(DestinosSeeder::class);
         $this->call(MovimientoSeeder::class);
         $this->call(CapitanSeeder::class);
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Embarcaciones;
 use Illuminate\Http\Request;
 
 class ConsultasController extends Controller
@@ -57,5 +58,15 @@ class ConsultasController extends Controller
         $newDate = date('Y-m-d', $oldDate);
         $datos[] = array('nombres' => trim(ucfirst($resp_c['nombres'])), 'apellidos' => trim(ucfirst($resp_c['apellido1'])) . ' ' . trim(ucfirst($resp_c['apellido2'])));
         return json_encode($datos);
+    }
+
+    public function consultar_embarcacion(Request $request)
+    {
+        $embarcacion = auth()->user()->embarcaciones()->where('matricula', '=', $request->matricula)
+            ->whereRaw('fecha_validez >= CURDATE()')
+            ->first();
+
+        $nodata = json_encode(array('matricula' => ''));
+        return !empty($embarcacion) ? $embarcacion->toJson() : $nodata;
     }
 }

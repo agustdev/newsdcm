@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Capitanes;
+use App\Models\Destinos;
+use App\Models\Embarcaciones;
 use App\Models\Movimientos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class DespachosController extends Controller
 {
@@ -12,7 +16,7 @@ class DespachosController extends Controller
      */
     public function index()
     {
-        $despachos = Movimientos::where('tipo_movimiento', 'D')->get();
+        $despachos = Movimientos::where('tipo_movimiento', 'D')->orderBy('id', 'desc')->get();
         // $user = auth()->user()->movimientos;
         // return response()->json($despachos);
         return view('movimientos.despachos.index', compact('despachos'));
@@ -23,7 +27,23 @@ class DespachosController extends Controller
      */
     public function create()
     {
-        return view('movimientos.despachos.create');
+        $ultimo_mov = auth()->user()->movimientos()->orderBy('id', 'DESC')->first();
+        $destinos = Destinos::all();
+        $embarcaciones = auth()->user()->embarcaciones()
+            ->whereRaw('fecha_validez >= CURDATE()')
+            ->pluck('matricula')->toJson();
+        return view('movimientos.despachos.create', compact('ultimo_mov', 'destinos', 'embarcaciones'));
+        // return $embarcaciones;
+    }
+
+    public function create_with_post()
+    {
+        $matricula = $_POST['emb'];
+        $embarcacion = auth()->user()->embarcaciones()->where('matricula', '=', $matricula)->first();
+        $ultimo_mov = auth()->user()->movimientos()->orderBy('id', 'DESC')->first();
+        $destinos = Destinos::all();
+        return view('movimientos.despachos.create_post', compact('ultimo_mov', 'embarcacion', 'destinos'));
+        // return dd($embarcacion);
     }
 
     /**
@@ -31,7 +51,45 @@ class DespachosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'matricula' => 'required',
+            'numero_casco' => 'required',
+            'nombre' => 'required',
+            'color' => 'required',
+            'fecha' => 'required'
+        ]);
+        $embarcacion = Embarcaciones::where('matricula', '=', $request->matricula)->first();
+        $salida = explode("|", $request->lugar_salida);
+        $destino = explode("|", $request->lugar_destino);
+        // dd($embarcacion);
+        $mov = Movimientos::create([
+            'matricula' => $request->matricula,
+            'numero_casco' => $request->numero_casco,
+            'nombre' => $request->nombre,
+            'color' => $request->color,
+            'fecha' => $request->fecha,
+            'tipo_movimiento' => 'D',
+            'estado' => 'Enviado',
+            'emb_id' => $embarcacion->id,
+            'user_id' => auth()->user()->id,
+            'url_id' => Str::uuid()->toString()
+        ]);
+        Capitanes::create([
+            'documento' => $request->documento,
+            'nombre' => $request->nombre_capitan,
+            'nacionalidad' => $request->nacionalidad,
+            'telefono' => $request->telefono,
+            'motivo_viaje' => $request->motivo_viaje,
+            'lugar_salida' => $salida[1],
+            'lugar_destino' => $destino[1],
+            'cantidad_tripulantes' => $request->cantidad_tripulantes,
+            'cantidad_pasajeros' => $request->cantidad_pasajeros,
+            'mov_id' => $mov->id,
+            'dest_sa_id' => $salida[0],
+            'dest_ll_id' => $destino[0]
+        ]);
+
+        return redirect()->route('movimientos.despachos.index')->with('msj', 'Solicitud creada con exito.');
     }
 
     /**
@@ -41,6 +99,7 @@ class DespachosController extends Controller
     {
         return view('movimientos.despachos.ver', compact('despacho'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -63,6 +122,9 @@ class DespachosController extends Controller
      */
     public function destroy(Movimientos $despacho)
     {
-        //
+        $despacho->update([
+            'estado' => 'Cancelado'
+        ]);
+        return redirect()->route('movimientos.despachos.index')->with('cancel', 'Solicitud creada con exito.');
     }
 }

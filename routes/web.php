@@ -11,7 +11,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/consulta_cedula', [ConsultasController::class, 'consultar_cedula']);
+Route::get('/consulta_cedula', [ConsultasController::class, 'consultar']);
 
 // views sdcm 
 Route::group(['middleware' => ['auth', 'verified']], function () {
@@ -21,9 +21,14 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     // )->name('propietarios.despacho');
 
     Route::resource('despachos', DespachosController::class)->names('movimientos.despachos');
+    Route::post('despachos/post', [DespachosController::class, 'create_with_post'])->name('despachos.createpost');
+    Route::post('/consulta_embarcacion', [ConsultasController::class, 'consultar_embarcacion'])->name('consulta.embarcacion');
+
     Route::resource('conduces', ConducesController::class)->names('movimientos.conduces');
     Route::resource('embarcaciones', EmbarcacioneController::class)->names('embarcaciones');
     Route::resource('movimientos', MovimientosController::class)->names('movimientos');
+
+    Route::get('movimientos/{movimiento}/pdf', [DespachosController::class, 'generate_pdf'])->name('despachos.pdf');
 });
 //end views sdcm
 

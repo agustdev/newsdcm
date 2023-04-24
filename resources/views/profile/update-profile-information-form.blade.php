@@ -49,10 +49,18 @@
         </div>
         @endif
 
+        {{-- documento usuario --}}
+        <div class="col-lg-12">
+            <x-label for="documento" value="{{ __('Document') }}" />
+            <x-input id="documento" type="text" wire:model.defer="state.documento" autocomplete="documento" />
+            <x-input-error for="documento" class="mt-2" />
+        </div>
+
         <!-- Name -->
         <div class="col-lg-12">
             <x-label for="name" value="{{ __('Name') }}" />
-            <x-input id="name" type="text" wire:model.defer="state.name" autocomplete="name" />
+            <x-input id="name" type="text" wire:model.defer="state.name" autocomplete="name" readonly />
+
             <x-input-error for="name" class="mt-2" />
         </div>
 

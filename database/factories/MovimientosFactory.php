@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Destinos;
 use App\Models\Embarcaciones;
 use App\Models\Movimientos;
 use App\Models\User;

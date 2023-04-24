@@ -68,6 +68,6 @@ class User extends Authenticatable
 
     public function embarcaciones()
     {
-        return $this->hasMany(Embarcaciones::class, 'no_documento');
+        return $this->hasMany(Embarcaciones::class, 'no_documento', 'documento');
     }
 }
