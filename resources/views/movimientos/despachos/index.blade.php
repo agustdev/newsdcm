@@ -20,8 +20,9 @@
                 <div class="card-header">
                     <h2 class="h3">
                         Listado de Solicitudes de Despacho
-                        <a href="{{ route('movimientos.despachos.create') }}" class="inline-flex items-center justify-center px-3 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 active:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150 float-end"><i class="mdi mdi-plus mdi-18px"></i>Nueva Solicitud</a>
-
+                        <a href="{{ route('movimientos.despachos.create') }}"
+                            class="inline-flex items-center justify-center px-3 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 active:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150 float-end"><i
+                                class="mdi mdi-plus mdi-18px"></i>Nueva Solicitud</a>
                     </h2>
                 </div>
 
@@ -34,6 +35,7 @@
                                 <th>Matrícula</th>
                                 <th>Estado</th>
                                 <th>Detalle</th>
+                                <th>Fecha solicitud</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -41,23 +43,35 @@
                             @foreach ($despachos as $desp)
                             <tr>
                                 <td>{{ $desp->id }}</td>
-                                <td>{{ $desp->fecha }}</td>
+                                <td>{{ $desp->fecha->format('d-m-Y') }}</td>
                                 <td>{{ $desp->matricula }}</td>
                                 <td>
                                     @if($desp->estado == "Aprobado")
-                                    <span class="bg-green-100 text-green-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-700 dark:text-green-300">{{ $desp->estado }}</span>
+                                    <span
+                                        class="bg-green-100 text-green-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-700 dark:text-green-300">{{
+                                        $desp->estado }}</span>
                                     @elseif ($desp->estado == "Rechazado" or $desp->estado == "Cancelado")
-                                    <span class="bg-red-100 text-red-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-700 dark:text-red-300">{{ $desp->estado }}</span>
+                                    <span
+                                        class="bg-red-100 text-red-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-700 dark:text-red-300">{{
+                                        $desp->estado }}</span>
                                     @elseif ($desp->estado == "Enviado")
-                                    <span class="bg-yellow-100 text-yellow-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-700 dark:text-yellow-300">{{ $desp->estado }}</span>
+                                    <span
+                                        class="bg-yellow-100 text-yellow-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-700 dark:text-yellow-300">{{
+                                        $desp->estado }}</span>
                                     @elseif ($desp->estado == "En proceso")
-                                    <span class="bg-blue-100 text-blue-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-700 dark:text-blue-300">{{ $desp->estado }}</span>
+                                    <span
+                                        class="bg-blue-100 text-blue-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-700 dark:text-blue-300">{{
+                                        $desp->estado }}</span>
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{ route('movimientos.despachos.show', $desp) }}" class="inline-flex items-center justify-center px-3 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 active:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                                    <a href="{{ route('movimientos.despachos.show', $desp) }}"
+                                        class="inline-flex items-center justify-center px-3 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 active:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150">
                                         <i class="uil-eye"></i>
                                     </a>
+                                </td>
+                                <td>
+                                    {{ $desp->created_at->format('d-m-Y h:i:s') }}
                                 </td>
                                 <td>
                                     <div class="tooltip-container">
@@ -65,18 +79,26 @@
                                         $estados = array("Aprobado", "Rechazado", "En proceso", "Cancelado" );
                                         @endphp
                                         @if(!in_array($desp->estado, $estados))
-                                        <a href="#" class="inline-flex items-center justify-center px-3 py-2 bg-yellow-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-500 active:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 transition ease-in-out duration-150" title="Editar"><i class="uil-edit"></i></a>
+                                        {{-- <a href="{{ route('movimientos.despachos.edit', $desp) }}"
+                                            class="inline-flex items-center justify-center px-3 py-2 bg-yellow-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-500 active:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 transition ease-in-out duration-150 edit-desp disabled:opacity-25"
+                                            title="Editar"><i class="uil-edit"></i></a> --}}
+
                                         @endif
                                         @if(!in_array($desp->estado, $estados))
-                                        <form id="despacho-cancel" action="{{ route('movimientos.despachos.destroy', $desp) }}" method="POST" class="inline-block cancel">
+                                        <form id="despacho-cancel"
+                                            action="{{ route('movimientos.despachos.destroy', $desp) }}" method="POST"
+                                            class="inline-block cancel">
                                             @method('DELETE')
                                             @csrf
-                                            <button type="submit" class="inline-flex items-center justify-center px-3 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150" title="Cancelar"><i class="mdi mdi-cancel"></i></button>
+                                            <button type="submit"
+                                                class="inline-flex items-center justify-center px-3 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150"
+                                                title="Cancelar"><i class="mdi mdi-cancel"></i></button>
                                         </form>
                                         @endif
                                     </div>
                                 </td>
                             </tr>
+
                             @endforeach
                         </tbody>
                     </table>
@@ -143,12 +165,12 @@
         $('.cancel').submit(function(e) {
             e.preventDefault();
             Swal.fire({
-                title: '¿Estas seguro de cancelar esta solicitud?'
+                title: '¿Estas seguro de anular esta solicitud?'
                 , text: "¡Esta acción no podra ser revertida!"
                 , showCancelButton: true
                 , confirmButtonColor: '#2563EB'
                 , cancelButtonColor: '#DC2626'
-                , confirmButtonText: '¡Si, cancelar!'
+                , confirmButtonText: '¡Si, anular!'
                 , cancelButtonText: 'Cancelar'
             }).then((result) => {
                 if (result.isConfirmed) {

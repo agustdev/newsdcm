@@ -26,12 +26,14 @@
 
             <!-- Current Profile Photo -->
             <div class="mt-2" x-show="! photoPreview">
-                <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-circle avatar-lg img-thumbnail">
+                <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}"
+                    class="rounded-circle avatar-lg img-thumbnail">
             </div>
 
             <!-- New Profile Photo Preview -->
             <div class="mt-2" x-show="photoPreview" style="display: none;">
-                <img class="rounded-circle avatar-lg img-thumbnail" x-bind:style="'background-image: url(\'' + photoPreview + '\'); background-size: cover; background-position: center; background-repeat: no-repeat;'">
+                <img class="rounded-circle avatar-lg img-thumbnail"
+                    x-bind:style="'background-image: url(\'' + photoPreview + '\'); background-size: cover; background-position: center; background-repeat: no-repeat;'">
 
             </div>
 
@@ -52,7 +54,7 @@
         {{-- documento usuario --}}
         <div class="col-lg-12">
             <x-label for="documento" value="{{ __('Document') }}" />
-            <x-input id="documento" type="text" wire:model.defer="state.documento" autocomplete="documento" />
+            <x-input id="documento" type="text" wire:model.defer="state.documento" autocomplete="documento" readonly />
             <x-input-error for="documento" class="mt-2" />
         </div>
 
@@ -67,10 +69,12 @@
         <!-- Email -->
         <div class="col-lg-12">
             <x-label for="email" value="{{ __('Email') }}" />
-            <x-input id="email" type="email" class="form-control" wire:model.defer="state.email" autocomplete="username" />
+            <x-input id="email" type="email" class="form-control" wire:model.defer="state.email"
+                autocomplete="username" />
             <x-input-error for="email" class="mt-2" />
 
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())
+            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && !
+            $this->user->hasVerifiedEmail())
             <p class="text-sm mt-2">
                 {{ __('Your email address is unverified.') }}
 

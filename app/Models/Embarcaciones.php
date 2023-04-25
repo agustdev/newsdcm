@@ -17,4 +17,9 @@ class Embarcaciones extends Model
     {
         return $this->hasMany(Movimientos::class, 'emb_id');
     }
+
+    public function conductor()
+    {
+        return $this->hasMany(Conductores::class, 'emb_id');
+    }
 }

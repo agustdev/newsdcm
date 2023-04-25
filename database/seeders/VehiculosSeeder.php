@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Movimientos;
+use App\Models\Vehiculos;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class MovimientoSeeder extends Seeder
+class VehiculosSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $movimiento = Movimientos::factory(25)->create();
+        $vehiculos = Vehiculos::factory(10)->create();
     }
 }

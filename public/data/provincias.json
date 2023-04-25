@@ -1,0 +1,198 @@
+[
+    {
+        "idcapitania": "003",
+        "idprovincia": "031",
+        "idregion": "010",
+        "descripcion": "Distrito Nacional"
+    },
+    {
+        "idcapitania": "002",
+        "idprovincia": "026",
+        "idregion": "008",
+        "descripcion": "La Altagracia"
+    },
+    {
+        "idcapitania": "005",
+        "idprovincia": "018",
+        "idregion": "005",
+        "descripcion": "Azua"
+    },
+    {
+        "idcapitania": "006",
+        "idprovincia": "021",
+        "idregion": "006",
+        "descripcion": "Bahoruco"
+    },
+    {
+        "idcapitania": "005",
+        "idprovincia": "020",
+        "idregion": "006",
+        "descripcion": "Barahona"
+    },
+    {
+        "idprovincia": "015",
+        "idregion": "004",
+        "descripcion": "Dajabón"
+    },
+    {
+        "idcapitania": "009",
+        "idprovincia": "010",
+        "idregion": "003",
+        "descripcion": "Duarte"
+    },
+    {
+        "idcapitania": "002",
+        "idprovincia": "027",
+        "idregion": "008",
+        "descripcion": "El Seibo"
+    },
+    {
+        "idcapitania": "006",
+        "idprovincia": "025",
+        "idregion": "007",
+        "descripcion": "Elias Piña"
+    },
+    {
+        "idcapitania": "008",
+        "idprovincia": "006",
+        "idregion": "001",
+        "descripcion": "Espaillat"
+    },
+    {
+        "idcapitania": "001",
+        "idprovincia": "029",
+        "idregion": "009",
+        "descripcion": "Hato Mayor"
+    },
+    {
+        "idcapitania": "006",
+        "idprovincia": "023",
+        "idregion": "006",
+        "descripcion": "Independencia"
+    },
+    {
+        "idcapitania": "002",
+        "idprovincia": "001",
+        "idregion": "008",
+        "descripcion": "La Romana"
+    },
+    {
+        "idcapitania": "008",
+        "idprovincia": "007",
+        "idregion": "002",
+        "descripcion": "La Vega"
+    },
+    {
+        "idcapitania": "009",
+        "idprovincia": "012",
+        "idregion": "003",
+        "descripcion": "Maria Trinidad Sanchez"
+    },
+    {
+        "idcapitania": "004",
+        "idprovincia": "008",
+        "idregion": "002",
+        "descripcion": "Monseñor Nouel"
+    },
+    {
+        "idcapitania": "007",
+        "idprovincia": "014",
+        "idregion": "004",
+        "descripcion": "Monte Cristi"
+    },
+    {
+        "idcapitania": "011",
+        "idprovincia": "030",
+        "idregion": "009",
+        "descripcion": "Monte Plata"
+    },
+    {
+        "idcapitania": "003",
+        "idprovincia": "030",
+        "idregion": "009",
+        "descripcion": "Monte Plata"
+    },
+    {
+        "idcapitania": "010",
+        "idprovincia": "022",
+        "idregion": "006",
+        "descripcion": "Pedernales"
+    },
+    {
+        "idcapitania": "005",
+        "idprovincia": "004",
+        "idregion": "005",
+        "descripcion": "Peravia"
+    },
+    {
+        "idcapitania": "008",
+        "idprovincia": "003",
+        "idregion": "001",
+        "descripcion": "Puerto Plata"
+    },
+    {
+        "idcapitania": "008",
+        "idprovincia": "011",
+        "idregion": "003",
+        "descripcion": "Hermanas Mirabal"
+    },
+    {
+        "idcapitania": "009",
+        "idprovincia": "002",
+        "idregion": "003",
+        "descripcion": "Samaná"
+    },
+    {
+        "idcapitania": "004",
+        "idprovincia": "017",
+        "idregion": "005",
+        "descripcion": "San Cristobal"
+    },
+    {
+        "idcapitania": "005",
+        "idprovincia": "024",
+        "idregion": "007",
+        "descripcion": "San Juan"
+    },
+    {
+        "idcapitania": "001",
+        "idprovincia": "028",
+        "idregion": "009",
+        "descripcion": "San Pedro de Macoris"
+    },
+    {
+        "idcapitania": "009",
+        "idprovincia": "009",
+        "idregion": "002",
+        "descripcion": "Sanchez Ramirez"
+    },
+    {
+        "idcapitania": "008",
+        "idprovincia": "005",
+        "idregion": "001",
+        "descripcion": "Santiago"
+    },
+    {
+        "idcapitania": "008",
+        "idprovincia": "016",
+        "idregion": "004",
+        "descripcion": "Santiago Rodriguez"
+    },
+    {
+        "idprovincia": "013",
+        "idregion": "004",
+        "descripcion": "Valverde"
+    },
+    {
+        "idcapitania": "005",
+        "idprovincia": "019",
+        "idregion": "005",
+        "descripcion": "San Jose de Ocoa"
+    },
+    {
+        "idcapitania": "003",
+        "idprovincia": "032",
+        "idregion": "010",
+        "descripcion": "Santo Domingo"
+    }
+]

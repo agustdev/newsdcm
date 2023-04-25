@@ -31,7 +31,7 @@ class MovimientosFactory extends Factory
             'matricula' => Embarcaciones::first()->matricula,
             'numero_casco' => $this->faker->randomNumber(6, true),
             'color' => $this->faker->randomElement(['rojo', 'amarillo', 'verde', 'azul', 'blanco', 'negro', 'marron']),
-            'estado' => $this->faker->randomElement(['Aprobado', 'Rechazado']),
+            'estado' => $this->faker->randomElement(['Aprobado', 'Rechazado', 'Enviado', 'En proceso']),
             'user_id' => User::all()->random()->id,
             'emb_id' => Embarcaciones::first()->id,
             'url_id' => Str::uuid()->toString()

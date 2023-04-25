@@ -11,12 +11,13 @@
     {{-- formulario de solicitud de despacho --}}
     <div class="row g-2">
 
-        <form action="{{ route('movimientos.despachos.store') }}" method="POST" class="form-inline">
+        <form action="{{ route('movimientos.despachos.store') }}" method="POST" class="form-inline" autocomplete="off">
             @csrf
             <div class="card">
                 <div class="card-header">
                     <div class="col-lg-12 mb-2">
-                        <h3 class="h4">Número de solicitud: {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}</h3>
+                        <h3 class="h4 uppercase">Número de solicitud: {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
+                        </h3>
                     </div>
                 </div>
                 <div class="card-body">
@@ -105,7 +106,7 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="date" class="form-control" id="floatingFecha" placeholder="FECHA"
-                                    name="fecha" />
+                                    name="fecha" min="{{ date('Y-m-d') }}" />
                                 <label for="floatingFecha">FECHA SALIDA</label>
                             </div>
                         </div>

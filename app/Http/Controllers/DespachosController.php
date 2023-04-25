@@ -6,6 +6,7 @@ use App\Models\Capitanes;
 use App\Models\Destinos;
 use App\Models\Embarcaciones;
 use App\Models\Movimientos;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -58,7 +59,7 @@ class DespachosController extends Controller
             'color' => 'required',
             'fecha' => 'required'
         ]);
-        $embarcacion = Embarcaciones::where('matricula', '=', $request->matricula)->first();
+        $embarcacion = auth()->user()->embarcaciones()->where('matricula', '=', $request->matricula)->first();
         $salida = explode("|", $request->lugar_salida);
         $destino = explode("|", $request->lugar_destino);
         // dd($embarcacion);
@@ -106,7 +107,7 @@ class DespachosController extends Controller
      */
     public function edit(Movimientos $despacho)
     {
-        //
+        // return $despacho->vehiculo;
     }
 
     /**

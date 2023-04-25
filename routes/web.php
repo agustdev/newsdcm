@@ -19,12 +19,16 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     //     'propietarios/solicitud/despacho',
     //     'SolicitudesPropietariosController@despachos'
     // )->name('propietarios.despacho');
+    Route::post('/consulta_embarcacion', [ConsultasController::class, 'consultar_embarcacion'])->name('consulta.embarcacion');
+    Route::post('get/municipios', [ConsultasController::class, 'get_municipios'])->name('get.municipios');
 
     Route::resource('despachos', DespachosController::class)->names('movimientos.despachos');
     Route::post('despachos/post', [DespachosController::class, 'create_with_post'])->name('despachos.createpost');
-    Route::post('/consulta_embarcacion', [ConsultasController::class, 'consultar_embarcacion'])->name('consulta.embarcacion');
+
 
     Route::resource('conduces', ConducesController::class)->names('movimientos.conduces');
+    Route::post('conduces/post', [ConducesController::class, 'create_with_post'])->name('conduces.createpost');
+
     Route::resource('embarcaciones', EmbarcacioneController::class)->names('embarcaciones');
     Route::resource('movimientos', MovimientosController::class)->names('movimientos');
 

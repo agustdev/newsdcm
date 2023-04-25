@@ -16,10 +16,12 @@
                 <div class="card-body">
                     <div class="text-center">
                         <h3 class="m-0 fw-normal cta-box-title">DESPACHO</h3>
-                        <img class="my-3 text-center mx-auto" src="{{ asset('images/despacho-icon.png') }}" width="180" alt="Generic placeholder image">
+                        <img class="my-3 text-center mx-auto" src="{{ asset('images/despacho-icon.png') }}" width="180"
+                            alt="Generic placeholder image">
 
                         <br>
-                        <a href="{{ route('movimientos.despachos.index') }}" class="btn btn-sm btn-light btn-rounded">SOLICITAR <i class="mdi mdi-arrow-right"></i></a>
+                        <a href="{{ route('movimientos.despachos.create') }}"
+                            class="btn btn-sm btn-light btn-rounded">SOLICITAR <i class="mdi mdi-arrow-right"></i></a>
                     </div>
                 </div>
                 <!-- end card-body -->
@@ -31,10 +33,11 @@
                 <div class="card-body">
                     <div class="text-center">
                         <h3 class="m-0 fw-normal cta-box-title">CONDUCE</h3>
-                        <img class="my-3 text-center mx-auto" src="{{ asset('images/conduce-icon.png') }}" width="180" alt="Generic placeholder image">
-
+                        <img class="my-3 text-center mx-auto" src="{{ asset('images/conduce-icon.png') }}" width="180"
+                            alt="Generic placeholder image">
                         <br>
-                        <a href="/" class="btn btn-sm btn-light btn-rounded">SOLICITAR <i class="mdi mdi-arrow-right"></i></a>
+                        <a href="{{ route('movimientos.conduces.create') }}"
+                            class="btn btn-sm btn-light btn-rounded">SOLICITAR <i class="mdi mdi-arrow-right"></i></a>
                     </div>
                 </div>
                 <!-- end card-body -->

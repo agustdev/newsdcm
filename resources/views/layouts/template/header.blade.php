@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8">
     <title>@yield('titulo', 'Titulo Modulo') | SDCM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Sistema de Control Maritimo | Comando Naval de Capitania de Puertos y Autoridad Maritima" name="description">
+    <meta content="Sistema de Control Maritimo | Comando Naval de Capitania de Puertos y Autoridad Maritima"
+        name="description">
     <meta content="CDP-SDCM" name="author">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -23,7 +25,6 @@
         body[data-leftbar-theme=dark] .leftside-menu .logo {
             background: #2a2d69 !important;
         }
-
     </style>
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -32,4 +33,5 @@
     @stack('css')
 </head>
 
-<body class="loading" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'>
+<body class="loading"
+    data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'>

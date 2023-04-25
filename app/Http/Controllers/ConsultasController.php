@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Embarcaciones;
+use App\Models\Municipios;
 use Illuminate\Http\Request;
 
 class ConsultasController extends Controller
@@ -68,5 +69,11 @@ class ConsultasController extends Controller
 
         $nodata = json_encode(array('matricula' => ''));
         return !empty($embarcacion) ? $embarcacion->toJson() : $nodata;
+    }
+
+    public function get_municipios(Request $request)
+    {
+        $municipios = Municipios::where('id_prov', $request->idprovincia)->get();
+        return $municipios->toJson();
     }
 }

@@ -11,14 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('autorizaciones', function (Blueprint $table) {
+        Schema::create('conductores', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('documento');
+            $table->string('telefono');
             $table->unsignedBigInteger('mov_id');
-            $table->unsignedBigInteger('user_id');
-            $table->string('nombre_usuario');
-            $table->string('accion');
+            $table->unsignedBigInteger('emb_id');
+            $table->unsignedBigInteger('veh_id');
             $table->foreign('mov_id')->references('id')->on('movimientos')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('emb_id')->references('id')->on('embarcaciones')->onDelete('cascade');
+            $table->foreign('veh_id')->references('id')->on('vehiculos')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('autorizaciones');
+        Schema::dropIfExists('conductores');
     }
 };

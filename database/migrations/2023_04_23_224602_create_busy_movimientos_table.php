@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('busy_movimientos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('mov_id');
+            $table->unsignedBigInteger('user_id')->comment('indicado si el usuario/propietario esta editando la solicitud');
+            $table->unsignedBigInteger('admin_id')->comment('indicador si el usuario admin esta revisando la solicitud para toma de desición');
             $table->timestamps();
         });
     }

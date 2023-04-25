@@ -1,0 +1,777 @@
+[
+    {
+        "idmunicipio": "001",
+        "idprovincia": "005",
+        "descripcion": "Santiago De Los Caballeros"
+    },
+    {
+        "idmunicipio": "002",
+        "idprovincia": "005",
+        "descripcion": "Bisonó"
+    },
+    {
+        "idmunicipio": "003",
+        "idprovincia": "005",
+        "descripcion": "Jánico"
+    },
+    {
+        "idmunicipio": "004",
+        "idprovincia": "005",
+        "descripcion": "Licey Al Medio"
+    },
+    {
+        "idmunicipio": "005",
+        "idprovincia": "005",
+        "descripcion": "San José de las Matas"
+    },
+    {
+        "idmunicipio": "006",
+        "idprovincia": "005",
+        "descripcion": "Tamboril"
+    },
+    {
+        "idmunicipio": "007",
+        "idprovincia": "005",
+        "descripcion": "Villa González"
+    },
+    {
+        "idmunicipio": "008",
+        "idprovincia": "005",
+        "descripcion": "Puñal"
+    },
+    {
+        "idmunicipio": "009",
+        "idprovincia": "005",
+        "descripcion": "Sabana Iglesia"
+    },
+    {
+        "idmunicipio": "010",
+        "idprovincia": "003",
+        "descripcion": "Puerto Plata"
+    },
+    {
+        "idmunicipio": "011",
+        "idprovincia": "003",
+        "descripcion": "Altamira"
+    },
+    {
+        "idmunicipio": "012",
+        "idprovincia": "003",
+        "descripcion": "Guananico"
+    },
+    {
+        "idmunicipio": "013",
+        "idprovincia": "003",
+        "descripcion": "Imbert"
+    },
+    {
+        "idmunicipio": "014",
+        "idprovincia": "003",
+        "descripcion": "Los Hidalgos"
+    },
+    {
+        "idmunicipio": "015",
+        "idprovincia": "003",
+        "descripcion": "Luperón"
+    },
+    {
+        "idmunicipio": "016",
+        "idprovincia": "003",
+        "descripcion": "Sosúa"
+    },
+    {
+        "idmunicipio": "017",
+        "idprovincia": "003",
+        "descripcion": "Villa Isabela"
+    },
+    {
+        "idmunicipio": "018",
+        "idprovincia": "003",
+        "descripcion": "Villa Montellano"
+    },
+    {
+        "idmunicipio": "019",
+        "idprovincia": "006",
+        "descripcion": "Moca"
+    },
+    {
+        "idmunicipio": "020",
+        "idprovincia": "006",
+        "descripcion": "Cayetano Germosén"
+    },
+    {
+        "idmunicipio": "020",
+        "idprovincia": "012",
+        "descripcion": "Duverge"
+    },
+    {
+        "idmunicipio": "021",
+        "idprovincia": "006",
+        "descripcion": "Gaspar Hernández"
+    },
+    {
+        "idmunicipio": "022",
+        "idprovincia": "010",
+        "descripcion": "Jamao al Norte"
+    },
+    {
+        "idmunicipio": "023",
+        "idprovincia": "007",
+        "descripcion": "La Vega"
+    },
+    {
+        "idmunicipio": "024",
+        "idprovincia": "007",
+        "descripcion": "Constanza"
+    },
+    {
+        "idmunicipio": "025",
+        "idprovincia": "007",
+        "descripcion": "Jarabacoa"
+    },
+    {
+        "idmunicipio": "026",
+        "idprovincia": "007",
+        "descripcion": "Jima Abajo"
+    },
+    {
+        "idmunicipio": "027",
+        "idprovincia": "008",
+        "descripcion": "Bonao"
+    },
+    {
+        "idmunicipio": "028",
+        "idprovincia": "008",
+        "descripcion": "Maimón"
+    },
+    {
+        "idmunicipio": "029",
+        "idprovincia": "008",
+        "descripcion": "Piedra Blanca"
+    },
+    {
+        "idmunicipio": "030",
+        "idprovincia": "009",
+        "descripcion": "Cotuí"
+    },
+    {
+        "idmunicipio": "031",
+        "idprovincia": "009",
+        "descripcion": "Cevicos"
+    },
+    {
+        "idmunicipio": "032",
+        "idprovincia": "009",
+        "descripcion": "Fantino"
+    },
+    {
+        "idmunicipio": "033",
+        "idprovincia": "009",
+        "descripcion": "La Mata"
+    },
+    {
+        "idmunicipio": "034",
+        "idprovincia": "010",
+        "descripcion": "San Francisco de Macoris"
+    },
+    {
+        "idmunicipio": "035",
+        "idprovincia": "010",
+        "descripcion": "Arenoso"
+    },
+    {
+        "idmunicipio": "036",
+        "idprovincia": "010",
+        "descripcion": "Castillo"
+    },
+    {
+        "idmunicipio": "037",
+        "idprovincia": "010",
+        "descripcion": "Pimentel"
+    },
+    {
+        "idmunicipio": "038",
+        "idprovincia": "010",
+        "descripcion": "Villa Riva"
+    },
+    {
+        "idmunicipio": "039",
+        "idprovincia": "010",
+        "descripcion": "Las Guáranas"
+    },
+    {
+        "idmunicipio": "040",
+        "idprovincia": "010",
+        "descripcion": "Eugenio María de Hostos"
+    },
+    {
+        "idmunicipio": "041",
+        "idprovincia": "011",
+        "descripcion": "Salcedo"
+    },
+    {
+        "idmunicipio": "042",
+        "idprovincia": "011",
+        "descripcion": "Tenares"
+    },
+    {
+        "idmunicipio": "043",
+        "idprovincia": "011",
+        "descripcion": "Villa Tapia"
+    },
+    {
+        "idmunicipio": "044",
+        "idprovincia": "012",
+        "descripcion": "Nagua"
+    },
+    {
+        "idmunicipio": "045",
+        "idprovincia": "012",
+        "descripcion": "Cabrera"
+    },
+    {
+        "idmunicipio": "046",
+        "idprovincia": "012",
+        "descripcion": "El Factor"
+    },
+    {
+        "idmunicipio": "047",
+        "idprovincia": "012",
+        "descripcion": "Río San Juan"
+    },
+    {
+        "idmunicipio": "048",
+        "idprovincia": "002",
+        "descripcion": "Samaná"
+    },
+    {
+        "idmunicipio": "049",
+        "idprovincia": "002",
+        "descripcion": "Sánchez"
+    },
+    {
+        "idmunicipio": "050",
+        "idprovincia": "002",
+        "descripcion": "Las Terrenas"
+    },
+    {
+        "idmunicipio": "051",
+        "idprovincia": "013",
+        "descripcion": "Mao"
+    },
+    {
+        "idmunicipio": "052",
+        "idprovincia": "013",
+        "descripcion": "Esperanza"
+    },
+    {
+        "idmunicipio": "053",
+        "idprovincia": "013",
+        "descripcion": "Laguna Salada"
+    },
+    {
+        "idmunicipio": "054",
+        "idprovincia": "014",
+        "descripcion": "Monte Cristi"
+    },
+    {
+        "idmunicipio": "055",
+        "idprovincia": "014",
+        "descripcion": "Castañuelas"
+    },
+    {
+        "idmunicipio": "056",
+        "idprovincia": "014",
+        "descripcion": "Guayubín"
+    },
+    {
+        "idmunicipio": "057",
+        "idprovincia": "014",
+        "descripcion": "Las Matas de Santa Cruz"
+    },
+    {
+        "idmunicipio": "058",
+        "idprovincia": "014",
+        "descripcion": "Pepillo Salcedo (Manzanillo)"
+    },
+    {
+        "idmunicipio": "059",
+        "idprovincia": "014",
+        "descripcion": "Villa Vásquez"
+    },
+    {
+        "idmunicipio": "060",
+        "idprovincia": "015",
+        "descripcion": "Dajabón"
+    },
+    {
+        "idmunicipio": "061",
+        "idprovincia": "015",
+        "descripcion": "Loma de Cabrera"
+    },
+    {
+        "idmunicipio": "062",
+        "idprovincia": "015",
+        "descripcion": "Partido"
+    },
+    {
+        "idmunicipio": "064",
+        "idprovincia": "015",
+        "descripcion": "El Pino"
+    },
+    {
+        "idmunicipio": "065",
+        "idprovincia": "016",
+        "descripcion": "San Ignacio De Sabaneta"
+    },
+    {
+        "idmunicipio": "066",
+        "idprovincia": "016",
+        "descripcion": "Villa Los Almácigos"
+    },
+    {
+        "idmunicipio": "067",
+        "idprovincia": "016",
+        "descripcion": "Monción"
+    },
+    {
+        "idmunicipio": "068",
+        "idprovincia": "017",
+        "descripcion": "San Cristóbal"
+    },
+    {
+        "idmunicipio": "069",
+        "idprovincia": "017",
+        "descripcion": "Sabana Grande De Palenque"
+    },
+    {
+        "idmunicipio": "070",
+        "idprovincia": "017",
+        "descripcion": "Bajos De Haina"
+    },
+    {
+        "idmunicipio": "071",
+        "idprovincia": "017",
+        "descripcion": "Cambita Garabitos"
+    },
+    {
+        "idmunicipio": "072",
+        "idprovincia": "017",
+        "descripcion": "Villa Altagracia"
+    },
+    {
+        "idmunicipio": "073",
+        "idprovincia": "017",
+        "descripcion": "Yaguate"
+    },
+    {
+        "idmunicipio": "074",
+        "idprovincia": "017",
+        "descripcion": "San Gregorio De Nigua"
+    },
+    {
+        "idmunicipio": "075",
+        "idprovincia": "017",
+        "descripcion": "Los Cacaos"
+    },
+    {
+        "idmunicipio": "076",
+        "idprovincia": "018",
+        "descripcion": "Azua"
+    },
+    {
+        "idmunicipio": "077",
+        "idprovincia": "018",
+        "descripcion": "Las Charcas"
+    },
+    {
+        "idmunicipio": "078",
+        "idprovincia": "018",
+        "descripcion": "Las Yayas de Viajama"
+    },
+    {
+        "idmunicipio": "079",
+        "idprovincia": "018",
+        "descripcion": "Padre Las Casas"
+    },
+    {
+        "idmunicipio": "080",
+        "idprovincia": "018",
+        "descripcion": "Peralta"
+    },
+    {
+        "idmunicipio": "081",
+        "idprovincia": "018",
+        "descripcion": "Sabana Yegua"
+    },
+    {
+        "idmunicipio": "082",
+        "idprovincia": "018",
+        "descripcion": "Pueblo Viejo"
+    },
+    {
+        "idmunicipio": "083",
+        "idprovincia": "018",
+        "descripcion": "Tábara Arriba"
+    },
+    {
+        "idmunicipio": "084",
+        "idprovincia": "018",
+        "descripcion": "Guayabal"
+    },
+    {
+        "idmunicipio": "085",
+        "idprovincia": "018",
+        "descripcion": "Estebanía"
+    },
+    {
+        "idmunicipio": "086",
+        "idprovincia": "004",
+        "descripcion": "Baní"
+    },
+    {
+        "idmunicipio": "087",
+        "idprovincia": "004",
+        "descripcion": "Nizao"
+    },
+    {
+        "idmunicipio": "088",
+        "idprovincia": "019",
+        "descripcion": "San José de Ocoa"
+    },
+    {
+        "idmunicipio": "089",
+        "idprovincia": "019",
+        "descripcion": "Sabana Larga"
+    },
+    {
+        "idmunicipio": "090",
+        "idprovincia": "019",
+        "descripcion": "Rancho Arriba"
+    },
+    {
+        "idmunicipio": "091",
+        "idprovincia": "020",
+        "descripcion": "Barahona"
+    },
+    {
+        "idmunicipio": "092",
+        "idprovincia": "020",
+        "descripcion": "Cabral"
+    },
+    {
+        "idmunicipio": "093",
+        "idprovincia": "020",
+        "descripcion": "Enriquillo"
+    },
+    {
+        "idmunicipio": "094",
+        "idprovincia": "020",
+        "descripcion": "Paraiso"
+    },
+    {
+        "idmunicipio": "095",
+        "idprovincia": "020",
+        "descripcion": "Vicente Noble"
+    },
+    {
+        "idmunicipio": "096",
+        "idprovincia": "020",
+        "descripcion": "El Peñon"
+    },
+    {
+        "idmunicipio": "097",
+        "idprovincia": "020",
+        "descripcion": "La Céenega"
+    },
+    {
+        "idmunicipio": "098",
+        "idprovincia": "020",
+        "descripcion": "Fundación"
+    },
+    {
+        "idmunicipio": "099",
+        "idprovincia": "020",
+        "descripcion": "Las Salinas"
+    },
+    {
+        "idmunicipio": "100",
+        "idprovincia": "020",
+        "descripcion": "Polo"
+    },
+    {
+        "idmunicipio": "101",
+        "idprovincia": "020",
+        "descripcion": "Jaquimeyes"
+    },
+    {
+        "idmunicipio": "102",
+        "idprovincia": "021",
+        "descripcion": "Neiba"
+    },
+    {
+        "idmunicipio": "103",
+        "idprovincia": "021",
+        "descripcion": "Galván"
+    },
+    {
+        "idmunicipio": "104",
+        "idprovincia": "021",
+        "descripcion": "Tamayo"
+    },
+    {
+        "idmunicipio": "105",
+        "idprovincia": "021",
+        "descripcion": "Villa Jaragua"
+    },
+    {
+        "idmunicipio": "106",
+        "idprovincia": "021",
+        "descripcion": "Los Ríos"
+    },
+    {
+        "idmunicipio": "107",
+        "idprovincia": "022",
+        "descripcion": "Pedernales"
+    },
+    {
+        "idmunicipio": "108",
+        "idprovincia": "022",
+        "descripcion": "Oviedo"
+    },
+    {
+        "idmunicipio": "109",
+        "idprovincia": "023",
+        "descripcion": "Jimaní"
+    },
+    {
+        "idmunicipio": "110",
+        "idprovincia": "023",
+        "descripcion": "Duvergé"
+    },
+    {
+        "idmunicipio": "111",
+        "idprovincia": "023",
+        "descripcion": "La Descubierta"
+    },
+    {
+        "idmunicipio": "112",
+        "idprovincia": "023",
+        "descripcion": "Postrer Riío"
+    },
+    {
+        "idmunicipio": "113",
+        "idprovincia": "023",
+        "descripcion": "Cristóbal"
+    },
+    {
+        "idmunicipio": "114",
+        "idprovincia": "023",
+        "descripcion": "Mella"
+    },
+    {
+        "idmunicipio": "115",
+        "idprovincia": "024",
+        "descripcion": "San Juan de la Maguana"
+    },
+    {
+        "idmunicipio": "116",
+        "idprovincia": "024",
+        "descripcion": "Bohechío"
+    },
+    {
+        "idmunicipio": "117",
+        "idprovincia": "024",
+        "descripcion": "El Cercado"
+    },
+    {
+        "idmunicipio": "118",
+        "idprovincia": "024",
+        "descripcion": "Juan De Herrera"
+    },
+    {
+        "idmunicipio": "119",
+        "idprovincia": "024",
+        "descripcion": "Las Matas De Farfán"
+    },
+    {
+        "idmunicipio": "120",
+        "idprovincia": "024",
+        "descripcion": "Vallejuelo"
+    },
+    {
+        "idmunicipio": "121",
+        "idprovincia": "025",
+        "descripcion": "Comendador"
+    },
+    {
+        "idmunicipio": "122",
+        "idprovincia": "025",
+        "descripcion": "Baníca"
+    },
+    {
+        "idmunicipio": "123",
+        "idprovincia": "025",
+        "descripcion": "El Llano"
+    },
+    {
+        "idmunicipio": "124",
+        "idprovincia": "025",
+        "descripcion": "Hondo Valle"
+    },
+    {
+        "idmunicipio": "125",
+        "idprovincia": "025",
+        "descripcion": "Pedro Santana"
+    },
+    {
+        "idmunicipio": "126",
+        "idprovincia": "025",
+        "descripcion": "Juan Santiago"
+    },
+    {
+        "idmunicipio": "127",
+        "idprovincia": "001",
+        "descripcion": "La Romana"
+    },
+    {
+        "idmunicipio": "128",
+        "idprovincia": "001",
+        "descripcion": "Guaymate"
+    },
+    {
+        "idmunicipio": "129",
+        "idprovincia": "001",
+        "descripcion": "Villa Hermosa"
+    },
+    {
+        "idmunicipio": "130",
+        "idprovincia": "026",
+        "descripcion": "Higüey"
+    },
+    {
+        "idmunicipio": "131",
+        "idprovincia": "026",
+        "descripcion": "San Rafael Del Yuma"
+    },
+    {
+        "idmunicipio": "132",
+        "idprovincia": "027",
+        "descripcion": "El Seibo"
+    },
+    {
+        "idmunicipio": "133",
+        "idprovincia": "027",
+        "descripcion": "Miches"
+    },
+    {
+        "idmunicipio": "134",
+        "idprovincia": "028",
+        "descripcion": "San Pedro De Macorís"
+    },
+    {
+        "idmunicipio": "135",
+        "idprovincia": "028",
+        "descripcion": "Los Llanos"
+    },
+    {
+        "idmunicipio": "136",
+        "idprovincia": "028",
+        "descripcion": "Ramón Santana"
+    },
+    {
+        "idmunicipio": "137",
+        "idprovincia": "028",
+        "descripcion": "Consuelo"
+    },
+    {
+        "idmunicipio": "138",
+        "idprovincia": "028",
+        "descripcion": "Quisqueya"
+    },
+    {
+        "idmunicipio": "139",
+        "idprovincia": "028",
+        "descripcion": "Guayacanes"
+    },
+    {
+        "idmunicipio": "140",
+        "idprovincia": "029",
+        "descripcion": "Hato Mayor"
+    },
+    {
+        "idmunicipio": "141",
+        "idprovincia": "029",
+        "descripcion": "Sabana de la Mar"
+    },
+    {
+        "idmunicipio": "142",
+        "idprovincia": "029",
+        "descripcion": "El Valle"
+    },
+    {
+        "idmunicipio": "143",
+        "idprovincia": "030",
+        "descripcion": "Monte Plata"
+    },
+    {
+        "idmunicipio": "144",
+        "idprovincia": "030",
+        "descripcion": "Bayaguana"
+    },
+    {
+        "idmunicipio": "145",
+        "idprovincia": "030",
+        "descripcion": "Sabana Grande de Boyá"
+    },
+    {
+        "idmunicipio": "146",
+        "idprovincia": "030",
+        "descripcion": "Yamasá"
+    },
+    {
+        "idmunicipio": "147",
+        "idprovincia": "030",
+        "descripcion": "Peralvillo"
+    },
+    {
+        "idmunicipio": "148",
+        "idprovincia": "031",
+        "descripcion": "Santo Domingo de Guzmán"
+    },
+    {
+        "idmunicipio": "149",
+        "idprovincia": "032",
+        "descripcion": "Santo Domingo Este"
+    },
+    {
+        "idmunicipio": "150",
+        "idprovincia": "032",
+        "descripcion": "Santo Domingo Oeste"
+    },
+    {
+        "idmunicipio": "151",
+        "idprovincia": "032",
+        "descripcion": "Santo Domingo Norte"
+    },
+    {
+        "idmunicipio": "152",
+        "idprovincia": "032",
+        "descripcion": "Boca Chica"
+    },
+    {
+        "idmunicipio": "153",
+        "idprovincia": "032",
+        "descripcion": "San Antonio De Guerra"
+    },
+    {
+        "idmunicipio": "154",
+        "idprovincia": "032",
+        "descripcion": "Los Alcarrizos"
+    },
+    {
+        "idmunicipio": "155",
+        "idprovincia": "032",
+        "descripcion": "Pedro Brand"
+    }
+]

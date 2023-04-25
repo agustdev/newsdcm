@@ -9,6 +9,9 @@ class Movimientos extends Model
 {
     use HasFactory;
     protected $guarded = ['id', 'created_at', 'updated_at'];
+    protected $casts = [
+        'fecha' => 'date',
+    ];
     // relacion uno a muchos inversa
     public function user()
     {
@@ -22,6 +25,17 @@ class Movimientos extends Model
     public function embarcacion()
     {
         return $this->hasOne(Embarcaciones::class, 'id', 'emb_id');
+    }
+
+    // relacion para conduces
+    public function conductor()
+    {
+        return $this->hasOne(Conductores::class, 'mov_id');
+    }
+
+    public function vehiculo()
+    {
+        return $this->hasOne(Vehiculos::class, 'mov_id');
     }
 
     public function getRouteKeyName()
