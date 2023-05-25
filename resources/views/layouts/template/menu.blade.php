@@ -1,7 +1,8 @@
 <ul class="side-nav">
     <li class="side-nav-title side-nav-item">Actividad</li>
-    <li class="side-nav-item">
-        <a href="{{ route('acceso.rapido') }}" class="side-nav-link">
+    <li class="side-nav-item {{ request()->is('quick-access*') ? 'menuitem-active' : '' }}">
+        <a href="{{ route('acceso.rapido') }}"
+            class="side-nav-link {{ request()->is('quick-access*') ? 'menuitem-active' : '' }}">
             <i class="mdi mdi-ship-wheel"></i>
             <span>Acceso rápido</span>
         </a>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comandancias;
 use App\Models\Embarcaciones;
+use App\Models\Movimientos;
 use App\Models\Municipios;
 use Illuminate\Http\Request;
 
@@ -71,9 +73,20 @@ class ConsultasController extends Controller
         return !empty($embarcacion) ? $embarcacion->toJson() : $nodata;
     }
 
+    public function verificacionSolicitud(Movimientos $solicitud)
+    {
+        return view('movimientos.validacion', compact('solicitud'));
+    }
+
     public function get_municipios(Request $request)
     {
         $municipios = Municipios::where('id_prov', $request->idprovincia)->get();
         return $municipios->toJson();
+    }
+
+    public function get_comandancia(Request $request)
+    {
+        $comandancia = Comandancias::where('idprovincia', $request->idprovincia)->get();
+        return $comandancia->toJson();
     }
 }

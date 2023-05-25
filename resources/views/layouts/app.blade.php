@@ -49,12 +49,14 @@
             <div class="navbar-custom">
                 <ul class="list-unstyled topbar-menu float-end mb-0">
                     <li class="dropdown notification-list d-lg-none">
-                        <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
                             <i class="dripicons-search noti-icon"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
                             <form class="p-3">
-                                <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                <input type="text" class="form-control" placeholder="Search ..."
+                                    aria-label="Recipient's username">
                             </form>
                         </div>
                     </li>
@@ -65,30 +67,37 @@
 
 
                     <li class="dropdown notification-list">
-                        <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                             <span class="account-user-avatar">
-                                <img src="{{ Auth::user()->profile_photo_url }}" alt="user-image" class="rounded-circle">
+                                <img src="{{ Auth::user()->profile_photo_url }}" alt="user-image"
+                                    class="rounded-circle">
                             </span>
                             <span>
                                 <span class="account-user-name">{{ Auth::user()->name }}</span>
-                                {{-- <span class="account-position">{{ !empty(Auth::user()->roles)? Auth::user()->roles()->first()->name: '' }}</span> --}}
+                                {{-- <span class="account-position">{{ !empty(Auth::user()->roles)?
+                                    Auth::user()->roles()->first()->name: '' }}</span> --}}
                             </span>
                             @else
                             <span>
                                 <span class="account-user-name">{{ Auth::user()->name }}</span>
-                                {{-- <span class="account-position">{{ !empty(Auth::user()->roles)? Auth::user()->roles()->first()->name: '' }}</span> --}}
+                                {{-- <span class="account-position">{{ !empty(Auth::user()->roles)?
+                                    Auth::user()->roles()->first()->name: '' }}</span> --}}
                             </span>
                             @endif
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
+                        <div
+                            class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
                             <!-- item-->
                             <div class=" dropdown-header noti-title">
                                 <h6 class="text-overflow m-0">Administrar cuenta</h6>
                             </div>
-                            <a href="{{ route('profile.show') }}" class="dropdown-item"><i class="mdi mdi-account-cog me-1"></i>Perfil</a>
+                            <a href="{{ route('profile.show') }}" class="dropdown-item"><i
+                                    class="mdi mdi-account-cog me-1"></i>Perfil</a>
                             <!-- item-->
-                            <a href="{{ route('logout') }}" class="dropdown-item notify-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <a href="{{ route('logout') }}" class="dropdown-item notify-item"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="mdi mdi-logout me-1"></i>
                                 <span>Cerrar Sesión</span>
                             </a>
@@ -137,7 +146,8 @@
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
                                 <div class="d-flex">
-                                    <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-2.jpg" alt="Generic placeholder image" height="32">
+                                    <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-2.jpg"
+                                        alt="Generic placeholder image" height="32">
                                     <div class="w-100">
                                         <h5 class="m-0 font-14">Erwin Brown</h5>
                                         <span class="font-12 mb-0">UI Designer</span>
@@ -148,7 +158,8 @@
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
                                 <div class="d-flex">
-                                    <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32">
+                                    <img class="d-flex me-2 rounded-circle" src="assets/images/users/avatar-5.jpg"
+                                        alt="Generic placeholder image" height="32">
                                     <div class="w-100">
                                         <h5 class="m-0 font-14">Jacob Deo</h5>
                                         <span class="font-12 mb-0">Developer</span>

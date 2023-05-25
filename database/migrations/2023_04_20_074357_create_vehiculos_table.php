@@ -22,6 +22,12 @@ return new class extends Migration
             $table->string('sector');
             $table->string('calle');
             $table->text('observacion');
+            $table->string('provincia_salida')->comment('Provincia desde donde sale para el conduce');
+            $table->string('Municipio_salida')->comment('Municipio desde donde sale para el conduce');
+            $table->integer('id_provsa')->comment('Id provincia desde donde sale para el conduce');
+            $table->integer('id_munsa')->comment('Id municipio desde donde sale para el conduce');
+            $table->bigInteger('idcomandancia')->comment('id de la comandancia que firmara');
+            $table->string('comandancia')->comment('nombre de la comandancia que firmara');
             $table->unsignedBigInteger('mov_id');
             $table->unsignedBigInteger('emb_id');
             $table->foreign('mov_id')->references('id')->on('movimientos')->onDelete('cascade');

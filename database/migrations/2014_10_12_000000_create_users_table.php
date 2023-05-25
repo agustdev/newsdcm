@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->integer('comandancia_id')->default(0)->comment('Identificador de las comandancias siempre y cuando sea solo admin');
+            $table->enum('is_admin', [0, 1])->comment('0 = Off, 1 = on');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();

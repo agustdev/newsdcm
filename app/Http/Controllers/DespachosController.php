@@ -71,8 +71,10 @@ class DespachosController extends Controller
             'fecha' => $request->fecha,
             'tipo_movimiento' => 'D',
             'estado' => 'Enviado',
+            'estado_alerta' => 'N/A',
             'emb_id' => $embarcacion->id,
             'user_id' => auth()->user()->id,
+            'vcode' => strtoupper(substr(md5(Str::uuid()->toString()), 1, 6)),
             'url_id' => Str::uuid()->toString()
         ]);
         Capitanes::create([

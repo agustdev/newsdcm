@@ -25,7 +25,7 @@
 
             <!-- logo -->
             <a href="/" class="navbar-brand me-lg-5">
-                <img src="{{ asset('assets/images/capitania_web2.png') }}" alt="" height="64">
+                <img src="{{ asset('assets/images/capitania_web2.png') }}" alt="" height="96">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -62,6 +62,11 @@
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item me-0">
                         @auth
+                        <a href="{{ route('redireccion') }}" class="nav-link d-lg-none">SDCM</a>
+                        <a href="{{ route('redireccion') }}"
+                            class="btn btn-sm btn-warning btn-rounded d-none d-lg-inline-flex">
+                            <i class="mdi mdi-ship-wheel me-2"></i> SDCM
+                        </a>
                         @else
                         <a href="{{ route('login') }}" class="nav-link d-lg-none">Iniciar Sesión</a>
                         <a href="{{ route('login') }}" class="btn btn-sm btn-light btn-rounded d-none d-lg-inline-flex">

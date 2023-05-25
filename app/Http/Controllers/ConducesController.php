@@ -60,6 +60,7 @@ class ConducesController extends Controller
         ]);
         $embarcacion = auth()->user()->embarcaciones()->where('matricula', '=', $request->matricula)->first();
         $provincia = explode("|", $request->provincia);
+        $provincia_salida = explode("|", $request->provinciasalida);
         // $municipio = explode("|", $request->municipio);
         // dd($embarcacion);
         $mov = Movimientos::create([
@@ -70,8 +71,10 @@ class ConducesController extends Controller
             'fecha' => $request->fecha_salida,
             'tipo_movimiento' => 'C',
             'estado' => 'Enviado',
+            'estado_alerta' => 'N/A',
             'emb_id' => $embarcacion->id,
             'user_id' => auth()->user()->id,
+            'vcode' => strtoupper(substr(md5(Str::uuid()->toString()), 1, 6)),
             'url_id' => Str::uuid()->toString()
         ]);
         $vehiculo = Vehiculos::create([
@@ -81,11 +84,17 @@ class ConducesController extends Controller
             'placa' => $request->placa,
             'provincia' => $provincia[1],
             'municipio' => $request->municipio,
+            'provincia_salida' => $provincia_salida[1],
+            'municipio_salida' => $request->municipiosalida,
             'sector' => $request->sector,
             'calle' => $request->calle,
             'observacion' => $request->observacion,
             'mov_id' => $mov->id,
-            'emb_id' => $embarcacion->id
+            'emb_id' => $embarcacion->id,
+            'id_provsa' => $provincia_salida[0],
+            'id_munsa' => 0,
+            'idcomandancia' => $request->idcomandancia,
+            'comandancia' => $request->comandancia
         ]);
         Conductores::create([
             'documento' => $request->documento,

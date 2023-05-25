@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Embarcacione;
+use App\Models\Embarcaciones;
 use Illuminate\Http\Request;
 
 class EmbarcacioneController extends Controller
@@ -34,7 +34,7 @@ class EmbarcacioneController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Embarcacione $embarcacione)
+    public function show(Embarcaciones $embarcacione)
     {
         //
     }
@@ -42,7 +42,7 @@ class EmbarcacioneController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Embarcacione $embarcacione)
+    public function edit(Embarcaciones $embarcacione)
     {
         //
     }
@@ -50,7 +50,7 @@ class EmbarcacioneController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Embarcacione $embarcacione)
+    public function update(Request $request, Embarcaciones $embarcacione)
     {
         //
     }
@@ -58,7 +58,7 @@ class EmbarcacioneController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Embarcacione $embarcacione)
+    public function destroy(Embarcaciones $embarcacione)
     {
         //
     }
