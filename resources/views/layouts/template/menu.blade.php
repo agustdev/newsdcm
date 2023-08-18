@@ -28,6 +28,20 @@
             <span>Conduce</span>
         </a>
     </li>
+    <li class="side-nav-item {{ request()->is('entradas*') ? 'menuitem-active' : '' }}">
+        <a href="{{ route('movimientos.entradas.index') }}"
+            class="side-nav-link {{ request()->is('entradas*') ? 'menuitem-active' : '' }}">
+            <i class="uil-ship"></i>
+            <span>Entradas</span>
+        </a>
+    </li>
+    <li class="side-nav-item {{ request()->is('salidas*') ? 'menuitem-active' : '' }}">
+        <a href="{{ route('movimientos.salidas.index') }}"
+            class="side-nav-link {{ request()->is('salidas*') ? 'menuitem-active' : '' }}">
+            <i class="uil-ship"></i>
+            <span>Salidas</span>
+        </a>
+    </li>
     {{-- <li class="side-nav-title side-nav-item">Navegación</li>
     <li class="side-nav-item">
         <a href="/" class="side-nav-link">

@@ -2,7 +2,6 @@
     @section('titulo', 'Acceso Rápido')
     @push('css')
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
-
     @endpush
     <x-slot name="header">
         <h2 class="h2 mb-2">
@@ -44,6 +43,42 @@
             </div>
             <!-- end card-->
         </div>
-
+    </div>
+    <div class="row">
+        <div class="col-xl-2"></div>
+        <div class="col-xl-4">
+            <div class="card cta-box bg-primary bg-custom text-white">
+                <div class="card-body">
+                    <div class="text-center">
+                        <h3 class="m-0 fw-normal cta-box-title">ENTRADAS INTERNACIONALES</h3>
+                        <img class="my-3 text-center mx-auto" src="{{ asset('images/e-internacional-icon.png') }}"
+                            width="180" alt="Generic placeholder image">
+                        <br>
+                        <a href="{{ route('movimientos.entradas.create') }}"
+                            class="btn btn-sm btn-light btn-rounded">SOLICITAR
+                            <i class="mdi mdi-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card-->
+        </div>
+        <div class="col-xl-4">
+            <div class="card cta-box bg-primary bg-custom text-white">
+                <div class="card-body">
+                    <div class="text-center">
+                        <h3 class="m-0 fw-normal cta-box-title">SALIDAS INTERNACIONALES</h3>
+                        <img class="my-3 text-center mx-auto" src="{{ asset('images/s-internacional-icon.png') }}"
+                            width="180" alt="Generic placeholder image">
+                        <br>
+                        <a href="{{ route('movimientos.entradas.create') }}"
+                            class="btn btn-sm btn-light btn-rounded">SOLICITAR
+                            <i class="mdi mdi-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card-->
+        </div>
     </div>
 </x-app-layout>

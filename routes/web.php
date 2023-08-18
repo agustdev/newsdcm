@@ -5,6 +5,8 @@ use App\Http\Controllers\DespachosController;
 use App\Http\Controllers\EmbarcacioneController;
 use App\Http\Controllers\ConducesController;
 use App\Http\Controllers\ConsultasController;
+use App\Http\Controllers\EntradasController;
+use App\Http\Controllers\SalidasController;
 use App\Http\Controllers\MovimientosController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +34,15 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::resource('conduces', ConducesController::class)->names('movimientos.conduces');
     Route::post('conduces/post', [ConducesController::class, 'create_with_post'])->name('conduces.createpost');
+
+    Route::resource('entradas', EntradasController::class)->names('movimientos.entradas');
+    Route::post('entradas/post', [EntradasController::class, 'create_with_post'])->name('entradas.createpost');
+    Route::get('entrada/e-ticket/{entrada}/pdf', [EntradasController::class, 'eticket'])->name('pdf.eticket');
+
+    Route::resource('salidas', SalidasController::class)->names('movimientos.salidas');
+    Route::post('salidas/post', [SalidasController::class, 'create_with_post'])->name('salidas.createpost');
+    Route::get('salida/e-ticket/{salida}/pdf', [SalidasController::class, 'eticket'])->name('salida.pdf.eticket');
+
 
     Route::resource('embarcaciones', EmbarcacioneController::class)->names('embarcaciones');
     Route::resource('movimientos', MovimientosController::class)->names('movimientos');
