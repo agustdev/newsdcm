@@ -32,7 +32,7 @@ class DespachosController extends Controller
         $destinos = Destinos::all();
         $embarcaciones = auth()->user()->embarcaciones()
             ->whereRaw('fecha_validez >= CURDATE()')
-            ->pluck('matricula')->toJson();
+            ->get();
         return view('movimientos.despachos.create', compact('ultimo_mov', 'destinos', 'embarcaciones'));
         // return $embarcaciones;
     }

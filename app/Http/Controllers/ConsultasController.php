@@ -25,7 +25,7 @@ class ConsultasController extends Controller
             CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_HTTPHEADER => array(
                 'Content-Type: application/json',
-                'authentication: eyJ1c2VybmFtZSI6IjAwMDAwMDAwMDAwIiwicGFzc3dvcmQiOiJ0ZXN0MTIzIiwiaXNBcHBVc2VyIjoiZmFsc2UifQ=='
+                'authentication: eyJ1c2VybmFtZSI6IjAwMDAwMDAwMDAwIiwicGFzc3dvcmQiOiJAcm1AZEAyMDI0ISIsImlzQXBwVXNlciI6ImZhbHNlIn0='
             ),
         ));
 
@@ -61,6 +61,10 @@ class ConsultasController extends Controller
         $newDate = date('Y-m-d', $oldDate);
         $datos[] = array('nombres' => trim(ucfirst($resp_c['nombres'])), 'apellidos' => trim(ucfirst($resp_c['apellido1'])) . ' ' . trim(ucfirst($resp_c['apellido2'])));
         return json_encode($datos);
+    }
+
+    public function consult_passport(Request $request)
+    {
     }
 
     public function consultar_embarcacion(Request $request)
