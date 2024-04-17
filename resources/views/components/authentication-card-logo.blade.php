@@ -5,6 +5,6 @@
     {{--
     </div> --}}
     <h2 class="h2 text-center mt-5 text-bold text-yellow-400">SISTEMA ADMINISTRRATIVO DE CONTROL MARITIMO <br> (SACOM),
-        ARD
+        ARD.
     </h2>
 </a>
