@@ -92,15 +92,15 @@
                             class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
                             <!-- item-->
                             <div class=" dropdown-header noti-title">
-                                <h6 class="text-overflow m-0">Administrar cuenta</h6>
+                                <h6 class="text-overflow m-0">{{__('Administrar cuenta')}}</h6>
                             </div>
                             <a href="{{ route('profile.show') }}" class="dropdown-item"><i
-                                    class="mdi mdi-account-cog me-1"></i>Perfil</a>
+                                    class="mdi mdi-account-cog me-1"></i>{{__('Perfil')}}</a>
                             <!-- item-->
                             <a href="{{ route('logout') }}" class="dropdown-item notify-item"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="mdi mdi-logout me-1"></i>
-                                <span>Cerrar Sesión</span>
+                                <span>{{__('Cerrar Sesión')}}</span>
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
@@ -111,19 +111,29 @@
                 </ul>
                 <ul class="list-unstyled topbar-menu float-end mb-0 mt-2">
                     <li class="dropdown notification-list">
-                        <select name="language" id="language"
-                            class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 changeLang">
-                            <option data-img-width="24px" data-img-height="24px" value="es"
-                                {{ session()->get('locale') == 'es' ? 'selected' : '' }}
-                                data-img="{{ asset('images/do.svg') }}"></option>
-                            <option data-img-width="24px" data-img-height="24px" value="en"
-                                {{ session()->get('locale') == 'en' ? 'selected' : '' }}
-                                data-img="{{ asset('images/en.svg') }}"></option>
-                            <option data-img-width="24px" data-img-height="24px" value="fr"
-                                {{ session()->get('locale') == 'fr' ? 'selected' : '' }}
-                                data-img="{{ asset('images/fr.svg') }}"></option>
-                        </select>
+                        <form action="{{ route('lang.switch') }}" method="POST">
+                            @csrf
+                            <select onchange="this.form.submit()" name="language" id="language"
+                                class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 changeLang">
+                                @foreach (Config::get('languages') as $lang => $language)
+                                    <option value="{{ $language['flag'] }}"
+                                        {{ app()->getLocale() === $language['flag'] ? 'selected' : '' }}
+                                        data-img="{{ asset('images/' . $language['image']) }}">
+                                        {{ $language['display'] }}</option>
+                                @endforeach
+                                {{-- <option data-img-width="24px" data-img-height="24px" value="es"
+                                    {{ session()->get('locale') == 'es' ? 'selected' : '' }}
+                                    data-img="{{ asset('images/do.svg') }}"> ESPAÑOL</option>
+                                <option data-img-width="24px" data-img-height="24px" value="en"
+                                    {{ session()->get('locale') == 'en' ? 'selected' : '' }}
+                                    data-img="{{ asset('images/en.svg') }}">ENGLISH</option>
+                                <option data-img-width="24px" data-img-height="24px" value="fr"
+                                    {{ session()->get('locale') == 'fr' ? 'selected' : '' }}
+                                    data-img="{{ asset('images/fr.svg') }}"></option> --}}
+                            </select>
+                        </form>
                     </li>
+
                 </ul>
                 <button class="button-menu-mobile open-left">
                     <i class="mdi mdi-menu"></i>

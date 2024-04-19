@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-DO">
 
     <head>
         <meta charset="utf-8">
         <title>@yield('titulo', 'Titulo Modulo') | SACOM</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta
-            content="{{ GoogleTranslate::trans('Sistema Administrativo de Control Maritimo | Comando Naval de Capitania de Puertos y Autoridad Maritima', app()->getLocale()) }}"
+            content="Sistema Administrativo de Control Maritimo | Comando Naval de Capitania de Puertos y Autoridad Maritima"
             name="description">
         <meta content="CDP-SACOM" name="author">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -19,6 +19,7 @@
         <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" id="light-style" />
         <link href="{{ asset('assets/css/app-dark.min.css') }}" rel="stylesheet" type="text/css" id="dark-style" />
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1-rc.1/css/select2.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" />
         <style>
             body[data-leftbar-theme=dark] .leftside-menu {
                 background: #2a2d69 !important;

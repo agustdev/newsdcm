@@ -5,12 +5,6 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1-rc.1/js/select2.min.js"></script>
 <script type="text/javascript">
-    var url = "{{ route('changeLang') }}";
-
-    $(".changeLang").change(function() {
-        window.location.href = url + "?lang=" + $(this).val();
-    });
-
     function formatState(state) {
         if (!state.id) {
             return state.text;
@@ -24,7 +18,8 @@
         );
         return $state;
     };
-    $('select').select2({
+    $('.changeLang').select2({
+        dropdownAutoWidth: true,
         minimumResultsForSearch: Infinity,
         templateResult: formatState,
         templateSelection: formatState

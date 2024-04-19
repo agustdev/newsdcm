@@ -7,10 +7,9 @@
                 </script> ©
                 <span id="tooltip-container">
                     <a href="#" data-bs-container="#tooltip-container" data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Sistema de Control Marítimo">{{ GoogleTranslate::trans('SACOM', app()->getLocale()) }}</a>
+                        data-bs-placement="top" title="Sistema de Control Marítimo">{{ __('SACOM') }}</a>
                     -
-                    {{ GoogleTranslate::trans('Todos los derechos reservados', app()->getLocale()) }}.
+                    {{ __('Todos los derechos reservados') }}.
                 </span>
             </div>
 

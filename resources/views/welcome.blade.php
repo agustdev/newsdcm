@@ -86,8 +86,8 @@
             <div class="layer">
                 <class="container">
                 <h1 class="h1" style="font-weight: bold; color: white; text-align: center;">
-                    <span style="color: #FAFF00;">BIENVENIDOS</span>
-                    <br />
+                    <div style="color: #FAFF00;" class="mb-3">BIENVENIDOS</div>
+                    {{-- <br /> --}}
                     ARMADA DE LA REPÚBLICA DOMINICANA <br /> SISTEMA ADMINISTRATIVO DE CONDUCE Y DESPACHO DE
                     EMBARCACIONES
                 </h1>
@@ -101,9 +101,10 @@
                 <br />
                 <br />
                 <br />
-                <h3 style="color: #FAFF00; font-weight: bold; text-align: center;">ENTRADAS Y SALIDAS INTERNACIONALES
+                <h3 style="color: #FAFF00; font-weight: bold; text-align: center;" class="">ENTRADAS Y SALIDAS
+                    INTERNACIONALES
                 </h3>
-                <h3 style="color: white; text-align: center; text-decoration: underline;">
+                <h3 style="color: white; text-align: center; text-decoration: underline;" class="mt-3">
                     <span>
                         <a style="color: white;" href="{{ route('register') }}">E-Ticket Marítimo</a>
                     </span>
