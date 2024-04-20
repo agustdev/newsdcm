@@ -47,7 +47,8 @@
     </x-slot>
     {{-- formulario de solicitud de despacho --}}
     <div class="row g-2">
-        <form action="{{ route('movimientos.despachos.store') }}" method="POST" class="form-inline" autocomplete="off">
+        <form action="{{ route('movimientos.despachos.store') }}" method="POST" class="form-inline needs-validation"
+            autocomplete="off">
             @csrf
             <div class="card">
                 <div class="card-header">

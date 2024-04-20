@@ -11,7 +11,7 @@
     <div class="row mb-2">
         <div class="relative flex py-2 items-center">
             <div class="flex-grow border-t border-gray-400"></div>
-            <span class="flex-shrink mx-4 text-gray-400">{{ __('NACIONALES') }}</span>
+            <span class="flex-shrink mx-4 text-gray-400">{{ __('NACIONAL') }}</span>
             <div class="flex-grow border-t border-gray-400"></div>
         </div>
     </div>
@@ -58,7 +58,7 @@
     <div class="row mb-2">
         <div class="relative flex py-2 items-center">
             <div class="flex-grow border-t border-gray-400"></div>
-            <span class="flex-shrink mx-4 text-gray-400">{{ __('INTERNACIONALES') }}</span>
+            <span class="flex-shrink mx-4 text-gray-400">{{ __('INTERNACIONAL') }}</span>
             <div class="flex-grow border-t border-gray-400"></div>
         </div>
     </div>
@@ -101,4 +101,5 @@
             <!-- end card-->
         </div>
     </div>
+
 </x-app-layout>
