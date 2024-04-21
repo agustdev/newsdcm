@@ -3,7 +3,7 @@
     @section('titulo', __('Perfil de usuario'))
     <x-slot name="header">
         <h2 class="h2">
-            {{ __('Profile') }}
+            {{ __('Perfil de usuario') }}
         </h2>
     </x-slot>
 

@@ -13,6 +13,6 @@ class DestinosSeeder extends Seeder
      */
     public function run(): void
     {
-        $destinos = Destinos::factory(10)->create();
+        $destinos = Destinos::factory(5)->create();
     }
 }
