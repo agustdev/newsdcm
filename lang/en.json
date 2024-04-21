@@ -177,7 +177,7 @@
     "We were unable to find a registered user with this email address.": "We were unable to find a registered user with this email address.",
     "When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone's Google Authenticator application.": "When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone's Google Authenticator application.",
     "Whoops!": "Whoops!",
-    "Whoops! Something went wrong.": "Whoops! Something went wrong.",
+    "Whoops! Something went wrong.": "¡Ups! Algo salió mal.",
     "You are receiving this email because we received a password reset request for your account.": "You are receiving this email because we received a password reset request for your account.",
     "You have been invited to join the :team team!": "You have been invited to join the :team team!",
     "You have enabled two factor authentication.": "You have enabled two factor authentication.",
@@ -207,5 +207,6 @@
     "Mis Embarcaciones": "My Boats",
     "Entradas Internacionales": "International Tickets",
     "Salidas Internacionales": "International Departures",
-    "Document": "Documento"
+    "Document": "Documento",
+    "Recordar": "Remember me"
 }
