@@ -19,7 +19,7 @@ class DestinosFactory extends Factory
     public function definition(): array
     {
         return [
-            'descripcion' => $this->faker->name()
+            'descripcion' => $this->faker->randomElement(['Santo Domingo', 'Boca Chica', 'Romana', 'Bayahibe', 'Multimodal Caucedo']),
         ];
     }
 }

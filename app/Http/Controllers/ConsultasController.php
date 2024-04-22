@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Capitanes;
 use App\Models\Comandancias;
 use App\Models\Embarcaciones;
 use App\Models\Movimientos;
@@ -59,7 +60,8 @@ class ConsultasController extends Controller
         $datos = array();
         $oldDate = strtotime($resp_c['fecha_nac']);
         $newDate = date('Y-m-d', $oldDate);
-        $datos[] = array('nombres' => trim(ucfirst($resp_c['nombres'])), 'apellidos' => trim(ucfirst($resp_c['apellido1'])) . ' ' . trim(ucfirst($resp_c['apellido2'])));
+        $otrosDatos = Capitanes::where('documento', $documento)->first();
+        $datos[] = array('nacionalidad' => !empty($otrosDatos) ? $otrosDatos->nacionalidad : '', 'nombres' => trim(ucfirst($resp_c['nombres'])), 'apellidos' => trim(ucfirst($resp_c['apellido1'])) . ' ' . trim(ucfirst($resp_c['apellido2'])));
         return json_encode($datos);
     }
 

@@ -18,30 +18,36 @@ class MovimientosController extends Controller
 
     public function generate_pdf(Request $request, Movimientos $movimiento)
     {
-        // $curl = curl_init();
+        $curl = curl_init();
+        if ($movimiento->tipo_movimiento == 'D') {
+            $datadb = $movimiento->with(['capitan'])->where('id', $movimiento->id)->first()->toJson();
+        } elseif ($movimiento->tipo_movimiento == 'C') {
+            $datadb = $movimiento->with(['conductor', 'vehiculo'])->where('id', $movimiento->id)->first()->toJson();
+        }
+        // "'" . str_replace("[", "", $datadb) . "'";
+        // $data = "'" . ($datadb) . "'";
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://armada.mide.gob.do/api/ControlMaritimoCertification/downloadV2/verify',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => $datadb,
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI1OTIiLCJ1bmlxdWVfbmFtZSI6InRlc3QiLCJyb2xlIjoiW3tcIk1vZHVsZUlkXCI6OCxcIlJvbGVOYW1lXCI6XCJtZW1iZXJfY29uc3VsdFwifV0iLCJlbWFpbCI6InByb2dyYW1hZG9yMi5kdGljQGFjYWRlbWlhbmF2YWwuZWR1LmRvIiwiaXNfYWRtaW5tYXN0ZXIiOiJmYWxzZSIsImlzX21pbGl0YXIiOiJ0cnVlIiwibmJmIjoxNzEyOTM0MTIzLCJleHAiOjE3MTI5Mzc3MjMsImlhdCI6MTcxMjkzNDEyMywiaXNzIjoiYXJkLXdlYi1hcGktbG9jYWxob3N0IiwiYXVkIjoiYXJkLXdlYi1sb2NhbGhvc3QifQ.QrYLLox8OulvuCdnr-ovwmI3QxWqWFIzSGX9dFHG7QA'
+            ),
+        ));
+        header('Content-type: application/pdf');
+        $response = curl_exec($curl);
+        curl_close($curl);
+        echo $response;
         // $data = $movimiento->with(['conductor', 'vehiculo'])->where('id', $movimiento->id)->first();
-        // curl_setopt_array($curl, array(
-        //     CURLOPT_URL => 'https://armada.mide.gob.do/api/ControlMaritimoCertification/despachoV2/verify',
-        //     CURLOPT_RETURNTRANSFER => true,
-        //     CURLOPT_ENCODING => '',
-        //     CURLOPT_MAXREDIRS => 10,
-        //     CURLOPT_TIMEOUT => 0,
-        //     CURLOPT_FOLLOWLOCATION => true,
-        //     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        //     CURLOPT_CUSTOMREQUEST => 'POST',
-        //     CURLOPT_POSTFIELDS => $data,
-        //     CURLOPT_HTTPHEADER => array(
-        //         'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI1OTIiLCJ1bmlxdWVfbmFtZSI6InRlc3QiLCJyb2xlIjoiW3tcIk1vZHVsZUlkXCI6OCxcIlJvbGVOYW1lXCI6XCJtZW1iZXJfY29uc3VsdFwifV0iLCJlbWFpbCI6InByb2dyYW1hZG9yMi5kdGljQGFjYWRlbWlhbmF2YWwuZWR1LmRvIiwiaXNfYWRtaW5tYXN0ZXIiOiJmYWxzZSIsImlzX21pbGl0YXIiOiJ0cnVlIiwibmJmIjoxNjgyMTIzMzQ2LCJleHAiOjE2ODIxMjY5NDYsImlhdCI6MTY4MjEyMzM0NiwiaXNzIjoiYXJkLXdlYi1hcGktbG9jYWxob3N0IiwiYXVkIjoiYXJkLXdlYi1sb2NhbGhvc3QifQ.VjCmigN-LF6fJ3o1nrjJWkCRWqZkfUNH2HcCUJ5Avb8',
-        //         'Content-Type: application/pdf'
-        //     ),
-        // ));
-        // header('Content-type: application/pdf');
-        // $response = curl_exec($curl);
-        // curl_close($curl);
-        // echo $response;
-        $data = $movimiento->with(['conductor', 'vehiculo'])->where('id', $movimiento->id)->first();
-        "'" . str_replace("[", "", $data) . "'";
-        echo "'" . json_encode($data) . "'";
+        // "'" . str_replace("[", "", $data) . "'";
+        // echo "'" . json_encode($data) . "'";
     }
 
     public function preview(Request $request, Movimientos $movimiento)

@@ -6,7 +6,7 @@
         <title>@yield('titulo', 'Titulo Modulo') | SACOM</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta
-            content="Sistema Administrativo de Control Maritimo | Comando Naval de Capitania de Puertos y Autoridad Maritima"
+            content="Sistema Administrativo de Conduce y Despacho | Comando Naval de Capitania de Puertos y Autoridad Maritima"
             name="description">
         <meta content="CDP-SACOM" name="author">
         <meta name="csrf-token" content="{{ csrf_token() }}">

@@ -33,10 +33,13 @@
                 <x-label for="documento" value="{{ __('No documento') }}" />
                 <x-input id="documento" class="block mt-1 w-full documento" type="text" name="documento"
                     :value="old('documento')" required autofocus autocomplete="Cédula" />
+                @error('documento')
+                    <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
             </div>
 
             <div>
-                <x-label for="name" value="{{ __('Name') }}" />
+                <x-label for="name" value="{{ __('Nombre') }}" />
                 <x-input id="name" class="block mt-1 w-full nombre" type="text" name="name" :value="old('name')"
                     required autocomplete="name" />
             </div>
@@ -45,33 +48,21 @@
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
                     required autocomplete="username" />
+                @error('email')
+                    <div class="text-sm text-red-600">{{ $message }}</div>
+                @enderror
             </div>
 
-            <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
-                    autocomplete="new-password" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
-                    name="password_confirmation" required autocomplete="new-password" />
-            </div>
+            @livewire('register-passwords')
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
                     <x-label for="terms">
                         <div class="flex items-center">
-                            <x-checkbox name="terms" id="terms" required />
+                            <x-checkbox name="terms" required id="accept-terms" />
 
                             <div class="ml-2">
-                                {!! __('Acepto los :terms_of_service', [
-                                    'terms_of_service' =>
-                                        '<a href="#" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">' .
-                                        __('Terms of Service') .
-                                        '</a>',
-                                ]) !!}
+                                @livewire('terminos-modal')
                             </div>
                         </div>
                     </x-label>
@@ -84,16 +75,17 @@
                 focus:bg-blue-700 active:bg-blue-900 active:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
                 transition ease-in-out duration-150 ml-1"
                     href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('¿Ya registrado?') }}
                 </a>
 
                 <x-button-register class="ml-4 disabled:opacity-25">
-                    {{ __('Register') }}
+                    {{ __('Registrarse') }}
                 </x-button-register>
             </div>
         </form>
 
     </x-authentication-card>
+
     @push('js')
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script>
@@ -131,6 +123,15 @@
                     $('button').attr('disabled', false);
 
                 }
+            });
+
+            // click accept mark checkbox
+            $('.accept_t').on('click', function() {
+                $('#accept-terms').attr('checked', true)
+            });
+            // click cancel unmark checkbox
+            $('.accept_c').on('click', function() {
+                $('#accept-terms').attr('checked', false)
             });
         </script>
     @endpush
