@@ -31,7 +31,7 @@ class ConducesController extends Controller
         $ultimo_mov = auth()->user()->movimientos()->orderBy('id', 'DESC')->first();
         $provincias = Provincias::all();
         $embarcaciones = Embarcaciones::whereRaw('fecha_validez >= CURDATE()')
-            ->pluck('matricula')->toJson();
+            ->get();
         return view('movimientos.conduces.create', compact('ultimo_mov', 'provincias', 'embarcaciones'));
         // return $embarcaciones;
     }

@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('nombre')->comment('Nombre de la embarcación');
             $table->string('matricula')->comment('Matricula de la embarcación');
             $table->string('numero_casco')->comment('Numero de casco de la embarcación');
+            $table->string('marca_modelo_motor')->length(100)->comment('Marca del motor de la embarcacion');
+            $table->string('caballos_fuerza_motor')->length(10)->comment('Cantidad caballos de fuerza del motor de la embarcacion');
+            $table->string('no_motor')->length(100)->comment('Numero del motor');
             $table->string('color')->comment('Color de la embarcación');
             $table->string('estado')->comment('Estado de la solicitud');
             $table->string('estado_alerta')->comment('Estado de la alerta');

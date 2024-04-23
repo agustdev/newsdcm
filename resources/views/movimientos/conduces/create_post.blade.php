@@ -1,7 +1,7 @@
 <x-app-layout>
     @section('titulo', 'Solicitud de Conduces')
     @push('css')
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
     @endpush
     <x-slot name="header">
         <h2 class="h2 mb-3 mt-2">
@@ -39,8 +39,7 @@
                                 <label for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
+
                         <div class="col-md">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingNumeroCasco"
@@ -57,10 +56,64 @@
                                 <label for="floatingColor">COLOR</label>
                             </div>
                         </div>
+                        <div class="row">
+                            <span
+                                class="uppercase bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
+                                INFORMACIóN DEL MOTOR DE LA EMBARCACIóN
+                            </span>
+                            <div class="col-md">
+                                <div class="form-floating">
+                                    <input type="text" class="uppercase form-control marca_motor" id="floatingColor"
+                                        placeholder="MARCA MOTOR DE LA EMBARCACIÓN" readonly name="marca_modelo_motor"
+                                        value="{{ $embarcacion->marca_modelo_motor }}" />
+                                    <label for="floatingColor">MARCA </label>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control caballos_motor" id="floatingColor"
+                                        placeholder="CABALLOS DE FUERZA MOTOR DE LA EMBARCACIÓN" readonly
+                                        name="caballos_fuerza_motor"
+                                        value="{{ $embarcacion->caballos_fuerza_motor }}" />
+                                    <label for="floatingColor">CABALLOS DE FUERZA</label>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="form-floating">
+                                    <input type="number" class="uppercase form-control numero_motor" id="floatingColor"
+                                        placeholder="NUMERO DE MOTOR" readonly name="no_motor"
+                                        value="{{ $embarcacion->no_motor }}" />
+                                    <label for="floatingColor">NÚMERO DE MOTOR</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="alert alert-info mt-2" role="alert">
                             <strong>INFORMACIÓN DEL VEHÍCULO / CONDUCTOR / DESTINO</strong>
+                            <div role="status" class="spin-cap float-end hidden">
+                                <svg aria-hidden="true"
+                                    class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-700"
+                                    viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                                        fill="currentColor" />
+                                    <path
+                                        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                                        fill="currentFill" />
+                                </svg>
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <select class="form-select tipo_documento" name="tipo_documento" id="floatingSelect">
+                                    <option>- Seleccione -</option>
+                                    <option value="cedula">Cédula</option>
+                                    <option value="pasaporte">Pasaporte</option>
+                                </select>
+                                <label for="floatinMatricula">TIPO DE DOCUMENTO</label>
+                            </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
@@ -71,9 +124,9 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control nombre_capitan" id="floatingNombreConductor"
-                                    placeholder="NOMBRE Y APELLIDO DEL CONDUCTOR" value="" name="nombre_conductor"
-                                    required />
+                                <input type="text" class="form-control nombre_capitan"
+                                    id="floatingNombreConductor" placeholder="NOMBRE Y APELLIDO DEL CONDUCTOR"
+                                    value="" name="nombre_conductor" required />
                                 <label for="floatingNombreConductor">NOMBRE Y APELLIDO DEL CONDUCTOR</label>
                             </div>
                         </div>
@@ -81,7 +134,8 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control telefono1" id="floatingTelefonoConductor"
-                                    placeholder="TELEFONO CONDUCTOR" name="telefono_conductor" value="" required />
+                                    placeholder="TELEFONO CONDUCTOR" name="telefono_conductor" value=""
+                                    required />
                                 <label for="floatingTelefonoConductor">TELÉFONO DEL CONDUCTOR</label>
                             </div>
                         </div>
@@ -90,14 +144,14 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control telefono2" id="floatingTelefono2Conductor"
-                                    placeholder="OTRO TELÉFONO DEL CONDUCTOR" name="telefono_conductor_otro" value="" />
+                                    placeholder="OTRO TELÉFONO DEL CONDUCTOR" name="telefono_conductor_otro"
+                                    value="" />
                                 <label for="floatingTelefono2Conductor">OTRO TELÉFONO DEL CONDUCTOR</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <span
-                            class="bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
+                        <span class="bg-gray-500  text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded  text-gray-300">
                             DATOS DEL VEHÍCULO</span>
                         <div class="col-md">
                             <div class="form-floating mb-2">
@@ -108,8 +162,8 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control color" id="floatinColor" placeholder="COLOR"
-                                    name="color" required />
+                                <input type="text" class="form-control color" id="floatinColor"
+                                    placeholder="COLOR" name="color" required />
                                 <label for="floatinColor">COLOR</label>
                             </div>
                         </div>
@@ -122,8 +176,8 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control placa" id="floatingPlaca" placeholder="PLACA"
-                                    name="placa" />
+                                <input type="text" class="form-control placa" id="floatingPlaca"
+                                    placeholder="PLACA" name="placa" />
                                 <label for="floatingPlaca">PLACA</label>
                             </div>
                         </div>
@@ -155,11 +209,13 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select class="form-select" name="provinciasalida" id="floatingSelectProvinciaSalida">
+                                <select class="form-select" name="provinciasalida"
+                                    id="floatingSelectProvinciaSalida">
                                     <option>- Seleccione -</option>
-                                    @foreach($provincias as $prov)
-                                    <option value="{{ $prov->id }}|{{ $prov->descripcion }}">{{ $prov->descripcion }}
-                                    </option>
+                                    @foreach ($provincias as $prov)
+                                        <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
+                                            {{ $prov->descripcion }}
+                                        </option>
                                     @endforeach
                                 </select>
                                 <label for="floatingSelectProvinciaSalida">PROVINCIA SALIDA</label>
@@ -167,7 +223,8 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select class="form-select" name="municipiosalida" id="floatingSelectMunicipioSalida">
+                                <select class="form-select" name="municipiosalida"
+                                    id="floatingSelectMunicipioSalida">
                                     <option>- Seleccione -</option>
                                 </select>
                                 <label for="floatingSelectMunicipioSalida">MUNICIPIO</label>
@@ -197,9 +254,10 @@
                             <div class="form-floating mb-2">
                                 <select class="form-select" name="provincia" id="floatingSelectProvincia">
                                     <option>- Seleccione -</option>
-                                    @foreach($provincias as $prov)
-                                    <option value="{{ $prov->id }}|{{ $prov->descripcion }}">{{ $prov->descripcion }}
-                                    </option>
+                                    @foreach ($provincias as $prov)
+                                        <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
+                                            {{ $prov->descripcion }}
+                                        </option>
                                     @endforeach
                                 </select>
                                 <label for="floatingSelectProvincia">PROVINCIA</label>
@@ -258,87 +316,98 @@
         </form>
     </div>
     @push('js')
+        <script>
+            // Initiate an Ajax request on button click
+            $(document).on("focusout", ".documento", function() {
+                var documento = $(this).val();
+                var tipo = $('.tipo_documento').val();
+                if (tipo == 'cedula') {
+                    if (documento != '') {
+                        $.ajax({
+                            type: "POST",
+                            url: "{{ route('consultar.cedula') }}",
+                            headers: {
+                                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                            },
+                            data: {
+                                "documento": documento
+                            },
+                            beforeSend: function() {
+                                $(".spin-cap").css('display', 'inline-block');
+                                $('button').attr('disabled', true);
+                            },
+                            success: function(data) {
+                                json = $.parseJSON(data);
+                                console.log(json[0].nacionalidad)
+                                if (json[0].nombres != '') {
+                                    $('.nombre_capitan').val(json[0].nombres + ' ' + json[0].apellidos);
+                                    $('.nombre_capitan').attr('readonly', true);
+                                } else {
+                                    $('.nombre_capitan').attr('readonly', false).val('');
+                                }
+                                if (json[0].nacionalidad != '') {
+                                    $('.nacionalidad').val(json[0].nacionalidad);
+                                }
+                            },
+                            complete: function() {
+                                $(".spin-cap").css('display', 'none');
+                                $('button').attr('disabled', false);
+                            }
 
-    <script>
-        // Initiate an Ajax request on button click
+                        });
+                    }
+                } else {
+                    // uso del endpoint pasaporte
+                }
 
-        // $(document).on("focusout", ".documento", function() {
-        //     var documento = $(this).val();
-        //     var tipo = $('.tipo_documento').val();
-        //     if (documento != '') {
-        //         $.post("https://newsdcm.cdp.mil.do/public/consulta", {
-        //             documento: documento
-        //             , tipo: tipo
-        //             , _token: $('input[name="_token"]').val()
-        //         }, function(data) {
-        //             json = $.parseJSON(data);
-        //             if (json[0].nombres != '') {
-        //                 $('.nombre').val(json[0].nombres + ' ' + json[0].apellidos);
-        //             } else {
-        //                 $('.nombre').attr('readonly', false).val('');
-        //             }
+            });
 
-        //         });
-        //     }
-        // });
-
-        // Add remove loading class on body element based on Ajax request status
-        // $(document).on({
-        //     ajaxStart: function() {
-        //         $(".spin").css('display', 'inline-block');
-        //         $('.nombre').attr('readonly', true);
-        //         $('button').attr('disabled', true);
-        //     }
-        //     , ajaxStop: function() {
-        //         $(".spin").css('display', 'none');
-        //         $('button').attr('disabled', false);
-
-        //     }
-        // });
-
-        $("#floatingSelectProvincia").change(function() {
-            var provincia = $(this).val();
-            const idp = provincia.split("|");
-            $.post("{{ route('get.municipios') }}", {
-                idprovincia: idp[0]
-                , _token: $('input[name="_token"]').val()
+            $("#floatingSelectProvincia").change(function() {
+                var provincia = $(this).val();
+                const idp = provincia.split("|");
+                $.post("{{ route('get.municipios') }}", {
+                    idprovincia: idp[0],
+                    _token: $('input[name="_token"]').val()
                 }, function(data) {
                     json = $.parseJSON(data);
                     $("#floatingSelectMunicipio").empty();
                     $("#floatingSelectMunicipio").append("<option value=''>- Seleccione -</option>");
                     // iterando los resultados encontrados
                     // $.each(data, function(index, field){
-                        for(var i = 0; i < json.length; i++){
-                            console.log(json[i].descripcion);
-                            $("#floatingSelectMunicipio").append("<option value='"+json[i].descripcion+"'>"+json[i].descripcion+"</option>")
-                        }
+                    for (var i = 0; i < json.length; i++) {
+                        console.log(json[i].descripcion);
+                        $("#floatingSelectMunicipio").append("<option value='" + json[i].descripcion + "'>" +
+                            json[i].descripcion + "</option>")
+                    }
                     // });
-                    
+
+                });
             });
-        });
-        // provincia de salida
-        $("#floatingSelectProvinciaSalida").change(function() {
-            var provincia = $(this).val();
-            const idp = provincia.split("|");
-            $.post("{{ route('get.municipios') }}", {
-                idprovincia: idp[0]
-                , _token: $('input[name="_token"]').val()
-            }, function(data) {
-                json = $.parseJSON(data);
-                $("#floatingSelectMunicipioSalida").empty();
-                $("#floatingSelectMunicipioSalida").append("<option value=''>- Seleccione -</option>");
-            // iterando los resultados encontrados
-            // $.each(data, function(index, field){
-            for(var i = 0; i < json.length; i++){ console.log(json[i].descripcion);
-                $("#floatingSelectMunicipioSalida").append("<option value='"+json[i].descripcion+"'>"+json[i].descripcion+"</option>")
-                }
-                // });
+            // provincia de salida
+            $("#floatingSelectProvinciaSalida").change(function() {
+                var provincia = $(this).val();
+                const idp = provincia.split("|");
+                $.post("{{ route('get.municipios') }}", {
+                    idprovincia: idp[0],
+                    _token: $('input[name="_token"]').val()
+                }, function(data) {
+                    json = $.parseJSON(data);
+                    $("#floatingSelectMunicipioSalida").empty();
+                    $("#floatingSelectMunicipioSalida").append("<option value=''>- Seleccione -</option>");
+                    // iterando los resultados encontrados
+                    // $.each(data, function(index, field){
+                    for (var i = 0; i < json.length; i++) {
+                        console.log(json[i].descripcion);
+                        $("#floatingSelectMunicipioSalida").append("<option value='" + json[i].descripcion +
+                            "'>" + json[i].descripcion + "</option>")
+                    }
+                    // });
                 });
 
                 // adquirir nombre de la comandancia
                 $.post("{{ route('get.comandancia') }}", {
-                    idprovincia: idp[0]
-                    , _token: $('input[name="_token"]').val()
+                    idprovincia: idp[0],
+                    _token: $('input[name="_token"]').val()
                 }, function(data) {
                     json = $.parseJSON(data);
                     $(".comandancia").empty();
@@ -347,22 +416,30 @@
                     console.log(json[0]);
                     $(".comandancia").val(json[0].descripcion);
                     $(".idcomandancia").val(json[0].idcomandancia);
-                // });
+                    // });
                 });
-        });
-        $(document).on({
-            ajaxStart: function() {
-                $(".spin").css('display', 'inline-block');
-                // $('.nombre').attr('readonly', true);
-                $('button.send').attr({disabled: true, type: 'button'});
-            }
-            , ajaxStop: function() {
-                $(".spin").css('display', 'none');
-                $('button.send').attr({disabled: false, type: 'submit'});
-            }
-        });
-    </script>
+            });
+            $(document).on({
+                ajaxStart: function() {
+                    $(".spin").css('display', 'inline-block');
+                    // $('.nombre').attr('readonly', true);
+                    $('button.send').attr({
+                        disabled: true,
+                        type: 'button'
+                    });
+                },
+                ajaxStop: function() {
+                    $(".spin").css('display', 'none');
+                    $('button.send').attr({
+                        disabled: false,
+                        type: 'submit'
+                    });
+                }
+            });
 
+            $('input').prop('required', true);
+            $('select').prop('required', true);
+        </script>
     @endpush
 
 </x-app-layout>

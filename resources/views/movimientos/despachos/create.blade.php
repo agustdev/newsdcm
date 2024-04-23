@@ -80,17 +80,17 @@
                                 <label for="floatingColor">COLOR</label>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row ">
                             <span
                                 class="uppercase bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
-                                OTRAS INFORMACIONES DE LA EMBARCACIÓN
+                                INFORMACIóN DEL MOTOR DE LA EMBARCACIóN
                             </span>
                             <div class="col-md">
                                 <div class="form-floating">
                                     <input type="text" class="form-control marca_motor" id="floatingColor"
                                         placeholder="MARCA MOTOR DE LA EMBARCACIÓN" readonly
                                         name="marca_modelo_motor" />
-                                    <label for="floatingColor">MARCA MOTOR DE LA EMBARCACIÓN</label>
+                                    <label for="floatingColor">MARCA</label>
                                 </div>
                             </div>
                             <div class="col-md">
@@ -98,7 +98,7 @@
                                     <input type="text" class="form-control caballos_motor" id="floatingColor"
                                         placeholder="CABALLOS DE FUERZA MOTOR DE LA EMBARCACIÓN" readonly
                                         name="caballos_fuerza_motor" />
-                                    <label for="floatingColor">CABALLOS DE FUERZA MOTOR DE LA EMBARCACIÓN</label>
+                                    <label for="floatingColor">CABALLOS DE FUERZA </label>
                                 </div>
                             </div>
                             <div class="col-md">
