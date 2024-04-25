@@ -19,7 +19,9 @@ class ConducesController extends Controller
      */
     public function index()
     {
-        $conduces = Movimientos::where('tipo_movimiento', 'C')->get();
+        // $conduces = Movimientos::where('tipo_movimiento', 'C')->get();
+        $conduces = auth()->user()->movimientos()->where('tipo_movimiento', 'C')->orderBy('id', 'desc')->get();
+
         return view('movimientos.conduces.index', compact('conduces'));
     }
 
