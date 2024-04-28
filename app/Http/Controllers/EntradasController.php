@@ -20,7 +20,8 @@ class EntradasController extends Controller
      */
     public function index()
     {
-        $entradas = Movimientos::where('tipo_movimiento', 'E')->orderBy('id', 'desc')->get();
+        // $entradas = Movimientos::where('tipo_movimiento', 'E')->orderBy('id', 'desc')->get();
+        $entradas = auth()->user()->movimientos()->where('tipo_movimiento', 'E')->orderBy('id', 'desc')->get();
         return view('movimientos.entradas.index', compact('entradas'));
     }
 
