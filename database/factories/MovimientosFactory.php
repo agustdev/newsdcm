@@ -27,10 +27,13 @@ class MovimientosFactory extends Factory
     {
         return [
             'fecha' => now(),
-            'tipo_movimiento' => $this->faker->randomElement(['D', 'C']),
+            'tipo_movimiento' => $this->faker->randomElement(['D', 'C', 'E', 'S']),
             'nombre' => $this->faker->name(),
             'matricula' => Embarcaciones::first()->matricula,
             'numero_casco' => $this->faker->randomNumber(6, true),
+            'marca_modelo_motor' => 'YAMAHA',
+            'caballos_fuerza_motor' => '75 HP',
+            'no_motor' => 3,
             'color' => $this->faker->randomElement(['rojo', 'amarillo', 'verde', 'azul', 'blanco', 'negro', 'marron']),
             'estado' => $this->faker->randomElement(['Aprobado', 'Rechazado', 'Enviado', 'En proceso']),
             'estado_alerta' => $this->faker->randomElement(['Confirmado', 'Bloqueado', 'Reenviado', 'Notificado']),

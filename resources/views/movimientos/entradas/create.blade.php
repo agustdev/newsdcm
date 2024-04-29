@@ -123,8 +123,9 @@
                     <div class="row">
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="number" class="form-control" id="floatingNombreEmbarcacion"
-                                    placeholder="NOMBRE DE LA EMBARCACIÓN" name="cantidad_tripulantes" />
+                                <input type="number" class="form-control cant-tripulante"
+                                    id="floatingNombreEmbarcacion" placeholder="NOMBRE DE LA EMBARCACIÓN"
+                                    name="cantidad_tripulantes" />
                                 <label for="floatingNombreEmbarcacion">CANTIDAD TRIPULANTES</label>
                             </div>
                         </div>
