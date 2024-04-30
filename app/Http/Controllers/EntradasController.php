@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Capitanes;
-use App\Models\Embarcaciones;
-use App\Models\Movimientos;
+use App\Models\CapitanesInternacionales;
+use App\Models\Destinos;
+use App\Models\EmbarcacionesInternacionales;
+use App\Models\MovimientosInternacionales;
+use App\Models\Pasajeros;
+use App\Models\Tripulantes;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -21,7 +24,7 @@ class EntradasController extends Controller
     public function index()
     {
         // $entradas = Movimientos::where('tipo_movimiento', 'E')->orderBy('id', 'desc')->get();
-        $entradas = auth()->user()->movimientos()->where('tipo_movimiento', 'E')->orderBy('id', 'desc')->get();
+        $entradas = auth()->user()->movimientos_internacionales()->where('tipo_movimiento', 'E')->orderBy('id', 'desc')->get();
         return view('movimientos.entradas.index', compact('entradas'));
     }
 
@@ -30,8 +33,9 @@ class EntradasController extends Controller
      */
     public function create()
     {
-        $ultimo_mov = auth()->user()->movimientos()->orderBy('id', 'DESC')->first();
-        return view('movimientos.entradas.create', compact('ultimo_mov'));
+        $ultimo_mov = auth()->user()->movimientos_internacionales()->orderBy('id', 'DESC')->first();
+        $destinos = Destinos::all();
+        return view('movimientos.entradas.create', compact('ultimo_mov', 'destinos'));
     }
 
     /**
@@ -39,71 +43,84 @@ class EntradasController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'matricula' => 'required',
-        //     'numero_casco' => 'required',
-        //     'nombre' => 'required',
-        //     'color' => 'required',
-        //     'fecha_llegada' => 'required'
-        // ]);
-        $embarcacion = Embarcaciones::create([
+        $request->validate([
+            'matricula' => 'required',
+            'numero_casco' => 'required',
+            'nombre' => 'required',
+            'color' => 'required',
+            'fecha_llegada' => 'required'
+        ]);
+
+        $embarcacion = EmbarcacionesInternacionales::create([
             'matricula' => $request->matricula,
-            'matricula_anexa' => $request->matricula,
             'nombre' => $request->nombre,
             'no_chasis' => $request->numero_casco,
             'color' => $request->color,
+            'material_casco' => $request->material_casco,
             'fecha_validez' => Carbon::parse($request->fecha_llegada)->addDays(30),
             'capacidad_personas' => $request->cantidad_pasajeros,
             'capacidad_tripulantes' => $request->cantidad_tripulantes,
+            'tipo_motor' => $request->tipo_motor,
+            'marca_modelo_motor' => $request->marca_modelo_motor,
+            'caballos_fuerza_motor' => $request->caballos_fuerza_motor,
+            'no_motor' => $request->no_motor,
             'estatus' => 'A',
-            'pies_eslora' => 0,
-            'plug_eslora' => 0,
-            'pies_manga' => 0,
-            'pulg_manga' => 0,
-            'pies_puntal' => 0,
-            'pulg_puntal' => 0,
-            'tonelada_bruta' => 0,
-            'tonelada_neta' => 0,
-            'tipo_embarcacion' => 'TURISMO',
-            'tipo_uso' => 'TURISMO',
-            'desc_estatus' => 'Activo',
-            'estacionamiento' => $request->pais_procedencia,
-            'tipo_propietario' => 'P',
+            'eslora' => $request->eslora,
+            'manga' => $request->manga,
+            'puntal' => $request->puntal,
+            'tipo_embarcacion' => $request->tipo_embarcacion,
+            'tipo_uso' => $request->tipo_uso,
+            'pais_procedencia' => $request->pais_procedencia,
+            'puerto_registro' => $request->puerto_salida,
             'nombre_propietario' => $request->nombre_capitan,
-            'representado_por' => $request->nombre_capitan,
-            'no_documento' => $request->documento,
-            'dir_propietario' => 'N/A',
-            'impedimento' => 0,
-            'internacional' => 1,
-            'inter_estado' => 0
+            'no_documento' => $request->documento_cap,
+            'impedimento' => 0
         ]);
-        $mov = Movimientos::create([
+
+        $mov = MovimientosInternacionales::create([
             'matricula' => $request->matricula,
             'numero_casco' => $request->numero_casco,
             'nombre' => $request->nombre,
             'color' => $request->color,
             'fecha' => $request->fecha_llegada,
+            'marca_modelo_motor' => $request->marca_modelo_motor,
+            'caballos_fuerza_motor' => $request->caballos_fuerza_motor,
+            'no_motor' => $request->no_motor,
             'tipo_movimiento' => 'E',
             'estado' => 'Enviado',
             'estado_alerta' => 'N/A',
-            'emb_id' => $embarcacion->id,
+            'emb_inter_id' => $embarcacion->id,
             'user_id' => auth()->user()->id,
             'vcode' => strtoupper(substr(md5(Str::uuid()->toString()), 1, 6)),
             'url_id' => Str::uuid()->toString()
         ]);
-        Capitanes::create([
-            'documento' => $request->documento,
+
+        CapitanesInternacionales::create([
+            'tipo_documento' => $request->tipo_documento,
+            'documento' => $request->documento_cap,
             'nombre' => $request->nombre_capitan,
-            'nacionalidad' => $request->nacionalidad,
+            'nacionalidad' => $request->nacionalidad_cap,
             'telefono' => $request->telefono,
             'motivo_viaje' => $request->motivo_viaje,
-            'lugar_salida' => $request->pais_procedencia,
+            'pais_procedencia' => $request->pais_procedencia,
+            'lugar_salida' => $request->puerto_salida,
             'lugar_destino' => $request->puerto_llegada,
             'cantidad_tripulantes' => $request->cantidad_tripulantes,
             'cantidad_pasajeros' => $request->cantidad_pasajeros,
-            'mov_id' => $mov->id,
+            'tiempo_estadia' => $request->tiempo_estadia,
+            'mov_inter_id' => $mov->id,
             'dest_sa_id' => 0,
             'dest_ll_id' => 0
+        ]);
+
+        $tripulantes = Tripulantes::where('userid', auth()->user()->id)->get();
+        $tripulantes->toQuery()->update([
+            'mov_id' => $mov->id
+        ]);
+
+        $pasajeros = Pasajeros::where('userid', auth()->user()->id)->get();
+        $pasajeros->toQuery()->update([
+            'mov_id' => $mov->id
         ]);
 
         return redirect()->route('movimientos.entradas.index')->with('msj', 'Solicitud creada con exito.');
@@ -112,12 +129,12 @@ class EntradasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Movimientos $entrada)
+    public function show(MovimientosInternacionales $entrada)
     {
         return view('movimientos.entradas.ver', compact('entrada'));
     }
 
-    public function eticket(Movimientos $entrada)
+    public function eticket(MovimientosInternacionales $entrada)
     {
         $pdf =  FacadePdf::loadView('pdf.e-ticket', compact('entrada'));
         $pdf->setPaper('legal', 'portrait')->setWarnings(false);
@@ -128,7 +145,7 @@ class EntradasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Movimientos $movimiento)
+    public function edit(MovimientosInternacionales $movimiento)
     {
         //
     }
@@ -136,7 +153,7 @@ class EntradasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Movimientos $movimiento)
+    public function update(Request $request, MovimientosInternacionales $movimiento)
     {
         //
     }
@@ -144,7 +161,7 @@ class EntradasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Movimientos $entrada)
+    public function destroy(MovimientosInternacionales $entrada)
     {
         $entrada->update([
             'estado' => 'Cancelado'

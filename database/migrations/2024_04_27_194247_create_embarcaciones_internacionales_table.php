@@ -24,9 +24,9 @@ return new class extends Migration
             $table->string('marca_modelo_motor')->length(100)->comment('Marca del motor de la embarcacion');
             $table->string('caballos_fuerza_motor')->length(10)->comment('Cantidad caballos de fuerza del motor de la embarcacion');
             $table->string('no_motor')->length(100)->comment('Numero del motor');
-            $table->integer('eslora')->length(40)->default(0);
-            $table->integer('manga')->length(40)->default(0);
-            $table->integer('puntal')->length(40)->default(0);
+            $table->decimal('eslora')->length(40)->default(0);
+            $table->decimal('manga')->length(40)->default(0);
+            $table->decimal('puntal')->length(40)->default(0);
             $table->string('tipo_embarcacion', 50);
             $table->string('tipo_uso', 50);
             $table->string('no_documento', 40)->comment('Numero de documento del propietario de la embarcación');

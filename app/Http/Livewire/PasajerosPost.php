@@ -10,9 +10,14 @@ class PasajerosPost extends Component
     public $nombre, $nacionalidad, $documento;
     // protected $listeners = ['render' => 'render'];
     protected $listeners = ['delete'];
-
+    protected $rules = [
+        'nombre' => 'required',
+        'nacionalidad' => 'required',
+        'documento' => 'required'
+    ];
     public function save()
     {
+        $this->validate();
         Pasajeros::create([
             'nombre' => $this->nombre,
             'nacionalidad' => $this->nacionalidad,

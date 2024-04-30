@@ -1,5 +1,5 @@
 <x-app-layout>
-    @section('titulo', 'Entradas Internacionales')
+    @section('titulo', __('Entradas Internacionales'))
     @push('css')
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
         <!-- Datatables css -->
@@ -13,10 +13,8 @@
     </x-slot>
     <div class="row g-2">
         <div class="alert alert-info">
-            <i class="uil-info-circle"></i> Este formulario solo es para embarcaciones que provienen
-            de
-            otros
-            paises
+            <i class="uil-info-circle"></i>
+            {{ __('Este formulario solo es para embarcaciones que provienen de otros paises') }}
         </div>
     </div>
     {{-- formulario de solicitud de despacho --}}
@@ -26,7 +24,8 @@
             <div class="card">
                 <div class="card-header">
                     <div class="col-lg-12 mb-2">
-                        <h3 class="h4 uppercase">Número de solicitud: {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
+                        <h3 class="h4 uppercase">{{ __('Número de solicitud') }}:
+                            {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
                         </h3>
                     </div>
                 </div>
@@ -34,20 +33,20 @@
                     <div class="row g-2">
                         <div class="alert alert-warning" role="alert">
                             <div class="inline-block float-start">
-                                <strong>INFORMACIÓN DE LA EMBARCACIÓN</strong>
+                                <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control matricula" id="floatinMatricula"
-                                    placeholder="MATRICULA" name="matricula" />
+                                    placeholder="MATRICULA" name="matricula" required />
                                 <label for="floatinMatricula">MATRÍCULA</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control nombre_emb" id="floatingNombreEmbarcacion"
-                                    placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" />
+                                    placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" required />
                                 <label for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
                             </div>
                         </div>
@@ -55,56 +54,129 @@
                         <div class="col-md">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control numero_casco" id="floatingNumeroCasco"
-                                    placeholder="NUMERO DE CASCO" name="numero_casco" />
+                                    placeholder="NUMERO DE CASCO" name="numero_casco" required />
                                 <label for="floatingNumeroCasco">NUMERO DE CASCO</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
                                 <input type="text" class="form-control color" id="floatingColor"
-                                    placeholder="COLOR DE LA EMBARCACIÓN" name="color" />
+                                    placeholder="COLOR DE LA EMBARCACIÓN" name="color" required />
                                 <label for="floatingColor">COLOR</label>
                             </div>
                         </div>
                     </div>
+                    {{-- Medidas de la embarcacion --}}
                     <div class="row g-2">
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control matricula" id="floatinMatricula"
-                                    placeholder="MATRICULA" name="matricula" />
-                                <label for="floatinMatricula">MATRÍCULA</label>
+                        <div class="bg-blue-500 text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded  dark:text-blue-300"
+                            role="alert">
+                            <div class="inline-block float-start">
+                                <strong>{{ __('MEDIDAS DE LA EMBARCACIÓN') }}</strong>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control nombre_emb" id="floatingNombreEmbarcacion"
-                                    placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" />
-                                <label for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
+                                <input type="text" name="material_casco" class="form-control" id="floatingMaterial"
+                                    placeholder="MATERIAL DEL CASCO" required>
+                                <label for="floatinEslora">MATERIAL DEL CASCO</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control eslora" id="floatinEslora"
+                                    placeholder="ESLORA" name="eslora" required />
+                                <label for="floatinEslora">ESLORA</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control nombre_emb" id="floatingManga"
+                                    placeholder="MANGA" name="manga" required />
+                                <label for="floatingManga">MANGA</label>
                             </div>
                         </div>
 
                         <div class="col-md">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control numero_casco" id="floatingNumeroCasco"
-                                    placeholder="NUMERO DE CASCO" name="numero_casco" />
-                                <label for="floatingNumeroCasco">NUMERO DE CASCO</label>
+                                <input type="number" class="form-control puntal" id="floatingPuntal"
+                                    placeholder="PUNTAL" name="puntal" required />
+                                <label for="floatingNumeroCasco">PUNTAL</label>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- Tipo de embarcacion y uso --}}
+                    <div class="row g-2">
+                        <div class="bg-gray-700 text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded "
+                            role="alert">
+                            <div class="inline-block float-start">
+                                <strong>{{ __('TIPO') }}</strong>
                             </div>
                         </div>
                         <div class="col-md">
-                            <div class="form-floating">
-                                <input type="text" class="form-control color" id="floatingColor"
-                                    placeholder="COLOR DE LA EMBARCACIÓN" name="color" />
-                                <label for="floatingColor">COLOR</label>
+                            <div class="form-floating mb-2">
+                                <select name="tipo_embarcacion" id="" class="form-select" required>
+                                    <option value="">- Seleccione -</option>
+                                    <option value="VELERO">VELERO</option>
+                                    <option value="YATE">YATE</option>
+                                    <option value="CATAMARAN">CATAMARAN</option>
+                                </select>
+                                <label for="floatinEslora">TIPO EMBRACACIÓN</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <select name="tipo_uso" id="" class="form-select" required>
+                                    <option value="">- Seleccione -</option>
+                                    <option value="TURISMO">TURISMO</option>
+                                    <option value="RECREO">RECREO</option>
+                                </select>
+                                <label for="floatingEmbarcacion">TIPO DE USO</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-2">
+                        <div class="bg-green-800 text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded "
+                            role="alert">
+                            <div class="inline-block float-start">
+                                <strong>{{ __('DATOS DEL MOTOR') }}</strong>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="text" name="tipo_motor" class="form-control"
+                                    placeholder="TIPO MOTOR" required>
+                                <label for="floatinTipoMotor">TIPO MOTOR</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="text" name="marca_modelo_motor" class="form-control"
+                                    placeholder="MARCA MOTOR" required>
+                                <label for="floatinMarcaMotor">MARCA MOTOR</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="text" name="caballos_fuerza_motor" class="form-control"
+                                    placeholder="CABALLOS DE FUERZA" required>
+                                <label for="floatinCaballosFuerza">CABALLOS DE FUERZA</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="text" name="no_motor" class="form-control"
+                                    placeholder="CANTIDAD MOTOR" required>
+                                <label for="floatinCaballosFuerza">CANTIDAD MOTOR</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="alert alert-info mt-2" role="alert">
-                            <strong>INFORMACIÓN DEL CAPITÁN</strong>
+                            <strong>{{ __('INFORMACIÓN DEL CAPITÁN') }}</strong>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select class="form-select" name="tipo_documento" id="">
+                                <select class="form-select" name="tipo_documento" id="" required>
                                     <option value="">- Seleccione tipo de documento -</option>
                                     <option value="cedula">Cédula</option>
                                     <option value="pasapore">Pasaporte</option>
@@ -114,22 +186,23 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control documento" id="floatinDocumento"
-                                    placeholder="Documento" name="documento" />
+                                <input type="text" class="form-control documento_cap" id="floatinDocumento"
+                                    placeholder="Documento" name="documento_cap" required />
                                 <label for="floatinMatricula">DOCUMENTO DE IDENTIDAD DEL CAPITÁN</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control nombre_capitan" id="floatingNombreCapitan"
-                                    placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value=""
-                                    name="nombre_capitan" />
+                                    placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value="" name="nombre_capitan"
+                                    required />
                                 <label for="floatingNombreEmbarcacion">NOMBRE Y APELLIDO DEL CAPITÁN</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select name="nacionalidad" class="form-select nacionalidad" id="" required>
+                                <select name="nacionalidad_cap" class="form-select nacionalidad" id=""
+                                    required>
                                     <option value="">- Seleccione -</option>
                                     <option value="DOMINICANO">DOMINICANO</option>
                                     <option value="FRANCES">FRANCES</option>
@@ -145,7 +218,7 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control telefono" id="floatingNombreEmbarcacion"
-                                    placeholder="NOMBRE DE LA EMBARCACIÓN" name="telefono" />
+                                    placeholder="NOMBRE DE LA EMBARCACIÓN" name="telefono" required />
                                 <label for="floatingNombreEmbarcacion">TELÉFONO DEL CAPITÁN</label>
                             </div>
                         </div>
@@ -161,40 +234,19 @@
                                 <label for="floatinMatricula">MOTIVO DEL VIAJE</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="date" class="form-control" id="floatingFecha" placeholder="FECHA"
-                                    name="fecha_llegada" min="{{ date('Y-m-d') }}" />
+                                    name="fecha_llegada" min="{{ date('Y-m-d') }}" required />
                                 <label for="floatingFecha">FECHA LLEGADA</label>
                             </div>
                         </div>
-
                     </div>
+
                     <div class="row">
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="number" class="form-control cant-tripulante"
-                                    id="floatingNombreEmbarcacion" placeholder="NOMBRE DE LA EMBARCACIÓN"
-                                    name="cantidad_tripulantes" />
-                                <label for="floatingNombreEmbarcacion">CANTIDAD TRIPULANTES</label>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="number" class="form-control cant-pasajero" id="floatinMatricula"
-                                    placeholder="CANTIDAD PASAJEROS" name="cantidad_pasajeros"
-                                    name="cantidad_pasajeros" />
-                                <label for="floatinMatricula">CANTIDAD PASAJEROS</label>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <select name="pais_procedencia" id="" class="form-select">
+                                <select name="pais_procedencia" id="" class="form-select" required>
                                     <option value="">- Seleccione pais de procedencia -</option>
                                     <option value="Afganistán" id="AF">Afganistán</option>
                                     <option value="Albania" id="AL">Albania</option>
@@ -461,8 +513,49 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control" id="floatingPuertoLlegada"
-                                    placeholder="PUERTO DE LLEGADA" name="puerto_llegada" />
+                                    placeholder="PUERTO DE SALIDA" name="puerto_salida" required />
+                                <label for="floatingPuertoLlegada">PUERTO DE SALIDA</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <select name="puerto_llegada" id="" class="form-select" required>
+                                    <option value="">- Seleccione puerto de llegada-</option>
+                                    @foreach ($destinos as $destino)
+                                        <option value="{{ $destino->descripcion }}">
+                                            {{ $destino->descripcion }}
+                                        </option>
+                                    @endforeach
+                                </select>
                                 <label for="floatingPuertoLlegada">PUERTO DE LLEGADA</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control cant-tripulante"
+                                    id="floatingNombreEmbarcacion" placeholder="NOMBRE DE LA EMBARCACIÓN"
+                                    name="cantidad_tripulantes" required />
+                                <label for="floatingNombreEmbarcacion">CANTIDAD TRIPULANTES</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control cant-pasajero" id="floatinMatricula"
+                                    placeholder="CANTIDAD PASAJEROS" name="cantidad_pasajeros"
+                                    name="cantidad_pasajeros" required />
+                                <label for="floatinMatricula">CANTIDAD PASAJEROS</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <select name="tiempo_estadia" id="" class="form-select" required>
+                                    <option value="">- Seleccione -</option>
+                                    <option value="PERMANENCIA">PERMANENCIA</option>
+                                    <option value="TEMPORAL">TEMPORAL</option>
+                                </select>
+                                <label for="floatinMatricula">TIEMPO DE ESTADIA</label>
                             </div>
                         </div>
                     </div>
@@ -492,19 +585,39 @@
         <script>
             $('.cant-tripulante').on('keyup', function() {
                 if ($(this).val() != '0') {
-                    $('.tripulantes').show();
+                    // $('.tripulantes').show();
                     $('.cant-trip').text($(this).val());
                 }
-                if ($(this).val() == 0) {
-                    $('.tripulantes').hide();
+                if ($(this).val() == '') {
+                    $('.cant-trip').text('0');
                 }
+                // if ($(this).val() == 0) {
+                //     $('.tripulantes').hide();
+                // }
             });
 
-            $('.cant-tripulante').on('change', function() {
-                if ($(this).val() == 0) {
-                    $('.tripulantes').hide();
+            $('.cant-pasajero').on('keyup', function() {
+                if ($(this).val() != '0') {
+                    // $('.tripulantes').show();
+                    $('.cant-pas').text($(this).val());
                 }
-            })
+                if ($(this).val() == '') {
+                    $('.cant-pas').text('0');
+                }
+                // if ($(this).val() == 0) {
+                //     $('.tripulantes').hide();
+                // }
+            });
+
+            // $('.cant-tripulante').on('change', function() {
+            //     if ($(this).val() == 0) {
+            //         $('.tripulantes').hide();
+            //     }
+            // })
+
+            $('[required]').css({
+                'border-left': '2px solid red'
+            });
         </script>
     @endpush
 </x-app-layout>

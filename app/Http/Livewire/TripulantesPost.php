@@ -9,9 +9,14 @@ class TripulantesPost extends Component
 {
     public $nombre, $nacionalidad, $documento;
     protected $listeners = ['delete'];
-
+    protected $rules = [
+        'nombre' => 'required',
+        'nacionalidad' => 'required',
+        'documento' => 'required'
+    ];
     public function save()
     {
+        $this->validate();
         Tripulantes::create([
             'nombre' => $this->nombre,
             'nacionalidad' => $this->nacionalidad,

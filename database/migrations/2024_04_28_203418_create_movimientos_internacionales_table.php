@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('vcode', 10);
             $table->uuid('url_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('emb_inter_id')->references('id')->on('embarcaciones_inernacionales')->onDelete('cascade');
+            $table->foreign('emb_inter_id')->references('id')->on('embarcaciones_internacionales')->onDelete('cascade');
             $table->timestamps();
         });
     }

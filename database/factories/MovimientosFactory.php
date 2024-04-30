@@ -27,7 +27,7 @@ class MovimientosFactory extends Factory
     {
         return [
             'fecha' => now(),
-            'tipo_movimiento' => $this->faker->randomElement(['D', 'C', 'E', 'S']),
+            'tipo_movimiento' => $this->faker->randomElement(['D', 'C']),
             'nombre' => $this->faker->name(),
             'matricula' => Embarcaciones::first()->matricula,
             'numero_casco' => $this->faker->randomNumber(6, true),

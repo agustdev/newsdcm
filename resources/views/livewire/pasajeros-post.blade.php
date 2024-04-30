@@ -5,22 +5,37 @@
     <div class="col-md">
         <div class="form-floating mb-2">
             <input wire:model='nombre' type="text" class="form-control documento" id="floatinDocumento"
-                placeholder="Documento" name="documento" />
+                placeholder="Documento" name="documento"
+                @error('nombre') style="border-left: 2px solid red" @enderror />
             <label for="floatinMatricula">NOMBRE</label>
+            @error('nombre')
+                <span class="text-red-600">{{ $message }}</span>
+            @enderror
+
         </div>
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
             <input wire:model='nacionalidad' type="text" class="form-control nombre_capitan"
-                id="floatingNombreCapitan" placeholder="NOMBRE Y APELLIDO DEL CAPITAN" name="nacionalidad" />
+                id="floatingNombreCapitan" placeholder="NOMBRE Y APELLIDO DEL CAPITAN" name="nacionalidad"
+                @error('nacionalidad') style="border-left: 2px solid red" @enderror />
             <label for="floatingNombreEmbarcacion">NACIONALIDAD</label>
+            @error('nacionalidad')
+                <span class="text-red-600">{{ $message }}</span>
+            @enderror
+
         </div>
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
             <input wire:model='documento' type="text" class="form-control" id="floatinMatricula"
-                placeholder="name@example.com" name="documento" value="" />
+                placeholder="name@example.com" name="documento" value=""
+                @error('documento') style="border-left: 2px solid red" @enderror />
             <label for="floatinMatricula">DOCUMENTO DE IDENTIDAD</label>
+            @error('documento')
+                <span class="text-red-600">{{ $message }}</span>
+            @enderror
+
         </div>
     </div>
     <div class="col-md">

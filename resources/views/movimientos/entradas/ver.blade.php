@@ -45,37 +45,44 @@
                             <strong>No Chasis:</strong> {{ $entrada->numero_casco }}
                         </p>
                         <p class="mt-2">
-                            <strong>Cantidad de Tripulantes:</strong> {{ $entrada->embarcacion->capacidad_personas }}
+                            <strong>Cantidad de Tripulantes:</strong>
+                            {{ $entrada->embarcacion_internacional->capacidad_personas }}
                         </p>
                         <p class="mt-2">
-                            <strong>Cantidad de Pasajeros:</strong> {{ $entrada->embarcacion->capacidad_tripulantes }}
+                            <strong>Cantidad de Pasajeros:</strong>
+                            {{ $entrada->embarcacion_internacional->capacidad_tripulantes }}
                         </p>
                         <p class="mt-2">
-                            <strong>Tipo tripulación:</strong> {{ $entrada->embarcacion->tipo_embarcacion }}
+                            <strong>Tipo embarcación:</strong>
+                            {{ $entrada->embarcacion_internacional->tipo_embarcacion }}
                         </p>
 
                     </h4>
                     {{-- datos del capitan --}}
-                    @if (!empty($entrada->capitan))
+                    @if (!empty($entrada->capitan_internacional))
                         <h4 class="header-title mt-3">
                             <div class="alert alert-info mt-2" role="alert">
                                 <strong>INFORMACIÓN DEL CAPITÁN</strong>
                             </div>
                             <p class="mb-2 mt-2">
                                 <strong>Nombre:</strong>
-                                {{ !empty($entrada->capitan) ? $entrada->capitan->nombre : '' }}
+                                {{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->nombre : '' }}
+                            </p>
+                            <p class="mb-2 mt-2">
+                                <strong>Tipop Documento:</strong>
+                                {{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->tipo_documento : '' }}
                             </p>
                             <p class="mb-2 mt-2">
                                 <strong>Documento:</strong>
-                                {{ !empty($entrada->capitan) ? $entrada->capitan->documento : '' }}
+                                {{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->documento : '' }}
                             </p>
                             <p class="mb-2 mt-2">
                                 <strong>Teléfono:</strong>
-                                {{ !empty($entrada->capitan) ? $entrada->capitan->telefono : '' }}
+                                {{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->telefono : '' }}
                             </p>
                             <p class="mb-2 mt-2 py-2">
                                 <strong>Motivo del viaje:</strong>
-                                {{ !empty($entrada->capitan) ? $entrada->capitan->motivo_viaje : '' }}
+                                {{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->motivo_viaje : '' }}
                             </p>
                             <p>
                                 <strong>Fecha Salida:</strong>
@@ -83,11 +90,11 @@
                             </p>
                             <p class="mb-2 mt-2">
                                 <strong>Lugar salida:</strong>
-                                {{ !empty($entrada->capitan) ? $entrada->capitan->lugar_salida : '' }}
+                                {{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->lugar_salida : '' }}
                             </p>
                             <p class="mb-2 mt-2">
                                 <strong>Lugar destino:</strong>
-                                {{ !empty($entrada->capitan) ? $entrada->capitan->lugar_destino : '' }}
+                                {{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->lugar_destino : '' }}
                             </p>
                         </h4>
                     @else
