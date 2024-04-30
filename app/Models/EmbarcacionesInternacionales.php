@@ -12,4 +12,9 @@ class EmbarcacionesInternacionales extends Model
     protected $casts = [
         'fecha_validez' => 'date',
     ];
+
+    public function movimiento()
+    {
+        return $this->hasMany(MovimientosInternacionales::class, 'emb_inter_id');
+    }
 }

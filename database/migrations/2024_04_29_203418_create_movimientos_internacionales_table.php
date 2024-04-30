@@ -24,12 +24,12 @@ return new class extends Migration
             $table->string('color')->comment('Color de la embarcación');
             $table->string('estado')->comment('Estado de la solicitud');
             $table->string('estado_alerta')->comment('Estado de la alerta');
-            $table->unsignedBigInteger('emb_id');
+            $table->unsignedBigInteger('emb_inter_id');
             $table->unsignedBigInteger('user_id');
             $table->string('vcode', 10);
             $table->uuid('url_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('emb_id')->references('id')->on('embarcaciones')->onDelete('cascade');
+            $table->foreign('emb_inter_id')->references('id')->on('embarcaciones_inernacionales')->onDelete('cascade');
             $table->timestamps();
         });
     }
