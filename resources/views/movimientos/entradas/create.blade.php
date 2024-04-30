@@ -51,8 +51,38 @@
                                 <label for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
                             </div>
                         </div>
+
+                        <div class="col-md">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control numero_casco" id="floatingNumeroCasco"
+                                    placeholder="NUMERO DE CASCO" name="numero_casco" />
+                                <label for="floatingNumeroCasco">NUMERO DE CASCO</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input type="text" class="form-control color" id="floatingColor"
+                                    placeholder="COLOR DE LA EMBARCACIÓN" name="color" />
+                                <label for="floatingColor">COLOR</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="row g-2">
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="text" class="form-control matricula" id="floatinMatricula"
+                                    placeholder="MATRICULA" name="matricula" />
+                                <label for="floatinMatricula">MATRÍCULA</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="text" class="form-control nombre_emb" id="floatingNombreEmbarcacion"
+                                    placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" />
+                                <label for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
+                            </div>
+                        </div>
+
                         <div class="col-md">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control numero_casco" id="floatingNumeroCasco"
@@ -74,6 +104,16 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
+                                <select class="form-select" name="tipo_documento" id="">
+                                    <option value="">- Seleccione tipo de documento -</option>
+                                    <option value="cedula">Cédula</option>
+                                    <option value="pasapore">Pasaporte</option>
+                                </select>
+                                <label for="floatinMatricula">TIPO DE DOCUMENTO</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
                                 <input type="text" class="form-control documento" id="floatinDocumento"
                                     placeholder="Documento" name="documento" />
                                 <label for="floatinMatricula">DOCUMENTO DE IDENTIDAD DEL CAPITÁN</label>
@@ -82,14 +122,21 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control nombre_capitan" id="floatingNombreCapitan"
-                                    placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value="" name="nombre_capitan" />
+                                    placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value=""
+                                    name="nombre_capitan" />
                                 <label for="floatingNombreEmbarcacion">NOMBRE Y APELLIDO DEL CAPITÁN</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control nacionalidad" id="floatinMatricula"
-                                    placeholder="name@example.com" name="nacionalidad" value="" />
+                                <select name="nacionalidad" class="form-select nacionalidad" id="" required>
+                                    <option value="">- Seleccione -</option>
+                                    <option value="DOMINICANO">DOMINICANO</option>
+                                    <option value="FRANCES">FRANCES</option>
+                                    <option value="ALEMAN">ALEMAN</option>
+                                    <option value="RUSO">RUSO</option>
+                                    <option value="ITALIANO">ITALIANO</option>
+                                </select>
                                 <label for="floatinMatricula">NACIONALIDAD DEL CAPITÁN</label>
                             </div>
                         </div>
@@ -104,8 +151,13 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control motivo_viaje" id="floatinMatricula"
-                                    placeholder="name@example.com" name="motivo_viaje" />
+                                <select name="motivo_viaje" class="form-select" id="" required>
+                                    <option value="">- Seleccione motivo del viaje -</option>
+                                    <option value="TURISMO">TURISMO</option>
+                                    <option value="RECREO">RECREO</option>
+                                    <option value="NEGOCIOS">NEGOCIOS</option>
+                                    <option value="VACACIONES">VACACIONES</option>
+                                </select>
                                 <label for="floatinMatricula">MOTIVO DEL VIAJE</label>
                             </div>
                         </div>
@@ -131,7 +183,7 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="number" class="form-control" id="floatinMatricula"
+                                <input type="number" class="form-control cant-pasajero" id="floatinMatricula"
                                     placeholder="CANTIDAD PASAJEROS" name="cantidad_pasajeros"
                                     name="cantidad_pasajeros" />
                                 <label for="floatinMatricula">CANTIDAD PASAJEROS</label>
@@ -436,4 +488,23 @@
             <input type="hidden" name="user" value="{{ auth()->user()->id }}">
         </form>
     </div>
+    @push('js')
+        <script>
+            $('.cant-tripulante').on('keyup', function() {
+                if ($(this).val() != '0') {
+                    $('.tripulantes').show();
+                    $('.cant-trip').text($(this).val());
+                }
+                if ($(this).val() == 0) {
+                    $('.tripulantes').hide();
+                }
+            });
+
+            $('.cant-tripulante').on('change', function() {
+                if ($(this).val() == 0) {
+                    $('.tripulantes').hide();
+                }
+            })
+        </script>
+    @endpush
 </x-app-layout>

@@ -9,7 +9,7 @@ class TripulantesPost extends Component
 {
     public $nombre, $nacionalidad, $documento;
     protected $listeners = ['delete'];
-    public $show = false;
+
     public function save()
     {
         Tripulantes::create([

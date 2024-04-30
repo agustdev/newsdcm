@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('movimientos', function (Blueprint $table) {
+        Schema::create('movimientos_internacionales', function (Blueprint $table) {
             $table->id();
             $table->date('fecha')->comment('Fecha de salida');
-            $table->enum('tipo_movimiento', ['D', 'C'])->comment('D => Despacho, C => Conduce');
+            $table->enum('tipo_movimiento', ['E', 'S'])->comment('E => Entrada, S => Salida');
             $table->string('nombre')->comment('Nombre de la embarcación');
             $table->string('matricula')->comment('Matricula de la embarcación');
             $table->string('numero_casco')->comment('Numero de casco de la embarcación');
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('movimientos');
+        Schema::dropIfExists('movimientos_internacionales');
     }
 };

@@ -1,17 +1,17 @@
-<div class="row tripulantes" style="display: none;">
+<div class="row tripulantes">
     <div class="alert alert-secondary mt-2" role="alert">
         <strong>DATOS DE LOS TRIUPLANTES (MAX: <span class="cant-trip">0</span>)</strong>
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input wire:model='nombre' type="text" class="form-control documento" id="floatinDocumento"
+            <input wire:model.defer='nombre' type="text" class="form-control documento" id="floatinDocumento"
                 placeholder="Documento" name="documento" />
             <label for="floatinMatricula">NOMBRE</label>
         </div>
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input wire:model='nacionalidad' type="text" class="form-control nombre_capitan"
+            <input wire:model.defer='nacionalidad' type="text" class="form-control nombre_capitan"
                 id="floatingNombreCapitan" placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value=""
                 name="nacionalidad" />
             <label for="floatingNombreEmbarcacion">NACIONALIDAD</label>
@@ -19,7 +19,7 @@
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input wire:model='documento' type="text" class="form-control nacionalidad" id="floatinMatricula"
+            <input wire:model.defer='documento' type="text" class="form-control nacionalidad" id="floatinMatricula"
                 placeholder="name@example.com" name="documento" value="" />
             <label for="floatinMatricula">DOCUMENTO DE IDENTIDAD</label>
         </div>
@@ -61,7 +61,7 @@
             </table>
         @else
             <div class="alert alert-info">
-                No se ha registrado ningun tripulante
+                No se ha registrado ningún tripulante
             </div>
         @endif
     </div>
@@ -87,22 +87,6 @@
                     }
                 });
             });
-
-            $('.cant-tripulante').on('keyup', function() {
-                if ($(this).val() != '' || $(this).val() != '0') {
-                    $('.tripulantes').show();
-                    $('.cant-trip').text($(this).val());
-                }
-                if ($(this).val() == 0) {
-                    $('.tripulantes').hide();
-                }
-            });
-
-            $('.cant-tripulante').on('change', function() {
-                if ($(this).val() == 0) {
-                    $('.tripulantes').hide();
-                }
-            })
         </script>
     @endpush
 </div>

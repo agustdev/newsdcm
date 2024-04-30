@@ -8,7 +8,9 @@ use Livewire\Component;
 class PasajerosPost extends Component
 {
     public $nombre, $nacionalidad, $documento;
-    protected $listeners = ['render' => 'render'];
+    // protected $listeners = ['render' => 'render'];
+    protected $listeners = ['delete'];
+
     public function save()
     {
         Pasajeros::create([
@@ -19,11 +21,17 @@ class PasajerosPost extends Component
             'mov_id' => 0
         ]);
 
-        $this->emit('render');
+        // $this->emit('render');
     }
+
+    public function delete(Pasajeros $tripulante)
+    {
+        $tripulante->delete();
+    }
+
     public function render()
     {
-        $pasajeros = Pasajeros::where('userid', auth()->user()->id)->get();
+        $pasajeros = Pasajeros::where('userid', auth()->user()->id)->orderBy('id', 'desc')->get();
         return view('livewire.pasajeros-post', compact('pasajeros'));
     }
 }
