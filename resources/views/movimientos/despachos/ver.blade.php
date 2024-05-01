@@ -5,23 +5,25 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="h3 mb-3">
-                        Tipo movimiento:
+                        {{ __('Tipo movimiento') }}:
                         @if ($despacho->tipo_movimiento == 'D')
-                            Despacho
+                            {{ __('Despacho') }}
                         @endif
                     </h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <span class="header-title col-md-2 d-inline"><strong>Número solicitud:</strong> </span>
+                        <span class="header-title col-md-2 d-inline"><strong>{{ __('Número solicitud') }}:</strong>
+                        </span>
                         <span class="header-title col-md-1 d-inline">{{ $despacho->id }}</span>
                     </div>
                     <div class="row">
-                        <span class="header-title col-md-2 d-inline"><strong>Fecha Solicitud:</strong></span>
+                        <span
+                            class="header-title col-md-2 d-inline"><strong>{{ __('Fecha Solicitud') }}:</strong></span>
                         <span class="header-title col-md-2 d-inline">{{ $despacho->created_at->format('d-m-Y') }}</span>
                     </div>
                     <div class="row">
-                        <span class="header-title  col-md-2 d-inline"><strong>Estatus:</strong></span>
+                        <span class="header-title  col-md-2 d-inline"><strong>{{ __('Estatus') }}:</strong></span>
                         @if ($despacho->estado == 'Aprobado')
                             <span
                                 class="header-title col-md-1 d-inline bg-green-100 text-green-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-700 dark:text-green-300">{{ $despacho->estado }}</span>
@@ -39,7 +41,7 @@
                     {{-- datos de la embarcacion --}}
                     <h4 class="header-title mt-3">
                         <div class="alert alert-warning" role="alert">
-                            <strong>INFORMACIÓN DE LA EMBARCACIÓN</strong>
+                            <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
                         </div>
                         <div class="row mb-2 mt-2 ">
                             <p class="col-md-2">
@@ -77,7 +79,7 @@
                         </div>
                         <div class="row mt-2">
                             <p class="col-md-2">
-                                <strong>Tipo tripulación:</strong>
+                                <strong>Tipo embarcación:</strong>
                             </p>
                             <span class="col-md-2">{{ $despacho->embarcacion->tipo_embarcacion }}</span>
                         </div>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MovimientosInternacionales extends Model
 {
@@ -21,6 +22,16 @@ class MovimientosInternacionales extends Model
     public function capitan_internacional()
     {
         return $this->hasOne(CapitanesInternacionales::class, 'mov_inter_id');
+    }
+
+    public function tripulantes()
+    {
+        return $this->hasMany(Tripulantes::class, 'mov_id');
+    }
+
+    public function pasajeros()
+    {
+        return $this->hasMany(Pasajeros::class, 'mov_id');
     }
 
     public function embarcacion_internacional()

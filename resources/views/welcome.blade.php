@@ -66,11 +66,12 @@
 
 
 
-            .lang {
+            div.lang {
+                box-sizing: border-box;
                 display: flex;
                 justify-content: end;
-                margin-right: 15px;
-                margin-top: -50px;
+                margin: -60px 15px 0px 0px;
+                place-content: normal end;
             }
 
             /* este css sobre el selector no esta activo actualmente por que el elemento en el html esta comentado */
