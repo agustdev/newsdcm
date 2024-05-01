@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>SACOM | Sistema Administrativo de Control Maritimo - CDP</title>
+        <title>SACOM | {{ __('Sistema Administrativo de Control Maritimo') }} - CDP</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Sistema Administrativo de control Maritimo" name="description">
         <meta content="Capitania de Puertos y Autoridad Maritima" name="author">
@@ -179,10 +179,10 @@
             <div class="layer">
                 <div class="container">
                     <h1 class="h1" style="font-weight: bold; color: white; text-align: center;">
-                        <div style="color: #FAFF00;" class="bienvenido mb-3">BIENVENIDOS</div>
+                        <div style="color: #FAFF00;" class="bienvenido mb-3">{{ __('BIENVENIDOS') }}</div>
                         {{-- <br /> --}}
-                        ARMADA DE REPÚBLICA DOMINICANA <br /> SISTEMA ADMINISTRATIVO DE CONDUCE Y DESPACHO DE
-                        EMBARCACIONES
+                        {{ __('ARMADA DE REPÚBLICA DOMINICANA') }} <br />
+                        {{ __('SISTEMA ADMINISTRATIVO DE CONDUCE Y DESPACHO DE EMBARCACIONES') }}
                     </h1>
                     <!-- <h6 style="color: white; text-align: center;">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu gravida magna. Duis condimentum et nibh nec scelerisque. Nulla eros lacus, luctus auctor viverra nec, faucibus et sem.
@@ -194,13 +194,12 @@
                     <br />
                     <br />
                     <br />
-                    <h3 style="color: #FAFF00; font-weight: bold; text-align: center;" class="entrada">ENTRADAS Y
-                        SALIDAS
-                        INTERNACIONALES
+                    <h3 style="color: #FAFF00; font-weight: bold; text-align: center;" class="entrada">
+                        {{ __('ENTRADAS Y SALIDAS INTERNACIONALES') }}
                     </h3>
                     <h3 style="color: white; text-align: center; text-decoration: underline;" class="mt-3">
                         <span>
-                            <a style="color: white;" href="{{ route('register') }}">E-Ticket Marítimo</a>
+                            <a style="color: white;" href="{{ route('register') }}">{{ __('E-Ticket Marítimo') }}</a>
                         </span>
                     </h3>
 
@@ -217,12 +216,12 @@
                                 {{-- <button style="color: blue; " type="button" class="btn btn-light">INICIAR SESIÓN</button> --}}
 
                                 {{-- <a href="{{ route('register') }}" class="nav-link d-lg-none">REGISTRARSE</a> --}}
+                                <a href="{{ route('login') }}" class="btn btn-light">
+                                    {{ __('INICIAR SESIÓN') }}
+                                </a>
                                 <a style="background-color: #dc2626; color: white;" href="{{ route('register') }}"
                                     class="btn btn-danger">
-                                    REGISTRARSE
-                                </a>
-                                <a href="{{ route('login') }}" class="btn btn-light">
-                                    INICIAR SESIÓN
+                                    {{ __('REGISTRARSE') }}
                                 </a>
                             @endif
                         @endauth
