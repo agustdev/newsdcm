@@ -35,8 +35,8 @@
             <div>
                 <strong>COMANDO NAVAL DE CAPITANIAS DE PUERTOS Y AUTORIDAD MARITIMA</strong><br><br>
                 <strong>ARMADA DE REPÚBLICA DOMINICANA</strong><br><br>
-                <strong>SISTEMA ADMINISTRATIVO DE CONDUCE Y DESPACHO DE EMBARCACIONES</strong><br>
-                {{-- <strong>(SDCM)</strong> --}}
+                <strong>SISTEMA CONDUCE Y DESPACHO DE EMBARCACIONES</strong><br>
+                <strong>(SISCODEM)</strong>
             </div><br>
             <strong>ENTRADA INTERNACIONAL</strong><br>
             <strong>E-TICKET</strong>
