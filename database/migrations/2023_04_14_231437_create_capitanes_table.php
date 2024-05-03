@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('capitanes', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 50)->comment('Nombre del capitan');
+            $table->string('tipo_documento', 15)->comment('Cedula o Pasaporte');
             $table->string('documento', 15)->comment('Cedula o Pasaporte del capitan');
             $table->string('telefono', 25)->comment('Telefono del capitan');
             $table->string('nacionalidad');

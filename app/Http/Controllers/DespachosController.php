@@ -17,8 +17,8 @@ class DespachosController extends Controller
      */
     public function index()
     {
-        $despachos = Movimientos::where('tipo_movimiento', 'D')->orderBy('id', 'desc')->get();
-        // $user = auth()->user()->movimientos;
+        // $despachos = Movimientos::where('tipo_movimiento', 'D')->orderBy('id', 'desc')->get();
+        $despachos = auth()->user()->movimientos()->where('tipo_movimiento', 'D')->orderBy('id', 'desc')->get();
         // return response()->json($despachos);
         return view('movimientos.despachos.index', compact('despachos'));
     }

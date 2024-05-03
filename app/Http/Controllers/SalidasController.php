@@ -22,7 +22,8 @@ class SalidasController extends Controller
      */
     public function index()
     {
-        $salidas = Movimientos::where('tipo_movimiento', 'S')->orderBy('id', 'desc')->get();
+        // $salidas = Movimientos::where('tipo_movimiento', 'S')->orderBy('id', 'desc')->get();
+        $salidas = auth()->user()->movimientos()->where('tipo_movimiento', 'S')->orderBy('id', 'desc')->get();
         return view('movimientos.salidas.index', compact('salidas'));
     }
 

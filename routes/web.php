@@ -6,6 +6,7 @@ use App\Http\Controllers\EmbarcacioneController;
 use App\Http\Controllers\ConducesController;
 use App\Http\Controllers\ConsultasController;
 use App\Http\Controllers\EntradasController;
+use App\Http\Controllers\LangController;
 use App\Http\Controllers\SalidasController;
 use App\Http\Controllers\MovimientosController;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::post('lang_change', [LangController::class, 'switchLang'])->name('lang.switch');
 Route::post('/consulta_cedula', [ConsultasController::class, 'consultar'])->name('consultar.cedula');
 Route::get('/consulta_pasaporte', [ConsultasController::class, 'consult_passport'])->name('consultar.pasaporte');
 Route::get('/verificacion/{solicitud}/solicitud', [ConsultasController::class, 'verificacionSolicitud'])->name('verificacion.solicitud');

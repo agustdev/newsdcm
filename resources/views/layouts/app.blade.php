@@ -47,10 +47,11 @@
         <div class="content">
             <!-- Topbar Start -->
             <div class="navbar-custom">
+
                 <ul class="list-unstyled topbar-menu float-end mb-0">
-                    <li class="dropdown notification-list d-lg-none">
-                        <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="false" aria-expanded="false">
+                    {{-- <li class="dropdown notification-list d-lg-none">
+                        <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="false" aria-expanded="false">
                             <i class="dripicons-search noti-icon"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
@@ -59,7 +60,7 @@
                                     aria-label="Recipient's username">
                             </form>
                         </div>
-                    </li>
+                    </li> --}}
 
                     {{-- notifications --}}
                     {{-- <x-notifications-admin></x-notifications-admin> --}}
@@ -67,44 +68,72 @@
 
 
                     <li class="dropdown notification-list">
-                        <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#"
-                            role="button" aria-haspopup="false" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown"
+                            href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                            <span class="account-user-avatar">
-                                <img src="{{ Auth::user()->profile_photo_url }}" alt="user-image"
-                                    class="rounded-circle">
-                            </span>
-                            <span>
-                                <span class="account-user-name">{{ Auth::user()->name }}</span>
-                                {{-- <span class="account-position">{{ !empty(Auth::user()->roles)?
+                                <span class="account-user-avatar">
+                                    <img src="{{ Auth::user()->profile_photo_url }}" alt="user-image"
+                                        class="rounded-circle">
+                                </span>
+                                <span>
+                                    <span class="account-user-name mt-2">{{ Auth::user()->name }}</span>
+                                    {{-- <span class="account-position">{{ !empty(Auth::user()->roles)?
                                     Auth::user()->roles()->first()->name: '' }}</span> --}}
-                            </span>
+                                </span>
                             @else
-                            <span>
-                                <span class="account-user-name">{{ Auth::user()->name }}</span>
-                                {{-- <span class="account-position">{{ !empty(Auth::user()->roles)?
+                                <span>
+                                    <span class="account-user-name">{{ Auth::user()->name }}</span>
+                                    {{-- <span class="account-position">{{ !empty(Auth::user()->roles)?
                                     Auth::user()->roles()->first()->name: '' }}</span> --}}
-                            </span>
+                                </span>
                             @endif
                         </a>
                         <div
                             class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
                             <!-- item-->
                             <div class=" dropdown-header noti-title">
-                                <h6 class="text-overflow m-0">Administrar cuenta</h6>
+                                <h6 class="text-overflow m-0">{{ __('Administrar cuenta') }}</h6>
                             </div>
                             <a href="{{ route('profile.show') }}" class="dropdown-item"><i
-                                    class="mdi mdi-account-cog me-1"></i>Perfil</a>
+                                    class="mdi mdi-account-cog me-1"></i>{{ __('Perfil') }}</a>
                             <!-- item-->
                             <a href="{{ route('logout') }}" class="dropdown-item notify-item"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="mdi mdi-logout me-1"></i>
-                                <span>Cerrar Sesión</span>
+                                <span>{{ __('Cerrar Sesión') }}</span>
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
                         </div>
+                    </li>
+
+                </ul>
+
+                <ul class="list-unstyled topbar-menu float-end mb-0 mt-2">
+
+                    <li class="dropdown notification-list">
+                        <form action="{{ route('lang.switch') }}" method="POST">
+                            @csrf
+                            <select onchange="this.form.submit()" name="language" id="language"
+                                class="mr-2 mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 mb-6 changeLang">
+                                @foreach (Config::get('languages') as $lang => $language)
+                                    <option value="{{ $language['flag'] }}"
+                                        {{ app()->getLocale() === $language['flag'] ? 'selected' : '' }}
+                                        data-img="{{ asset('images/' . $language['image']) }}">
+                                        {{ $language['display'] }}</option>
+                                @endforeach
+                                {{-- <option data-img-width="24px" data-img-height="24px" value="es"
+                                    {{ session()->get('locale') == 'es' ? 'selected' : '' }}
+                                    data-img="{{ asset('images/do.svg') }}"> ESPAÑOL</option>
+                                <option data-img-width="24px" data-img-height="24px" value="en"
+                                    {{ session()->get('locale') == 'en' ? 'selected' : '' }}
+                                    data-img="{{ asset('images/en.svg') }}">ENGLISH</option>
+                                <option data-img-width="24px" data-img-height="24px" value="fr"
+                                    {{ session()->get('locale') == 'fr' ? 'selected' : '' }}
+                                    data-img="{{ asset('images/fr.svg') }}"></option> --}}
+                            </select>
+                        </form>
                     </li>
 
                 </ul>
@@ -184,7 +213,7 @@
                             </div>
                             <h4 class="page-title">
                                 @if (isset($header))
-                                {{ $header }}
+                                    {{ $header }}
                                 @endif
                             </h4>
                         </div>

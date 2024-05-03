@@ -1,0 +1,33 @@
+{
+    "id": 9,
+    "fecha": "2023-04-23",
+    "tipo_movimiento": "D",
+    "nombre": "Dorothy Berge",
+    "matricula": "#23B2E7",
+    "numero_casco": "115960",
+    "color": "azul",
+    "estado": "Rechazado",
+    "vcode": "049BE4",
+    "emb_id": 1,
+    "user_id": 1,
+    "url_id": "d4a74351-1119-45c7-894f-f62a0069582e",
+    "created_at": "2023-04-23T18:41:50.000000Z",
+    "updated_at": "2023-04-23T18:41:50.000000Z",
+    "capitan": {
+        "id": 10,
+        "nombre": "Mylene Trantow",
+        "documento": "36709",
+        "telefono": "27564",
+        "nacionalidad": "DOMINICANO",
+        "motivo_viaje": "Eaque veritatis aperiam aut nostrum. Architecto dolores et perferendis suscipit necessitatibus eum. Eos blanditiis ut et rerum omnis.",
+        "lugar_destino": "Guy Kerluke",
+        "lugar_salida": "Santo Domingo",
+        "cantidad_tripulantes": 6,
+        "cantidad_pasajeros": 7,
+        "mov_id": 9,
+        "dest_sa_id": 7,
+        "dest_ll_id": 2,
+        "created_at": "2023-04-23T18:41:50.000000Z",
+        "updated_at": "2023-04-23T18:41:50.000000Z"
+    }
+}

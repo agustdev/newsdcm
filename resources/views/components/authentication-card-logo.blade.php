@@ -4,7 +4,11 @@
         alt="">
     {{--
     </div> --}}
-    <h2 class="h2 text-center mt-5 text-bold text-yellow-400">SISTEMA ADMINISTRRATIVO DE CONTROL MARITIMO <br> (SACOM),
-        ARD
-    </h2>
+    <h1 class="h2 text-center mt-5 text-bold text-white uppercase">
+        ARMADA DE REPúBLICA DOMINICANA <br>
+        SISTEMA DE CONDUCE Y DESPACHO DE
+        EMBARCACIONES
+        <br>
+        (SISCODEM)
+    </h1>
 </a>

@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('color', 150)->comment('Color de la embarcacion');
             $table->integer('capacidad_personas')->length(50)->comment('Cantidad de personas que soporta la embarcacion');
             $table->integer('capacidad_tripulantes')->length(50)->comment('Cantidad de tripulantes que soporta la embarcacion');
+            $table->string('marca_modelo_motor')->length(100)->comment('Marca del motor de la embarcacion');
+            $table->string('caballos_fuerza_motor')->length(10)->comment('Cantidad caballos de fuerza del motor de la embarcacion');
+            $table->string('no_motor')->length(100)->comment('Numero del motor');
             $table->enum('estatus', ['A', 'I'])->comment('Estado de la matricula de la embarcacion');
             $table->integer('pies_eslora')->length(40)->default(0);
             $table->integer('pulg_eslora')->length(40)->default(0);
@@ -40,8 +43,7 @@ return new class extends Migration
             $table->string('dir_propietario')->comment('Direccion del propietario de la embarcacion');
             $table->date('fecha_validez')->comment('Fecha de validez de la matricula de la embarcacion');
             $table->integer('impedimento')->length(5)->unsigned();
-            $table->integer('internacional')->length(5)->unsigned()->default(0)->comment('Indicador si es una embarcacion temporal internacional');
-            $table->integer('inter_estado')->length(5)->unsigned()->default(0)->comment('Indicador si ya la embarcacion salio del pais');
+
             $table->timestamps();
         });
     }
