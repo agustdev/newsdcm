@@ -27,7 +27,7 @@
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <x-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Recordar') }}</span>
+                    <span class="ml-2 text-sm text-black font-bold">{{ __('Recordar') }}</span>
                 </label>
             </div>
             <div class="flex items-center justify-center mt-4">
@@ -38,11 +38,14 @@
                 <x-button-link href="{{ route('register') }}">
                     {{ __('Registro') }}
                 </x-button-link>
+<x-custom-link>
+
+</x-custom-link>
 
             </div>
             <div class="mt-4 flex items-center justify-center">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    <a class="underline text-sm text-black font-bold hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                         href="{{ route('password.request') }}">
                         {{ __('¿Olvidaste tu contraseña?') }}
                     </a>
