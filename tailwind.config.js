@@ -1,5 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
-
+const colors = require('tailwindcss/colors');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
@@ -10,10 +10,14 @@ module.exports = {
     ],
 
     theme: {
+       
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                azulito: '#1089FF',
+                        },
         },
     },
 
