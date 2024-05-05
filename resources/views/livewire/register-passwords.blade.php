@@ -5,7 +5,7 @@
     </div>
     <div class="flex mt-1 mb-2">
         <div class="relative flex-1 col-span-4" x-data="{ show: true }">
-            <input id="password" class="block mt-1 w-full" name="password" required :type="show ? 'password' : 'text'"
+            <input id="password" class="block mt-1 w-full rounded-md" name="password" required :type="show ? 'password' : 'text'"
                 wire:model="password" />
 
             <button type="button" class="flex absolute inset-y-0 right-0 items-center pr-3" @click="show = !show"
