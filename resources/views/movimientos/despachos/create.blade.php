@@ -4,7 +4,7 @@
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
     @endpush
     <x-slot name="header">
-        <h2 class="h2 mb-3 mt-2">
+        <h2 class="h2 mb-3 mt-4 text-center">
             {{ __('Solicitud Despacho') }}
         </h2>
     </x-slot>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row g-2">
-                        <div class="alert alert-warning" role="alert">
+                        <div class="alert" role="alert">
                             <div class="inline-block float-start">
                                 <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
                             </div>
@@ -42,11 +42,11 @@
                             </div>
                         </div>
                         <div class="col-md">
-                            <div class="form-floating mb-2">
+                            <div class="form-floating mb-1">
                                 {{-- <input type="text" class="form-control matricula" id="floatinMatricula"
                                     placeholder="MATRICULA" name="matricula" /> --}}
 
-                                <select name="matricula" class="form-select emb_matricula" id="floatinMatricula">
+                                <select name="matricula" class="form-select emb_matricula rounded-md" id="floatinMatricula">
                                     @if ($embarcaciones->count() > 0)
                                         <option value="">- Seleccione -</option>
                                         @foreach ($embarcaciones as $embarcacion)
@@ -61,50 +61,54 @@
                             </div>
                         </div>
                         <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control nombre_emb" id="floatingNombreEmbarcacion"
+                            <div class="form-floating mb-1">
+                                <input type="text" class="form-control nombre_emb rounded-md" id="floatingNombreEmbarcacion"
                                     placeholder="{{ __('NOMBRE DE LA EMBARCACIÓN') }}" name="nombre" readonly />
                                 <label for="floatingNombreEmbarcacion">{{ __('NOMBRE DE LA EMBARCACIÓN') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control numero_casco" id="floatingNumeroCasco"
+                            <div class="form-floating mb-1">
+                                <input type="text" class="form-control numero_casco rounded-md" id="floatingNumeroCasco"
                                     placeholder="NUMERO DE CASCO" name="numero_casco" readonly />
                                 <label for="floatingNumeroCasco">NÚMERO DE CASCO</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
-                                <input type="text" class="form-control color" id="floatingColor"
+                                <input type="text" class="form-control color rounded-md" id="floatingColor"
                                     placeholder="{{ __('COLOR DE LA EMBARCACIÓN') }}" readonly name="color" />
                                 <label for="floatingColor">{{ __('COLOR') }}</label>
                             </div>
                         </div>
-                        <div class="row ">
-                            <span
+                        
+                         {{-- <span
                                 class="uppercase bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
                                 {{ __('INFORMACIóN DEL MOTOR DE LA EMBARCACIóN') }}
-                            </span>
-                            <div class="col-md">
+                            </span> --}}
+                            {{-- recordar que antes tenia un row --}}
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                            {{-- recordar que antes tenia un row --}}
+                           {{-- ahora quitare los col-md para ver si soluciono lo que quiero --}}
+                            <div class="">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control marca_motor" id="floatingColor"
+                                    <input type="text" class="form-control marca_motor rounded-md" id="floatingColor"
                                         placeholder="{{ __('MARCA MOTOR DE LA EMBARCACIÓN') }}" readonly
                                         name="marca_modelo_motor" />
                                     <label for="floatingColor">{{ __('MARCA') }}</label>
                                 </div>
                             </div>
-                            <div class="col-md">
+                            <div class="">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control caballos_motor" id="floatingColor"
+                                    <input type="text" class="form-control caballos_motor rounded-md" id="floatingColor"
                                         placeholder="{{ __('CABALLOS DE FUERZA MOTOR DE LA EMBARCACIÓN') }}" readonly
                                         name="caballos_fuerza_motor" />
                                     <label for="floatingColor">{{ __('CABALLOS DE FUERZA') }} </label>
                                 </div>
                             </div>
-                            <div class="col-md">
+                            <div class="">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control numero_motor" id="floatingColor"
+                                    <input type="text" class="form-control numero_motor rounded-md" id="floatingColor"
                                         placeholder="{{ __('NÚMERO DE MOTOR') }}" readonly name="no_motor" />
                                     <label for="floatingColor">{{ __('NÚMERO DE MOTOR') }}</label>
                                 </div>
@@ -112,8 +116,8 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="alert alert-info mt-2" role="alert">
+                    <div class="row g-2">
+                        <div class="alert mt-4" role="alert">
                             <strong>{{ __('INFORMACIÓN DEL CAPITÁN') }}</strong>
                             <div role="status" class="spin-cap float-end hidden">
                                 <svg aria-hidden="true"
@@ -131,7 +135,7 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select class="form-select tipo_documento" name="tipo_documento" id="floatingSelect">
+                                <select class="form-select tipo_documento rounded-md" name="tipo_documento" id="floatingSelect">
                                     <option>- {{ __('Seleccione') }} -</option>
                                     <option value="cedula">{{ __('Cédula') }}</option>
                                     <option value="pasaporte">{{ __('Pasaporte') }}</option>
@@ -141,14 +145,14 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control documento" id="floatinDocumento"
+                                <input type="text" class="form-control documento rounded-md" id="floatinDocumento"
                                     placeholder="Documento" name="documento" />
                                 <label for="floatinMatricula">{{ __('DOCUMENTO DE IDENTIDAD DEL CAPITÁN') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control nombre_capitan" id="floatingNombreCapitan"
+                                <input type="text" class="form-control nombre_capitan rounded-md" id="floatingNombreCapitan"
                                     placeholder="{{ __('NOMBRE Y APELLIDO DEL CAPITÁN') }}" value=""
                                     name="nombre_capitan" />
                                 <label
@@ -158,7 +162,7 @@
 
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select name="nacionalidad" class="form-select nacionalidad" id="" required>
+                                <select name="nacionalidad" class="form-select nacionalidad rounded-md" id="" required>
                                     <option value="">- Seleccione -</option>
                                     <option value="DOMINICANO">DOMINICANO</option>
                                     <option value="FRANCES">FRANCES</option>
@@ -174,14 +178,14 @@
                     <div class="row">
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control telefono" id="floatingNombreEmbarcacion"
+                                <input type="text" class="form-control telefono rounded-md" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="telefono" />
                                 <label for="floatingNombreEmbarcacion">TELÉFONO DEL CAPITÁN</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select name="motivo_viaje" class="form-select" id="" required>
+                                <select name="motivo_viaje" class="form-select rounded-md" id="" required>
                                     <option value="">- Seleccione motivo del viaje -</option>
                                     <option value="TURISMO">TURISMO</option>
                                     <option value="RECREO">RECREO</option>
@@ -195,14 +199,14 @@
                     <div class="row">
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="date" class="form-control" id="floatingFecha" placeholder="FECHA"
+                                <input type="date" class="form-control rounded-md" id="floatingFecha" placeholder="FECHA"
                                     name="fecha" min="{{ date('Y-m-d') }}" />
                                 <label for="floatingFecha">FECHA SALIDA</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select class="form-select" name="lugar_salida" id="floatingSelect">
+                                <select class="form-select rounded-md" name="lugar_salida" id="floatingSelect">
                                     <option>- Seleccione -</option>
                                     @foreach ($destinos as $dest)
                                         <option value="{{ $dest->id }}|{{ $dest->descripcion }}">
@@ -216,7 +220,7 @@
 
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select class="form-select" name="lugar_destino" id="floatingSelect">
+                                <select class="form-select rounded-md" name="lugar_destino" id="floatingSelect">
                                     <option>- Seleccione -</option>
                                     @foreach ($destinos as $dest)
                                         <option value="{{ $dest->id }}|{{ $dest->descripcion }}">
@@ -230,15 +234,15 @@
                     </div>
                     <div class="row">
                         <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="number" class="form-control" id="floatingNombreEmbarcacion"
+                            <div class="form-floating mb-2 ">
+                                <input type="number" class="form-control rounded-md" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="cantidad_tripulantes" />
                                 <label for="floatingNombreEmbarcacion">CANTIDAD TRIPULANTES</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="number" class="form-control" id="floatinMatricula"
+                                <input type="number" class="form-control rounded-md" id="floatinMatricula"
                                     placeholder="CANTIDAD PASAJEROS" name="cantidad_pasajeros"
                                     name="cantidad_pasajeros" />
                                 <label for="floatinMatricula">CANTIDAD PASAJEROS</label>
@@ -261,6 +265,10 @@
             <input type="hidden" name="user" value="{{ auth()->user()->id }}">
 
         </form>
+    </div>
+{{-- probando otro formulario de solicitud pero sin dañar el anterior --}}
+    <div class="">
+
     </div>
     @push('js')
         <script>

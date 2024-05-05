@@ -4,7 +4,7 @@
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
     @endpush
     <x-slot name="header">
-        <h2 class="h2 mb-3 mt-2">
+        <h2 class="h2 mb-3 mt-2>
             {{ __('Solicitud Despacho') }}
         </h2>
     </x-slot>
@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <div class="row g-2">
                         <div class="alert alert-warning" role="alert">
-                            <strong>INFORMACIÓN DE LA EMBARCACIÓN</strong>
+                            <strong>INFORMACIÓN DE LA EMBARCACIÓN </strong>
                             <div role="status" class="spin-matricula float-end hidden">
                                 <svg aria-hidden="true"
                                     class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-700"
