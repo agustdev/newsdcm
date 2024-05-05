@@ -82,6 +82,7 @@
                             </div>
                         </div>
                         
+                        
                          {{-- <span
                                 class="uppercase bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
                                 {{ __('INFORMACIóN DEL MOTOR DE LA EMBARCACIóN') }}
@@ -106,6 +107,7 @@
                                     <label for="floatingColor">{{ __('CABALLOS DE FUERZA') }} </label>
                                 </div>
                             </div>
+
                             <div class="">
                                 <div class="form-floating">
                                     <input type="text" class="form-control numero_motor rounded-md" id="floatingColor"
@@ -116,8 +118,11 @@
                         </div>
                     </div>
 
+                    <hr class="border-t border-slate-200 my-4">
+
+
                     <div class="row g-2">
-                        <div class="alert mt-4" role="alert">
+                        <div class="alert mt-0" role="alert">
                             <strong>{{ __('INFORMACIÓN DEL CAPITÁN') }}</strong>
                             <div role="status" class="spin-cap float-end hidden">
                                 <svg aria-hidden="true"
@@ -254,10 +259,10 @@
                 <div class="card-footer">
                     <div class="float-end">
                         <a href="{{ route('movimientos.despachos.index') }}"
-                            class="inline-flex items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">Atras</a>
+                            class="inline-flex items-center px-3 py-2 bg-slate-300 border border-transparent rounded-md font-semibold text-xs text-black uppercase tracking-widest hover:bg-slate-400 focus:bg-slate-500 active:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">Atras</a>
                         <button type="submit"
-                            class="inline-flex items-center justify-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 active:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150 disabled:opacity-25 send"><i
-                                class="mdi mdi-send mr-2"></i> Enviar</button>
+                            class="inline-flex items-center justify-center px-4 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 transition ease-in-out duration-150 disabled:opacity-25 send"> Enviar<i
+                                class="mdi mdi-send ml-2"></i></button>
                     </div>
                 </div>
             </div>
