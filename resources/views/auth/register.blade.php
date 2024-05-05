@@ -70,9 +70,8 @@
             @endif
 
             <div class="flex items-center justify-center mt-4">
-                <a class="inline-flex items-center px-3 py-2 bg-white-800 border
-                border-blue-800 rounded-md font-semibold text-xs text-blue uppercase tracking-widest hover:bg-gray-300 
-                focus:bg-blue-700 active:bg-blue-900 active:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                <a class="inline-flex items-center px-3 py-2 bg-azulito rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 
+                focus:bg-blue-800 active:bg-blue-900 active:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
                 transition ease-in-out duration-150 ml-1"
                     href="{{ route('login') }}">
                     {{ __('¿Ya registrado?') }}

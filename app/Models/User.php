@@ -66,8 +66,18 @@ class User extends Authenticatable
         return $this->hasMany(Movimientos::class);
     }
 
+    public function movimientos_internacionales()
+    {
+        return $this->hasMany(MovimientosInternacionales::class);
+    }
+
     public function embarcaciones()
     {
         return $this->hasMany(Embarcaciones::class, 'no_documento', 'documento');
+    }
+
+    public function embarcaciones_internacionales()
+    {
+        return $this->hasMany(EmbarcacionesInternacionales::class, 'no_documento', 'documento');
     }
 }
