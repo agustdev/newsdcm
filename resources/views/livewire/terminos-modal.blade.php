@@ -1,6 +1,6 @@
 <div>
     <a wire:click.prevent="$set('terminoModal', true)" href="#"
-        class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">'
+        class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-azulito">
         {{ __('Términos de servicio') }}
     </a>
     <x-dialog-modal-term wire:model="terminoModal">
