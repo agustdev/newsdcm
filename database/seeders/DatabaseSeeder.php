@@ -31,6 +31,14 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('interjak')
         ]);
 
+        \App\Models\User::factory()->create([
+            'name' => 'Jodir Jimenez',
+            'email' => 'jodirjb@gmail.com',
+            'documento' => '402-3986185-5',
+            'is_admin' => '0',
+            'password' => bcrypt('admin777'),
+        ]);
+
         $this->call(EmbarcacionSeeder::class);
         $this->call(DestinosSeeder::class);
         $this->call(MovimientoSeeder::class);
