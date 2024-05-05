@@ -14,7 +14,7 @@ class Capitanes extends Model
     // relación uno a muchos
     public function movimientos()
     {
-        return $this->belongsTo(Movimiento::class);
+        return $this->belongsTo(Movimientos::class);
     }
 
     public function destinos()

@@ -49,7 +49,7 @@
             <div class="navbar-custom">
 
                 <ul class="list-unstyled topbar-menu float-end mb-0">
-                    <li class="dropdown notification-list d-lg-none">
+                    {{-- <li class="dropdown notification-list d-lg-none">
                         <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#"
                             role="button" aria-haspopup="false" aria-expanded="false">
                             <i class="dripicons-search noti-icon"></i>
@@ -60,7 +60,7 @@
                                     aria-label="Recipient's username">
                             </form>
                         </div>
-                    </li>
+                    </li> --}}
 
                     {{-- notifications --}}
                     {{-- <x-notifications-admin></x-notifications-admin> --}}
@@ -92,15 +92,15 @@
                             class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
                             <!-- item-->
                             <div class=" dropdown-header noti-title">
-                                <h6 class="text-overflow m-0">{{__('Administrar cuenta')}}</h6>
+                                <h6 class="text-overflow m-0">{{ __('Administrar cuenta') }}</h6>
                             </div>
                             <a href="{{ route('profile.show') }}" class="dropdown-item"><i
-                                    class="mdi mdi-account-cog me-1"></i>{{__('Perfil')}}</a>
+                                    class="mdi mdi-account-cog me-1"></i>{{ __('Perfil') }}</a>
                             <!-- item-->
                             <a href="{{ route('logout') }}" class="dropdown-item notify-item"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="mdi mdi-logout me-1"></i>
-                                <span>{{__('Cerrar Sesión')}}</span>
+                                <span>{{ __('Cerrar Sesión') }}</span>
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
@@ -109,12 +109,14 @@
                     </li>
 
                 </ul>
+
                 <ul class="list-unstyled topbar-menu float-end mb-0 mt-2">
+
                     <li class="dropdown notification-list">
                         <form action="{{ route('lang.switch') }}" method="POST">
                             @csrf
                             <select onchange="this.form.submit()" name="language" id="language"
-                                class="mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 changeLang">
+                                class="mr-2 mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 mb-6 changeLang">
                                 @foreach (Config::get('languages') as $lang => $language)
                                     <option value="{{ $language['flag'] }}"
                                         {{ app()->getLocale() === $language['flag'] ? 'selected' : '' }}

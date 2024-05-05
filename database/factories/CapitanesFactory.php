@@ -20,6 +20,7 @@ class CapitanesFactory extends Factory
     {
         return [
             'nombre' => $this->faker->name,
+            'tipo_documento' => 'Cedula',
             'documento' => $this->faker->randomNumber(5),
             'telefono' => $this->faker->randomNumber(5),
             'motivo_viaje' => $this->faker->text(),

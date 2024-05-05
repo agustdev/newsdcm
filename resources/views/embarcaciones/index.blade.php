@@ -22,7 +22,7 @@
         {{-- {{ dd(auth()->user()->movimientos) }} --}}
         @php
             $embarcaciones = auth()->user()->embarcaciones->where('internacional', 0);
-            $emb_internacionales = auth()->user()->embarcaciones->where('internacional', 1)->where('inter_estado', 0);
+            $emb_internacionales = auth()->user()->embarcaciones_internacionales;
         @endphp
         @foreach ($embarcaciones as $emb)
             <div class="col-xxl-3 col-lg-6">

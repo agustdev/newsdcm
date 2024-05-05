@@ -14,10 +14,13 @@ return new class extends Migration
         Schema::create('movimientos', function (Blueprint $table) {
             $table->id();
             $table->date('fecha')->comment('Fecha de salida');
-            $table->enum('tipo_movimiento', ['D', 'C', 'E', 'S'])->comment('D => Despacho, C => Conduce, E => Entrada, S => Salida');
+            $table->enum('tipo_movimiento', ['D', 'C'])->comment('D => Despacho, C => Conduce');
             $table->string('nombre')->comment('Nombre de la embarcación');
             $table->string('matricula')->comment('Matricula de la embarcación');
             $table->string('numero_casco')->comment('Numero de casco de la embarcación');
+            $table->string('marca_modelo_motor')->length(100)->comment('Marca del motor de la embarcacion');
+            $table->string('caballos_fuerza_motor')->length(10)->comment('Cantidad caballos de fuerza del motor de la embarcacion');
+            $table->string('no_motor')->length(100)->comment('Numero del motor');
             $table->string('color')->comment('Color de la embarcación');
             $table->string('estado')->comment('Estado de la solicitud');
             $table->string('estado_alerta')->comment('Estado de la alerta');

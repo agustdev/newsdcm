@@ -1,5 +1,5 @@
 <x-app-layout>
-    @section('titulo', 'Solicitud de Despachos')
+    @section('titulo', __('Solicitud de Despachos'))
     @push('css')
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
     @endpush
@@ -16,7 +16,8 @@
             <div class="card">
                 <div class="card-header">
                     <div class="col-lg-12 mb-2">
-                        <h3 class="h4 uppercase">Número de solicitud: {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
+                        <h3 class="h4 uppercase">{{ __('Número de solicitud') }}:
+                            {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
                         </h3>
                     </div>
                 </div>
@@ -24,7 +25,7 @@
                     <div class="row g-2">
                         <div class="alert alert-warning" role="alert">
                             <div class="inline-block float-start">
-                                <strong>INFORMACIÓN DE LA EMBARCACIÓN</strong>
+                                <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
                             </div>
                             <div role="status" class="spin-matricula float-end hidden">
                                 <svg aria-hidden="true"
@@ -56,14 +57,14 @@
                                         <option value="">- Sin embarcaciones disponible -</option>
                                     @endif
                                 </select>
-                                <label for="floatinMatricula">MATRÍCULA</label>
+                                <label for="floatinMatricula">{{ __('MATRÍCULA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control nombre_emb" id="floatingNombreEmbarcacion"
-                                    placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" readonly />
-                                <label for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
+                                    placeholder="{{ __('NOMBRE DE LA EMBARCACIÓN') }}" name="nombre" readonly />
+                                <label for="floatingNombreEmbarcacion">{{ __('NOMBRE DE LA EMBARCACIÓN') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -76,36 +77,36 @@
                         <div class="col-md">
                             <div class="form-floating">
                                 <input type="text" class="form-control color" id="floatingColor"
-                                    placeholder="COLOR DE LA EMBARCACIÓN" readonly name="color" />
-                                <label for="floatingColor">COLOR</label>
+                                    placeholder="{{ __('COLOR DE LA EMBARCACIÓN') }}" readonly name="color" />
+                                <label for="floatingColor">{{ __('COLOR') }}</label>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row ">
                             <span
                                 class="uppercase bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
-                                OTRAS INFORMACIONES DE LA EMBARCACIÓN
+                                {{ __('INFORMACIóN DEL MOTOR DE LA EMBARCACIóN') }}
                             </span>
                             <div class="col-md">
                                 <div class="form-floating">
                                     <input type="text" class="form-control marca_motor" id="floatingColor"
-                                        placeholder="MARCA MOTOR DE LA EMBARCACIÓN" readonly
+                                        placeholder="{{ __('MARCA MOTOR DE LA EMBARCACIÓN') }}" readonly
                                         name="marca_modelo_motor" />
-                                    <label for="floatingColor">MARCA MOTOR DE LA EMBARCACIÓN</label>
+                                    <label for="floatingColor">{{ __('MARCA') }}</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating">
                                     <input type="text" class="form-control caballos_motor" id="floatingColor"
-                                        placeholder="CABALLOS DE FUERZA MOTOR DE LA EMBARCACIÓN" readonly
+                                        placeholder="{{ __('CABALLOS DE FUERZA MOTOR DE LA EMBARCACIÓN') }}" readonly
                                         name="caballos_fuerza_motor" />
-                                    <label for="floatingColor">CABALLOS DE FUERZA MOTOR DE LA EMBARCACIÓN</label>
+                                    <label for="floatingColor">{{ __('CABALLOS DE FUERZA') }} </label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating">
                                     <input type="text" class="form-control numero_motor" id="floatingColor"
-                                        placeholder="NUMERO DE MOTOR" readonly name="no_motor" />
-                                    <label for="floatingColor">NÚMERO DE MOTOR</label>
+                                        placeholder="{{ __('NÚMERO DE MOTOR') }}" readonly name="no_motor" />
+                                    <label for="floatingColor">{{ __('NÚMERO DE MOTOR') }}</label>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +114,7 @@
 
                     <div class="row">
                         <div class="alert alert-info mt-2" role="alert">
-                            <strong>INFORMACIÓN DEL CAPITÁN</strong>
+                            <strong>{{ __('INFORMACIÓN DEL CAPITÁN') }}</strong>
                             <div role="status" class="spin-cap float-end hidden">
                                 <svg aria-hidden="true"
                                     class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-700"
@@ -131,26 +132,27 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select tipo_documento" name="tipo_documento" id="floatingSelect">
-                                    <option>- Seleccione -</option>
-                                    <option value="cedula">Cédula</option>
-                                    <option value="pasaporte">Pasaporte</option>
+                                    <option>- {{ __('Seleccione') }} -</option>
+                                    <option value="cedula">{{ __('Cédula') }}</option>
+                                    <option value="pasaporte">{{ __('Pasaporte') }}</option>
                                 </select>
-                                <label for="floatinMatricula">TIPO DE DOCUMENTO</label>
+                                <label for="floatinMatricula">{{ __('TIPO DE DOCUMENTO') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control documento" id="floatinDocumento"
                                     placeholder="Documento" name="documento" />
-                                <label for="floatinMatricula">DOCUMENTO DE IDENTIDAD DEL CAPITÁN</label>
+                                <label for="floatinMatricula">{{ __('DOCUMENTO DE IDENTIDAD DEL CAPITÁN') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control nombre_capitan" id="floatingNombreCapitan"
-                                    placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value=""
+                                    placeholder="{{ __('NOMBRE Y APELLIDO DEL CAPITÁN') }}" value=""
                                     name="nombre_capitan" />
-                                <label for="floatingNombreEmbarcacion">NOMBRE Y APELLIDO DEL CAPITÁN</label>
+                                <label
+                                    for="floatingNombreEmbarcacion">{{ __('NOMBRE Y APELLIDO DEL CAPITÁN') }}</label>
                             </div>
                         </div>
 
@@ -164,7 +166,7 @@
                                     <option value="RUSO">RUSO</option>
                                     <option value="ITALIANO">ITALIANO</option>
                                 </select>
-                                <label for="floatinMatricula">NACIONALIDAD DEL CAPITÁN</label>
+                                <label for="floatinMatricula">{{ __('NACIONALIDAD DEL CAPITÁN') }}</label>
                             </div>
                         </div>
 
@@ -340,6 +342,13 @@
                         $('button').attr('disabled', false);
                     }
                 });
+            });
+
+            $('input').prop('required', true);
+            $('select').prop('required', true);
+
+            $('[required]').css({
+                'border-left': '2px solid red'
             });
         </script>
     @endpush

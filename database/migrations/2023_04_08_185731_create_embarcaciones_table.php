@@ -43,8 +43,7 @@ return new class extends Migration
             $table->string('dir_propietario')->comment('Direccion del propietario de la embarcacion');
             $table->date('fecha_validez')->comment('Fecha de validez de la matricula de la embarcacion');
             $table->integer('impedimento')->length(5)->unsigned();
-            $table->integer('internacional')->length(5)->unsigned()->default(0)->comment('Indicador si es una embarcacion temporal internacional');
-            $table->integer('inter_estado')->length(5)->unsigned()->default(0)->comment('Indicador si ya la embarcacion salio del pais');
+
             $table->timestamps();
         });
     }
