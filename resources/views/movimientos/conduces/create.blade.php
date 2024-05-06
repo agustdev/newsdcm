@@ -117,7 +117,7 @@
                     </div>
 
                     {{-- texto  para informacion del conductor --}}
-                    <div class="alert alert-info mt-2" role="alert">
+                    <div class="alert mt-2" role="alert">
                             <strong>INFORMACIÓN DEL CONDUCTOR / VEHÍCULO / DESTINO</strong>
                             <div role="status" class="spin-cap float-end hidden">
                                 <svg aria-hidden="true"
