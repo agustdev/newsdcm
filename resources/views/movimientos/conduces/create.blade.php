@@ -4,7 +4,7 @@
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
     @endpush
     <x-slot name="header">
-        <h2 class="h2 mb-3 mt-2">
+        <h2 class="h2 mb-3 mt-4 text-center">
             {{ __('Solicitud de Conduce') }}
         </h2>
     </x-slot>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row g-2">
-                        <div class="alert alert-warning" role="alert">
+                        <div class="alert" role="alert">
                             <strong>INFORMACIÓN DE LA EMBARCACIÓN</strong>
                             <div role="status" class="spin-matricula float-end hidden">
                                 <svg aria-hidden="true"
@@ -42,7 +42,7 @@
                             <div class="form-floating mb-2">
                                 {{-- <input type="text" class="form-control matricula" id="floatinMatricula"
                                     placeholder="MATRICULA" name="matricula" value="" required /> --}}
-                                <select name="matricula" class="form-select emb_matricula" id="floatinMatricula">
+                                <select name="matricula" class="form-select emb_matricula rounded-md" id="floatinMatricula">
                                     @if ($embarcaciones->count() > 0)
                                         <option value="">- Seleccione -</option>
                                         @foreach ($embarcaciones as $embarcacion)
@@ -58,7 +58,7 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control nombre_emb" id="floatingNombreEmbarcacion"
+                                <input type="text" class="form-control nombre_emb rounded-md" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" readonly value=""
                                     required />
                                 <label for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
@@ -66,8 +66,8 @@
                         </div>
 
                         <div class="col-md">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control numero_casco" id="floatingNumeroCasco"
+                            <div class="form-floating mb-2">
+                                <input type="text" class="form-control numero_casco rounded-md" id="floatingNumeroCasco"
                                     placeholder="NUMERO DE CASCO" name="numero_casco" readonly value=""
                                     required />
                                 <label for="floatingNumeroCasco">NUMERO DE CASCO</label>
@@ -75,44 +75,49 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
-                                <input type="text" class="form-control color_emb" id="floatingColor"
+                                <input type="text" class="form-control color_emb rounded-md" id="floatingColor"
                                     placeholder="COLOR DE LA EMBARCACIÓN" readonly name="color_emb" value=""
                                     required />
                                 <label for="floatingColor">COLOR</label>
                             </div>
                         </div>
-                        <div class="row mt-2">
-                            <span
+
+                        {{-- secmento de la informacion de la embarcacion --}}
+ {{-- <span
                                 class="uppercase bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
                                 INFORMACIóN DEL MOTOR DE LA EMBARCACIóN
                             </span>
-                            <div class="col-md mb-2">
+                         --}}
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mt-3">
+                           
+                            <div class="mb-2">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control marca_motor" id="floatingColor"
+                                    <input type="text" class="form-control marca_motor rounded-md" id="floatingColor"
                                         placeholder="MARCA MOTOR DE LA EMBARCACIÓN" readonly
                                         name="marca_modelo_motor" />
                                     <label for="floatingColor">MARCA</label>
                                 </div>
                             </div>
-                            <div class="col-md mb-2">
+                            <div class="mb-2">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control caballos_motor" id="floatingColor"
+                                    <input type="text" class="form-control caballos_motor rounded-md" id="floatingColor"
                                         placeholder="CABALLOS DE FUERZA MOTOR DE LA EMBARCACIÓN" readonly
                                         name="caballos_fuerza_motor" />
                                     <label for="floatingColor">CABALLOS DE FUERZA</label>
                                 </div>
                             </div>
-                            <div class="col-md">
+                            <div class="">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control numero_motor" id="floatingColor"
+                                    <input type="text" class="form-control numero_motor rounded-md" id="floatingColor"
                                         placeholder="NUMERO DE MOTOR" readonly name="no_motor" />
                                     <label for="floatingColor">NÚMERO DE MOTOR</label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="alert alert-info mt-2" role="alert">
+
+                    {{-- texto  para informacion del conductor --}}
+                    <div class="alert alert-info mt-2" role="alert">
                             <strong>INFORMACIÓN DEL CONDUCTOR / VEHÍCULO / DESTINO</strong>
                             <div role="status" class="spin-cap float-end hidden">
                                 <svg aria-hidden="true"
@@ -128,7 +133,13 @@
                                 <span class="sr-only">Loading...</span>
                             </div>
                         </div>
-                        <div class="col-md">
+{{-- fin del texto para la informacion del conductor --}}
+
+{{-- columna para la informacion del conductor --}}
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+                        
+                        <div class="">
                             <div class="form-floating mb-2">
                                 <select class="form-select tipo_documento" name="tipo_documento" id="floatingSelect">
                                     <option>- Seleccione -</option>
@@ -138,14 +149,14 @@
                                 <label for="floatinMatricula">TIPO DE DOCUMENTO</label>
                             </div>
                         </div>
-                        <div class="col-md">
+                        <div class="">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control documento" id="floatinDocumento"
                                     placeholder="Documento" name="documento" required />
                                 <label for="floatinDocumento">DOCUMENTO DE IDENTIDAD DEL CONDUCTOR</label>
                             </div>
                         </div>
-                        <div class="col-md">
+                        <div class="">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control nombre_capitan"
                                     id="floatingNombreConductor" placeholder="NOMBRE Y APELLIDO DEL CONDUCTOR"
@@ -154,7 +165,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md">
+                        <div class="">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control telefono1" id="floatingTelefonoConductor"
                                     placeholder="TELEFONO CONDUCTOR" name="telefono_conductor" value=""
@@ -162,17 +173,17 @@
                                 <label for="floatingTelefonoConductor">TELÉFONO DEL CONDUCTOR</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md">
+                    
+                    <div class="md:col-span-4">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control telefono2" id="floatingTelefono2Conductor"
                                     placeholder="OTRO TELÉFONO DEL CONDUCTOR" name="telefono_conductor_otro"
                                     value="" />
                                 <label for="floatingTelefono2Conductor">OTRO TELÉFONO DEL CONDUCTOR</label>
                             </div>
-                        </div>
                     </div>
+                </div>
+
                     <div class="row">
                         <span class="bg-gray-500  text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded  text-gray-300">
                             DATOS DEL VEHÍCULO</span>
