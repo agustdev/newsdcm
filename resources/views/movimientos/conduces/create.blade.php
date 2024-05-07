@@ -207,7 +207,7 @@
 
 <div class="">
     <div class="form-floating mb-2">
-        <input type="text" class="form-control telefono1" id="floatingTelefonoConductor"
+        <input type="text" class="form-control telefono1 rounded-md" id="floatingTelefonoConductor"
             placeholder="TELEFONO CONDUCTOR" name="telefono_conductor" value=""
             required />
         <label for="floatingTelefonoConductor">TELÉFONO DEL CONDUCTOR</label>
@@ -286,7 +286,7 @@
 <div class="card-header bg-blue-900">
 
     <span
-    class=" text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-yellow-700 dark:text-yellow-300">
+    class=" text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded">
     LUGAR SALIDA
     <div role="status" class="spin float-end hidden">
         <svg aria-hidden="true"
@@ -311,14 +311,14 @@
         
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="date" class="form-control" id="floatingFechaSalida"
+                <input type="date" class="form-control rounded-md" id="floatingFechaSalida"
                     placeholder="FECHA SALIDA" name="fecha_salida" min="{{ date('Y-m-d') }}" />
                 <label for="floatingFechaSalida">FECHA SALIDA</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
-                <select class="form-select" name="provinciasalida"
+                <select class="form-select rounded-md" name="provinciasalida"
                     id="floatingSelectProvinciaSalida">
                     <option>- Seleccione -</option>
                     @foreach ($provincias as $prov)
@@ -332,7 +332,7 @@
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
-                <select class="form-select" name="municipiosalida"
+                <select class="form-select rounded-md" name="municipiosalida"
                     id="floatingSelectMunicipioSalida">
                     <option>- Seleccione -</option>
                 </select>
