@@ -385,7 +385,7 @@
         
         <div class="col-md">
             <div class="form-floating mb-2">
-                <select class="form-select" name="provincia" id="floatingSelectProvincia">
+                <select class="form-select rounded-md" name="provincia" id="floatingSelectProvincia">
                     <option>- Seleccione -</option>
                     @foreach ($provincias as $prov)
                         <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
@@ -399,7 +399,7 @@
 
         <div class="col-md">
             <div class="form-floating mb-2">
-                <select class="form-select" name="municipio" id="floatingSelectMunicipio">
+                <select class="form-select rounded-md" name="municipio" id="floatingSelectMunicipio">
                     <option>- Seleccione -</option>
                 </select>
                 <label for="floatingSelectMunicipio">MUNICIPIO</label>
@@ -417,7 +417,7 @@
 
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatingCalle" placeholder="CALLE"
+                <input type="text" class="form-control rounded-md" id="floatingCalle" placeholder="CALLE"
                     name="calle" />
                 <label for="floatingCalle">CALLE</label>
             </div>
@@ -426,7 +426,7 @@
     <div class="row">
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatinObservacion"
+                <input type="text" class="form-control rounded-md" id="floatinObservacion"
                     placeholder="OBSERVACIÓN" name="observacion" />
                 <label for="floatinObservacion">OBSERVACIÓN</label>
             </div>
