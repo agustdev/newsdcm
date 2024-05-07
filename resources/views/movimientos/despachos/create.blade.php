@@ -24,7 +24,7 @@
 </div>  
             <div class="card">
                 {{-- header de la tarjeta --}}
-                <div class="card-header bg-blue-600">
+                <div class="card-header bg-blue-900">
                     <div class="my-1 ml-1 text-white" role="alert">
                         <div class="inline-block float-start">
                             <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
@@ -146,7 +146,7 @@
 {{-- Segunda Tarjeta --}}
     <div class="card">
         {{-- seccion del header --}}
-        <div class="card-header bg-blue-600 ">
+        <div class="card-header bg-blue-900">
 <div class="my-1 ml-2 text-white" role="alert">
             <strong>{{ __('INFORMACIÓN DEL CAPITÁN') }}</strong>
             <div role="status" class="spin-cap float-end hidden">
