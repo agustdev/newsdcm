@@ -1,6 +1,7 @@
-.bg-custom{
+.bg-custom {
     background-color: rgba(44, 45, 104, 1) !important;
 }
+/* bg-cambiara de color y pondre aquí el color que tenía por si lo quiero volver a poner rgba(44,45,104,1) */
 .border-custom {
     border-color: rgba(44, 45, 104, 1) !important;
     transition: 0.1s;
@@ -29,3 +30,4 @@
     border-color: rgba(87, 89, 170, 1) !important;
     background-color: rgba(44, 45, 104, 1) !important;
 }
+
