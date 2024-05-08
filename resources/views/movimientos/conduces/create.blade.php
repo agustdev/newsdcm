@@ -63,7 +63,7 @@
                                         <option value="">- Sin embarcaciones disponible -</option>
                                     @endif
                                 </select>
-                                <label for="floatinMatricula">MATRÍCULA</label>
+                                <label style="font-size: 10px;" for="floatinMatricula">MATRÍCULA</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -71,7 +71,7 @@
                                 <input type="text" class="form-control nombre_emb rounded-md" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" readonly value=""
                                     required />
-                                <label for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
+                                <label style="font-size: 10px;" for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
                             </div>
                         </div>
 
@@ -80,7 +80,7 @@
                                 <input type="text" class="form-control numero_casco rounded-md" id="floatingNumeroCasco"
                                     placeholder="NUMERO DE CASCO" name="numero_casco" readonly value=""
                                     required />
-                                <label for="floatingNumeroCasco">NUMERO DE CASCO</label>
+                                <label style="font-size: 10px;" for="floatingNumeroCasco">NUMERO DE CASCO</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -88,7 +88,7 @@
                                 <input type="text" class="form-control color_emb rounded-md" id="floatingColor"
                                     placeholder="COLOR DE LA EMBARCACIÓN" readonly name="color_emb" value=""
                                     required />
-                                <label for="floatingColor">COLOR</label>
+                                <label style="font-size: 10px;" for="floatingColor">COLOR</label>
                             </div>
                         </div>
 
@@ -105,7 +105,7 @@
                                     <input type="text" class="form-control marca_motor rounded-md" id="floatingColor"
                                         placeholder="MARCA MOTOR DE LA EMBARCACIÓN" readonly
                                         name="marca_modelo_motor" />
-                                    <label for="floatingColor">MARCA</label>
+                                    <label style="font-size: 10px;" for="floatingColor">MARCA</label>
                                 </div>
                             </div>
                             <div class="mb-2">
@@ -113,14 +113,14 @@
                                     <input type="text" class="form-control caballos_motor rounded-md" id="floatingColor"
                                         placeholder="CABALLOS DE FUERZA MOTOR DE LA EMBARCACIÓN" readonly
                                         name="caballos_fuerza_motor" />
-                                    <label for="floatingColor">CABALLOS DE FUERZA</label>
+                                    <label style="font-size: 10px;" for="floatingColor">CABALLOS DE FUERZA</label>
                                 </div>
                             </div>
                             <div class="">
                                 <div class="form-floating">
                                     <input type="text" class="form-control numero_motor rounded-md" id="floatingColor"
                                         placeholder="NUMERO DE MOTOR" readonly name="no_motor" />
-                                    <label for="floatingColor">NÚMERO DE MOTOR</label>
+                                    <label style="font-size: 10px;" for="floatingColor">NÚMERO DE MOTOR</label>
                                 </div>
                             </div>
                         </div>
@@ -186,14 +186,14 @@
             <option value="cedula">Cédula</option>
             <option value="pasaporte">Pasaporte</option>
         </select>
-        <label for="floatinMatricula">TIPO DE DOCUMENTO</label>
+        <label style="font-size: 10px;" for="floatinMatricula">TIPO DE DOCUMENTO</label>
     </div>
 </div>
 <div class="">
     <div class="form-floating mb-2">
         <input type="text" class="form-control documento rounded-md" id="floatinDocumento"
             placeholder="Documento" name="documento" required />
-        <label for="floatinDocumento">DOCUMENTO DE IDENTIDAD DEL CONDUCTOR</label>
+        <label style="font-size: 10px;" for="floatinDocumento">DOCUMENTO DE IDENTIDAD DEL CONDUCTOR</label>
     </div>
 </div>
 <div class="">
@@ -201,7 +201,7 @@
         <input type="text" class="form-control nombre_capitan rounded-md"
             id="floatingNombreConductor" placeholder="NOMBRE Y APELLIDO DEL CONDUCTOR"
             value="" name="nombre_conductor" required />
-        <label for="floatingNombreConductor">NOMBRE Y APELLIDO DEL CONDUCTOR</label>
+        <label style="font-size: 10px;" for="floatingNombreConductor">NOMBRE Y APELLIDO DEL CONDUCTOR</label>
     </div>
 </div>
 
@@ -210,7 +210,7 @@
         <input type="text" class="form-control telefono1 rounded-md" id="floatingTelefonoConductor"
             placeholder="TELEFONO CONDUCTOR" name="telefono_conductor" value=""
             required />
-        <label for="floatingTelefonoConductor">TELÉFONO DEL CONDUCTOR</label>
+        <label style="font-size: 10px;" for="floatingTelefonoConductor">TELÉFONO DEL CONDUCTOR</label>
     </div>
 </div>
 
@@ -219,7 +219,7 @@
         <input type="text" class="form-control telefono2 rounded-md" id="floatingTelefono2Conductor"
             placeholder="OTRO TELÉFONO DEL CONDUCTOR" name="telefono_conductor_otro"
             value="" />
-        <label for="floatingTelefono2Conductor">OTRO TELÉFONO DEL CONDUCTOR</label>
+        <label style="font-size: 10px;" for="floatingTelefono2Conductor">OTRO TELÉFONO DEL CONDUCTOR</label>
     </div>
 </div>
 </div>
@@ -245,28 +245,28 @@
                 <div class="form-floating mb-2">
                     <input type="text" class="form-control marca rounded-md" id="floatingMarcaModelo"
                         placeholder="NOMBRE DE LA EMBARCACIÓN" name="marca" required />
-                    <label for="floatingMarcaModelo">MARCA Y MODELO</label>
+                    <label style="font-size: 10px;" for="floatingMarcaModelo">MARCA Y MODELO</label>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-floating mb-2">
                     <input type="text" class="form-control color rounded-md" id="floatinColor"
                         placeholder="COLOR" name="color" required />
-                    <label for="floatinColor">COLOR</label>
+                    <label style="font-size: 10px;" for="floatinColor">COLOR</label>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-floating mb-2">
                     <input type="number" class="form-control year rounded-md" id="floatingYear" placeholder="AÑO"
                         name="year" />
-                    <label for="floatingYear">AÑO</label>
+                    <label style="font-size: 10px;" for="floatingYear">AÑO</label>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-floating mb-2">
                     <input type="text" class="form-control placa rounded-md" id="floatingPlaca"
                         placeholder="PLACA" name="placa" />
-                    <label for="floatingPlaca">PLACA</label>
+                    <label style="font-size: 10px;" for="floatingPlaca">PLACA</label>
                 </div>
             </div>
         </div>
@@ -313,7 +313,7 @@
             <div class="form-floating mb-2">
                 <input type="date" class="form-control rounded-md" id="floatingFechaSalida"
                     placeholder="FECHA SALIDA" name="fecha_salida" min="{{ date('Y-m-d') }}" />
-                <label for="floatingFechaSalida">FECHA SALIDA</label>
+                <label style="font-size: 10px;" for="floatingFechaSalida">FECHA SALIDA</label>
             </div>
         </div>
         <div class="col-md">
@@ -327,7 +327,7 @@
                         </option>
                     @endforeach
                 </select>
-                <label for="floatingSelectProvinciaSalida">PROVINCIA SALIDA</label>
+                <label style="font-size: 10px;" for="floatingSelectProvinciaSalida">PROVINCIA SALIDA</label>
             </div>
         </div>
         <div class="col-md">
@@ -336,7 +336,7 @@
                     id="floatingSelectMunicipioSalida">
                     <option>- Seleccione -</option>
                 </select>
-                <label for="floatingSelectMunicipioSalida">MUNICIPIO</label>
+                <label style="font-size: 10px;" for="floatingSelectMunicipioSalida">MUNICIPIO</label>
             </div>
         </div>
     </div>
@@ -393,7 +393,7 @@
                         </option>
                     @endforeach
                 </select>
-                <label for="floatingSelectProvincia">PROVINCIA</label>
+                <label style="font-size: 10px;" for="floatingSelectProvincia">PROVINCIA</label>
             </div>
         </div>
 
@@ -402,14 +402,14 @@
                 <select class="form-select rounded-md" name="municipio" id="floatingSelectMunicipio">
                     <option>- Seleccione -</option>
                 </select>
-                <label for="floatingSelectMunicipio">MUNICIPIO</label>
+                <label style="font-size: 10px;" for="floatingSelectMunicipio">MUNICIPIO</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatingSector" placeholder="SECTOR"
+                <input type="text" class="form-control rounded-md" id="floatingSector" placeholder="SECTOR"
                     name="sector" />
-                <label for="floatingSector">SECTOR</label>
+                <label style="font-size: 10px;" for="floatingSector">SECTOR</label>
             </div>
         </div>
     </div>
@@ -419,7 +419,7 @@
             <div class="form-floating mb-2">
                 <input type="text" class="form-control rounded-md" id="floatingCalle" placeholder="CALLE"
                     name="calle" />
-                <label for="floatingCalle">CALLE</label>
+                <label style="font-size: 10px;" for="floatingCalle">CALLE</label>
             </div>
         </div>
     </div>
@@ -428,7 +428,7 @@
             <div class="form-floating mb-2">
                 <input type="text" class="form-control rounded-md" id="floatinObservacion"
                     placeholder="OBSERVACIÓN" name="observacion" />
-                <label for="floatinObservacion">OBSERVACIÓN</label>
+                <label style="font-size: 10px;" for="floatinObservacion">OBSERVACIÓN</label>
             </div>
         </div>
     </div>
