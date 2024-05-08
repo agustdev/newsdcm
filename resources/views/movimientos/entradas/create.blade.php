@@ -250,7 +250,7 @@
 
 
     <div class="card-body">
-        <div class="row">
+        <div class="row g-2">
             
             <div class="col-md">
                 <div class="form-floating mb-2">
@@ -274,7 +274,7 @@
                     <input type="text" class="form-control nombre_capitan rounded-md" id="floatingNombreCapitan"
                         placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value="" name="nombre_capitan"
                         required />
-                    <label style="font-size 10px;" for="floatingNombreEmbarcacion">NOMBRE Y APELLIDO DEL CAPITÁN</label>
+                    <label style="font-size: 10px;" for="floatingNombreEmbarcacion">NOMBRE Y APELLIDO DEL CAPITÁN</label>
                 </div>
             </div>
             <div class="col-md">
