@@ -4,10 +4,10 @@
     </div> --}}
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input wire:model.defer='nombre' type="text" class="form-control documento" id="floatinDocumento"
+            <input wire:model.defer='nombre' type="text" class="form-control documento rounded-md" id="floatinDocumento"
                 placeholder="Documento" name="documento"
                 @error('nombre') style="border-left: 2px solid red" @enderror />
-            <label for="floatinMatricula">NOMBRE</label>
+            <label style="font-size: 10px;" for="floatinMatricula">NOMBRE</label>
             @error('nombre')
                 <span class="text-red-600">{{ $message }}</span>
             @enderror
@@ -15,10 +15,10 @@
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input wire:model.defer='nacionalidad' type="text" class="form-control nombre_capitan"
+            <input wire:model.defer='nacionalidad' type="text" class="form-control nombre_capitan rounded-md"
                 id="floatingNombreCapitan" placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value=""
                 name="nacionalidad" @error('nacionalidad') style="border-left: 2px solid red" @enderror />
-            <label for="floatingNombreEmbarcacion">NACIONALIDAD</label>
+            <label style="font-size: 10px;" for="floatingNombreEmbarcacion">NACIONALIDAD</label>
             @error('nacionalidad')
                 <span class="text-red-600">{{ $message }}</span>
             @enderror
@@ -27,10 +27,10 @@
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input wire:model.defer='documento' type="text" class="form-control nacionalidad" id="floatinMatricula"
+            <input wire:model.defer='documento' type="text" class="form-control nacionalidad rounded-md" id="floatinMatricula"
                 placeholder="name@example.com" name="documento" value=""
                 @error('documento') style="border-left: 2px solid red" @enderror />
-            <label for="floatinMatricula">DOCUMENTO DE IDENTIDAD</label>
+            <label style="font-size: 10px;" for="floatinMatricula">DOCUMENTO DE IDENTIDAD</label>
             @error('documento')
                 <span class="text-red-600">{{ $message }}</span>
             @enderror
