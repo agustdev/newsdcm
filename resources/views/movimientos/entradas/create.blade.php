@@ -12,7 +12,7 @@
         </h2>
     </x-slot>
     <div class="row g-2">
-        <div class="alert alert-info">
+        <div class="alert alert-info text-black font-black">
             <i class="uil-info-circle"></i>
             {{ __('Este formulario solo es para embarcaciones que provienen de otros paises') }}
         </div>
