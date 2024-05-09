@@ -17,7 +17,7 @@
             {{ __('Este formulario solo es para embarcaciones que provienen de otros paises') }}
         </div>
     </div>
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-body">
         <div class="col-lg-12 mb-2">
                         <h3 class="h4 uppercase">{{ __('Número de solicitud') }}:
@@ -32,7 +32,7 @@
     <div class="row g-2">
         <form action="{{ route('movimientos.entradas.store') }}" method="POST" class="form-inline" autocomplete="off">
             @csrf
-            <div class="card">
+            <div class="card shadow-xl">
                 <div class="card-header bg-blue-900">
                    <div class="text-white" role="alert">
                             <div class="inline-block float-start">
@@ -46,14 +46,14 @@
                         
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control matricula" id="floatinMatricula"
+                                <input type="text" class="form-control matricula rounded-md" id="floatinMatricula"
                                     placeholder="MATRICULA" name="matricula" required />
                                 <label for="floatinMatricula">MATRÍCULA</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control nombre_emb" id="floatingNombreEmbarcacion"
+                                <input type="text" class="form-control nombre_emb rounded-md" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" required />
                                 <label for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
                             </div>
@@ -61,14 +61,14 @@
 
                         <div class="col-md">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control numero_casco" id="floatingNumeroCasco"
+                                <input type="text" class="form-control numero_casco rounded-md" id="floatingNumeroCasco"
                                     placeholder="NUMERO DE CASCO" name="numero_casco" required />
                                 <label for="floatingNumeroCasco">NUMERO DE CASCO</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
-                                <input type="text" class="form-control color" id="floatingColor"
+                                <input type="text" class="form-control color rounded-md" id="floatingColor"
                                     placeholder="COLOR DE LA EMBARCACIÓN" name="color" required />
                                 <label for="floatingColor">COLOR</label>
                             </div>
@@ -90,7 +90,7 @@
     </div>
 
     {{-- Medidas de la embarcacion --}}
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-header bg-blue-900">
 <div class="text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded  dark:text-blue-300"
         role="alert">
@@ -139,7 +139,7 @@
 
 {{-- tipo de embarcacion --}}
 
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-header bg-blue-900">
         <div class="text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded "
         role="alert">
@@ -186,7 +186,7 @@
 {{-- fin de tipo de embarcacion --}}
 
 {{-- datos del motor --}}
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-header bg-blue-900">
         <div class="text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded "
         role="alert">
@@ -238,7 +238,7 @@
 
 
 {{-- informacion del capitan --}}
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-header bg-blue-900">
         <div class="text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded "
         role="alert">
@@ -648,7 +648,7 @@
 
 {{-- datos de los tripulantes --}}
 
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-header bg-blue-900">
 <div class="mt-2 text-white" role="alert">
         <strong>DATOS DE LOS TRIUPLANTES (MAX: <span class="cant-trip">0</span>)</strong>
@@ -664,7 +664,7 @@
 </div>
 
 
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-header bg-blue-900">
 <div class="text-white mt-2" role="alert">
         <strong>DATOS DE LOS PASAJEROS (MAX: <span class="cant-pas">0</span>)</strong>
