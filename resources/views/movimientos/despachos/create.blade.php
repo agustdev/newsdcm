@@ -13,7 +13,7 @@
         <form action="{{ route('movimientos.despachos.store') }}" method="POST" class="form-inline needs-validation"
             autocomplete="off">
             @csrf
-<div class="card bg-slate-200 rounded-lg">
+<div class="card bg-slate-200 rounded-lg shadow-xl">
 <div class="card-body">
     <div class="col-lg-12">
         <h3 class="h4 uppercase">{{ __('Número de solicitud') }}:
@@ -22,7 +22,7 @@
     </div>
 </div>
 </div>  
-            <div class="card">
+            <div class="card shadow-xl">
                 {{-- header de la tarjeta --}}
                 <div class="card-header bg-blue-900">
                     <div class="my-1 ml-1 text-white" role="alert">
@@ -144,7 +144,7 @@
     </div>
 {{-- probando otro formulario de solicitud pero sin dañar el anterior --}}
 {{-- Segunda Tarjeta --}}
-    <div class="card">
+    <div class="card shadow-xl">
         {{-- seccion del header --}}
         <div class="card-header bg-blue-900">
 <div class="my-1 ml-2 text-white" role="alert">
