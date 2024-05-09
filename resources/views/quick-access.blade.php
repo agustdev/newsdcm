@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-xl-2"></div>
         <div class="col-xl-4">
-            <div class="card cta-box bg-custom text-white">
+            <div class="card cta-box bg-custom text-white shadow-2xl">
                 <div class="card-body">
                     <div class="text-center">
                         <h3 class="m-0 fw-normal cta-box-title">
@@ -37,7 +37,7 @@
             <!-- end card-->
         </div>
         <div class="col-xl-4">
-            <div class="card cta-box bg-custom text-white">
+            <div class="card cta-box bg-custom text-white shadow-2xl">
                 <div class="card-body">
                     <div class="text-center">
                         <h3 class="m-0 fw-normal cta-box-title">
@@ -65,7 +65,7 @@
     <div class="row">
         <div class="col-xl-2"></div>
         <div class="col-xl-4">
-            <div class="card cta-box bg-custom text-white">
+            <div class="card cta-box bg-custom text-white shadow-2xl">
                 <div class="card-body">
                     <div class="text-center">
                         <h3 class="m-0 fw-normal cta-box-title">
@@ -83,7 +83,7 @@
             <!-- end card-->
         </div>
         <div class="col-xl-4">
-            <div class="card cta-box bg-custom text-white">
+            <div class="card cta-box bg-custom text-white shadow-2xl">
                 <div class="card-body">
                     <div class="text-center">
                         <h3 class="m-0 fw-normal cta-box-title">
