@@ -190,5 +190,10 @@
     "Iniciar Sesion": "Авторизоваться",
     "Registro": "Записывать",
     "¿Olvidaste tu contraseña?": "Вы забыли свой пароль?",
-    "FOTOS DE LA EMBARCACION": "ФОТОГРАФИИ ЛОДКИ"
+    "FOTOS DE LA EMBARCACION": "ФОТОГРАФИИ ЛОДКИ",
+    "Aprobado": "Одобренный",
+    "Rechazado": "Отказался",
+    "Enviado": "Отправил",
+    "En proceso": "В ходе выполнения",
+    "Cancelado": "Отменено"
 }

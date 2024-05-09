@@ -190,5 +190,10 @@
     "Iniciar Sesion": "Commencer la session",
     "Registro": "Enregistrer",
     "¿Olvidaste tu contraseña?": "Vous avez oublié votre mot de passe?",
-    "FOTOS DE LA EMBARCACION": "PHOTOS DU BATEAU"
+    "FOTOS DE LA EMBARCACION": "PHOTOS DU BATEAU",
+    "Aprobado": "Approuvé",
+    "Rechazado": "Refusé",
+    "Enviado": "Envoyé",
+    "En proceso": "En procès",
+    "Cancelado": "Annulé"
 }

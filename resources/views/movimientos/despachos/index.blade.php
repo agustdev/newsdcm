@@ -119,6 +119,9 @@
     {{-- <script src="{{ asset('assets/js/pages/demo.datatable-init.js') }}"></script> --}}
 
     <script>
+        let flag = '{{app()->getLocale()}}'
+        let lenguages = '{{app()->getLocale()}}'.toUpperCase();
+
         $(document).ready(function() {
             var table = $('#table-despacho').DataTable({
                 ordering: true
@@ -131,7 +134,7 @@
                     , [10, 25, 50, 'Todos']
                 , ]
                 , "language": {
-                    "url": "https://cdn.datatables.net/plug-ins/1.12.0/i18n/es-ES.json"
+                    "url": `https://cdn.datatables.net/plug-ins/1.12.0/i18n/${flag}-${lenguages}.json`
                 }
                 , "responsive": true
             , });

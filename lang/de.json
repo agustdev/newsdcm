@@ -190,5 +190,10 @@
     "Iniciar Sesion": "Anmeldung",
     "Registro": "Aufzeichnen",
     "¿Olvidaste tu contraseña?": "Haben Sie Ihr Passwort vergessen?",
-    "FOTOS DE LA EMBARCACION": "FOTOS DES BOOTS"
+    "FOTOS DE LA EMBARCACION": "FOTOS DES BOOTS",
+    "Aprobado": "Genehmigt",
+    "Rechazado": "Abgelehnt",
+    "Enviado": "Gesendet",
+    "En proceso": "Im Gange",
+    "Cancelado": "Abgesagt"
 }

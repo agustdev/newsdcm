@@ -235,6 +235,7 @@
     "Fecha de salida": "Departure date",
     "FECHA SALIDA": "DEPARTURE DATE",
     "Fecha salida": "Departure date",
+    "Fecha Salida": "Departure Date",
     "LUGAR SALIDA": "DEPARTURE PLACE",
     "LUGAR DESTINO": "DESTINATION PLACE",
     "CANTIDAD TRIPULANTES": "NUMBER CREW",
@@ -377,5 +378,10 @@
     "Iniciar Sesion": "LOGIN",
     "Registro": "Sign up",
     "¿Olvidaste tu contraseña?": "Did you forget your password?",
-    "FOTOS DE LA EMBARCACION": "PHOTOS OF THE BOAT"
+    "FOTOS DE LA EMBARCACION": "PHOTOS OF THE BOAT",
+    "Aprobado": "Approved",
+    "Rechazado": "Refused",
+    "Enviado": "Sent",
+    "En proceso": "In progress",
+    "Cancelado": "Cancelled"
 }

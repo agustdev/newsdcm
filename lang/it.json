@@ -190,5 +190,10 @@
     "Iniciar Sesion": "LOGIN",
     "Registro": "Registrare",
     "¿Olvidaste tu contraseña?": "Hai dimenticato la tua password?",
-    "FOTOS DE LA EMBARCACION": "FOTO DELLA BARCA"
+    "FOTOS DE LA EMBARCACION": "FOTO DELLA BARCA",
+    "Aprobado": "Approvato",
+    "Rechazado": "Rifiutato",
+    "Enviado": "Inviato",
+    "En proceso": "In corso",
+    "Cancelado": "Annullato"
 }
