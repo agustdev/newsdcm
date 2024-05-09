@@ -40,14 +40,14 @@
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control matricula" id="floatinMatricula"
                                     placeholder="MATRICULA" name="matricula" required />
-                                <label for="floatinMatricula">MATRÍCULA</label>
+                                <label for="floatinMatricula">{{ __('MATRÍCULA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control nombre_emb" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" required />
-                                <label for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
+                                <label for="floatingNombreEmbarcacion">{{ __('NOMBRE DE LA EMBARCACIÓN') }}</label>
                             </div>
                         </div>
 
@@ -55,14 +55,14 @@
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control numero_casco" id="floatingNumeroCasco"
                                     placeholder="NUMERO DE CASCO" name="numero_casco" required />
-                                <label for="floatingNumeroCasco">NUMERO DE CASCO</label>
+                                <label for="floatingNumeroCasco">{{ __('NUMERO DE CASCO') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
                                 <input type="text" class="form-control color" id="floatingColor"
                                     placeholder="COLOR DE LA EMBARCACIÓN" name="color" required />
-                                <label for="floatingColor">COLOR</label>
+                                <label for="floatingColor">{{ __('COLOR') }}</label>
                             </div>
                         </div>
                     </div>
@@ -78,21 +78,21 @@
                             <div class="form-floating mb-2">
                                 <input type="text" name="material_casco" class="form-control" id="floatingMaterial"
                                     placeholder="MATERIAL DEL CASCO" required>
-                                <label for="floatinEslora">MATERIAL DEL CASCO</label>
+                                <label for="floatinEslora">{{ __('MATERIAL DEL CASCO') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="number" class="form-control eslora" id="floatinEslora"
                                     placeholder="ESLORA" name="eslora" required />
-                                <label for="floatinEslora">ESLORA</label>
+                                <label for="floatinEslora">{{ __('ESLORA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="number" class="form-control nombre_emb" id="floatingManga"
                                     placeholder="MANGA" name="manga" required />
-                                <label for="floatingManga">MANGA</label>
+                                <label for="floatingManga">{{ __('MANGA') }}</label>
                             </div>
                         </div>
 
@@ -100,7 +100,7 @@
                             <div class="form-floating mb-3">
                                 <input type="number" class="form-control puntal" id="floatingPuntal"
                                     placeholder="PUNTAL" name="puntal" required />
-                                <label for="floatingNumeroCasco">PUNTAL</label>
+                                <label for="floatingNumeroCasco">{{ __('PUNTAL') }}</label>
                             </div>
                         </div>
                     </div>
@@ -115,22 +115,22 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select name="tipo_embarcacion" id="" class="form-select" required>
-                                    <option value="">- Seleccione -</option>
-                                    <option value="VELERO">VELERO</option>
-                                    <option value="YATE">YATE</option>
-                                    <option value="CATAMARAN">CATAMARAN</option>
+                                    <option value="">- {{ __('Seleccione') }} -</option>
+                                    <option value="VELERO">{{ __('VELERO') }}</option>
+                                    <option value="YATE">{{ __('YATE') }}</option>
+                                    <option value="CATAMARAN">{{ __('CATAMARAN') }}</option>
                                 </select>
-                                <label for="floatinEslora">TIPO EMBRACACIÓN</label>
+                                <label for="floatinEslora">{{ __('TIPO EMBARCACIÓN') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select name="tipo_uso" id="" class="form-select" required>
-                                    <option value="">- Seleccione -</option>
-                                    <option value="TURISMO">TURISMO</option>
-                                    <option value="RECREO">RECREO</option>
+                                    <option value="">- {{ __('Seleccione') }} -</option>
+                                    <option value="TURISMO">{{ __('TURISMO') }}</option>
+                                    <option value="RECREO">{{ __('RECREO') }}</option>
                                 </select>
-                                <label for="floatingEmbarcacion">TIPO DE USO</label>
+                                <label for="floatingEmbarcacion">{{ __('TIPO DE USO') }}</label>
                             </div>
                         </div>
                     </div>
@@ -145,28 +145,28 @@
                             <div class="form-floating mb-2">
                                 <input type="text" name="tipo_motor" class="form-control"
                                     placeholder="TIPO MOTOR" required>
-                                <label for="floatinTipoMotor">TIPO MOTOR</label>
+                                <label for="floatinTipoMotor">{{ __('TIPO MOTOR') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" name="marca_modelo_motor" class="form-control"
                                     placeholder="MARCA MOTOR" required>
-                                <label for="floatinMarcaMotor">MARCA MOTOR</label>
+                                <label for="floatinMarcaMotor">{{ __('MARCA MOTOR') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" name="caballos_fuerza_motor" class="form-control"
                                     placeholder="CABALLOS DE FUERZA" required>
-                                <label for="floatinCaballosFuerza">CABALLOS DE FUERZA</label>
+                                <label for="floatinCaballosFuerza">{{ __('CABALLOS DE FUERZA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" name="no_motor" class="form-control"
                                     placeholder="CANTIDAD MOTOR" required>
-                                <label for="floatinCaballosFuerza">CANTIDAD MOTOR</label>
+                                <label for="floatinCaballosFuerza">{{ __('CANTIDAD MOTOR') }}</label>
                             </div>
                         </div>
                     </div>
@@ -177,18 +177,18 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select" name="tipo_documento" id="" required>
-                                    <option value="">- Seleccione tipo de documento -</option>
-                                    <option value="cedula">Cédula</option>
-                                    <option value="pasapore">Pasaporte</option>
+                                    <option value="">- {{ __('Seleccione tipo de documento') }} -</option>
+                                    <option value="cedula">{{ __('Cédula') }}</option>
+                                    <option value="pasapore">{{ __('Pasaporte') }}</option>
                                 </select>
-                                <label for="floatinMatricula">TIPO DE DOCUMENTO</label>
+                                <label for="floatinMatricula">{{ __('TIPO DE DOCUMENTO') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control documento_cap" id="floatinDocumento"
                                     placeholder="Documento" name="documento_cap" required />
-                                <label for="floatinMatricula">DOCUMENTO DE IDENTIDAD DEL CAPITÁN</label>
+                                <label for="floatinMatricula">{{ __('DOCUMENTO DE IDENTIDAD DEL CAPITÁN') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -196,21 +196,21 @@
                                 <input type="text" class="form-control nombre_capitan" id="floatingNombreCapitan"
                                     placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value="" name="nombre_capitan"
                                     required />
-                                <label for="floatingNombreEmbarcacion">NOMBRE Y APELLIDO DEL CAPITÁN</label>
+                                <label for="floatingNombreEmbarcacion">{{ __('NOMBRE Y APELLIDO DEL CAPITÁN') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select name="nacionalidad_cap" class="form-select nacionalidad" id=""
                                     required>
-                                    <option value="">- Seleccione -</option>
-                                    <option value="DOMINICANO">DOMINICANO</option>
-                                    <option value="FRANCES">FRANCES</option>
-                                    <option value="ALEMAN">ALEMAN</option>
-                                    <option value="RUSO">RUSO</option>
-                                    <option value="ITALIANO">ITALIANO</option>
+                                    <option value="">- {{ __('Seleccione') }} -</option>
+                                    <option value="DOMINICANO">{{ __('DOMINICANO') }}</option>
+                                    <option value="FRANCES">{{ __('FRANCES') }}</option>
+                                    <option value="ALEMAN">{{ __('ALEMAN') }}</option>
+                                    <option value="RUSO">{{ __('RUSO') }}</option>
+                                    <option value="ITALIANO">{{ __('ITALIANO')}}</option>
                                 </select>
-                                <label for="floatinMatricula">NACIONALIDAD DEL CAPITÁN</label>
+                                <label for="floatinMatricula">{{ __('NACIONALIDAD DEL CAPITÁN') }}</label>
                             </div>
                         </div>
                     </div>
@@ -219,26 +219,26 @@
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control telefono" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="telefono" required />
-                                <label for="floatingNombreEmbarcacion">TELÉFONO DEL CAPITÁN</label>
+                                <label for="floatingNombreEmbarcacion">{{ __('TELÉFONO DEL CAPITÁN')}}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select name="motivo_viaje" class="form-select" id="" required>
-                                    <option value="">- Seleccione motivo del viaje -</option>
-                                    <option value="TURISMO">TURISMO</option>
-                                    <option value="RECREO">RECREO</option>
-                                    <option value="NEGOCIOS">NEGOCIOS</option>
-                                    <option value="VACACIONES">VACACIONES</option>
+                                    <option value="">- {{ __('Seleccione motivo del viaje') }} -</option>
+                                    <option value="TURISMO">{{ __('TURISMO') }}</option>
+                                    <option value="RECREO">{{ __('RECREO') }}</option>
+                                    <option value="NEGOCIOS">{{ __('NEGOCIOS')}}</option>
+                                    <option value="VACACIONES">{{ __('VACACIONES')}}</option>
                                 </select>
-                                <label for="floatinMatricula">MOTIVO DEL VIAJE</label>
+                                <label for="floatinMatricula">{{ __('MOTIVO DEL VIAJE') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="date" class="form-control" id="floatingFecha" placeholder="FECHA"
                                     name="fecha_llegada" min="{{ date('Y-m-d') }}" required />
-                                <label for="floatingFecha">FECHA LLEGADA</label>
+                                <label for="floatingFecha">{{ __('FECHA LLEGADA') }}</label>
                             </div>
                         </div>
                     </div>
@@ -292,8 +292,7 @@
                                     <option value="Chile" id="CL">Chile</option>
                                     <option value="China" id="CN">China</option>
                                     <option value="Chipre" id="CY">Chipre</option>
-                                    <option value="Ciudad estado del Vaticano" id="VA">Ciudad estado del
-                                        Vaticano</option>
+                                    <option value="Ciudad estado del Vaticano" id="VA">Ciudad estado del Vaticano</option>
                                     <option value="Colombia" id="CO">Colombia</option>
                                     <option value="Comores" id="KM">Comores</option>
                                     <option value="Congo" id="CG">Congo</option>
@@ -353,32 +352,25 @@
                                     <option value="Irlanda" id="IE">Irlanda</option>
                                     <option value="Isla Bouvet" id="BV">Isla Bouvet</option>
                                     <option value="Isla Christmas" id="CX">Isla Christmas</option>
-                                    <option value="Isla Heard e Islas McDonald" id="HM">Isla Heard e Islas
-                                        McDonald</option>
+                                    <option value="Isla Heard e Islas McDonald" id="HM">Isla Heard e Islas McDonald</option>
                                     <option value="Islandia" id="IS">Islandia</option>
                                     <option value="Isla Beata">isla Beata</option>
                                     <option value="Islas Caimán" id="KY">Islas Caimán</option>
                                     <option value="Islas Cook" id="CK">Islas Cook</option>
-                                    <option value="Islas de Cocos o Keeling" id="CC">Islas de Cocos o Keeling
-                                    </option>
+                                    <option value="Islas de Cocos o Keeling" id="CC">Islas de Cocos o Keeling</option>
                                     <option value="Islas Faroe" id="FO">Islas Faroe</option>
                                     <option value="Islas Fiyi" id="FJ">Islas Fiyi</option>
-                                    <option value="Islas Malvinas Islas Falkland" id="FK">Islas Malvinas Islas
-                                        Falkland</option>
-                                    <option value="Islas Marianas del norte" id="MP">Islas Marianas del norte
-                                    </option>
+                                    <option value="Islas Malvinas Islas Falkland" id="FK">Islas Malvinas Islas Falkland</option>
+                                    <option value="Islas Marianas del norte" id="MP">Islas Marianas del norte</option>
                                     <option value="Islas Marshall" id="MH">Islas Marshall</option>
-                                    <option value="Islas menores de Estados Unidos" id="UM">Islas menores de
-                                        Estados Unidos</option>
+                                    <option value="Islas menores de Estados Unidos" id="UM">Islas menores de Estados Unidos</option>
                                     <option value="Islas Palau" id="PW">Islas Palau</option>
                                     <option value="Islas Salomón" d="SB">Islas Salomón</option>
                                     <option value="Isla San Martin" d="SB">Isla San Martin</option>
                                     <option value="Islas Tokelau" id="TK">Islas Tokelau</option>
                                     <option value="Islas Turks y Caicos" id="TC">Islas Turks y Caicos</option>
-                                    <option value="Islas Vírgenes EE.UU." id="VI">Islas Vírgenes EE.UU.
-                                    </option>
-                                    <option value="Islas Vírgenes Reino Unido" id="VG">Islas Vírgenes Reino
-                                        Unido</option>
+                                    <option value="Islas Vírgenes EE.UU." id="VI">Islas Vírgenes EE.UU.</option>
+                                    <option value="Islas Vírgenes Reino Unido" id="VG">Islas Vírgenes Reino Unido</option>
                                     <option value="Israel" id="IL">Israel</option>
                                     <option value="Italia" id="IT">Italia</option>
                                     <option value="Jamaica" id="JM">Jamaica</option>
@@ -441,13 +433,10 @@
                                     <option value="Puerto Rico" id="PR">Puerto Rico</option>
                                     <option value="Qatar" id="QA">Qatar</option>
                                     <option value="Reino Unido" id="UK">Reino Unido</option>
-                                    <option value="República Centroafricana" id="CF">República Centroafricana
-                                    </option>
+                                    <option value="República Centroafricana" id="CF">República Centroafricana</option>
                                     <option value="República Checa" id="CZ">República Checa</option>
-                                    <option value="República de Sudáfrica" id="ZA">República de Sudáfrica
-                                    </option>
-                                    <option value="República Democrática del Congo Zaire" id="CD">República
-                                        Democrática del Congo Zaire</option>
+                                    <option value="República de Sudáfrica" id="ZA">República de Sudáfrica</option>
+                                    <option value="República Democrática del Congo Zaire" id="CD">República Democrática del Congo Zaire</option>
                                     <!-- <option value="República Dominicana" id="DO">República Dominicana</option> -->
                                     <option value="Reunión" id="RE">Reunión</option>
                                     <option value="Ruanda" id="RW">Ruanda</option>
@@ -457,14 +446,11 @@
                                     <option value="Samoa occidental" id="AS">Samoa occidental</option>
                                     <option value="San Kitts y Nevis" id="KN">San Kitts y Nevis</option>
                                     <option value="San Marino" id="SM">San Marino</option>
-                                    <option value="San Pierre y Miquelon" id="PM">San Pierre y Miquelon
-                                    </option>
-                                    <option value="San Vicente e Islas Granadinas" id="VC">San Vicente e Islas
-                                        Granadinas</option>
+                                    <option value="San Pierre y Miquelon" id="PM">San Pierre y Miquelon</option>
+                                    <option value="San Vicente e Islas Granadinas" id="VC">San Vicente e Islas Granadinas</option>
                                     <option value="Santa Helena" id="SH">Santa Helena</option>
                                     <option value="Santa Lucía" id="LC">Santa Lucía</option>
-                                    <option value="Santo Tomé y Príncipe" id="ST">Santo Tomé y Príncipe
-                                    </option>
+                                    <option value="Santo Tomé y Príncipe" id="ST">Santo Tomé y Príncipe</option>
                                     <option value="Senegal" id="SN">Senegal</option>
                                     <option value="Serbia y Montenegro" id="YU">Serbia y Montenegro</option>
                                     <option value="Sychelles" id="SC">Seychelles</option>
@@ -483,10 +469,8 @@
                                     <option value="Taiwán" id="TW">Taiwán</option>
                                     <option value="Tanzania" id="TZ">Tanzania</option>
                                     <option value="Tayikistán" id="TJ">Tayikistán</option>
-                                    <option value="Territorios británicos del océano Indico" id="IO">
-                                        Territorios británicos del océano Indico</option>
-                                    <option value="Territorios franceses del sur" id="TF">Territorios franceses
-                                        del sur</option>
+                                    <option value="Territorios británicos del océano Indico" id="IO">Territorios británicos del océano Indico</option>
+                                    <option value="Territorios franceses del sur" id="TF">Territorios franceses del sur</option>
                                     <option value="Timor Oriental" id="TP">Timor Oriental</option>
                                     <option value="Togo" id="TG">Togo</option>
                                     <option value="Tonga" id="TO">Tonga</option>
@@ -507,27 +491,27 @@
                                     <option value="Zambia" id="ZM">Zambia</option>
                                     <option value="Zimbabue" id="ZW">Zimbabue</option>
                                 </select>
-                                <label for="floatingPais">PAIS PROCEDENCIA</label>
+                                <label for="floatingPais">{{ __('PAIS PROCEDENCIA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control" id="floatingPuertoLlegada"
                                     placeholder="PUERTO DE SALIDA" name="puerto_salida" required />
-                                <label for="floatingPuertoLlegada">PUERTO DE SALIDA</label>
+                                <label for="floatingPuertoLlegada">{{ __('PUERTO DE SALIDA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select name="puerto_llegada" id="" class="form-select" required>
-                                    <option value="">- Seleccione puerto de llegada-</option>
+                                    <option value="">- {{ __('Seleccione puerto de llegada') }} -</option>
                                     @foreach ($destinos as $destino)
                                         <option value="{{ $destino->descripcion }}">
                                             {{ $destino->descripcion }}
                                         </option>
                                     @endforeach
                                 </select>
-                                <label for="floatingPuertoLlegada">PUERTO DE LLEGADA</label>
+                                <label for="floatingPuertoLlegada">{{ __('PUERTO DE LLEGADA') }}</label>
                             </div>
                         </div>
                     </div>
@@ -537,7 +521,7 @@
                                 <input type="number" class="form-control cant-tripulante"
                                     id="floatingNombreEmbarcacion" placeholder="NOMBRE DE LA EMBARCACIÓN"
                                     name="cantidad_tripulantes" required />
-                                <label for="floatingNombreEmbarcacion">CANTIDAD TRIPULANTES</label>
+                                <label for="floatingNombreEmbarcacion">{{ __('CANTIDAD TRIPULANTES') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -545,17 +529,17 @@
                                 <input type="number" class="form-control cant-pasajero" id="floatinMatricula"
                                     placeholder="CANTIDAD PASAJEROS" name="cantidad_pasajeros"
                                     name="cantidad_pasajeros" required />
-                                <label for="floatinMatricula">CANTIDAD PASAJEROS</label>
+                                <label for="floatinMatricula">{{ __('CANTIDAD PASAJEROS') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select name="tiempo_estadia" id="" class="form-select" required>
-                                    <option value="">- Seleccione -</option>
-                                    <option value="PERMANENCIA">PERMANENCIA</option>
-                                    <option value="TEMPORAL">TEMPORAL</option>
+                                    <option value="">- {{ __('Seleccione') }} -</option>
+                                    <option value="PERMANENCIA">{{ __('PERMANENCIA') }}</option>
+                                    <option value="TEMPORAL">{{ __('TEMPORAL') }}</option>
                                 </select>
-                                <label for="floatinMatricula">TIEMPO DE ESTADIA</label>
+                                <label for="floatinMatricula">{{ __('TIEMPO DE ESTADIA')}}</label>
                             </div>
                         </div>
                     </div>
@@ -570,10 +554,10 @@
                 <div class="card-footer">
                     <div class="float-end">
                         <a href="{{ route('movimientos.despachos.index') }}"
-                            class="inline-flex items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">Atras</a>
+                            class="inline-flex items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">{{ __('Atras') }}</a>
                         <button type="submit"
                             class="inline-flex items-center justify-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 active:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150 disabled:opacity-25 send"><i
-                                class="mdi mdi-send mr-2"></i> Enviar</button>
+                                class="mdi mdi-send mr-2"></i> {{ __('Enviar') }}</button>
                     </div>
                 </div>
             </div>

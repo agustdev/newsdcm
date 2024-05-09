@@ -14,7 +14,7 @@
     <div class="alert alert-info">
         <h2 class="h4">
             <i class="mdi mdi-folder-information mdi-24px"></i>
-            {!! __('Esta es la lista de tus <strong>embarcaciones</strong>') !!}
+            {!! __('Esta es la lista de tus embarcaciones') !!}
         </h2>
     </div>
     <div class="row">

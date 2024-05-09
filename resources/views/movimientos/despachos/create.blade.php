@@ -48,7 +48,7 @@
 
                                 <select name="matricula" class="form-select emb_matricula" id="floatinMatricula">
                                     @if ($embarcaciones->count() > 0)
-                                        <option value="">- Seleccione -</option>
+                                        <option value="">- {{ __('Seleccione') }} -</option>
                                         @foreach ($embarcaciones as $embarcacion)
                                             <option value="{{ $embarcacion->matricula }}">{{ $embarcacion->matricula }}
                                             </option>
@@ -71,7 +71,7 @@
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control numero_casco" id="floatingNumeroCasco"
                                     placeholder="NUMERO DE CASCO" name="numero_casco" readonly />
-                                <label for="floatingNumeroCasco">NÚMERO DE CASCO</label>
+                                <label for="floatingNumeroCasco">{{ __('NÚMERO DE CASCO') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -84,7 +84,7 @@
                         <div class="row ">
                             <span
                                 class="uppercase bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
-                                {{ __('INFORMACIóN DEL MOTOR DE LA EMBARCACIóN') }}
+                                {{ __('INFORMACIÓN DEL MOTOR DE LA EMBARCACIÓN') }}
                             </span>
                             <div class="col-md">
                                 <div class="form-floating">
@@ -159,12 +159,12 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select name="nacionalidad" class="form-select nacionalidad" id="" required>
-                                    <option value="">- Seleccione -</option>
-                                    <option value="DOMINICANO">DOMINICANO</option>
-                                    <option value="FRANCES">FRANCES</option>
-                                    <option value="ALEMAN">ALEMAN</option>
-                                    <option value="RUSO">RUSO</option>
-                                    <option value="ITALIANO">ITALIANO</option>
+                                    <option value="">- {{ __('Seleccione') }} -</option>
+                                    <option value="DOMINICANO">{{ __('DOMINICANO') }}</option>
+                                    <option value="FRANCES">{{ __('FRANCES') }}</option>
+                                    <option value="ALEMAN">{{ __('ALEMAN') }}</option>
+                                    <option value="RUSO">{{ __('RUSO') }}</option>
+                                    <option value="ITALIANO">{{ __('ITALIANO') }}</option>
                                 </select>
                                 <label for="floatinMatricula">{{ __('NACIONALIDAD DEL CAPITÁN') }}</label>
                             </div>
@@ -176,19 +176,19 @@
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control telefono" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="telefono" />
-                                <label for="floatingNombreEmbarcacion">TELÉFONO DEL CAPITÁN</label>
+                                <label for="floatingNombreEmbarcacion">{{ __('TELÉFONO DEL CAPITÁN') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select name="motivo_viaje" class="form-select" id="" required>
-                                    <option value="">- Seleccione motivo del viaje -</option>
-                                    <option value="TURISMO">TURISMO</option>
-                                    <option value="RECREO">RECREO</option>
-                                    <option value="NEGOCIOS">NEGOCIOS</option>
-                                    <option value="VACACIONES">VACACIONES</option>
+                                    <option value="">- {{ __('Seleccione motivo del viaje') }} -</option>
+                                    <option value="TURISMO">{{ __('TURISMO') }}</option>
+                                    <option value="RECREO">{{ __('RECREO') }}</option>
+                                    <option value="NEGOCIOS">{{ __('NEGOCIOS') }}</option>
+                                    <option value="VACACIONES">{{ __('VACACIONES') }}</option>
                                 </select>
-                                <label for="floatinMatricula">MOTIVO DEL VIAJE</label>
+                                <label for="floatinMatricula">{{ __('MOTIVO DEL VIAJE') }}</label>
                             </div>
                         </div>
                     </div>
@@ -197,7 +197,7 @@
                             <div class="form-floating mb-2">
                                 <input type="date" class="form-control" id="floatingFecha" placeholder="FECHA"
                                     name="fecha" min="{{ date('Y-m-d') }}" />
-                                <label for="floatingFecha">FECHA SALIDA</label>
+                                <label for="floatingFecha">{{ __('FECHA SALIDA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -210,21 +210,21 @@
                                         </option>
                                     @endforeach
                                 </select>
-                                <label for="floatingSelect">LUGAR SALIDA</label>
+                                <label for="floatingSelect">{{ __('LUGAR SALIDA') }}</label>
                             </div>
                         </div>
 
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select" name="lugar_destino" id="floatingSelect">
-                                    <option>- Seleccione -</option>
+                                    <option>-{{ __('Seleccione') }}-</option>
                                     @foreach ($destinos as $dest)
                                         <option value="{{ $dest->id }}|{{ $dest->descripcion }}">
                                             {{ $dest->descripcion }}
                                         </option>
                                     @endforeach
                                 </select>
-                                <label for="floatingSelect">LUGAR DESTINO</label>
+                                <label for="floatingSelect">{{ __('LUGAR DESTINO') }}</label>
                             </div>
                         </div>
                     </div>
@@ -233,7 +233,7 @@
                             <div class="form-floating mb-2">
                                 <input type="number" class="form-control" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="cantidad_tripulantes" />
-                                <label for="floatingNombreEmbarcacion">CANTIDAD TRIPULANTES</label>
+                                <label for="floatingNombreEmbarcacion">{{ __('CANTIDAD TRIPULANTES')}}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -241,7 +241,7 @@
                                 <input type="number" class="form-control" id="floatinMatricula"
                                     placeholder="CANTIDAD PASAJEROS" name="cantidad_pasajeros"
                                     name="cantidad_pasajeros" />
-                                <label for="floatinMatricula">CANTIDAD PASAJEROS</label>
+                                <label for="floatinMatricula">{{ __('CANTIDAD PASAJEROS')}}</label>
                             </div>
                         </div>
 
@@ -250,10 +250,10 @@
                 <div class="card-footer">
                     <div class="float-end">
                         <a href="{{ route('movimientos.despachos.index') }}"
-                            class="inline-flex items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">Atras</a>
+                            class="inline-flex items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">{{ __('Atras') }}</a>
                         <button type="submit"
                             class="inline-flex items-center justify-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 active:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150 disabled:opacity-25 send"><i
-                                class="mdi mdi-send mr-2"></i> Enviar</button>
+                                class="mdi mdi-send mr-2"></i> {{ __('Enviar') }}</button>
                     </div>
                 </div>
             </div>

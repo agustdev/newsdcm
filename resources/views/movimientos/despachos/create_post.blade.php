@@ -16,14 +16,14 @@
             <div class="card">
                 <div class="card-header">
                     <div class="col-lg-12 mb-2">
-                        <h3 class="h4 uppercase">Número de solicitud: {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
+                        <h3 class="h4 uppercase">{{ __('Número de solicitud') }}: {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
                         </h3>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="row g-2">
                         <div class="alert alert-warning" role="alert">
-                            <strong>INFORMACIÓN DE LA EMBARCACIÓN</strong>
+                            <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
                             <div role="status" class="spin-matricula float-end hidden">
                                 <svg aria-hidden="true"
                                     class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-700"
