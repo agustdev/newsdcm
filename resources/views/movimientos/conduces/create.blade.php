@@ -13,8 +13,8 @@
 
         <form action="{{ route('movimientos.conduces.store') }}" method="POST" class="form-inline" autocomplete="off">
             @csrf
-
-<div class="card">
+{{-- primera tarjeta --}}
+<div class="card shadow-xl">
     <div class="card-body">
         <div class="col-lg-12 mb-2">
             <h3 class="h4 uppercase">Número de solicitud: {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
@@ -22,9 +22,10 @@
         </div>
     </div>
 </div>
+{{-- primera tarjeta tarjeta --}}
 
-
-            <div class="card">
+{{-- informacion de  la embarcacion --}}
+            <div class="card shadow-xl">
                 <div class="card-header bg-blue-900">
                     <div class="text-white" role="alert">
                         <strong>INFORMACIÓN DE LA EMBARCACIÓN</strong>
@@ -138,6 +139,8 @@
                 </div>
                 
             </div>
+
+            {{-- fin del card informacion de la embarcacion --}}
             <input type="hidden" name="mov" value="{{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}">
             <input type="hidden" name="user" value="{{ auth()->user()->id }}">
             <input type="hidden" name="comandancia" class="comandancia" value="">
@@ -148,7 +151,7 @@
 
 
     {{-- segundo card --}}
-<div class="card">
+<div class="card shadow-xl">
 {{-- header del card --}}
 <div class="card-header bg-blue-900">
     <div class="text-white" role="alert">
@@ -232,7 +235,7 @@
 
 {{-- tercer card despacho --}}
 
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-header bg-blue-900">
         <span class="text-sm font-bold mr-2 px-2.5 py-1.5 mb-1 rounded text-white">
             DATOS DEL VEHÍCULO</span>
@@ -282,7 +285,7 @@
 
 {{-- comienzo del cuarto card --}}
 
-<div class="card">
+<div class="card shadow-xl">
 <div class="card-header bg-blue-900">
 
     <span
@@ -354,11 +357,11 @@
 
 {{-- quinto card --}}
 
-<div class="card">
+<div class="card shadow-xl">
 <div class="card-header bg-blue-900">
 
     <span
-    class=" text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-blue-700 dark:text-blue-300">
+    class=" text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded">
     LUGAR DESTINO
     <div role="status" class="spin float-end hidden">
         <svg aria-hidden="true"
