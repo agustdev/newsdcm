@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-xl-2"></div>
         <div class="col-xl-4">
-            <div class="card cta-box bg-primary bg-custom text-white">
+            <div class="card cta-box bg-custom text-white">
                 <div class="card-body">
                     <div class="text-center">
                         <h3 class="m-0 fw-normal cta-box-title">
@@ -28,7 +28,7 @@
 
                         <br>
                         <a href="{{ route('movimientos.despachos.create') }}"
-                            class="text-white bg-azulito hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 me-2 mb-2">{{ __('SOLICITAR') }}
+                            class="text-blue-900 bg-white hover:bg-slate-400 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 me-2 mb-2">{{ __('SOLICITAR') }}
                             <i class="mdi mdi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
             <!-- end card-->
         </div>
         <div class="col-xl-4">
-            <div class="card cta-box bg-primary bg-custom text-white">
+            <div class="card cta-box bg-custom text-white">
                 <div class="card-body">
                     <div class="text-center">
                         <h3 class="m-0 fw-normal cta-box-title">
@@ -46,7 +46,7 @@
                             alt="Generic placeholder image">
                         <br>
                         <a href="{{ route('movimientos.conduces.create') }}"
-                            class="text-white bg-azulito hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 me-2 mb-2">{{ __('SOLICITAR') }}
+                            class="text-blue-900 bg-white hover:bg-slate-400 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 me-2 mb-2">{{ __('SOLICITAR') }}
                             <i class="mdi mdi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
     <div class="row">
         <div class="col-xl-2"></div>
         <div class="col-xl-4">
-            <div class="card cta-box bg-primary bg-custom text-white">
+            <div class="card cta-box bg-custom text-white">
                 <div class="card-body">
                     <div class="text-center">
                         <h3 class="m-0 fw-normal cta-box-title">
@@ -74,7 +74,7 @@
                             alt="Generic placeholder image">
                         <br>
                         <a href="{{ route('movimientos.entradas.create') }}"
-                            class="text-white bg-azulito hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 me-2 mb-2">{{ __('SOLICITAR') }}
+                            class="text-blue-900 bg-white hover:bg-slate-400 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 me-2 mb-2">{{ __('SOLICITAR') }}
                             <i class="mdi mdi-arrow-right"></i></a>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
             <!-- end card-->
         </div>
         <div class="col-xl-4">
-            <div class="card cta-box bg-primary bg-custom text-white">
+            <div class="card cta-box bg-custom text-white">
                 <div class="card-body">
                     <div class="text-center">
                         <h3 class="m-0 fw-normal cta-box-title">
@@ -92,7 +92,7 @@
                             alt="Generic placeholder image">
                         <br>
                         <a href="{{ route('movimientos.entradas.create') }}"
-                            class="text-white bg-azulito hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 me-2 mb-2">{{ __('SOLICITAR') }}
+                            class="text-blue-900 bg-white hover:bg-slate-400 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 me-2 mb-2">{{ __('SOLICITAR') }}
                             <i class="mdi mdi-arrow-right"></i></a>
                     </div>
                 </div>
