@@ -16,7 +16,7 @@
             <i class="uil-info-circle"></i> Este formulario solo es para embarcaciones que salen para otros paises
         </div>
     </div>
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-body">
         <div class="col-lg-12 mb-2">
                         <h3 class="h4 uppercase">Número de solicitud: {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
@@ -29,7 +29,7 @@
     <div class="row g-2">
         <form action="{{ route('movimientos.salidas.store') }}" method="POST" class="form-inline" autocomplete="off">
             @csrf
-            <div class="card">
+            <div class="card shadow-xl">
                 <div class="card-header bg-blue-900">
                     <div class="" role="alert">    
                    <div class="inline-block float-start text-white">
@@ -81,7 +81,7 @@
             </div>
 
 {{-- cardbody que debo sacar --}}
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-header bg-blue-900">
 <div class="text-white" role="alert">
             <strong>INFORMACIÓN DEL CAPITÁN</strong>
