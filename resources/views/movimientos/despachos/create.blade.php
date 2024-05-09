@@ -54,7 +54,7 @@
                                             </option>
                                         @endforeach
                                     @else
-                                        <option value="">- Sin embarcaciones disponible -</option>
+                                        <option value="">- {{ __('Sin embarcaciones disponible') }} -</option>
                                     @endif
                                 </select>
                                 <label for="floatinMatricula">{{ __('MATRÍCULA') }}</label>
@@ -203,7 +203,7 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select" name="lugar_salida" id="floatingSelect">
-                                    <option>- Seleccione -</option>
+                                    <option>- {{ __('Seleccione') }} -</option>
                                     @foreach ($destinos as $dest)
                                         <option value="{{ $dest->id }}|{{ $dest->descripcion }}">
                                             {{ $dest->descripcion }}

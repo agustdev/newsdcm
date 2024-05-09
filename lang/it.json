@@ -11,8 +11,10 @@
     "Conduce": "Guida",
     "ENTRADAS INTERNACIONALES": "BIGLIETTI INTERNAZIONALI",
     "Entradas": "Biglietti",
+    "ENTRADAS": "BIGLIETTI",
     "SALIDAS INTERNACIONALES": "PARTENZE INTERNAZIONALI",
     "Salidas": "Partenze",
+    "SALIDAS": "PARTENZE",
     "Mis embarcaciones": "Le mie barche",
     "Esta es la lista de tus embarcaciones": "Questa è la lista delle tue barche",
     "Despachos": "Dispacci",
@@ -187,5 +189,6 @@
     "Recordar": "Ricordare",
     "Iniciar Sesion": "LOGIN",
     "Registro": "Registrare",
-    "¿Olvidaste tu contraseña?": "Hai dimenticato la tua password?"
+    "¿Olvidaste tu contraseña?": "Hai dimenticato la tua password?",
+    "FOTOS DE LA EMBARCACION": "FOTO DELLA BARCA"
 }

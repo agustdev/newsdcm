@@ -11,8 +11,10 @@
     "Conduce": "Conduit",
     "ENTRADAS INTERNACIONALES": "BILLETS INTERNATIONAUX",
     "Entradas": "Entrées",
+    "ENTRADAS": "ENTRÉES",
     "SALIDAS INTERNACIONALES": "DÉPARTS INTERNATIONAUX",
     "Salidas": "départs",
+    "SALIDAS": "DÉPARTS",
     "Mis embarcaciones": "Mes bateaux",
     "Esta es la lista de tus embarcaciones": "Voici la liste de vos bateaux",
     "Despachos": "Dépêches",
@@ -187,5 +189,6 @@
     "Recordar": "Rappeler",
     "Iniciar Sesion": "Commencer la session",
     "Registro": "Enregistrer",
-    "¿Olvidaste tu contraseña?": "Vous avez oublié votre mot de passe?"
+    "¿Olvidaste tu contraseña?": "Vous avez oublié votre mot de passe?",
+    "FOTOS DE LA EMBARCACION": "PHOTOS DU BATEAU"
 }

@@ -200,8 +200,10 @@
     "Conduce": "Drives",
     "ENTRADAS INTERNACIONALES": "INTERNATIONAL TICKETS",
     "Entradas": "Entrances",
+    "ENTRADAS": "ENTRANCES",
     "SALIDAS INTERNACIONALES": "INTERNATIONAL DEPARTURES",
     "Salidas": "Departures",
+    "SALIDAS": "DEPARTURES",
     "Mis embarcaciones": "My boats",
     "Mis Embarcaciones": "My Boats",
     "Esta es la lista de tus embarcaciones": "This is the list of your boats",
@@ -275,6 +277,7 @@
     "Foto": "Photo",
     "SELECCIONE UNA NUEVA FOTO": "SELECT A NEW PHOTO",
     "Nombre": "Name",
+    "NOMBRE": "NAME",
     "Correo electrónico": "Email",
     "GUARDAR": "SAVE",
     "Actualizar contraseña": "Update password",
@@ -373,5 +376,6 @@
     "REGISTRARSE": "SIGN UP",
     "Iniciar Sesion": "LOGIN",
     "Registro": "Sign up",
-    "¿Olvidaste tu contraseña?": "Did you forget your password?"
+    "¿Olvidaste tu contraseña?": "Did you forget your password?",
+    "FOTOS DE LA EMBARCACION": "PHOTOS OF THE BOAT"
 }

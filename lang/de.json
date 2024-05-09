@@ -11,8 +11,10 @@
     "Conduce": "Fährt",
     "ENTRADAS INTERNACIONALES": "INTERNATIONALE TICKETS",
     "Entradas": "Eintrittskarten",
+    "ENTRADAS": "EINTRITTSKARTEN",
     "SALIDAS INTERNACIONALES": "INTERNATIONALE ABFAHRTEN",
     "Salidas": "Abflüge",
+    "SALIDAS": "ABFLÜGE ",
     "Mis embarcaciones": "Meine Boote",
     "Esta es la lista de tus embarcaciones": "Dies ist die Liste Ihrer Boote",
     "Despachos": "Sendungen",
@@ -187,5 +189,6 @@
     "Recordar": "Erinnern",
     "Iniciar Sesion": "Anmeldung",
     "Registro": "Aufzeichnen",
-    "¿Olvidaste tu contraseña?": "Haben Sie Ihr Passwort vergessen?"
+    "¿Olvidaste tu contraseña?": "Haben Sie Ihr Passwort vergessen?",
+    "FOTOS DE LA EMBARCACION": "FOTOS DES BOOTS"
 }

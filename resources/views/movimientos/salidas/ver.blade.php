@@ -62,7 +62,7 @@
                                 <strong>{{ __('INFORMACIÓN DEL CAPITÁN') }}</strong>
                             </div>
                             <p class="mb-2 mt-2">
-                                <strong>Nombre:</strong> {{ !empty($salida->capitan) ? $salida->capitan->nombre : '' }}
+                                <strong>{{ __('Nombre') }}:</strong> {{ !empty($salida->capitan) ? $salida->capitan->nombre : '' }}
                             </p>
                             <p class="mb-2 mt-2">
                                 <strong>{{ __('Documento') }}:</strong>

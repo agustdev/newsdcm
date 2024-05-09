@@ -150,7 +150,7 @@
                                 <input type="text" class="form-control nombre_capitan"
                                     id="floatingNombreConductor" placeholder="NOMBRE Y APELLIDO DEL CONDUCTOR"
                                     value="" name="nombre_conductor" required />
-                                <label for="floatingNombreConductor">{{ __('NOMBRE Y APELLIDO DEL CONDUCTO') }}R</label>
+                                <label for="floatingNombreConductor">{{ __('NOMBRE Y APELLIDO DEL CONDUCTOR') }}R</label>
                             </div>
                         </div>
 
@@ -292,12 +292,12 @@
                                 <select class="form-select" name="municipio" id="floatingSelectMunicipio">
                                     <option>- {{ __('Seleccione') }} -</option>
                                 </select>
-                                <label for="floatingSelectMunicipio">MUNICIPIO</label>
+                                <label for="floatingSelectMunicipio">{{ __('MUNICIPIO') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control" id="floatingSector" placeholder="SECTOR"
+                                <input type="text" class="form-control" id="floatingSector" placeholder="{{ __('SECTOR') }}"
                                     name="sector" />
                                 <label for="floatingSector">{{ __('SECTOR') }}</label>
                             </div>
@@ -307,7 +307,7 @@
 
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control" id="floatingCalle" placeholder="CALLE"
+                                <input type="text" class="form-control" id="floatingCalle" placeholder="{{ __('CALLE') }}"
                                     name="calle" />
                                 <label for="floatingCalle">{{ __('CALLE') }}</label>
                             </div>

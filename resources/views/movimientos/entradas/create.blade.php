@@ -247,7 +247,7 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select name="pais_procedencia" id="" class="form-select" required>
-                                    <option value="">- Seleccione pais de procedencia -</option>
+                                    <option value="">- {{ __('Seleccione pais de procedencia') }} -</option>
                                     <option value="Afganistán" id="AF">Afganistán</option>
                                     <option value="Albania" id="AL">Albania</option>
                                     <option value="Alemania" id="DE">Alemania</option>
