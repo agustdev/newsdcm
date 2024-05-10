@@ -50,13 +50,13 @@
 
 <div class="grid grid-cols-1 gap-3">
 
-<div class="border-bottom text-dark border-secondary mt-2 text-center text-lg">
+<div class="border-bottom text-dark border-secondary mt-2 text-center">
    <p style="">{{ __('NOMBRE') }}: {{ $emb->nombre }} </p> 
 </div>
-<div class="border-bottom text-dark border-secondary mt-2 text-center text-lg">
+<div class="border-bottom text-dark border-secondary mt-2 text-center">
     <p style="">{{ __('MATRÍCULA') }}: {{ $emb->matricula }} </p>
 </div>
-<div class="border-bottom text-dark border-secondary mt-2 text-center text-lg">
+<div class="border-bottom text-dark border-secondary mt-2 text-center">
     <p style="">{{ __('CHASIS') }}: {{ $emb->no_chasis }} </p>
 </div>
 
