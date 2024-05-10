@@ -45,19 +45,19 @@
                         </div>
                         <div class="row mb-2 mt-2 ">
                             <p class="col-md-2">
-                                <strong>Matrícula:</strong>
+                                <strong>{{ __('Matrícula') }}:</strong>
                             </p>
                             <span class="col-md-2">{{ $despacho->matricula }}</span>
                         </div>
                         <div class="row mt-2">
                             <p class="col-md-2">
-                                <strong>Nombre de la Embarcación:</strong>
+                                <strong>{{ __('Nombre de la Embarcación') }}:</strong>
                             </p>
                             <span class="col-md-2">{{ $despacho->nombre }}</span>
                         </div>
                         <div class="row mt-2">
                             <p class="col-md-2">
-                                <strong>No Chasis:</strong>
+                                <strong>{{ __('No Chasis') }}:</strong>
                             </p>
                             <span class="col-md-2">
                                 {{ $despacho->numero_casco }}
@@ -65,7 +65,7 @@
                         </div>
                         <div class="row mt-2">
                             <p class="col-md-2">
-                                <strong>Cantidad de Tripulantes:</strong>
+                                <strong>{{ __('Cantidad de Tripulantes') }}:</strong>
                             </p>
                             <span class="col-md-2">
                                 {{ $despacho->embarcacion->capacidad_personas }}
@@ -73,13 +73,13 @@
                         </div>
                         <div class="row mt-2">
                             <p class="col-md-2">
-                                <strong>Cantidad de Pasajeros:</strong>
+                                <strong>{{ __('Cantidad de Pasajeros') }}:</strong>
                             </p>
                             <span class="col-md-2">{{ $despacho->embarcacion->capacidad_tripulantes }}</span>
                         </div>
                         <div class="row mt-2">
                             <p class="col-md-2">
-                                <strong>Tipo embarcación:</strong>
+                                <strong>{{ __('Tipo embarcación') }}:</strong>
                             </p>
                             <span class="col-md-2">{{ $despacho->embarcacion->tipo_embarcacion }}</span>
                         </div>
@@ -88,52 +88,52 @@
                     @if (!empty($despacho->capitan))
                         <h4 class="header-title mt-3">
                             <div class="alert alert-info mt-2" role="alert">
-                                <strong>INFORMACIÓN DEL CAPITÁN</strong>
+                                <strong>{{ __('INFORMACIÓN DEL CAPITÁN') }}</strong>
                             </div>
                             <div class="row mb-2 mt-2">
                                 <p class="col-md-2">
-                                    <strong>Nombre:</strong>
+                                    <strong>{{ __('Nombre') }}:</strong>
                                 </p>
                                 <span
                                     class="col-md-2">{{ !empty($despacho->capitan) ? $despacho->capitan->nombre : '' }}</span>
                             </div>
                             <div class="row mb-2 mt-2">
                                 <p class="col-md-2">
-                                    <strong>Documento de identidad:</strong>
+                                    <strong>{{ __('Documento de identidad') }}:</strong>
                                 </p>
                                 <span
                                     class="col-md-2">{{ !empty($despacho->capitan) ? $despacho->capitan->documento : '' }}</span>
                             </div>
                             <div class="row mb-2 mt-2">
                                 <p class="col-md-2">
-                                    <strong>Teléfono:</strong>
+                                    <strong>{{ __('Teléfono') }}:</strong>
                                 </p>
                                 <span
                                     class="col-md-2">{{ !empty($despacho->capitan) ? $despacho->capitan->telefono : '' }}</span>
                             </div>
                             <div class="row mb-2 mt-2 py-2">
                                 <p class="col-md-2">
-                                    <strong>Motivo del viaje:</strong>
+                                    <strong>{{ __('Motivo del viaje') }}:</strong>
                                 </p>
                                 <span
                                     class="col-md-3">{{ !empty($despacho->capitan) ? $despacho->capitan->motivo_viaje : '' }}</span>
                             </div>
                             <div class="row">
                                 <p class="col-md-2">
-                                    <strong>Fecha Salida:</strong>
+                                    <strong>{{ __('Fecha Salida') }}:</strong>
                                 </p>
                                 <span class="col-md-2">{{ $despacho->fecha->format('d-m-Y') }}</span>
                             </div>
                             <div class="row mb-2 mt-2">
                                 <p class="col-md-2">
-                                    <strong>Lugar salida:</strong>
+                                    <strong>{{ __('Lugar salida') }}:</strong>
                                 </p>
                                 <span
                                     class="col-md-2">{{ !empty($despacho->capitan) ? $despacho->capitan->lugar_salida : '' }}</span>
                             </div>
                             <div class="row mb-2 mt-2">
                                 <p class="col-md-2">
-                                    <strong>Lugar destino:</strong>
+                                    <strong>{{ __('Lugar destino') }}:</strong>
                                 </p>
                                 <span
                                     class="col-md-2">{{ !empty($despacho->capitan) ? $despacho->capitan->lugar_destino : '' }}</span>
@@ -142,7 +142,7 @@
                         </h4>
                     @else
                         <div class="alert alert-danger">
-                            <strong>SOLICITUD INCOMPLETA</strong>
+                            <strong>{{ __('SOLICITUD INCOMPLETA') }}</strong>
                         </div>
                     @endif
                 </div>
