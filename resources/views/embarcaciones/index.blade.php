@@ -30,12 +30,12 @@
                 <div
                     class="card widget-flat border @if (strtotime($emb->fecha_validez->format('d-m-Y')) >= strtotime(\Carbon\Carbon::now()->format('d-m-Y'))) border-custom @else border-custom-red @endif border-5 rounded sombra">
                     <div class="card-body">
-                        <span class="badge bg-warning">{{ __('Nacional') }}</span>
+                        <span class="badge text-gray-800">{{ __('Nacional') }}</span>
                         <div class="float-end">
                             <i
                                 class="mdi mdi-ship-wheel mdi-36px widget-icon bg-custom rounded-circle text-warning"></i>
                         </div>
-                        <h5 class="text-muted fw-normal mt-0" title="Revenue">
+                        <h5 class="fw-normal mt-0" title="Revenue">
                             <strong>{{ __('Fecha de expiración') }}:</strong>
                             @if (strtotime($emb->fecha_validez->format('d-m-Y')) >= strtotime(\Carbon\Carbon::now()->format('d-m-Y')))
                                 <small
@@ -45,37 +45,27 @@
                                     class="badge bg-danger me-1 h2 py-1">{{ $emb->fecha_validez->format('d-m-Y') }}</small>
                             @endif
                         </h5>
-                        <div class="col-lg-12">
-                            <p class="mb-2 text-muted ">
-                                <span class="badge badge-outline-success me-1 font-weight-bold py-1 block">
-                                    <i class="uil-ship uil-16-plus me-1" style="font-size: 24px;"></i> <span
-                                        style="vertical-align: super; font-size: 16px;">{{ $emb->nombre }}
-                                    </span>
-                                </span>
-                            </p>
-                            <p class="mb-2 text-muted ">
-                                <span class="badge badge-outline-info me-1 py-1 block">
-                                    {{-- <i class="mdi mdi-card-account-details mdi-48px me-1"></i>  --}}
-                                    <span style="vertical-align: super; font-size: 14px;">{{ __('MATRICULA') }}:
-                                        {{ $emb->matricula }}</span>
-                                </span>
-                            </p>
-                            <p class="text-muted ">
-                                <span class="badge badge-outline-danger me-1 py-1 block">
-                                    {{-- <i class="mdi mdi-card-text mdi-36px me-1"></i> --}}
-                                    <span style="vertical-align: super; font-size: 14px;">{{ __('CHASIS') }}:
-                                        {{ $emb->no_chasis }}</span>
-                                </span>
-                            </p>
-                            <p class="text-muted mt-3">
-                                <a data-bs-toggle="modal" data-bs-target="#option-pic-modal-{{ $emb->id }}"
-                                    href="#"
-                                    class="fotosemb text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-2 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-                                    <i class="mdi mdi-camera"></i>
-                                    {{ __('Fotos') }}
-                                </a>
-                            </p>
+                        <div class="grid grid-cols-1 gap-3">
+
+                            <div class="border-bottom text-dark border-secondary mt-2 text-center">
+                                <p style="">{{ __('NOMBRE') }}: {{ $emb->nombre }} </p>
+                            </div>
+                            <div class="border-bottom text-dark border-secondary mt-2 text-center">
+                                <p style="">{{ __('MATRÍCULA') }}: {{ $emb->matricula }} </p>
+                            </div>
+                            <div class="border-bottom text-dark border-secondary mt-2 text-center">
+                                <p style="">{{ __('CHASIS') }}: {{ $emb->no_chasis }} </p>
+                            </div>
+
                         </div>
+                        <p class="text-muted mt-3">
+                            <a data-bs-toggle="modal" data-bs-target="#option-pic-modal-{{ $emb->id }}"
+                                href="#"
+                                class="fotosemb bg-azulito text-white hover:bg-blue-900  focus:outline-none focus:ring-4 focus:ring-blue-400 font-medium rounded-lg text-sm px-2 py-2.5 me-2 mb-2">
+                                <i class="mdi mdi-camera"></i>
+                                {{ __('Fotos') }}
+                            </a>
+                        </p>
                     </div>
                     <div class="card-footer">
                         <small>{{ __('Ultima solicitud') }}:
