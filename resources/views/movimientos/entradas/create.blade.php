@@ -12,7 +12,7 @@
         </h2>
     </x-slot>
     <div class="row g-2">
-        <div class="alert alert-info">
+        <div class="alert alert-info text-black font-black">
             <i class="uil-info-circle"></i>
             {{ __('Este formulario solo es para embarcaciones que provienen de otros paises') }}
         </div>
@@ -559,6 +559,8 @@
                             </div>
                         </div>
                     </div>
+                    {{-- armas --}}
+                    <div class="row"></div>
                     {{-- componente tripulantes --}}
                     <div class="row">
                         @livewire('tripulantes-post')
@@ -604,16 +606,7 @@
                 if ($(this).val() == '') {
                     $('.cant-pas').text('0');
                 }
-                // if ($(this).val() == 0) {
-                //     $('.tripulantes').hide();
-                // }
             });
-
-            // $('.cant-tripulante').on('change', function() {
-            //     if ($(this).val() == 0) {
-            //         $('.tripulantes').hide();
-            //     }
-            // })
 
             $('[required]').css({
                 'border-left': '2px solid red'

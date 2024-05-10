@@ -26,7 +26,7 @@ class PasajerosPost extends Component
             'mov_id' => 0
         ]);
 
-        // $this->emit('render');
+        $this->reset(['nombre', 'nacionalidad', 'documento']);
     }
 
     public function delete(Pasajeros $tripulante)
