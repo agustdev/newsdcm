@@ -4,7 +4,7 @@
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
     @endpush
     <x-slot name="header">
-        <h2 class="h2 mb-2">
+        <h2 class="h2 mb-2 mt-3 text-center">
             {{ __('Acceso Rápido') }}
         </h2>
     </x-slot>
@@ -28,7 +28,7 @@
 
                         <br>
                         <a href="{{ route('movimientos.despachos.create') }}"
-                            class="text-blue-900 bg-white hover:bg-slate-400 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 me-2 mb-2">{{ __('SOLICITAR') }}
+                            class="text-blue-900 bg-white hover:bg-slate-300 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 me-2 mb-2">{{ __('SOLICITAR') }}
                             <i class="mdi mdi-arrow-right"></i></a>
                     </div>
                 </div>
