@@ -121,6 +121,7 @@
     <script>
         let flag = '{{app()->getLocale()}}'
         let lenguages = '{{app()->getLocale()}}'.toUpperCase();
+        let url = flag == 'ru' ? `https://cdn.datatables.net/plug-ins/1.12.0/i18n/${flag}.json` : `https://cdn.datatables.net/plug-ins/1.12.0/i18n/${flag}-${lenguages}.json`;
 
         $(document).ready(function() {
             var table = $('#table-despacho').DataTable({
@@ -134,7 +135,7 @@
                     , [10, 25, 50, 'Todos']
                 , ]
                 , "language": {
-                    "url": `https://cdn.datatables.net/plug-ins/1.12.0/i18n/${flag}-${lenguages}.json`
+                    "url": url
                 }
                 , "responsive": true
             , });

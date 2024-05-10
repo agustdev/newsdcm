@@ -29,7 +29,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>{{ __('Fecha Llegada') }}/th>
+                                <th>{{ __('Fecha Llegada') }}</th>
                                 <th>{{ __('Matrícula') }}</th>
                                 <th>{{ __('Estado') }}</th>
                                 <th>{{ __('Detalle') }}</th>
