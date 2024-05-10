@@ -32,6 +32,7 @@
     <div class="row g-2">
         <form action="{{ route('movimientos.entradas.store') }}" method="POST" class="form-inline" autocomplete="off">
             @csrf
+            {{-- card informacion de la embarcacion --}}
             <div class="card shadow-xl">
                 <div class="card-header bg-blue-900">
                    <div class="text-white" role="alert">
@@ -40,37 +41,37 @@
                             </div>
                         </div>
                </div>
-                <div class="card-body">
+                <div class="card-body -mb-3">
                     <div class="row g-2">
                         
                         
                         <div class="col-md">
-                            <div class="form-floating mb-2">
+                            <div class="form-floating mb-1">
                                 <input type="text" class="form-control matricula rounded-md" id="floatinMatricula"
                                     placeholder="MATRICULA" name="matricula" required />
-                                <label for="floatinMatricula">MATRÍCULA</label>
+                                <label style="font-size: 10px; for="floatinMatricula">MATRÍCULA</label>
                             </div>
                         </div>
                         <div class="col-md">
-                            <div class="form-floating mb-2">
+                            <div class="form-floating mb-1">
                                 <input type="text" class="form-control nombre_emb rounded-md" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" required />
-                                <label for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
+                                <label style="font-size: 10px; for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
                             </div>
                         </div>
 
                         <div class="col-md">
-                            <div class="form-floating mb-3">
+                            <div class="form-floating mb-1">
                                 <input type="text" class="form-control numero_casco rounded-md" id="floatingNumeroCasco"
                                     placeholder="NUMERO DE CASCO" name="numero_casco" required />
-                                <label for="floatingNumeroCasco">NUMERO DE CASCO</label>
+                                <label style="font-size: 10px; for="floatingNumeroCasco">NUMERO DE CASCO</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
                                 <input type="text" class="form-control color rounded-md" id="floatingColor"
                                     placeholder="COLOR DE LA EMBARCACIÓN" name="color" required />
-                                <label for="floatingColor">COLOR</label>
+                                <label style="font-size: 10px;" for="floatingColor">COLOR</label>
                             </div>
                         </div>
                     </div>
@@ -80,9 +81,169 @@
                     
                     {{-- componente tripulantes --}}
                     
+                    {{-- aqui pondre la columna de las medidas de la embarcacion --}}
+
+                    {{-- titulo de las medidas de la embarcacion --}}
+                    <div class="text-blue-900 text-sm font-medium ml-3.5 px-2.5 py-1 -mb-4 rounded"
+                    role="alert">
+                    <div class="inline-block float-start">
+                        <strong>{{ __('MEDIDAS DE LA EMBARCACIÓN') }}</strong>
+                    </div>
+                </div>
+                {{-- fin de titulos de las medidas de la embarcacion --}}
+{{-- cards de las medidas que esta dentro del card principal --}}
+                <div class="card-body">
+                    <div class="row g-2">
+    
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="text" name="material_casco" class="form-control rounded-md" id="floatingMaterial"
+                                    placeholder="MATERIAL DEL CASCO" required>
+                                <label style="font-size: 10px" for="floatinEslora">MATERIAL DEL CASCO</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control eslora rounded-md" id="floatinEslora"
+                                    placeholder="ESLORA" name="eslora" required />
+                                <label style="font-size: 10px;" for="floatinEslora">ESLORA</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control nombre_emb rounded-md" id="floatingManga"
+                                    placeholder="MANGA" name="manga" required />
+                                <label style="font-size: 10px;" for="floatingManga">MANGA</label>
+                            </div>
+                        </div>
                     
+                        <div class="col-md">
+                            <div class="form-floating mb-1">
+                                <input type="number" class="form-control puntal rounded-md" id="floatingPuntal"
+                                    placeholder="PUNTAL" name="puntal" required />
+                                <label style="font-size: 10px;" for="floatingNumeroCasco">PUNTAL</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                {{-- fin del card de las medidas que esta dentro del card principal --}}
+
+
+
+
+
+
+
+{{-- titulo para el tipo de embarcacion --}}
                 
-                
+
+<div class="text-blue-900 text-sm font-medium ml-3.5 px-2.5 py-1 -mt-3 mb-1 rounded "
+        role="alert">
+        <div class="inline-block float-start">
+            <strong>{{ __('TIPO DE EMBARCACIÓN') }}</strong>
+        </div>
+    </div>
+
+                {{-- fin para el titulo de fin de la embarcacion --}}
+
+{{-- body para la embarcacion --}}
+
+<div class="card-body -mt-4">
+    {{-- Tipo de embarcacion y uso --}}
+    <div class="row g-2">
+       
+       <div class="col-md">
+           <div class="form-floating mb-2">
+               <select name="tipo_embarcacion" id="" class="form-select rounded-md" required>
+                   <option value="">- Seleccione -</option>
+                   <option value="VELERO">VELERO</option>
+                   <option value="YATE">YATE</option>
+                   <option value="CATAMARAN">CATAMARAN</option>
+               </select>
+               <label style="font-size: 10px;" for="floatinEslora">TIPO EMBRACACIÓN</label>
+           </div>
+       </div>
+       <div class="col-md">
+           <div class="form-floating mb-2">
+               <select name="tipo_uso" id="" class="form-select rounded-md" required>
+                   <option value="">- Seleccione -</option>
+                   <option value="TURISMO">TURISMO</option>
+                   <option value="RECREO">RECREO</option>
+               </select>
+               <label style="font-size: 10px;" for="floatingEmbarcacion">TIPO DE USO</label>
+           </div>
+       </div>
+   </div>
+   
+   
+   </div>
+
+
+{{-- fin del body para embarcacion  --}}
+
+{{-- titulos de datos del motor --}}
+
+<div class="text-blue-900 text-sm font-medium ml-3 px-2.5 py-1.5 -mt-4 rounded "
+        role="alert">
+        <div class="inline-block float-start">
+            <strong>{{ __('DATOS DEL MOTOR') }}</strong>
+        </div>
+    </div>
+
+
+{{-- fin de titulos de datos del motor --}}
+
+
+{{-- cardbody para datos del motor --}}
+
+<div class="card-body -mt-3">
+    <div class="row g-2">
+            
+        <div class="col-md">
+            <div class="form-floating mb-2">
+                <input type="text" name="tipo_motor" class="form-control rounded-md"
+                    placeholder="TIPO MOTOR" required>
+                <label style="font-size: 10px;" for="floatinTipoMotor">TIPO MOTOR</label>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="form-floating mb-2">
+                <input type="text" name="marca_modelo_motor" class="form-control rounded-md"
+                    placeholder="MARCA MOTOR" required>
+                <label style="font-size: 10px;" for="floatinMarcaMotor">MARCA MOTOR</label>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="form-floating mb-2">
+                <input type="text" name="caballos_fuerza_motor" class="form-control rounded-md"
+                    placeholder="CABALLOS DE FUERZA" required>
+                <label style="font-size: 10px;" for="floatinCaballosFuerza">CABALLOS DE FUERZA</label>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="form-floating mb-2">
+                <input type="text" name="no_motor" class="form-control rounded-md"
+                    placeholder="CANTIDAD MOTOR" required>
+                <label style="font-size: 10px;" for="floatinCaballosFuerza">CANTIDAD MOTOR</label>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+{{-- cardbody para datos del motor --}}
+
+
+
+
+{{-- desde aqui arriba ubico todos los cards que van juntos --}}
+                    {{-- fin del card de la informacion de la embarcacion --}}
             </div>
             <input type="hidden" name="mov" value="{{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}">
             <input type="hidden" name="user" value="{{ auth()->user()->id }}">
@@ -90,95 +251,14 @@
     </div>
 
     {{-- Medidas de la embarcacion --}}
-<div class="card shadow-xl">
-    <div class="card-header bg-blue-900">
-<div class="text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded  dark:text-blue-300"
-        role="alert">
-        <div class="inline-block float-start">
-            <strong>{{ __('MEDIDAS DE LA EMBARCACIÓN') }}</strong>
-        </div>
-    </div>
-    </div>
-    <div class="card-body">
-{{-- Medidas de la embarcacion --}}
-<div class="row g-2">
-    
-    <div class="col-md">
-        <div class="form-floating mb-2">
-            <input type="text" name="material_casco" class="form-control rounded-md" id="floatingMaterial"
-                placeholder="MATERIAL DEL CASCO" required>
-            <label style="font-size: 10px" for="floatinEslora">MATERIAL DEL CASCO</label>
-        </div>
-    </div>
-    <div class="col-md">
-        <div class="form-floating mb-2">
-            <input type="number" class="form-control eslora rounded-md" id="floatinEslora"
-                placeholder="ESLORA" name="eslora" required />
-            <label style="font-size: 10px;" for="floatinEslora">ESLORA</label>
-        </div>
-    </div>
-    <div class="col-md">
-        <div class="form-floating mb-2">
-            <input type="number" class="form-control nombre_emb rounded-md" id="floatingManga"
-                placeholder="MANGA" name="manga" required />
-            <label style="font-size: 10px;" for="floatingManga">MANGA</label>
-        </div>
-    </div>
 
-    <div class="col-md">
-        <div class="form-floating mb-3">
-            <input type="number" class="form-control puntal rounded-md" id="floatingPuntal"
-                placeholder="PUNTAL" name="puntal" required />
-            <label style="font-size: 10px;" for="floatingNumeroCasco">PUNTAL</label>
-        </div>
-    </div>
-</div>
-    </div>
-</div>
+{{-- Medidas de la embarcacion --}}
+
+
 {{-- fin de medidas de la embarcacion --}}
 
 {{-- tipo de embarcacion --}}
 
-<div class="card shadow-xl">
-    <div class="card-header bg-blue-900">
-        <div class="text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded "
-        role="alert">
-        <div class="inline-block float-start">
-            <strong>{{ __('TIPO DE EMBARCACIÓN') }}</strong>
-        </div>
-    </div>
-    </div>
-
-<div class="card-body">
- {{-- Tipo de embarcacion y uso --}}
- <div class="row g-2">
-    
-    <div class="col-md">
-        <div class="form-floating mb-2">
-            <select name="tipo_embarcacion" id="" class="form-select rounded-md" required>
-                <option value="">- Seleccione -</option>
-                <option value="VELERO">VELERO</option>
-                <option value="YATE">YATE</option>
-                <option value="CATAMARAN">CATAMARAN</option>
-            </select>
-            <label style="font-size: 10px;" for="floatinEslora">TIPO EMBRACACIÓN</label>
-        </div>
-    </div>
-    <div class="col-md">
-        <div class="form-floating mb-2">
-            <select name="tipo_uso" id="" class="form-select rounded-md" required>
-                <option value="">- Seleccione -</option>
-                <option value="TURISMO">TURISMO</option>
-                <option value="RECREO">RECREO</option>
-            </select>
-            <label style="font-size: 10px;" for="floatingEmbarcacion">TIPO DE USO</label>
-        </div>
-    </div>
-</div>
-
-
-</div>
-</div>
 
 
 
@@ -186,53 +266,6 @@
 {{-- fin de tipo de embarcacion --}}
 
 {{-- datos del motor --}}
-<div class="card shadow-xl">
-    <div class="card-header bg-blue-900">
-        <div class="text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded "
-        role="alert">
-        <div class="inline-block float-start">
-            <strong>{{ __('DATOS DEL MOTOR') }}</strong>
-        </div>
-    </div>
-    </div>
-
-
-    <div class="card-body">
-        <div class="row g-2">
-            
-            <div class="col-md">
-                <div class="form-floating mb-2">
-                    <input type="text" name="tipo_motor" class="form-control rounded-md"
-                        placeholder="TIPO MOTOR" required>
-                    <label style="font-size: 10px;" for="floatinTipoMotor">TIPO MOTOR</label>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="form-floating mb-2">
-                    <input type="text" name="marca_modelo_motor" class="form-control rounded-md"
-                        placeholder="MARCA MOTOR" required>
-                    <label style="font-size: 10px;" for="floatinMarcaMotor">MARCA MOTOR</label>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="form-floating mb-2">
-                    <input type="text" name="caballos_fuerza_motor" class="form-control rounded-md"
-                        placeholder="CABALLOS DE FUERZA" required>
-                    <label style="font-size: 10px;" for="floatinCaballosFuerza">CABALLOS DE FUERZA</label>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="form-floating mb-2">
-                    <input type="text" name="no_motor" class="form-control rounded-md"
-                        placeholder="CANTIDAD MOTOR" required>
-                    <label style="font-size: 10px;" for="floatinCaballosFuerza">CANTIDAD MOTOR</label>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-</div>
 
 {{-- fin de los datos del motor --}}
 
