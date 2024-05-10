@@ -4,12 +4,12 @@
         @if ($currentStep == 1)
             <div class="step-one">
                 <div class="card">
-                    <div class="card-header bg-blue-900 text-white uppercase">Paso 1 / 3 - Entradas Internacionales</div>
+                    <div class="card-header bg-blue-900 text-white uppercase">Paso 1 / 3</div>
                     <div class="card-body">
                         <div class="row g-2">
                             <div class="alert bg-blue-900 text-white" role="alert">
                                 <div class="inline-block float-start">
-                                    <strong>PASO 1: {{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
+                                    <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
                                 </div>
                             </div>
                             <div class="col-md">
@@ -47,12 +47,6 @@
                         </div>
                         {{-- Tipo de embarcacion y uso --}}
                         <div class="row g-2">
-                            <div class="bg-blue-900 text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded "
-                                role="alert">
-                                <div class="inline-block float-start">
-                                    <strong>{{ __('TIPO') }}</strong>
-                                </div>
-                            </div>
                             <div class="col-md">
                                 <div class="form-floating mb-2">
                                     <select name="tipo_embarcacion" id="" class="form-select" required
@@ -162,7 +156,7 @@
             <div class="step-two">
                 <div class="card">
                     <div class="card-header bg-blue-900 text-white uppercase">
-                        Paso 2 / 3 - Entradas Internacionales
+                        Paso 2 / 3
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -583,7 +577,7 @@
             <div class="step-three">
                 <div class="card">
                     <div class="card-header bg-blue-900 text-white uppercase">
-                        Paso 3 / 3 - Entradas Internacionales
+                        Paso 3 / 3
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -597,10 +591,7 @@
             </div>
         @endif
         <div class="action-buttons d-flex justify-content-between bg-white pt-2">
-            @if ($currentStep == 1)
-                <div></div>
-            @endif
-
+            <div></div>
             <div class="float-end">
                 @if ($currentStep == 2 || $currentStep == 3)
                     <button type="button" wire:click='decreaseStep()'

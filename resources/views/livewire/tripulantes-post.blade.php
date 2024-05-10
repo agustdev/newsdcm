@@ -85,7 +85,7 @@
                     text: "Esta acción no podra ser revertida!",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
+                    confirmButtonColor: "#1E3A8A",
                     cancelButtonColor: "#d33",
                     confirmButtonText: "Si, eliminar!"
                 }).then((result) => {
@@ -94,7 +94,8 @@
                         Swal.fire({
                             title: "Eliminado!",
                             text: "El registro fue elminiado con exito.",
-                            icon: "success"
+                            icon: "success",
+                            confirmButtonColor: "#1E3A8A"
                         });
                     }
                 });

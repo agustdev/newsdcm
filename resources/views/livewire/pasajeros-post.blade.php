@@ -46,7 +46,7 @@
     </div>
     <div class="row">
         @if ($pasajeros->count() > 0)
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <table class="table">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3">Nombre</th>
@@ -84,7 +84,7 @@
                     text: "Esta acción no podra ser revertida!",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
+                    confirmButtonColor: "#1E3A8A",
                     cancelButtonColor: "#d33",
                     confirmButtonText: "Si, eliminar!"
                 }).then((result) => {
@@ -93,7 +93,9 @@
                         Swal.fire({
                             title: "Eliminado!",
                             text: "El registro fue elminiado con exito.",
-                            icon: "success"
+                            icon: "success",
+                            confirmButtonColor: "#1E3A8A",
+                            confirmButtonText: "Aceptar"
                         });
                     }
                 });
