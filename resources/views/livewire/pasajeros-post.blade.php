@@ -1,13 +1,13 @@
 <div class="row pasajeros">
     <div class="alert alert-secondary mt-2" role="alert">
-        <strong>DATOS DE LOS PASAJEROS (MAX: <span class="cant-pas">0</span>)</strong>
+        <strong>{{ __('DATOS DE LOS PASAJEROS') }} (MAX: <span class="cant-pas">0</span>)</strong>
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
             <input wire:model='nombre' type="text" class="form-control documento" id="floatinDocumento"
                 placeholder="Documento" name="documento"
                 @error('nombre') style="border-left: 2px solid red" @enderror />
-            <label for="floatinMatricula">NOMBRE</label>
+            <label for="floatinMatricula">{{ __('NOMBRE')}}</label>
             @error('nombre')
                 <span class="text-red-600">{{ $message }}</span>
             @enderror
@@ -19,7 +19,7 @@
             <input wire:model='nacionalidad' type="text" class="form-control nombre_capitan"
                 id="floatingNombreCapitan" placeholder="NOMBRE Y APELLIDO DEL CAPITAN" name="nacionalidad"
                 @error('nacionalidad') style="border-left: 2px solid red" @enderror />
-            <label for="floatingNombreEmbarcacion">NACIONALIDAD</label>
+            <label for="floatingNombreEmbarcacion">{{ __('NACIONALIDAD') }}</label>
             @error('nacionalidad')
                 <span class="text-red-600">{{ $message }}</span>
             @enderror
@@ -31,7 +31,7 @@
             <input wire:model='documento' type="text" class="form-control" id="floatinMatricula"
                 placeholder="name@example.com" name="documento" value=""
                 @error('documento') style="border-left: 2px solid red" @enderror />
-            <label for="floatinMatricula">DOCUMENTO DE IDENTIDAD</label>
+            <label for="floatinMatricula">{{ __('DOCUMENTO DE IDENTIDAD') }}</label>
             @error('documento')
                 <span class="text-red-600">{{ $message }}</span>
             @enderror
@@ -49,9 +49,9 @@
             <table class="table">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
-                        <th scope="col" class="px-6 py-3">Nombre</th>
-                        <th scope="col" class="px-6 py-3">Nacionalidad</th>
-                        <th scope="col" class="px-6 py-3">Documento de identidad</th>
+                        <th scope="col" class="px-6 py-3">{{ __('Nombre')}}</th>
+                        <th scope="col" class="px-6 py-3">{{ __('Nacionalidad')}}</th>
+                        <th scope="col" class="px-6 py-3">{{ __('Documento de identidad')}}</th>
                         <th scope="col" class="px-6 py-3"></th>
                     </tr>
                 </thead>
@@ -72,7 +72,7 @@
             </table>
         @else
             <div class="alert alert-info">
-                No se ha registrado ningún pasajero
+                {{ __('No se ha registrado ningún pasajero')}}
             </div>
         @endif
     </div>

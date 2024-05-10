@@ -1,5 +1,5 @@
 <ul class="side-nav">
-    <li class="side-nav-title side-nav-item">Actividad</li>
+    <li class="side-nav-title side-nav-item">{{ __('Actividad')}}</li>
     <li class="side-nav-item {{ request()->is('quick-access*') ? 'menuitem-active' : '' }}">
         <a href="{{ route('acceso.rapido') }}"
             class="side-nav-link {{ request()->is('quick-access*') ? 'menuitem-active' : '' }}">

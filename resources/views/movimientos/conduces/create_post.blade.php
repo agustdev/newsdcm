@@ -15,14 +15,14 @@
             <div class="card">
                 <div class="card-header">
                     <div class="col-lg-12 mb-2">
-                        <h3 class="h4 uppercase">Número de solicitud: {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
+                        <h3 class="h4 uppercase">{{ __('Número de solicitud') }}: {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
                         </h3>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="row g-2">
                         <div class="alert alert-warning" role="alert">
-                            <strong>INFORMACIÓN DE LA EMBARCACIÓN</strong>
+                            <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">

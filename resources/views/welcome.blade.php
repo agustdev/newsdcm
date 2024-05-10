@@ -266,14 +266,14 @@
                             {{-- <a href="{{ route('redireccion') }}" class="nav-link d-lg-none">SISCODEM</a> --}}
                             <a href="{{ route('redireccion') }}" class="btn button-primary-ard">
                                 {{-- <i class="mdi mdi-ship-wheel mdi-18px me-2"></i>  --}}
-                                ENTRAR AL SISTEMA
+                                {{ __('ENTRAR AL SISTEMA') }}
                             </a>
                         @else
-                            {{-- <a href="{{ route('login') }}" class="nav-link d-lg-none">INICIAR SESIÓN</a> --}}
+                            {{-- <a href="{{ route('login') }}" class="nav-link d-lg-none">{{ __('INICIAR SESIÓN') }}</a> --}}
                             @if (Route::has('register'))
-                                {{-- <button style="color: blue; " type="button" class="btn btn-light">INICIAR SESIÓN</button> --}}
+                                {{-- <button style="color: blue; " type="button" class="btn btn-light">{{ __('INICIAR SESIÓN') }}</button> --}}
 
-                                {{-- <a href="{{ route('register') }}" class="nav-link d-lg-none">REGISTRARSE</a> --}}
+                                {{-- <a href="{{ route('register') }}" class="nav-link d-lg-none">{{ __('REGISTRARSE') }}</a> --}}
                                 <a href="{{ route('login') }}" class="btn button-primary-ard">
                                     {{ __('INICIAR SESIÓN') }}
                                 </a>

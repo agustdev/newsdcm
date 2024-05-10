@@ -33,25 +33,25 @@
                     {{-- datos de la embarcacion --}}
                     <h4 class="header-title mt-3">
                         <div class="alert alert-warning" role="alert">
-                            <strong>INFORMACIÓN DE LA EMBARCACIÓN</strong>
+                            <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
                         </div>
                         <p class="mb-2 mt-2">
-                            <strong>Matrícula:</strong> {{ $salida->matricula }}
+                            <strong>{{ __('Matrícula') }}:</strong> {{ $salida->matricula }}
                         </p>
                         <p>
-                            <strong>Nombre de la Embarcación:</strong> {{ $salida->nombre }}
+                            <strong>{{ __('Nombre de la Embarcación') }}:</strong> {{ $salida->nombre }}
                         </p>
                         <p class="mt-2">
-                            <strong>No Chasis:</strong> {{ $salida->numero_casco }}
+                            <strong>{{ __('No Chasis') }}:</strong> {{ $salida->numero_casco }}
                         </p>
                         <p class="mt-2">
-                            <strong>Cantidad de Tripulantes:</strong> {{ $salida->embarcacion->capacidad_personas }}
+                            <strong>{{ __('Cantidad de Tripulantes') }}:</strong> {{ $salida->embarcacion->capacidad_personas }}
                         </p>
                         <p class="mt-2">
-                            <strong>Cantidad de Pasajeros:</strong> {{ $salida->embarcacion->capacidad_tripulantes }}
+                            <strong>{{ __('Cantidad de Pasajeros') }}:</strong> {{ $salida->embarcacion->capacidad_tripulantes }}
                         </p>
                         <p class="mt-2">
-                            <strong>Tipo tripulación:</strong> {{ $salida->embarcacion->tipo_embarcacion }}
+                            <strong>{{ __('Tipo tripulación') }}:</strong> {{ $salida->embarcacion->tipo_embarcacion }}
                         </p>
 
                     </h4>
@@ -59,39 +59,39 @@
                     @if (!empty($salida->capitan))
                         <h4 class="header-title mt-3">
                             <div class="alert alert-info mt-2" role="alert">
-                                <strong>INFORMACIÓN DEL CAPITÁN</strong>
+                                <strong>{{ __('INFORMACIÓN DEL CAPITÁN') }}</strong>
                             </div>
                             <p class="mb-2 mt-2">
-                                <strong>Nombre:</strong> {{ !empty($salida->capitan) ? $salida->capitan->nombre : '' }}
+                                <strong>{{ __('Nombre') }}:</strong> {{ !empty($salida->capitan) ? $salida->capitan->nombre : '' }}
                             </p>
                             <p class="mb-2 mt-2">
-                                <strong>Documento:</strong>
+                                <strong>{{ __('Documento') }}:</strong>
                                 {{ !empty($salida->capitan) ? $salida->capitan->documento : '' }}
                             </p>
                             <p class="mb-2 mt-2">
-                                <strong>Teléfono:</strong>
+                                <strong>{{ __('Teléfono') }}:</strong>
                                 {{ !empty($salida->capitan) ? $salida->capitan->telefono : '' }}
                             </p>
                             <p class="mb-2 mt-2 py-2">
-                                <strong>Motivo del viaje:</strong>
+                                <strong>{{ __('Motivo del viaje') }}:</strong>
                                 {{ !empty($salida->capitan) ? $salida->capitan->motivo_viaje : '' }}
                             </p>
                             <p>
-                                <strong>Fecha Salida:</strong>
+                                <strong>{{ __('Fecha Salida') }}:</strong>
                                 {{ $salida->fecha->format('d-m-Y') }}
                             </p>
                             <p class="mb-2 mt-2">
-                                <strong>Lugar salida:</strong>
+                                <strong>{{ __('Lugar salida') }}:</strong>
                                 {{ !empty($salida->capitan) ? $salida->capitan->lugar_salida : '' }}
                             </p>
                             <p class="mb-2 mt-2">
-                                <strong>Lugar destino:</strong>
+                                <strong>{{ __('Lugar destino') }}:</strong>
                                 {{ !empty($salida->capitan) ? $salida->capitan->lugar_destino : '' }}
                             </p>
                         </h4>
                     @else
                         <div class="alert alert-danger">
-                            <strong>SOLICITUD INCOMPLETA</strong>
+                            <strong>{{ __('SOLICITUD INCOMPLETA') }}</strong>
                         </div>
                     @endif
                 </div>
