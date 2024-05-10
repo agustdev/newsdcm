@@ -9,7 +9,7 @@
     @endpush
 
     <x-slot name="header">
-        <h2 class="h2 mb-2 mt-2">
+        <h2 class="h2 mb-2 ml-1 mt-3 text-center">
             {{ __('Conduces') }}
         </h2>
     </x-slot>
@@ -22,7 +22,7 @@
                         Listado de Solicitudes de Conduce
                         <a href="{{ route('movimientos.conduces.create') }}"
                             class="inline-flex items-center justify-center px-3 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 active:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150 float-end"><i
-                                class="mdi mdi-plus mdi-18px"></i>Nueva Solicitud</a>
+                                class="mdi mdi-plus mdi-18px mr-1"></i>Nueva Solicitud</a>
                     </h2>
                 </div>
 
@@ -56,7 +56,7 @@
                                         $cond->estado }}</span>
                                     @elseif ($cond->estado == "Enviado")
                                     <span
-                                        class="bg-yellow-100 text-yellow-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-700 dark:text-yellow-300">{{
+                                        class="bg-yellow-100 text-white text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-700 dark:text-white">{{
                                         $cond->estado }}</span>
                                     @elseif ($cond->estado == "En proceso")
                                     <span
