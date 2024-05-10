@@ -16,14 +16,14 @@
             <div class="card">
                 <div class="card-header">
                     <div class="col-lg-12 mb-2">
-                        <h3 class="h4 uppercase">Número de solicitud: {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
+                        <h3 class="h4 uppercase">{{ __('Número de solicitud') }}: {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
                         </h3>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="row g-2">
                         <div class="alert alert-warning" role="alert">
-                            <strong>INFORMACIÓN DE LA EMBARCACIÓN</strong>
+                            <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN')}}</strong>
                             <div role="status" class="spin-matricula float-end hidden">
                                 <svg aria-hidden="true"
                                     class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-700"
@@ -44,16 +44,16 @@
                                     placeholder="MATRICULA" name="matricula" value="" required /> --}}
                                 <select name="matricula" class="form-select emb_matricula" id="floatinMatricula">
                                     @if ($embarcaciones->count() > 0)
-                                        <option value="">- Seleccione -</option>
+                                        <option value="">- {{ __('Seleccione') }} -</option>
                                         @foreach ($embarcaciones as $embarcacion)
                                             <option value="{{ $embarcacion->matricula }}">{{ $embarcacion->matricula }}
                                             </option>
                                         @endforeach
                                     @else
-                                        <option value="">- Sin embarcaciones disponible -</option>
+                                        <option value="">- {{ __('Sin embarcaciones disponible') }} -</option>
                                     @endif
                                 </select>
-                                <label for="floatinMatricula">MATRÍCULA</label>
+                                <label for="floatinMatricula">{{ __('MATRÍCULA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -61,7 +61,7 @@
                                 <input type="text" class="form-control nombre_emb" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" readonly value=""
                                     required />
-                                <label for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
+                                <label for="floatingNombreEmbarcacion">{{ __('NOMBRE DE LA EMBARCACIÓN') }}</label>
                             </div>
                         </div>
 
@@ -70,7 +70,7 @@
                                 <input type="text" class="form-control numero_casco" id="floatingNumeroCasco"
                                     placeholder="NUMERO DE CASCO" name="numero_casco" readonly value=""
                                     required />
-                                <label for="floatingNumeroCasco">NUMERO DE CASCO</label>
+                                <label for="floatingNumeroCasco">{{ __('NUMERO DE CASCO')}}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -78,20 +78,20 @@
                                 <input type="text" class="form-control color_emb" id="floatingColor"
                                     placeholder="COLOR DE LA EMBARCACIÓN" readonly name="color_emb" value=""
                                     required />
-                                <label for="floatingColor">COLOR</label>
+                                <label for="floatingColor">{{ __('COLOR') }}</label>
                             </div>
                         </div>
                         <div class="row mt-2">
                             <span
                                 class="uppercase bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
-                                INFORMACIóN DEL MOTOR DE LA EMBARCACIóN
+                                {{ __('INFORMACIÓN DEL MOTOR DE LA EMBARCACIÓN') }}
                             </span>
                             <div class="col-md mb-2">
                                 <div class="form-floating">
                                     <input type="text" class="form-control marca_motor" id="floatingColor"
                                         placeholder="MARCA MOTOR DE LA EMBARCACIÓN" readonly
                                         name="marca_modelo_motor" />
-                                    <label for="floatingColor">MARCA</label>
+                                    <label for="floatingColor">{{ __('MARCA') }}</label>
                                 </div>
                             </div>
                             <div class="col-md mb-2">
@@ -99,21 +99,21 @@
                                     <input type="text" class="form-control caballos_motor" id="floatingColor"
                                         placeholder="CABALLOS DE FUERZA MOTOR DE LA EMBARCACIÓN" readonly
                                         name="caballos_fuerza_motor" />
-                                    <label for="floatingColor">CABALLOS DE FUERZA</label>
+                                    <label for="floatingColor">{{ __('CABALLOS DE FUERZA') }}</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating">
                                     <input type="text" class="form-control numero_motor" id="floatingColor"
                                         placeholder="NUMERO DE MOTOR" readonly name="no_motor" />
-                                    <label for="floatingColor">NÚMERO DE MOTOR</label>
+                                    <label for="floatingColor">{{ __('NÚMERO DE MOTOR') }}</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="alert alert-info mt-2" role="alert">
-                            <strong>INFORMACIÓN DEL CONDUCTOR / VEHÍCULO / DESTINO</strong>
+                            <strong>{{ __('INFORMACIÓN DEL CONDUCTOR / VEHÍCULO / DESTINO') }}</strong>
                             <div role="status" class="spin-cap float-end hidden">
                                 <svg aria-hidden="true"
                                     class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-700"
@@ -131,18 +131,18 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select tipo_documento" name="tipo_documento" id="floatingSelect">
-                                    <option>- Seleccione -</option>
-                                    <option value="cedula">Cédula</option>
-                                    <option value="pasaporte">Pasaporte</option>
+                                    <option>- {{ __('Seleccione') }} -</option>
+                                    <option value="cedula">{{ __('Cédula') }}</option>
+                                    <option value="pasaporte">{{ __('Pasaporte') }}</option>
                                 </select>
-                                <label for="floatinMatricula">TIPO DE DOCUMENTO</label>
+                                <label for="floatinMatricula">{{ __('TIPO DE DOCUMENTO') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control documento" id="floatinDocumento"
                                     placeholder="Documento" name="documento" required />
-                                <label for="floatinDocumento">DOCUMENTO DE IDENTIDAD DEL CONDUCTOR</label>
+                                <label for="floatinDocumento">{{ __('DOCUMENTO DE IDENTIDAD DEL CONDUCTOR') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -150,7 +150,7 @@
                                 <input type="text" class="form-control nombre_capitan"
                                     id="floatingNombreConductor" placeholder="NOMBRE Y APELLIDO DEL CONDUCTOR"
                                     value="" name="nombre_conductor" required />
-                                <label for="floatingNombreConductor">NOMBRE Y APELLIDO DEL CONDUCTOR</label>
+                                <label for="floatingNombreConductor">{{ __('NOMBRE Y APELLIDO DEL CONDUCTOR') }}R</label>
                             </div>
                         </div>
 
@@ -159,7 +159,7 @@
                                 <input type="text" class="form-control telefono1" id="floatingTelefonoConductor"
                                     placeholder="TELEFONO CONDUCTOR" name="telefono_conductor" value=""
                                     required />
-                                <label for="floatingTelefonoConductor">TELÉFONO DEL CONDUCTOR</label>
+                                <label for="floatingTelefonoConductor">{{ __('TELÉFONO DEL CONDUCTOR') }}</label>
                             </div>
                         </div>
                     </div>
@@ -169,46 +169,46 @@
                                 <input type="text" class="form-control telefono2" id="floatingTelefono2Conductor"
                                     placeholder="OTRO TELÉFONO DEL CONDUCTOR" name="telefono_conductor_otro"
                                     value="" />
-                                <label for="floatingTelefono2Conductor">OTRO TELÉFONO DEL CONDUCTOR</label>
+                                <label for="floatingTelefono2Conductor">{{ __('OTRO TELÉFONO DEL CONDUCTOR') }}</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <span class="bg-gray-500  text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded  text-gray-300">
-                            DATOS DEL VEHÍCULO</span>
+                            {{ __('DATOS DEL VEHÍCULO') }}</span>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control marca" id="floatingMarcaModelo"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="marca" required />
-                                <label for="floatingMarcaModelo">MARCA Y MODELO</label>
+                                <label for="floatingMarcaModelo">{{ __('MARCA Y MODELO') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control color" id="floatinColor"
                                     placeholder="COLOR" name="color" required />
-                                <label for="floatinColor">COLOR</label>
+                                <label for="floatinColor">{{ __('COLOR') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="number" class="form-control year" id="floatingYear" placeholder="AÑO"
                                     name="year" />
-                                <label for="floatingYear">AÑO</label>
+                                <label for="floatingYear">{{ __('AÑO') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control placa" id="floatingPlaca"
                                     placeholder="PLACA" name="placa" />
-                                <label for="floatingPlaca">PLACA</label>
+                                <label for="floatingPlaca">{{ __('PLACA') }}</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <span
                             class="bg-yellow-100 text-yellow-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-yellow-700 dark:text-yellow-300">
-                            LUGAR SALIDA
+                            {{ __('LUGAR SALIDA') }}
                             <div role="status" class="spin float-end hidden">
                                 <svg aria-hidden="true"
                                     class="w-6 h-6 mr-2 text-gray-200 animate-spin dark:text-gray-200 fill-gray-700"
@@ -227,37 +227,37 @@
                             <div class="form-floating mb-2">
                                 <input type="date" class="form-control" id="floatingFechaSalida"
                                     placeholder="FECHA SALIDA" name="fecha_salida" min="{{ date('Y-m-d') }}" />
-                                <label for="floatingFechaSalida">FECHA SALIDA</label>
+                                <label for="floatingFechaSalida">{{ __('FECHA SALIDA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select" name="provinciasalida"
                                     id="floatingSelectProvinciaSalida">
-                                    <option>- Seleccione -</option>
+                                    <option>- {{ __('Seleccione') }} -</option>
                                     @foreach ($provincias as $prov)
                                         <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
                                             {{ $prov->descripcion }}
                                         </option>
                                     @endforeach
                                 </select>
-                                <label for="floatingSelectProvinciaSalida">PROVINCIA SALIDA</label>
+                                <label for="floatingSelectProvinciaSalida">{{ __('PROVINCIA SALIDA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select" name="municipiosalida"
                                     id="floatingSelectMunicipioSalida">
-                                    <option>- Seleccione -</option>
+                                    <option>- {{ __('Seleccione') }} -</option>
                                 </select>
-                                <label for="floatingSelectMunicipioSalida">MUNICIPIO</label>
+                                <label for="floatingSelectMunicipioSalida">{{ __('MUNICIPIO') }}</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <span
                             class="bg-blue-100 text-blue-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-blue-700 dark:text-blue-300">
-                            LUGAR DESTINO
+                            {{ __('LUGAR DESTINO')}}
                             <div role="status" class="spin float-end hidden">
                                 <svg aria-hidden="true"
                                     class="w-6 h-6 mr-2 text-gray-200 animate-spin dark:text-gray-200 fill-gray-700"
@@ -276,30 +276,30 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select" name="provincia" id="floatingSelectProvincia">
-                                    <option>- Seleccione -</option>
+                                    <option>- {{ __('Seleccione') }} -</option>
                                     @foreach ($provincias as $prov)
                                         <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
                                             {{ $prov->descripcion }}
                                         </option>
                                     @endforeach
                                 </select>
-                                <label for="floatingSelectProvincia">PROVINCIA</label>
+                                <label for="floatingSelectProvincia">{{ __('PROVINCIA') }}</label>
                             </div>
                         </div>
 
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select" name="municipio" id="floatingSelectMunicipio">
-                                    <option>- Seleccione -</option>
+                                    <option>- {{ __('Seleccione') }} -</option>
                                 </select>
-                                <label for="floatingSelectMunicipio">MUNICIPIO</label>
+                                <label for="floatingSelectMunicipio">{{ __('MUNICIPIO') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control" id="floatingSector" placeholder="SECTOR"
+                                <input type="text" class="form-control" id="floatingSector" placeholder="{{ __('SECTOR') }}"
                                     name="sector" />
-                                <label for="floatingSector">SECTOR</label>
+                                <label for="floatingSector">{{ __('SECTOR') }}</label>
                             </div>
                         </div>
                     </div>
@@ -307,9 +307,9 @@
 
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control" id="floatingCalle" placeholder="CALLE"
+                                <input type="text" class="form-control" id="floatingCalle" placeholder="{{ __('CALLE') }}"
                                     name="calle" />
-                                <label for="floatingCalle">CALLE</label>
+                                <label for="floatingCalle">{{ __('CALLE') }}</label>
                             </div>
                         </div>
                     </div>
@@ -318,7 +318,7 @@
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control" id="floatinObservacion"
                                     placeholder="OBSERVACIÓN" name="observacion" />
-                                <label for="floatinObservacion">OBSERVACIÓN</label>
+                                <label for="floatinObservacion">{{ __('OBSERVACIÓN') }}</label>
                             </div>
                         </div>
                     </div>
@@ -326,10 +326,10 @@
                 <div class="card-footer">
                     <div class="float-end">
                         <a href="{{ route('movimientos.conduces.index') }}"
-                            class="inline-flex items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">Atras</a>
+                            class="inline-flex items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">{{ __('Atras') }}</a>
                         <button type="submit"
                             class="inline-flex items-center justify-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 active:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150 disabled:opacity-25 send"><i
-                                class="mdi mdi-send mr-2"></i> Enviar</button>
+                                class="mdi mdi-send mr-2"></i> {{ __('Enviar') }}</button>
                     </div>
                 </div>
             </div>

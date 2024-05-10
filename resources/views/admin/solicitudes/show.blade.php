@@ -41,7 +41,7 @@
                     {{-- datos de la embarcacion --}}
                     <h4 class="header-title mt-3">
                         <div class="alert alert-warning" role="alert">
-                            <strong>INFORMACIÓN DE LA EMBARCACIÓN</strong>
+                            <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
                         </div>
                         <p class="mb-2 mt-2">
                             <strong>Matrícula:</strong> {{ $solicitud->matricula }}

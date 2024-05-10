@@ -47,7 +47,7 @@
                     </h1>
                     <!-- primera columna -->
                     <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3 border-b-2 border-slate-950 pb-3">
-                        <div class="text-center font-bold text-xl">Número de solicitud: {{ $solicitud->id }} </div>
+                        <div class="text-center font-bold text-xl">{{ __('Número de solicitud') }}: {{ $solicitud->id }} </div>
                         <div class="text-center font-bold text-xl">Fecha de solicitud:
                             {{ $solicitud->created_at->format('d-m-Y') }}</div>
                         <div class="flex justify-center font-bold text-xl">
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <!-- fin primera columna -->
-                    <h1 class="text-center font-bold text-2xl mt-3">Información de la embarcación</h1>
+                    <h1 class="text-center font-bold text-2xl mt-3">{{ __('Información de la embarcación') }}</h1>
                     <!-- segunda  columma -->
                     <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3 border-b-2 border-slate-950 pb-3">
                         <div class="flex justify-center bg-white rounded-full">
@@ -131,7 +131,7 @@
                                 </h1>
                             </div>
                             <div class="flex justify-center bg-white rounded-full">
-                                <h1>Fecha de salida:</h1>
+                                <h1>{{ __('Fecha de salida') }}:</h1>
                                 <h1 class="ml-2">{{ $solicitud->fecha->format('d-m-Y') }}</h1>
                             </div>
                             <div class="flex justify-center bg-white rounded-full">
@@ -172,7 +172,7 @@
                                 {{ !empty($solicitud->conductor) ? str_replace('|', ', ', $solicitud->conductor->telefono) : '' }}
                             </div>
                             <div class="flex justify-center bg-white rounded-full">
-                                <h1>Fecha de salida:</h1>
+                                <h1>{{ __('Fecha de salida') }}:</h1>
                                 <h1 class="ml-2">
                                     {{ !empty($solicitud->conductor) ? $solicitud->fecha->format('d-m-Y') : '' }}</h1>
                             </div>
