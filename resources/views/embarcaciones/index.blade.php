@@ -61,7 +61,7 @@
                         <p class="text-muted mt-3">
                             <a data-bs-toggle="modal" data-bs-target="#option-pic-modal-{{ $emb->id }}"
                                 href="#"
-                                class="fotosemb bg-azulito text-white hover:bg-blue-900  focus:outline-none focus:ring-4 focus:ring-blue-400 font-medium rounded-lg text-sm px-2 py-2.5 me-2 mb-2">
+                                class="fotosemb bg-azulito text-white hover:bg-blue-700  focus:outline-none focus:ring-4 focus:ring-blue-400 font-medium rounded-lg text-sm px-2 py-2.5 me-2 mb-2">
                                 <i class="mdi mdi-camera"></i>
                                 {{ __('Fotos') }}
                             </a>
