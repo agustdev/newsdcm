@@ -7,7 +7,7 @@
     @endpush
 
     <x-slot name="header">
-        <h2 class="h2 mb-2 mt-2">
+        <h2 class="h2 mb-2 mt-3 text-black text-uppercase">
             {{ __('Mis embarcaciones') }}
         </h2>
     </x-slot>
