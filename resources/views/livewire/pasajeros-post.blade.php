@@ -1,13 +1,13 @@
 <div class="row pasajeros">
-    <div class="alert alert-secondary mt-2" role="alert">
+    {{-- <div class="alert alert-secondary mt-2" role="alert">
         <strong>{{ __('DATOS DE LOS PASAJEROS') }} (MAX: <span class="cant-pas">0</span>)</strong>
-    </div>
+    </div> --}}
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input wire:model='nombre' type="text" class="form-control documento" id="floatinDocumento"
+            <input wire:model='nombre' type="text" class="form-control documento rounded-md" id="floatinDocumento"
                 placeholder="Documento" name="documento"
                 @error('nombre') style="border-left: 2px solid red" @enderror />
-            <label for="floatinMatricula">{{ __('NOMBRE')}}</label>
+            <label style="font-size: 10px;" for="floatinMatricula">{{ __('NOMBRE')}}</label>
             @error('nombre')
                 <span class="text-red-600">{{ $message }}</span>
             @enderror
@@ -16,10 +16,10 @@
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input wire:model='nacionalidad' type="text" class="form-control nombre_capitan"
+            <input wire:model='nacionalidad' type="text" class="form-control nombre_capitan rounded-md"
                 id="floatingNombreCapitan" placeholder="NOMBRE Y APELLIDO DEL CAPITAN" name="nacionalidad"
                 @error('nacionalidad') style="border-left: 2px solid red" @enderror />
-            <label for="floatingNombreEmbarcacion">{{ __('NACIONALIDAD') }}</label>
+            <label style="font-size: 10px;" for="floatingNombreEmbarcacion">{{ __('NACIONALIDAD') }}</label>
             @error('nacionalidad')
                 <span class="text-red-600">{{ $message }}</span>
             @enderror
@@ -28,10 +28,10 @@
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input wire:model='documento' type="text" class="form-control" id="floatinMatricula"
+            <input wire:model='documento' type="text" class="form-control rounded-md" id="floatinMatricula"
                 placeholder="name@example.com" name="documento" value=""
                 @error('documento') style="border-left: 2px solid red" @enderror />
-            <label for="floatinMatricula">{{ __('DOCUMENTO DE IDENTIDAD') }}</label>
+            <label style="font-size: 10px;" for="floatinMatricula">{{ __('DOCUMENTO DE IDENTIDAD') }}</label>
             @error('documento')
                 <span class="text-red-600">{{ $message }}</span>
             @enderror
