@@ -293,7 +293,7 @@
 
     {{-- este es el siguiente card, la informacion del conductor --}}
 
-<div class="card">
+<div class="card shadow-xl">
 <div class="card-header bg-blue-900">
     <div class="text-white" role="alert">
         <strong>{{ __('INFORMACIÓN DEL CONDUCTOR') }}</strong>
@@ -315,51 +315,51 @@
 {{-- Aqui termina el card header y empieza el card body --}}
 
 <div class="card-body">
-    <div class="row">
+    <div class="row g-2">
                         
         <div class="col-md">
             <div class="form-floating mb-2">
-                <select class="form-select tipo_documento" name="tipo_documento" id="floatingSelect">
+                <select class="form-select tipo_documento rounded-md" name="tipo_documento" id="floatingSelect">
                     <option>- {{ __('Seleccione') }} -</option>
                     <option value="cedula">{{ __('Cédula') }}</option>
                     <option value="pasaporte">{{ __('Pasaporte') }}</option>
                 </select>
-                <label for="floatinMatricula">{{ __('TIPO DE DOCUMENTO') }}</label>
+                <label style="font-size: 10px;" for="floatinMatricula">{{ __('TIPO DE DOCUMENTO') }}</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control documento" id="floatinDocumento"
+                <input type="text" class="form-control documento rounded-md" id="floatinDocumento"
                     placeholder="Documento" name="documento" required />
-                <label for="floatinDocumento">{{ __('DOCUMENTO DE IDENTIDAD DEL CONDUCTOR') }}</label>
+                <label style="font-size: 10px;" for="floatinDocumento">{{ __('DOCUMENTO DE IDENTIDAD DEL CONDUCTOR') }}</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control nombre_capitan"
+                <input type="text" class="form-control nombre_capitan rounded-md"
                     id="floatingNombreConductor" placeholder="NOMBRE Y APELLIDO DEL CONDUCTOR"
                     value="" name="nombre_conductor" required />
-                <label
+                <label style="font-size: 10px;"
                     for="floatingNombreConductor">{{ __('NOMBRE Y APELLIDO DEL CONDUCTOR') }}R</label>
             </div>
         </div>
 
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control telefono1" id="floatingTelefonoConductor"
+                <input type="text" class="form-control telefono1 rounded-md" id="floatingTelefonoConductor"
                     placeholder="TELEFONO CONDUCTOR" name="telefono_conductor" value=""
                     required />
-                <label for="floatingTelefonoConductor">{{ __('TELÉFONO DEL CONDUCTOR') }}</label>
+                <label style="font-size: 10px;" for="floatingTelefonoConductor">{{ __('TELÉFONO DEL CONDUCTOR') }}</label>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control telefono2" id="floatingTelefono2Conductor"
+                <input type="text" class="form-control telefono2 rounded-md" id="floatingTelefono2Conductor"
                     placeholder="OTRO TELÉFONO DEL CONDUCTOR" name="telefono_conductor_otro"
                     value="" />
-                <label
+                <label style="font-size: 10px;"
                     for="floatingTelefono2Conductor">{{ __('OTRO TELÉFONO DEL CONDUCTOR') }}</label>
             </div>
         </div>
