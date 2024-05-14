@@ -324,14 +324,14 @@
                     <option value="cedula">{{ __('Cédula') }}</option>
                     <option value="pasaporte">{{ __('Pasaporte') }}</option>
                 </select>
-                <label for="floatinMatricula">{{ __('TIPO DE DOCUMENTO') }}</label>
+                <label style="font-size: 10px;" for="floatinMatricula">{{ __('TIPO DE DOCUMENTO') }}</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
                 <input type="text" class="form-control documento rounded-md" id="floatinDocumento"
                     placeholder="Documento" name="documento" required />
-                <label for="floatinDocumento">{{ __('DOCUMENTO DE IDENTIDAD DEL CONDUCTOR') }}</label>
+                <label style="font-size: 10px;" for="floatinDocumento">{{ __('DOCUMENTO DE IDENTIDAD DEL CONDUCTOR') }}</label>
             </div>
         </div>
         <div class="col-md">
@@ -339,7 +339,7 @@
                 <input type="text" class="form-control nombre_capitan rounded-md"
                     id="floatingNombreConductor" placeholder="NOMBRE Y APELLIDO DEL CONDUCTOR"
                     value="" name="nombre_conductor" required />
-                <label
+                <label style="font-size: 10px;"
                     for="floatingNombreConductor">{{ __('NOMBRE Y APELLIDO DEL CONDUCTOR') }}R</label>
             </div>
         </div>
@@ -349,7 +349,7 @@
                 <input type="text" class="form-control telefono1 rounded-md" id="floatingTelefonoConductor"
                     placeholder="TELEFONO CONDUCTOR" name="telefono_conductor" value=""
                     required />
-                <label for="floatingTelefonoConductor">{{ __('TELÉFONO DEL CONDUCTOR') }}</label>
+                <label style="font-size: 10px;" for="floatingTelefonoConductor">{{ __('TELÉFONO DEL CONDUCTOR') }}</label>
             </div>
         </div>
     </div>
@@ -359,7 +359,7 @@
                 <input type="text" class="form-control telefono2 rounded-md" id="floatingTelefono2Conductor"
                     placeholder="OTRO TELÉFONO DEL CONDUCTOR" name="telefono_conductor_otro"
                     value="" />
-                <label
+                <label style="font-size: 10px;"
                     for="floatingTelefono2Conductor">{{ __('OTRO TELÉFONO DEL CONDUCTOR') }}</label>
             </div>
         </div>
