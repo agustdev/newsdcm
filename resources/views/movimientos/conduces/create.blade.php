@@ -349,8 +349,13 @@
             <input type="hidden" name="comandancia" class="comandancia" value="">
             <input type="hidden" name="idcomandancia" class="idcomandancia" value="">
 
-        </form>
+        
     </div>
+
+
+
+
+</form>
     @push('js')
         <script>
             // Initiate an Ajax request on button click
