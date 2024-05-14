@@ -120,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="alert alert-info mt-2" role="alert">
                             <strong>{{ __('INFORMACIÓN DEL CONDUCTOR / VEHÍCULO / DESTINO') }}</strong>
                             <div role="status" class="spin-cap float-end hidden">
@@ -172,8 +172,8 @@
                                 <label for="floatingTelefonoConductor">{{ __('TELÉFONO DEL CONDUCTOR') }}</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
+                    </div> --}}
+                    {{-- <div class="row">
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control telefono2" id="floatingTelefono2Conductor"
@@ -183,7 +183,7 @@
                                     for="floatingTelefono2Conductor">{{ __('OTRO TELÉFONO DEL CONDUCTOR') }}</label>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row">
                         <span class="bg-gray-500  text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded  text-gray-300">
                             {{ __('DATOS DEL VEHÍCULO') }}</span>
@@ -349,8 +349,98 @@
             <input type="hidden" name="comandancia" class="comandancia" value="">
             <input type="hidden" name="idcomandancia" class="idcomandancia" value="">
 
-        </form>
+        
     </div>
+
+
+   {{-- segundo card --}}
+   <div class="card shadow-xl">
+    {{-- header del card --}}
+    <div class="card-header bg-blue-900">
+        <div class="text-white" role="alert">
+            <strong>INFORMACIÓN DEL CONDUCTOR</strong>
+            <div role="status" class="spin-cap float-end hidden">
+                <svg aria-hidden="true"
+                    class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-700"
+                    viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                        fill="currentColor" />
+                    <path
+                        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                        fill="currentFill" />
+                </svg>
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+    {{-- fin del header --}}
+    {{-- cardbody --}}
+    <div class="card-body">
+    {{-- texto  para informacion del conductor --}}
+    
+    {{-- fin del texto para la informacion del conductor --}}
+    
+    {{-- columna para la informacion del conductor --}}
+    
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+    
+    <div class="">
+        <div class="form-floating mb-2">
+            <select class="form-select tipo_documento rounded-md" name="tipo_documento" id="floatingSelect">
+                <option>- Seleccione -</option>
+                <option value="cedula">Cédula</option>
+                <option value="pasaporte">Pasaporte</option>
+            </select>
+            <label style="font-size: 10px;" for="floatinMatricula">TIPO DE DOCUMENTO</label>
+        </div>
+    </div>
+    <div class="">
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control documento rounded-md" id="floatinDocumento"
+                placeholder="Documento" name="documento" required />
+            <label style="font-size: 10px;" for="floatinDocumento">DOCUMENTO DE IDENTIDAD DEL CONDUCTOR</label>
+        </div>
+    </div>
+    <div class="">
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control nombre_capitan rounded-md"
+                id="floatingNombreConductor" placeholder="NOMBRE Y APELLIDO DEL CONDUCTOR"
+                value="" name="nombre_conductor" required />
+            <label style="font-size: 10px;" for="floatingNombreConductor">NOMBRE Y APELLIDO DEL CONDUCTOR</label>
+        </div>
+    </div>
+    
+    <div class="">
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control telefono1 rounded-md" id="floatingTelefonoConductor"
+                placeholder="TELEFONO CONDUCTOR" name="telefono_conductor" value=""
+                required />
+            <label style="font-size: 10px;" for="floatingTelefonoConductor">TELÉFONO DEL CONDUCTOR</label>
+        </div>
+    </div>
+    
+    <div class="md:col-span-4">
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control telefono2 rounded-md" id="floatingTelefono2Conductor"
+                placeholder="OTRO TELÉFONO DEL CONDUCTOR" name="telefono_conductor_otro"
+                value="" />
+            <label style="font-size: 10px;" for="floatingTelefono2Conductor">OTRO TELÉFONO DEL CONDUCTOR</label>
+        </div>
+    </div>
+    </div>
+    
+    
+    </div>
+    
+    
+    </div>
+
+
+
+
+
+</form>
     @push('js')
         <script>
             // Initiate an Ajax request on button click
