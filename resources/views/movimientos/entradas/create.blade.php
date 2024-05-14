@@ -196,7 +196,8 @@
                                 <input type="text" class="form-control nombre_capitan" id="floatingNombreCapitan"
                                     placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value="" name="nombre_capitan"
                                     required />
-                                <label for="floatingNombreEmbarcacion">{{ __('NOMBRE Y APELLIDO DEL CAPITÁN') }}</label>
+                                <label
+                                    for="floatingNombreEmbarcacion">{{ __('NOMBRE Y APELLIDO DEL CAPITÁN') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -208,7 +209,7 @@
                                     <option value="FRANCES">{{ __('FRANCES') }}</option>
                                     <option value="ALEMAN">{{ __('ALEMAN') }}</option>
                                     <option value="RUSO">{{ __('RUSO') }}</option>
-                                    <option value="ITALIANO">{{ __('ITALIANO')}}</option>
+                                    <option value="ITALIANO">{{ __('ITALIANO') }}</option>
                                 </select>
                                 <label for="floatinMatricula">{{ __('NACIONALIDAD DEL CAPITÁN') }}</label>
                             </div>
@@ -219,7 +220,7 @@
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control telefono" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="telefono" required />
-                                <label for="floatingNombreEmbarcacion">{{ __('TELÉFONO DEL CAPITÁN')}}</label>
+                                <label for="floatingNombreEmbarcacion">{{ __('TELÉFONO DEL CAPITÁN') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -228,8 +229,8 @@
                                     <option value="">- {{ __('Seleccione motivo del viaje') }} -</option>
                                     <option value="TURISMO">{{ __('TURISMO') }}</option>
                                     <option value="RECREO">{{ __('RECREO') }}</option>
-                                    <option value="NEGOCIOS">{{ __('NEGOCIOS')}}</option>
-                                    <option value="VACACIONES">{{ __('VACACIONES')}}</option>
+                                    <option value="NEGOCIOS">{{ __('NEGOCIOS') }}</option>
+                                    <option value="VACACIONES">{{ __('VACACIONES') }}</option>
                                 </select>
                                 <label for="floatinMatricula">{{ __('MOTIVO DEL VIAJE') }}</label>
                             </div>
@@ -292,7 +293,8 @@
                                     <option value="Chile" id="CL">Chile</option>
                                     <option value="China" id="CN">China</option>
                                     <option value="Chipre" id="CY">Chipre</option>
-                                    <option value="Ciudad estado del Vaticano" id="VA">Ciudad estado del Vaticano</option>
+                                    <option value="Ciudad estado del Vaticano" id="VA">Ciudad estado del
+                                        Vaticano</option>
                                     <option value="Colombia" id="CO">Colombia</option>
                                     <option value="Comores" id="KM">Comores</option>
                                     <option value="Congo" id="CG">Congo</option>
@@ -352,25 +354,32 @@
                                     <option value="Irlanda" id="IE">Irlanda</option>
                                     <option value="Isla Bouvet" id="BV">Isla Bouvet</option>
                                     <option value="Isla Christmas" id="CX">Isla Christmas</option>
-                                    <option value="Isla Heard e Islas McDonald" id="HM">Isla Heard e Islas McDonald</option>
+                                    <option value="Isla Heard e Islas McDonald" id="HM">Isla Heard e Islas
+                                        McDonald</option>
                                     <option value="Islandia" id="IS">Islandia</option>
                                     <option value="Isla Beata">isla Beata</option>
                                     <option value="Islas Caimán" id="KY">Islas Caimán</option>
                                     <option value="Islas Cook" id="CK">Islas Cook</option>
-                                    <option value="Islas de Cocos o Keeling" id="CC">Islas de Cocos o Keeling</option>
+                                    <option value="Islas de Cocos o Keeling" id="CC">Islas de Cocos o Keeling
+                                    </option>
                                     <option value="Islas Faroe" id="FO">Islas Faroe</option>
                                     <option value="Islas Fiyi" id="FJ">Islas Fiyi</option>
-                                    <option value="Islas Malvinas Islas Falkland" id="FK">Islas Malvinas Islas Falkland</option>
-                                    <option value="Islas Marianas del norte" id="MP">Islas Marianas del norte</option>
+                                    <option value="Islas Malvinas Islas Falkland" id="FK">Islas Malvinas Islas
+                                        Falkland</option>
+                                    <option value="Islas Marianas del norte" id="MP">Islas Marianas del norte
+                                    </option>
                                     <option value="Islas Marshall" id="MH">Islas Marshall</option>
-                                    <option value="Islas menores de Estados Unidos" id="UM">Islas menores de Estados Unidos</option>
+                                    <option value="Islas menores de Estados Unidos" id="UM">Islas menores de
+                                        Estados Unidos</option>
                                     <option value="Islas Palau" id="PW">Islas Palau</option>
                                     <option value="Islas Salomón" d="SB">Islas Salomón</option>
                                     <option value="Isla San Martin" d="SB">Isla San Martin</option>
                                     <option value="Islas Tokelau" id="TK">Islas Tokelau</option>
                                     <option value="Islas Turks y Caicos" id="TC">Islas Turks y Caicos</option>
-                                    <option value="Islas Vírgenes EE.UU." id="VI">Islas Vírgenes EE.UU.</option>
-                                    <option value="Islas Vírgenes Reino Unido" id="VG">Islas Vírgenes Reino Unido</option>
+                                    <option value="Islas Vírgenes EE.UU." id="VI">Islas Vírgenes EE.UU.
+                                    </option>
+                                    <option value="Islas Vírgenes Reino Unido" id="VG">Islas Vírgenes Reino
+                                        Unido</option>
                                     <option value="Israel" id="IL">Israel</option>
                                     <option value="Italia" id="IT">Italia</option>
                                     <option value="Jamaica" id="JM">Jamaica</option>
@@ -433,10 +442,13 @@
                                     <option value="Puerto Rico" id="PR">Puerto Rico</option>
                                     <option value="Qatar" id="QA">Qatar</option>
                                     <option value="Reino Unido" id="UK">Reino Unido</option>
-                                    <option value="República Centroafricana" id="CF">República Centroafricana</option>
+                                    <option value="República Centroafricana" id="CF">República Centroafricana
+                                    </option>
                                     <option value="República Checa" id="CZ">República Checa</option>
-                                    <option value="República de Sudáfrica" id="ZA">República de Sudáfrica</option>
-                                    <option value="República Democrática del Congo Zaire" id="CD">República Democrática del Congo Zaire</option>
+                                    <option value="República de Sudáfrica" id="ZA">República de Sudáfrica
+                                    </option>
+                                    <option value="República Democrática del Congo Zaire" id="CD">República
+                                        Democrática del Congo Zaire</option>
                                     <!-- <option value="República Dominicana" id="DO">República Dominicana</option> -->
                                     <option value="Reunión" id="RE">Reunión</option>
                                     <option value="Ruanda" id="RW">Ruanda</option>
@@ -446,11 +458,14 @@
                                     <option value="Samoa occidental" id="AS">Samoa occidental</option>
                                     <option value="San Kitts y Nevis" id="KN">San Kitts y Nevis</option>
                                     <option value="San Marino" id="SM">San Marino</option>
-                                    <option value="San Pierre y Miquelon" id="PM">San Pierre y Miquelon</option>
-                                    <option value="San Vicente e Islas Granadinas" id="VC">San Vicente e Islas Granadinas</option>
+                                    <option value="San Pierre y Miquelon" id="PM">San Pierre y Miquelon
+                                    </option>
+                                    <option value="San Vicente e Islas Granadinas" id="VC">San Vicente e Islas
+                                        Granadinas</option>
                                     <option value="Santa Helena" id="SH">Santa Helena</option>
                                     <option value="Santa Lucía" id="LC">Santa Lucía</option>
-                                    <option value="Santo Tomé y Príncipe" id="ST">Santo Tomé y Príncipe</option>
+                                    <option value="Santo Tomé y Príncipe" id="ST">Santo Tomé y Príncipe
+                                    </option>
                                     <option value="Senegal" id="SN">Senegal</option>
                                     <option value="Serbia y Montenegro" id="YU">Serbia y Montenegro</option>
                                     <option value="Sychelles" id="SC">Seychelles</option>
@@ -469,8 +484,10 @@
                                     <option value="Taiwán" id="TW">Taiwán</option>
                                     <option value="Tanzania" id="TZ">Tanzania</option>
                                     <option value="Tayikistán" id="TJ">Tayikistán</option>
-                                    <option value="Territorios británicos del océano Indico" id="IO">Territorios británicos del océano Indico</option>
-                                    <option value="Territorios franceses del sur" id="TF">Territorios franceses del sur</option>
+                                    <option value="Territorios británicos del océano Indico" id="IO">
+                                        Territorios británicos del océano Indico</option>
+                                    <option value="Territorios franceses del sur" id="TF">Territorios franceses
+                                        del sur</option>
                                     <option value="Timor Oriental" id="TP">Timor Oriental</option>
                                     <option value="Togo" id="TG">Togo</option>
                                     <option value="Tonga" id="TO">Tonga</option>
@@ -539,7 +556,35 @@
                                     <option value="PERMANENCIA">{{ __('PERMANENCIA') }}</option>
                                     <option value="TEMPORAL">{{ __('TEMPORAL') }}</option>
                                 </select>
-                                <label for="floatinMatricula">{{ __('TIEMPO DE ESTADIA')}}</label>
+                                <label for="floatinMatricula">{{ __('TIEMPO DE ESTADIA') }}</label>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- armas --}}
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="">
+                                <h3 class="mb-2 mt-2 bold text-black">{{ __('¿CONTIENE ARMAS?') }}</h3>
+                                <input type="radio" name='armas' id="armas_si" value="Si"
+                                    class="form-control">
+                                <label for="armas_si">Si</label>
+                                <input type="radio" name='armas' id="armas_no" value="No" checked
+                                    class="form-control">
+                                <label for="armas_no">No</label>
+                            </div>
+                        </div>
+                        <div class="col-md carmas" style="display: none;">
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control cant-armas" id="floatingCantidadArmas"
+                                    placeholder="CANTIDAD DE ARMAS" name="cantidad_armas" required />
+                                <label for="floatingCantidadArmas">{{ __('CANTIDAD DE ARMAS') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md tarmas" style="display: none;">
+                            <div class="form-floating mb-2">
+                                <textarea name="tipo_armas" id="" cols="30" rows="10" class="form-control"
+                                    id="floatingTipoArmas" required></textarea>
+                                <label for="floatingTipoArmas">{{ __('TIPO DE ARMAS') }}</label>
                             </div>
                         </div>
                     </div>
@@ -594,6 +639,19 @@
 
             $('[required]').css({
                 'border-left': '2px solid red'
+            });
+
+            $('#armas_si').click(function() {
+                if ($(this).is(':checked')) {
+                    $('.carmas').show();
+                    $('.tarmas').show();
+                }
+            });
+            $('#armas_no').click(function() {
+                if ($(this).is(':checked')) {
+                    $('.carmas').hide();
+                    $('.tarmas').hide();
+                }
             });
         </script>
     @endpush
