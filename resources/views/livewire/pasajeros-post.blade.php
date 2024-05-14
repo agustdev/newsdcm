@@ -7,7 +7,7 @@
             <input wire:model='nombre' type="text" class="form-control documento rounded-md" id="floatinDocumento"
                 placeholder="Documento" name="documento"
                 @error('nombre') style="border-left: 2px solid red" @enderror />
-            <label for="floatinMatricula">{{ __('NOMBRE')}}</label>
+            <label style="font-size: 10px;" for="floatinMatricula">{{ __('NOMBRE')}}</label>
             @error('nombre')
                 <span class="text-red-600">{{ $message }}</span>
             @enderror
@@ -19,7 +19,7 @@
             <input wire:model='nacionalidad' type="text" class="form-control nombre_capitan rounded-md"
                 id="floatingNombreCapitan" placeholder="NOMBRE Y APELLIDO DEL CAPITAN" name="nacionalidad"
                 @error('nacionalidad') style="border-left: 2px solid red" @enderror />
-            <label for="floatingNombreEmbarcacion">{{ __('NACIONALIDAD') }}</label>
+            <label style="font-size: 10px;" for="floatingNombreEmbarcacion">{{ __('NACIONALIDAD') }}</label>
             @error('nacionalidad')
                 <span class="text-red-600">{{ $message }}</span>
             @enderror
@@ -31,7 +31,7 @@
             <input wire:model='documento' type="text" class="form-control rounded-md" id="floatinMatricula"
                 placeholder="name@example.com" name="documento" value=""
                 @error('documento') style="border-left: 2px solid red" @enderror />
-            <label for="floatinMatricula">{{ __('DOCUMENTO DE IDENTIDAD') }}</label>
+            <label style="font-size: 10px;" for="floatinMatricula">{{ __('DOCUMENTO DE IDENTIDAD') }}</label>
             @error('documento')
                 <span class="text-red-600">{{ $message }}</span>
             @enderror
