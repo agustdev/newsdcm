@@ -120,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="alert alert-info mt-2" role="alert">
                             <strong>{{ __('INFORMACIÓN DEL CONDUCTOR / VEHÍCULO / DESTINO') }}</strong>
                             <div role="status" class="spin-cap float-end hidden">
@@ -172,8 +172,8 @@
                                 <label for="floatingTelefonoConductor">{{ __('TELÉFONO DEL CONDUCTOR') }}</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
+                    </div> --}}
+                    {{-- <div class="row">
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control telefono2" id="floatingTelefono2Conductor"
@@ -183,7 +183,7 @@
                                     for="floatingTelefono2Conductor">{{ __('OTRO TELÉFONO DEL CONDUCTOR') }}</label>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row">
                         <span class="bg-gray-500  text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded  text-gray-300">
                             {{ __('DATOS DEL VEHÍCULO') }}</span>
