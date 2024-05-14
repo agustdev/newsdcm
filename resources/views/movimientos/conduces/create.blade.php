@@ -293,7 +293,7 @@
 
     {{-- este es el siguiente card, la informacion del conductor --}}
 
-<div class="card">
+<div class="card shadow-xl">
 <div class="card-header bg-blue-900">
     <div class="text-white" role="alert">
         <strong>{{ __('INFORMACIÓN DEL CONDUCTOR') }}</strong>
