@@ -297,9 +297,9 @@
     {{-- este es el siguiente card, la informacion del conductor --}}
 
 <div class="card">
-<div class="card-header">
-    <div class="mt-2" role="alert">
-        <strong>{{ __('INFORMACIÓN DEL CONDUCTOR / VEHÍCULO / DESTINO') }}</strong>
+<div class="card-header bg-blue-900">
+    <div class="text-white" role="alert">
+        <strong>{{ __('INFORMACIÓN DEL CONDUCTOR') }}</strong>
         <div role="status" class="spin-cap float-end hidden">
             <svg aria-hidden="true"
                 class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-700"
@@ -315,7 +315,7 @@
         </div>
     </div>
 </div>
-
+{{-- Aqui termina el card header y empieza el card body --}}
 
 <div class="card-body">
     <div class="row">
@@ -370,9 +370,10 @@
 
 
 </div>
+{{-- aqui termina el card body --}}
 
 </div>
-
+{{-- aqui termina todo el card --}}
 
 
 
