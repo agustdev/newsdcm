@@ -1,7 +1,7 @@
 <div class="row pasajeros">
-    <div class="alert alert-secondary mt-2" role="alert">
+    {{-- <div class="alert alert-secondary mt-2" role="alert">
         <strong>{{ __('DATOS DE LOS PASAJEROS') }} (MAX: <span class="cant-pas">0</span>)</strong>
-    </div>
+    </div> --}}
     <div class="col-md">
         <div class="form-floating mb-2">
             <input wire:model='nombre' type="text" class="form-control documento" id="floatinDocumento"
