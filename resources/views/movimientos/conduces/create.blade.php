@@ -120,10 +120,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    
-
-{{-- datos del vehiculo --}}
 
                     <div class="row">
                         <span class="bg-gray-500  text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded  text-gray-300">
@@ -290,6 +286,7 @@
             <input type="hidden" name="comandancia" class="comandancia" value="">
             <input type="hidden" name="idcomandancia" class="idcomandancia" value="">
 
+
         
     </div>
 
@@ -382,6 +379,10 @@
 
 
 </form>
+
+        </form>
+    </div>
+
     @push('js')
         <script>
             // Initiate an Ajax request on button click
