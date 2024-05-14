@@ -315,7 +315,7 @@
 {{-- Aqui termina el card header y empieza el card body --}}
 
 <div class="card-body">
-    <div class="row">
+    <div class="row g-2">
                         
         <div class="col-md">
             <div class="form-floating mb-2">
