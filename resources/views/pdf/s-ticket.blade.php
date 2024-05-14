@@ -33,8 +33,8 @@
     <body>
         <div class="informacion">
             <div>
-                <strong>COMANDO NAVAL DE CAPITANIAS DE PUERTOS Y AUTORIDAD MARITIMA</strong><br><br>
                 <strong>ARMADA DE REPÚBLICA DOMINICANA</strong><br><br>
+                <strong>COMANDO NAVAL DE CAPITANIAS DE PUERTOS Y AUTORIDAD MARITIMA</strong><br><br>
                 <strong>SISTEMA CONDUCE Y DESPACHO DE EMBARCACIONES</strong><br>
                 <strong>(SISCODEM)</strong>
             </div><br>

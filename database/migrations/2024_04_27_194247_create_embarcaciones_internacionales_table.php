@@ -33,7 +33,9 @@ return new class extends Migration
             $table->string('nombre_propietario', 150)->comment('Nombre del propietario de la embarcacion');
             $table->string('puerto_registro', 100)->nullable();
             $table->string('pais_procedencia', 100)->nullable();
-            $table->date('fecha_validez')->comment('Fecha de validez de la matricula de la embarcacion');
+            $table->string('constructora')->nullable()->comment('Constructora que creo la embarcación');
+            $table->boolean('armas')->default(0)->nullable()->comment('Contiene armas o no');
+            $table->boolean('proceso_migratorio')->default(0)->comment('Indicativo si los pasajros tendra proceso migratorio o no');
             $table->enum('estatus', ['A', 'I'])->default('A')->comment('Estado de la matricula de la embarcacion');
             $table->integer('impedimento')->length(5)->unsigned();
             $table->timestamps();
