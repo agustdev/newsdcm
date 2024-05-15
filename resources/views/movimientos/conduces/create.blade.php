@@ -127,39 +127,7 @@
                     
                     {{-- fin de lugar de salida --}}
                     {{-- lugar de destino --}}
-                    <div class="row">
-                        
-
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <select class="form-select" name="provincia" id="floatingSelectProvincia">
-                                    <option>- {{ __('Seleccione') }} -</option>
-                                    @foreach ($provincias as $prov)
-                                        <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
-                                            {{ $prov->descripcion }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <label for="floatingSelectProvincia">{{ __('PROVINCIA') }}</label>
-                            </div>
-                        </div>
-
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <select class="form-select" name="municipio" id="floatingSelectMunicipio">
-                                    <option>- {{ __('Seleccione') }} -</option>
-                                </select>
-                                <label for="floatingSelectMunicipio">{{ __('MUNICIPIO') }}</label>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control" id="floatingSector"
-                                    placeholder="{{ __('SECTOR') }}" name="sector" />
-                                <label for="floatingSector">{{ __('SECTOR') }}</label>
-                            </div>
-                        </div>
-                    </div>
+                    
 {{-- fin de lugar de destino --}}
 
                     <div class="row">
@@ -226,8 +194,7 @@
 {{-- Aqui termina el card header y empieza el card body --}}
 
 <div class="card-body">
-    <div class="row g-2">
-                        
+    <div class="row g-2">      
         <div class="col-md">
             <div class="form-floating mb-2">
                 <select class="form-select tipo_documento rounded-md" name="tipo_documento" id="floatingSelect">
@@ -415,7 +382,37 @@
 
 
     <div class="card-body">
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating mb-2">
+                    <select class="form-select" name="provincia" id="floatingSelectProvincia">
+                        <option>- {{ __('Seleccione') }} -</option>
+                        @foreach ($provincias as $prov)
+                            <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
+                                {{ $prov->descripcion }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <label for="floatingSelectProvincia">{{ __('PROVINCIA') }}</label>
+                </div>
+            </div>
 
+            <div class="col-md">
+                <div class="form-floating mb-2">
+                    <select class="form-select" name="municipio" id="floatingSelectMunicipio">
+                        <option>- {{ __('Seleccione') }} -</option>
+                    </select>
+                    <label for="floatingSelectMunicipio">{{ __('MUNICIPIO') }}</label>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control" id="floatingSector"
+                        placeholder="{{ __('SECTOR') }}" name="sector" />
+                    <label for="floatingSector">{{ __('SECTOR') }}</label>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
