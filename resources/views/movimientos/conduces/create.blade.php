@@ -333,7 +333,7 @@
 
 <div class="card shadow-xl">
 <div class="card-header bg-blue-900">
-    <span class="text-sm font-bold mr-2 px-2.5 py-1.5 mb-1 rounded  text-white">
+    <span class="text-sm font-bold mr-2 py-1.5 mb-1 rounded  text-white">
         {{ __('DATOS DEL VEHÍCULO') }}</span>
 </div>
 
