@@ -90,7 +90,7 @@
                                 <label style="font-size: 10px;" for="floatingColor">{{ __('COLOR') }}</label>
                             </div>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mt-3">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 -mt-3">
                             {{-- <span
                                 class="uppercase bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
                                 {{ __('INFORMACIÓN DEL MOTOR DE LA EMBARCACIÓN') }}
