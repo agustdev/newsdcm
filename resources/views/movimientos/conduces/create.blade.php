@@ -124,39 +124,7 @@
                     
                     {{-- fin de datos del vehiculo --}}
                     {{-- lugar de salida --}}
-                    <div class="row">
-                       
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="date" class="form-control" id="floatingFechaSalida"
-                                    placeholder="FECHA SALIDA" name="fecha_salida" min="{{ date('Y-m-d') }}" />
-                                <label for="floatingFechaSalida">{{ __('FECHA SALIDA') }}</label>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <select class="form-select" name="provinciasalida"
-                                    id="floatingSelectProvinciaSalida">
-                                    <option>- {{ __('Seleccione') }} -</option>
-                                    @foreach ($provincias as $prov)
-                                        <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
-                                            {{ $prov->descripcion }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <label for="floatingSelectProvinciaSalida">{{ __('PROVINCIA SALIDA') }}</label>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <select class="form-select" name="municipiosalida"
-                                    id="floatingSelectMunicipioSalida">
-                                    <option>- {{ __('Seleccione') }} -</option>
-                                </select>
-                                <label for="floatingSelectMunicipioSalida">{{ __('MUNICIPIO') }}</label>
-                            </div>
-                        </div>
-                    </div>
+                    
                     {{-- fin de lugar de salida --}}
                     <div class="row">
                         <span
@@ -398,7 +366,38 @@
     </div>
 
     <div class="card-body">
-
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating mb-2">
+                    <input type="date" class="form-control" id="floatingFechaSalida"
+                        placeholder="FECHA SALIDA" name="fecha_salida" min="{{ date('Y-m-d') }}" />
+                    <label for="floatingFechaSalida">{{ __('FECHA SALIDA') }}</label>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="form-floating mb-2">
+                    <select class="form-select" name="provinciasalida"
+                        id="floatingSelectProvinciaSalida">
+                        <option>- {{ __('Seleccione') }} -</option>
+                        @foreach ($provincias as $prov)
+                            <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
+                                {{ $prov->descripcion }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <label for="floatingSelectProvinciaSalida">{{ __('PROVINCIA SALIDA') }}</label>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="form-floating mb-2">
+                    <select class="form-select" name="municipiosalida"
+                        id="floatingSelectMunicipioSalida">
+                        <option>- {{ __('Seleccione') }} -</option>
+                    </select>
+                    <label for="floatingSelectMunicipioSalida">{{ __('MUNICIPIO') }}</label>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {{-- fin de lugar de salida --}}
