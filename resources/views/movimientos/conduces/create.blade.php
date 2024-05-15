@@ -62,7 +62,7 @@
                                         <option value="">- {{ __('Sin embarcaciones disponible') }} -</option>
                                     @endif
                                 </select>
-                                <label for="floatinMatricula">{{ __('MATRÍCULA') }}</label>
+                                <label style="font-size: 10px;" for="floatinMatricula">{{ __('MATRÍCULA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -70,7 +70,7 @@
                                 <input type="text" class="form-control nombre_emb rounded-md"
                                     id="floatingNombreEmbarcacion" placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre"
                                     readonly value="" required />
-                                <label for="floatingNombreEmbarcacion">{{ __('NOMBRE DE LA EMBARCACIÓN') }}</label>
+                                <label style="font-size: 10px;" for="floatingNombreEmbarcacion">{{ __('NOMBRE DE LA EMBARCACIÓN') }}</label>
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@
                                 <input type="text" class="form-control numero_casco rounded-md"
                                     id="floatingNumeroCasco" placeholder="NUMERO DE CASCO" name="numero_casco" readonly
                                     value="" required />
-                                <label for="floatingNumeroCasco">{{ __('NUMERO DE CASCO') }}</label>
+                                <label style="font-size: 10px;" for="floatingNumeroCasco">{{ __('NUMERO DE CASCO') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -87,7 +87,7 @@
                                 <input type="text" class="form-control color_emb rounded-md" id="floatingColor"
                                     placeholder="COLOR DE LA EMBARCACIÓN" readonly name="color_emb" value=""
                                     required />
-                                <label for="floatingColor">{{ __('COLOR') }}</label>
+                                <label style="font-size: 10px;" for="floatingColor">{{ __('COLOR') }}</label>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mt-3">
@@ -100,7 +100,7 @@
                                     <input type="text" class="form-control marca_motor rounded-md" id="floatingColor"
                                         placeholder="MARCA MOTOR DE LA EMBARCACIÓN" readonly
                                         name="marca_modelo_motor" />
-                                    <label for="floatingColor">{{ __('MARCA') }}</label>
+                                    <label style="font-size: 10px;" for="floatingColor">{{ __('MARCA') }}</label>
                                 </div>
                             </div>
                             <div class="mb-2">
@@ -108,14 +108,14 @@
                                     <input type="text" class="form-control caballos_motor rounded-md"
                                         id="floatingColor" placeholder="CABALLOS DE FUERZA MOTOR DE LA EMBARCACIÓN"
                                         readonly name="caballos_fuerza_motor" />
-                                    <label for="floatingColor">{{ __('CABALLOS DE FUERZA') }}</label>
+                                    <label style="font-size: 10px;" for="floatingColor">{{ __('CABALLOS DE FUERZA') }}</label>
                                 </div>
                             </div>
                             <div class="">
                                 <div class="form-floating">
                                     <input type="text" class="form-control numero_motor rounded-md"
                                         id="floatingColor" placeholder="NUMERO DE MOTOR" readonly name="no_motor" />
-                                    <label for="floatingColor">{{ __('NÚMERO DE MOTOR') }}</label>
+                                    <label style="font-size: 10px;" for="floatingColor">{{ __('NÚMERO DE MOTOR') }}</label>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control" id="floatingCalle"
                                     placeholder="{{ __('CALLE') }}" name="calle" />
-                                <label for="floatingCalle">{{ __('CALLE') }}</label>
+                                <label style="font-size: 10px;" for="floatingCalle">{{ __('CALLE') }}</label>
                             </div>
                         </div>
                     </div>
@@ -145,7 +145,7 @@
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control" id="floatinObservacion"
                                     placeholder="OBSERVACIÓN" name="observacion" />
-                                <label for="floatinObservacion">{{ __('OBSERVACIÓN') }}</label>
+                                <label style="font-size: 10px;" for="floatinObservacion">{{ __('OBSERVACIÓN') }}</label>
                             </div>
                         </div>
                     </div>
