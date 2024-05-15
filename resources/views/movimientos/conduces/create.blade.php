@@ -357,28 +357,28 @@
             <div class="form-floating mb-2">
                 <input type="text" class="form-control marca rounded-md" id="floatingMarcaModelo"
                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="marca" required />
-                <label for="floatingMarcaModelo">{{ __('MARCA Y MODELO') }}</label>
+                <label style="font-size: 10px;" for="floatingMarcaModelo">{{ __('MARCA Y MODELO') }}</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
                 <input type="text" class="form-control color rounded-md" id="floatinColor"
                     placeholder="COLOR" name="color" required />
-                <label for="floatinColor">{{ __('COLOR') }}</label>
+                <label style="font-size: 10px;" for="floatinColor">{{ __('COLOR') }}</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
                 <input type="number" class="form-control year rounded-md" id="floatingYear" placeholder="AÑO"
                     name="year" />
-                <label for="floatingYear">{{ __('AÑO') }}</label>
+                <label style="font-size: 10px;" for="floatingYear">{{ __('AÑO') }}</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
                 <input type="text" class="form-control placa rounded-md" id="floatingPlaca"
                     placeholder="PLACA" name="placa" />
-                <label for="floatingPlaca">{{ __('PLACA') }}</label>
+                <label style="font-size: 10px;" for="floatingPlaca">{{ __('PLACA') }}</label>
             </div>
         </div>
     </div>
