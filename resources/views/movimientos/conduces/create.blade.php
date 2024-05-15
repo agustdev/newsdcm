@@ -120,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-
+{{-- datos del vehiculo --}}
                     <div class="row">
                         <span class="bg-gray-500  text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded  text-gray-300">
                             {{ __('DATOS DEL VEHÍCULO') }}</span>
@@ -153,6 +153,7 @@
                             </div>
                         </div>
                     </div>
+                    {{-- fin de datos del vehiculo --}}
                     <div class="row">
                         <span
                             class="bg-yellow-100 text-yellow-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-yellow-700 dark:text-yellow-300">
@@ -373,7 +374,22 @@
 {{-- aqui termina todo el card --}}
 
 
+{{-- Nuevo card para datos del vehiculo --}}
 
+<div class="card">
+<div class="card-header bg-blue-900">
+    <span class="text-sm font-bold mr-2 px-2.5 py-1.5 mb-1 rounded  text-white">
+        {{ __('DATOS DEL VEHÍCULO') }}</span>
+</div>
+
+<div class="card-body">
+    
+</div>
+
+</div>
+
+
+{{-- fin del card para datos del vehiculo --}}
 
 
 
