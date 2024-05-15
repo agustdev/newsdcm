@@ -369,14 +369,14 @@
         <div class="row">
             <div class="col-md">
                 <div class="form-floating mb-2">
-                    <input type="date" class="form-control" id="floatingFechaSalida"
+                    <input type="date" class="form-control rounded-md" id="floatingFechaSalida"
                         placeholder="FECHA SALIDA" name="fecha_salida" min="{{ date('Y-m-d') }}" />
                     <label for="floatingFechaSalida">{{ __('FECHA SALIDA') }}</label>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-floating mb-2">
-                    <select class="form-select" name="provinciasalida"
+                    <select class="form-select rounded-md" name="provinciasalida"
                         id="floatingSelectProvinciaSalida">
                         <option>- {{ __('Seleccione') }} -</option>
                         @foreach ($provincias as $prov)
@@ -390,7 +390,7 @@
             </div>
             <div class="col-md">
                 <div class="form-floating mb-2">
-                    <select class="form-select" name="municipiosalida"
+                    <select class="form-select rounded-md" name="municipiosalida"
                         id="floatingSelectMunicipioSalida">
                         <option>- {{ __('Seleccione') }} -</option>
                     </select>
