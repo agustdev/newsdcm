@@ -3,20 +3,22 @@
     @push('css')
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
     @endpush
-    <x-slot name="header">
+
+    {{-- <x-slot name="header">
         <h2 class="h2 mb-3 mt-2 text-center">
             {{ __('Solicitud de Conduce') }}
         </h2>
-    </x-slot>
+    </x-slot> --}}
+
     {{-- formulario de solicitud de despacho --}}
     <div class="row g-2">
 
         <form action="{{ route('movimientos.conduces.store') }}" method="POST" class="form-inline" autocomplete="off">
             @csrf
             {{-- primera tarjeta --}}
-            <div class="card shadow-xl">
+            <div class="card shadow-2xl">
                 <div class="card-body">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 font-bold text-xl text-black capitalize">
                         solicitud de conduce
                     </div>
                 </div>
