@@ -359,7 +359,7 @@
 
 {{-- lugar de destino --}}
 
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-header bg-blue-900">
         <span
         class=" text-white text-sm font-bold mr-2 py-1.5 mb-1 rounded">
