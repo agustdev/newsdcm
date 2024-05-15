@@ -16,10 +16,8 @@
             {{-- primera tarjeta --}}
             <div class="card shadow-xl">
                 <div class="card-body">
-                    <div class="col-lg-12 mb-2">
-                        <h3 class="h4 uppercase">{{ __('Número de solicitud') }}:
-                            {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
-                        </h3>
+                    <div class="col-lg-12">
+                        solicitud de conduce
                     </div>
                 </div>
             </div>
