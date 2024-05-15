@@ -4,11 +4,11 @@
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
     @endpush
 
-    {{-- <x-slot name="header">
-        <h2 class="h2 mb-3 mt-2 text-center">
+    <x-slot name="header">
+        <h2 class="h2 mb-3 mt-4 text-black capitalize">
             {{ __('Solicitud de Conduce') }}
         </h2>
-    </x-slot> --}}
+    </x-slot>
 
     {{-- formulario de solicitud de despacho --}}
     <div class="row g-2">
@@ -16,13 +16,13 @@
         <form action="{{ route('movimientos.conduces.store') }}" method="POST" class="form-inline" autocomplete="off">
             @csrf
             {{-- primera tarjeta --}}
-            <div class="card shadow-2xl">
+            {{-- <div class="card shadow-2xl">
                 <div class="card-body">
                     <div class="col-lg-12 font-bold text-xl text-black capitalize">
                         solicitud de conduce
                     </div>
                 </div>
-            </div>
+            </div> --}}
             {{-- primera tarjeta tarjeta --}}
 
             {{-- informacion de la embarcacion --}}
@@ -62,7 +62,7 @@
                                         <option value="">- {{ __('Sin embarcaciones disponible') }} -</option>
                                     @endif
                                 </select>
-                                <label for="floatinMatricula">{{ __('MATRÍCULA') }}</label>
+                                <label style="font-size: 10px;" for="floatinMatricula">{{ __('MATRÍCULA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -70,7 +70,7 @@
                                 <input type="text" class="form-control nombre_emb rounded-md"
                                     id="floatingNombreEmbarcacion" placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre"
                                     readonly value="" required />
-                                <label for="floatingNombreEmbarcacion">{{ __('NOMBRE DE LA EMBARCACIÓN') }}</label>
+                                <label style="font-size: 10px;" for="floatingNombreEmbarcacion">{{ __('NOMBRE DE LA EMBARCACIÓN') }}</label>
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@
                                 <input type="text" class="form-control numero_casco rounded-md"
                                     id="floatingNumeroCasco" placeholder="NUMERO DE CASCO" name="numero_casco" readonly
                                     value="" required />
-                                <label for="floatingNumeroCasco">{{ __('NUMERO DE CASCO') }}</label>
+                                <label style="font-size: 10px;" for="floatingNumeroCasco">{{ __('NUMERO DE CASCO') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -87,10 +87,10 @@
                                 <input type="text" class="form-control color_emb rounded-md" id="floatingColor"
                                     placeholder="COLOR DE LA EMBARCACIÓN" readonly name="color_emb" value=""
                                     required />
-                                <label for="floatingColor">{{ __('COLOR') }}</label>
+                                <label style="font-size: 10px;" for="floatingColor">{{ __('COLOR') }}</label>
                             </div>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mt-3">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 -mt-3">
                             {{-- <span
                                 class="uppercase bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
                                 {{ __('INFORMACIÓN DEL MOTOR DE LA EMBARCACIÓN') }}
@@ -100,7 +100,7 @@
                                     <input type="text" class="form-control marca_motor rounded-md" id="floatingColor"
                                         placeholder="MARCA MOTOR DE LA EMBARCACIÓN" readonly
                                         name="marca_modelo_motor" />
-                                    <label for="floatingColor">{{ __('MARCA') }}</label>
+                                    <label style="font-size: 10px;" for="floatingColor">{{ __('MARCA') }}</label>
                                 </div>
                             </div>
                             <div class="mb-2">
@@ -108,14 +108,14 @@
                                     <input type="text" class="form-control caballos_motor rounded-md"
                                         id="floatingColor" placeholder="CABALLOS DE FUERZA MOTOR DE LA EMBARCACIÓN"
                                         readonly name="caballos_fuerza_motor" />
-                                    <label for="floatingColor">{{ __('CABALLOS DE FUERZA') }}</label>
+                                    <label style="font-size: 10px;" for="floatingColor">{{ __('CABALLOS DE FUERZA') }}</label>
                                 </div>
                             </div>
                             <div class="">
                                 <div class="form-floating">
                                     <input type="text" class="form-control numero_motor rounded-md"
                                         id="floatingColor" placeholder="NUMERO DE MOTOR" readonly name="no_motor" />
-                                    <label for="floatingColor">{{ __('NÚMERO DE MOTOR') }}</label>
+                                    <label style="font-size: 10px;" for="floatingColor">{{ __('NÚMERO DE MOTOR') }}</label>
                                 </div>
                             </div>
                         </div>
@@ -130,35 +130,9 @@
                     
 {{-- fin de lugar de destino --}}
 
-                    <div class="row">
-
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control" id="floatingCalle"
-                                    placeholder="{{ __('CALLE') }}" name="calle" />
-                                <label for="floatingCalle">{{ __('CALLE') }}</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control" id="floatinObservacion"
-                                    placeholder="OBSERVACIÓN" name="observacion" />
-                                <label for="floatinObservacion">{{ __('OBSERVACIÓN') }}</label>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
-                <div class="card-footer">
-                    <div class="float-end">
-                        <a href="{{ route('movimientos.conduces.index') }}"
-                            class="inline-flex items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">{{ __('Atras') }}</a>
-                        <button type="submit"
-                            class="inline-flex items-center justify-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 active:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150 disabled:opacity-25 send"><i
-                                class="mdi mdi-send mr-2"></i> {{ __('Enviar') }}</button>
-                    </div>
-                </div>
+                
             </div>
             <input type="hidden" name="mov" value="{{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}">
             <input type="hidden" name="user" value="{{ auth()->user()->id }}">
@@ -413,7 +387,35 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control rounded-md" id="floatingCalle"
+                        placeholder="{{ __('CALLE') }}" name="calle" />
+                    <label style="font-size: 10px;" for="floatingCalle">{{ __('CALLE') }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control rounded-md" id="floatinObservacion"
+                        placeholder="OBSERVACIÓN" name="observacion" />
+                    <label style="font-size: 10px;" for="floatinObservacion">{{ __('OBSERVACIÓN') }}</label>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="card-footer">
+        <div class="float-end">
+            <a href="{{ route('movimientos.conduces.index') }}"
+                class="inline-flex items-center px-3 py-2 bg- bg-slate-300 border border-transparent rounded-md font-semibold text-xs text-black uppercase tracking-widest hover:bg-slate-400 focus:bg-slate-500 active:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">{{ __('Atras') }}</a>
+            <button type="submit"
+                class="inline-flex items-center justify-center px-4 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 transition ease-in-out duration-150 disabled:opacity-25 send"> {{ __('Enviar') }}<i
+                    class="mdi mdi-send ml-2"></i></button>
+        </div>
+    </div>
+
 </div>
 
 
