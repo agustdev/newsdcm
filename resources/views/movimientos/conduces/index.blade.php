@@ -8,7 +8,7 @@
     @endpush
 
     <x-slot name="header">
-        <h2 class="h2 mb-2 mt-2">
+        <h2 class="h2 mb-2 mt-4 text-black">
             {{ __('Conduces') }}
         </h2>
     </x-slot>
@@ -28,7 +28,7 @@
                 <div class="card-body">
                     <table id="table-conduce" class="table dt-responsive table-striped nowrap w-100">
                         <thead>
-                            <tr>
+                            <tr class="bg-blue-900 text-white">
                                 <th>ID</th>
                                 <th>{{ __('Fecha Salida') }}</th>
                                 <th>{{ __('Matrícula') }}</th>
