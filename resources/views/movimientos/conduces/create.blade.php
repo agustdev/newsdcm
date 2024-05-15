@@ -120,39 +120,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <span class="bg-gray-500  text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded  text-gray-300">
-                            {{ __('DATOS DEL VEHÍCULO') }}</span>
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control marca" id="floatingMarcaModelo"
-                                    placeholder="NOMBRE DE LA EMBARCACIÓN" name="marca" required />
-                                <label for="floatingMarcaModelo">{{ __('MARCA Y MODELO') }}</label>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control color" id="floatinColor"
-                                    placeholder="COLOR" name="color" required />
-                                <label for="floatinColor">{{ __('COLOR') }}</label>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="number" class="form-control year" id="floatingYear" placeholder="AÑO"
-                                    name="year" />
-                                <label for="floatingYear">{{ __('AÑO') }}</label>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control placa" id="floatingPlaca"
-                                    placeholder="PLACA" name="placa" />
-                                <label for="floatingPlaca">{{ __('PLACA') }}</label>
-                            </div>
-                        </div>
-                    </div>
+{{-- datos del vehiculo --}}
+                    
+                    {{-- fin de datos del vehiculo --}}
                     <div class="row">
                         <span
                             class="bg-yellow-100 text-yellow-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-yellow-700 dark:text-yellow-300">
@@ -373,7 +343,51 @@
 {{-- aqui termina todo el card --}}
 
 
+{{-- Nuevo card para datos del vehiculo --}}
 
+<div class="card shadow-xl">
+<div class="card-header bg-blue-900">
+    <span class="text-sm font-bold mr-2 px-2.5 py-1.5 mb-1 rounded  text-white">
+        {{ __('DATOS DEL VEHÍCULO') }}</span>
+</div>
+
+<div class="card-body">
+    <div class="row">
+        <div class="col-md">
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control marca rounded-md" id="floatingMarcaModelo"
+                    placeholder="NOMBRE DE LA EMBARCACIÓN" name="marca" required />
+                <label style="font-size: 10px;" for="floatingMarcaModelo">{{ __('MARCA Y MODELO') }}</label>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control color rounded-md" id="floatinColor"
+                    placeholder="COLOR" name="color" required />
+                <label style="font-size: 10px;" for="floatinColor">{{ __('COLOR') }}</label>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="form-floating mb-2">
+                <input type="number" class="form-control year rounded-md" id="floatingYear" placeholder="AÑO"
+                    name="year" />
+                <label style="font-size: 10px;" for="floatingYear">{{ __('AÑO') }}</label>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control placa rounded-md" id="floatingPlaca"
+                    placeholder="PLACA" name="placa" />
+                <label style="font-size: 10px;" for="floatingPlaca">{{ __('PLACA') }}</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+{{-- fin del card para datos del vehiculo --}}
 
 
 
