@@ -393,7 +393,7 @@
                             </option>
                         @endforeach
                     </select>
-                    <label for="floatingSelectProvincia">{{ __('PROVINCIA') }}</label>
+                    <label style="font-size: 10px;" for="floatingSelectProvincia">{{ __('PROVINCIA') }}</label>
                 </div>
             </div>
 
@@ -402,14 +402,14 @@
                     <select class="form-select rounded-md" name="municipio" id="floatingSelectMunicipio">
                         <option>- {{ __('Seleccione') }} -</option>
                     </select>
-                    <label for="floatingSelectMunicipio">{{ __('MUNICIPIO') }}</label>
+                    <label style="font-size: 10px;" for="floatingSelectMunicipio">{{ __('MUNICIPIO') }}</label>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-floating mb-2">
                     <input type="text" class="form-control rounded-md" id="floatingSector"
                         placeholder="{{ __('SECTOR') }}" name="sector" />
-                    <label for="floatingSector">{{ __('SECTOR') }}</label>
+                    <label style="font-size: 10px;" for="floatingSector">{{ __('SECTOR') }}</label>
                 </div>
             </div>
         </div>
