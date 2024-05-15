@@ -3,26 +3,26 @@
     @push('css')
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
     @endpush
+
     <x-slot name="header">
-        <h2 class="h2 mb-3 mt-2 text-center">
+        <h2 class="h2 mb-3 mt-4 text-black capitalize">
             {{ __('Solicitud de Conduce') }}
         </h2>
     </x-slot>
+
     {{-- formulario de solicitud de despacho --}}
     <div class="row g-2">
 
         <form action="{{ route('movimientos.conduces.store') }}" method="POST" class="form-inline" autocomplete="off">
             @csrf
             {{-- primera tarjeta --}}
-            <div class="card shadow-xl">
+            {{-- <div class="card shadow-2xl">
                 <div class="card-body">
-                    <div class="col-lg-12 mb-2">
-                        <h3 class="h4 uppercase">{{ __('Número de solicitud') }}:
-                            {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
-                        </h3>
+                    <div class="col-lg-12 font-bold text-xl text-black capitalize">
+                        solicitud de conduce
                     </div>
                 </div>
-            </div>
+            </div> --}}
             {{-- primera tarjeta tarjeta --}}
 
             {{-- informacion de la embarcacion --}}
@@ -62,7 +62,7 @@
                                         <option value="">- {{ __('Sin embarcaciones disponible') }} -</option>
                                     @endif
                                 </select>
-                                <label for="floatinMatricula">{{ __('MATRÍCULA') }}</label>
+                                <label style="font-size: 10px;" for="floatinMatricula">{{ __('MATRÍCULA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -70,7 +70,7 @@
                                 <input type="text" class="form-control nombre_emb rounded-md"
                                     id="floatingNombreEmbarcacion" placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre"
                                     readonly value="" required />
-                                <label for="floatingNombreEmbarcacion">{{ __('NOMBRE DE LA EMBARCACIÓN') }}</label>
+                                <label style="font-size: 10px;" for="floatingNombreEmbarcacion">{{ __('NOMBRE DE LA EMBARCACIÓN') }}</label>
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@
                                 <input type="text" class="form-control numero_casco rounded-md"
                                     id="floatingNumeroCasco" placeholder="NUMERO DE CASCO" name="numero_casco" readonly
                                     value="" required />
-                                <label for="floatingNumeroCasco">{{ __('NUMERO DE CASCO') }}</label>
+                                <label style="font-size: 10px;" for="floatingNumeroCasco">{{ __('NUMERO DE CASCO') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -87,10 +87,10 @@
                                 <input type="text" class="form-control color_emb rounded-md" id="floatingColor"
                                     placeholder="COLOR DE LA EMBARCACIÓN" readonly name="color_emb" value=""
                                     required />
-                                <label for="floatingColor">{{ __('COLOR') }}</label>
+                                <label style="font-size: 10px;" for="floatingColor">{{ __('COLOR') }}</label>
                             </div>
                         </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mt-3">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 -mt-3">
                             {{-- <span
                                 class="uppercase bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
                                 {{ __('INFORMACIÓN DEL MOTOR DE LA EMBARCACIÓN') }}
@@ -100,7 +100,7 @@
                                     <input type="text" class="form-control marca_motor rounded-md" id="floatingColor"
                                         placeholder="MARCA MOTOR DE LA EMBARCACIÓN" readonly
                                         name="marca_modelo_motor" />
-                                    <label for="floatingColor">{{ __('MARCA') }}</label>
+                                    <label style="font-size: 10px;" for="floatingColor">{{ __('MARCA') }}</label>
                                 </div>
                             </div>
                             <div class="mb-2">
@@ -108,14 +108,14 @@
                                     <input type="text" class="form-control caballos_motor rounded-md"
                                         id="floatingColor" placeholder="CABALLOS DE FUERZA MOTOR DE LA EMBARCACIÓN"
                                         readonly name="caballos_fuerza_motor" />
-                                    <label for="floatingColor">{{ __('CABALLOS DE FUERZA') }}</label>
+                                    <label style="font-size: 10px;" for="floatingColor">{{ __('CABALLOS DE FUERZA') }}</label>
                                 </div>
                             </div>
                             <div class="">
                                 <div class="form-floating">
                                     <input type="text" class="form-control numero_motor rounded-md"
                                         id="floatingColor" placeholder="NUMERO DE MOTOR" readonly name="no_motor" />
-                                    <label for="floatingColor">{{ __('NÚMERO DE MOTOR') }}</label>
+                                    <label style="font-size: 10px;" for="floatingColor">{{ __('NÚMERO DE MOTOR') }}</label>
                                 </div>
                             </div>
                         </div>
@@ -126,84 +126,13 @@
                     {{-- lugar de salida --}}
                     
                     {{-- fin de lugar de salida --}}
-                    <div class="row">
-                        <span
-                            class="bg-blue-100 text-blue-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-blue-700 dark:text-blue-300">
-                            {{ __('LUGAR DESTINO') }}
-                            <div role="status" class="spin float-end hidden">
-                                <svg aria-hidden="true"
-                                    class="w-6 h-6 mr-2 text-gray-200 animate-spin dark:text-gray-200 fill-gray-700"
-                                    viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                                        fill="currentColor" />
-                                    <path
-                                        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                                        fill="currentFill" />
-                                </svg>
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                        </span>
+                    {{-- lugar de destino --}}
+                    
+{{-- fin de lugar de destino --}}
 
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <select class="form-select" name="provincia" id="floatingSelectProvincia">
-                                    <option>- {{ __('Seleccione') }} -</option>
-                                    @foreach ($provincias as $prov)
-                                        <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
-                                            {{ $prov->descripcion }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <label for="floatingSelectProvincia">{{ __('PROVINCIA') }}</label>
-                            </div>
-                        </div>
-
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <select class="form-select" name="municipio" id="floatingSelectMunicipio">
-                                    <option>- {{ __('Seleccione') }} -</option>
-                                </select>
-                                <label for="floatingSelectMunicipio">{{ __('MUNICIPIO') }}</label>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control" id="floatingSector"
-                                    placeholder="{{ __('SECTOR') }}" name="sector" />
-                                <label for="floatingSector">{{ __('SECTOR') }}</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control" id="floatingCalle"
-                                    placeholder="{{ __('CALLE') }}" name="calle" />
-                                <label for="floatingCalle">{{ __('CALLE') }}</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control" id="floatinObservacion"
-                                    placeholder="OBSERVACIÓN" name="observacion" />
-                                <label for="floatinObservacion">{{ __('OBSERVACIÓN') }}</label>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
-                <div class="card-footer">
-                    <div class="float-end">
-                        <a href="{{ route('movimientos.conduces.index') }}"
-                            class="inline-flex items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">{{ __('Atras') }}</a>
-                        <button type="submit"
-                            class="inline-flex items-center justify-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 active:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150 disabled:opacity-25 send"><i
-                                class="mdi mdi-send mr-2"></i> {{ __('Enviar') }}</button>
-                    </div>
-                </div>
+                
             </div>
             <input type="hidden" name="mov" value="{{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}">
             <input type="hidden" name="user" value="{{ auth()->user()->id }}">
@@ -239,8 +168,7 @@
 {{-- Aqui termina el card header y empieza el card body --}}
 
 <div class="card-body">
-    <div class="row g-2">
-                        
+    <div class="row g-2">      
         <div class="col-md">
             <div class="form-floating mb-2">
                 <select class="form-select tipo_documento rounded-md" name="tipo_documento" id="floatingSelect">
@@ -402,6 +330,96 @@
 </div>
 {{-- fin de lugar de salida --}}
 
+
+{{-- lugar de destino --}}
+
+<div class="card shadow-xl">
+    <div class="card-header bg-blue-900">
+        <span
+        class=" text-white text-sm font-bold mr-2 py-1.5 mb-1 rounded">
+        {{ __('LUGAR DESTINO') }}
+        <div role="status" class="spin float-end hidden">
+            <svg aria-hidden="true"
+                class="w-6 h-6 mr-2 text-gray-200 animate-spin dark:text-gray-200 fill-gray-700"
+                viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                    fill="currentColor" />
+                <path
+                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                    fill="currentFill" />
+            </svg>
+            <span class="sr-only">Loading...</span>
+        </div>
+    </span>
+    </div>
+
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating mb-2">
+                    <select class="form-select rounded-md" name="provincia" id="floatingSelectProvincia">
+                        <option>- {{ __('Seleccione') }} -</option>
+                        @foreach ($provincias as $prov)
+                            <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
+                                {{ $prov->descripcion }}
+                            </option>
+                        @endforeach
+                    </select>
+                    <label style="font-size: 10px;" for="floatingSelectProvincia">{{ __('PROVINCIA') }}</label>
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="form-floating mb-2">
+                    <select class="form-select rounded-md" name="municipio" id="floatingSelectMunicipio">
+                        <option>- {{ __('Seleccione') }} -</option>
+                    </select>
+                    <label style="font-size: 10px;" for="floatingSelectMunicipio">{{ __('MUNICIPIO') }}</label>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control rounded-md" id="floatingSector"
+                        placeholder="{{ __('SECTOR') }}" name="sector" />
+                    <label style="font-size: 10px;" for="floatingSector">{{ __('SECTOR') }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control rounded-md" id="floatingCalle"
+                        placeholder="{{ __('CALLE') }}" name="calle" />
+                    <label style="font-size: 10px;" for="floatingCalle">{{ __('CALLE') }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control rounded-md" id="floatinObservacion"
+                        placeholder="OBSERVACIÓN" name="observacion" />
+                    <label style="font-size: 10px;" for="floatinObservacion">{{ __('OBSERVACIÓN') }}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="float-end">
+            <a href="{{ route('movimientos.conduces.index') }}"
+                class="inline-flex items-center px-3 py-2 bg- bg-slate-300 border border-transparent rounded-md font-semibold text-xs text-black uppercase tracking-widest hover:bg-slate-400 focus:bg-slate-500 active:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">{{ __('Atras') }}</a>
+            <button type="submit"
+                class="inline-flex items-center justify-center px-4 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 transition ease-in-out duration-150 disabled:opacity-25 send"> {{ __('Enviar') }}<i
+                    class="mdi mdi-send ml-2"></i></button>
+        </div>
+    </div>
+
+</div>
+
+
+{{-- Fin de lugar de destino --}}
 
 
 </form>
