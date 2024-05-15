@@ -130,25 +130,7 @@
                     
 {{-- fin de lugar de destino --}}
 
-                    <div class="row">
-
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control rounded-md" id="floatingCalle"
-                                    placeholder="{{ __('CALLE') }}" name="calle" />
-                                <label style="font-size: 10px;" for="floatingCalle">{{ __('CALLE') }}</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control rounded-md" id="floatinObservacion"
-                                    placeholder="OBSERVACIÓN" name="observacion" />
-                                <label style="font-size: 10px;" for="floatinObservacion">{{ __('OBSERVACIÓN') }}</label>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 
             </div>
@@ -402,6 +384,24 @@
                     <input type="text" class="form-control rounded-md" id="floatingSector"
                         placeholder="{{ __('SECTOR') }}" name="sector" />
                     <label style="font-size: 10px;" for="floatingSector">{{ __('SECTOR') }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control rounded-md" id="floatingCalle"
+                        placeholder="{{ __('CALLE') }}" name="calle" />
+                    <label style="font-size: 10px;" for="floatingCalle">{{ __('CALLE') }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control rounded-md" id="floatinObservacion"
+                        placeholder="OBSERVACIÓN" name="observacion" />
+                    <label style="font-size: 10px;" for="floatinObservacion">{{ __('OBSERVACIÓN') }}</label>
                 </div>
             </div>
         </div>
