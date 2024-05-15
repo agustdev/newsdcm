@@ -15,9 +15,9 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <div class="card">
+            <div class="card shadow-xl">
                 <div class="card-header">
-                    <h2 class="h3">
+                    <h2 class="h3 text-black">
                         {{ __('Listado de Solicitudes de Conduce') }}
                         <a href="{{ route('movimientos.conduces.create') }}"
                             class="inline-flex items-center justify-center px-3 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition ease-in-out duration-150 float-end"><i
