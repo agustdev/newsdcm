@@ -394,7 +394,6 @@
 
 </form>
 
-        </form>
     </div>
 
     @push('js')
