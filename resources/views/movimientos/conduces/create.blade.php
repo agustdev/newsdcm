@@ -385,7 +385,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="form-floating mb-2">
-                    <select class="form-select" name="provincia" id="floatingSelectProvincia">
+                    <select class="form-select rounded-md" name="provincia" id="floatingSelectProvincia">
                         <option>- {{ __('Seleccione') }} -</option>
                         @foreach ($provincias as $prov)
                             <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
@@ -399,7 +399,7 @@
 
             <div class="col-md">
                 <div class="form-floating mb-2">
-                    <select class="form-select" name="municipio" id="floatingSelectMunicipio">
+                    <select class="form-select rounded-md" name="municipio" id="floatingSelectMunicipio">
                         <option>- {{ __('Seleccione') }} -</option>
                     </select>
                     <label for="floatingSelectMunicipio">{{ __('MUNICIPIO') }}</label>
@@ -407,7 +407,7 @@
             </div>
             <div class="col-md">
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="floatingSector"
+                    <input type="text" class="form-control rounded-md" id="floatingSector"
                         placeholder="{{ __('SECTOR') }}" name="sector" />
                     <label for="floatingSector">{{ __('SECTOR') }}</label>
                 </div>
