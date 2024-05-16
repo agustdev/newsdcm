@@ -208,7 +208,7 @@
     
     <div class="col-md">
         <div class="form-floating mb-2">
-            <select class="form-select" name="tipo_documento" id="" required>
+            <select class="form-select rounded-md" name="tipo_documento" id="" required>
                 <option value="">- {{ __('Seleccione tipo de documento') }} -</option>
                 <option value="cedula">{{ __('Cédula') }}</option>
                 <option value="pasapore">{{ __('Pasaporte') }}</option>
@@ -218,14 +218,14 @@
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input type="text" class="form-control documento_cap" id="floatinDocumento"
+            <input type="text" class="form-control documento_cap rounded-md" id="floatinDocumento"
                 placeholder="Documento" name="documento_cap" required />
             <label for="floatinMatricula">{{ __('DOCUMENTO DE IDENTIDAD DEL CAPITÁN') }}</label>
         </div>
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input type="text" class="form-control nombre_capitan" id="floatingNombreCapitan"
+            <input type="text" class="form-control nombre_capitan rounded-md" id="floatingNombreCapitan"
                 placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value="" name="nombre_capitan"
                 required />
             <label
@@ -234,7 +234,7 @@
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <select name="nacionalidad_cap" class="form-select nacionalidad" id=""
+            <select name="nacionalidad_cap" class="form-select nacionalidad rounded-md" id=""
                 required>
                 <option value="">- {{ __('Seleccione') }} -</option>
                 <option value="DOMINICANO">{{ __('DOMINICANO') }}</option>
@@ -250,14 +250,14 @@
 <div class="row">
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input type="text" class="form-control telefono" id="floatingNombreEmbarcacion"
+            <input type="text" class="form-control telefono rounded-md" id="floatingNombreEmbarcacion"
                 placeholder="NOMBRE DE LA EMBARCACIÓN" name="telefono" required />
             <label for="floatingNombreEmbarcacion">{{ __('TELÉFONO DEL CAPITÁN') }}</label>
         </div>
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <select name="motivo_viaje" class="form-select" id="" required>
+            <select name="motivo_viaje" class="form-select rounded-md" id="" required>
                 <option value="">- {{ __('Seleccione motivo del viaje') }} -</option>
                 <option value="TURISMO">{{ __('TURISMO') }}</option>
                 <option value="RECREO">{{ __('RECREO') }}</option>
@@ -269,7 +269,7 @@
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input type="date" class="form-control" id="floatingFecha" placeholder="FECHA"
+            <input type="date" class="form-control rounded-md" id="floatingFecha" placeholder="FECHA"
                 name="fecha_llegada" min="{{ date('Y-m-d') }}" required />
             <label for="floatingFecha">{{ __('FECHA LLEGADA') }}</label>
         </div>
@@ -279,7 +279,7 @@
 <div class="row">
     <div class="col-md">
         <div class="form-floating mb-2">
-            <select name="pais_procedencia" id="" class="form-select" required>
+            <select name="pais_procedencia" id="" class="form-select rounded-md" required>
                 <option value="">- {{ __('Seleccione pais de procedencia') }} -</option>
                 <option value="Afganistán" id="AF">Afganistán</option>
                 <option value="Albania" id="AL">Albania</option>
@@ -545,14 +545,14 @@
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingPuertoLlegada"
+            <input type="text" class="form-control rounded-md" id="floatingPuertoLlegada"
                 placeholder="PUERTO DE SALIDA" name="puerto_salida" required />
             <label for="floatingPuertoLlegada">{{ __('PUERTO DE SALIDA') }}</label>
         </div>
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <select name="puerto_llegada" id="" class="form-select" required>
+            <select name="puerto_llegada" id="" class="form-select rounded-md" required>
                 <option value="">- {{ __('Seleccione puerto de llegada') }} -</option>
                 @foreach ($destinos as $destino)
                     <option value="{{ $destino->descripcion }}">
@@ -567,7 +567,7 @@
 <div class="row">
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input type="number" class="form-control cant-tripulante"
+            <input type="number" class="form-control cant-tripulante rounded-md"
                 id="floatingNombreEmbarcacion" placeholder="NOMBRE DE LA EMBARCACIÓN"
                 name="cantidad_tripulantes" required />
             <label for="floatingNombreEmbarcacion">{{ __('CANTIDAD TRIPULANTES') }}</label>
@@ -575,7 +575,7 @@
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input type="number" class="form-control cant-pasajero" id="floatinMatricula"
+            <input type="number" class="form-control cant-pasajero rounded-md" id="floatinMatricula"
                 placeholder="CANTIDAD PASAJEROS" name="cantidad_pasajeros"
                 name="cantidad_pasajeros" required />
             <label for="floatinMatricula">{{ __('CANTIDAD PASAJEROS') }}</label>
@@ -583,7 +583,7 @@
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <select name="tiempo_estadia" id="" class="form-select" required>
+            <select name="tiempo_estadia" id="" class="form-select rounded-md" required>
                 <option value="">- {{ __('Seleccione') }} -</option>
                 <option value="PERMANENCIA">{{ __('PERMANENCIA') }}</option>
                 <option value="TEMPORAL">{{ __('TEMPORAL') }}</option>
@@ -621,13 +621,25 @@
     </div>
 </div>
 {{-- componente tripulantes --}}
-<div class="row">
-    @livewire('tripulantes-post')
-</div>
+
 <div class="row">
     @livewire('pasajeros-post')
 </div>
 </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header bg-blue-900">
+        <div class="text-white mt-2" role="alert">
+            <strong>DATOS DE LOS PASAJEROS (MAX: <span class="cant-pas">0</span>)</strong>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            @livewire('tripulantes-post')
+        </div>
     </div>
 </div>
 
