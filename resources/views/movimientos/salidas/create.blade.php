@@ -92,14 +92,14 @@
         
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control documento" id="floatinDocumento"
+                <input type="text" class="form-control documento rounded-md" id="floatinDocumento"
                     placeholder="Documento" name="documento" />
                 <label for="floatinMatricula">{{ __('DOCUMENTO DE IDENTIDAD DEL CAPITÁN') }}</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control nombre_capitan" id="floatingNombreCapitan"
+                <input type="text" class="form-control nombre_capitan rounded-md" id="floatingNombreCapitan"
                     placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value="" name="nombre_capitan" />
                 <label for="floatingNombreEmbarcacion">{{ __('NOMBRE Y APELLIDO DEL CAPITÁN') }}</label>
             </div>
@@ -107,7 +107,7 @@
 
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control nacionalidad" id="floatinMatricula"
+                <input type="text" class="form-control nacionalidad rounded-md" id="floatinMatricula"
                     placeholder="name@example.com" name="nacionalidad" value="" />
                 <label for="floatinMatricula">{{ __('NACIONALIDAD DEL CAPITÁN') }}</label>
             </div>
@@ -116,14 +116,14 @@
     <div class="row">
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control telefono" id="floatingNombreEmbarcacion"
+                <input type="text" class="form-control telefono rounded-md" id="floatingNombreEmbarcacion"
                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="telefono" />
                 <label for="floatingNombreEmbarcacion">{{ __('TELÉFONO DEL CAPITÁN') }}</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control motivo_viaje" id="floatinMatricula"
+                <input type="text" class="form-control motivo_viaje rounded-md" id="floatinMatricula"
                     placeholder="name@example.com" name="motivo_viaje" />
                 <label for="floatinMatricula">{{ __('MOTIVO DEL VIAJE') }}</label>
             </div>
@@ -132,7 +132,7 @@
     <div class="row">
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="date" class="form-control" id="floatingFecha" placeholder="FECHA"
+                <input type="date" class="form-control rounded-md" id="floatingFecha" placeholder="FECHA"
                     name="fecha_llegada" min="{{ date('Y-m-d') }}" />
                 <label for="floatingFecha">{{ __('FECHA SALIDA') }}</label>
             </div>
@@ -142,14 +142,14 @@
     <div class="row">
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="number" class="form-control" id="floatingNombreEmbarcacion"
+                <input type="number" class="form-control rounded-md" id="floatingNombreEmbarcacion"
                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="cantidad_tripulantes" />
                 <label for="floatingNombreEmbarcacion">{{ __('CANTIDAD TRIPULANTES') }}</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="number" class="form-control" id="floatinMatricula"
+                <input type="number" class="form-control rounded-md" id="floatinMatricula"
                     placeholder="CANTIDAD PASAJEROS" name="cantidad_pasajeros"
                     name="cantidad_pasajeros" />
                 <label for="floatinMatricula">{{ __('CANTIDAD PASAJEROS') }}</label>
@@ -160,14 +160,14 @@
     <div class="row">
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatingPais" placeholder="PAIS"
+                <input type="text" class="form-control rounded-md" id="floatingPais" placeholder="PAIS"
                     name="pais_procedencia" />
                 <label for="floatingPais">{{ __('PAIS DESTINO') }}</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control" id="floatingPuertoLlegada"
+                <input type="text" class="form-control rounded-md" id="floatingPuertoLlegada"
                     placeholder="PUERTO DE LLEGADA" name="puerto_llegada" />
                 <label for="floatingPuertoLlegada">{{ __('PUERTO DE SALIDA') }}</label>
             </div>
