@@ -79,7 +79,7 @@
                         </div>
                         <div class="row ">
                             <span
-                                class="uppercase bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
+                                class="uppercase text-black text-sm font-medium py-2.5 ">
                                 {{ __('INFORMACIÓN DEL MOTOR DE LA EMBARCACIÓN') }}
                             </span>
                             <div class="col-md">
