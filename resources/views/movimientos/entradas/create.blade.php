@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="col-md">
-                            <div class="form-floating mb-3">
+                            <div class="form-floating">
                                 <input type="number" class="form-control puntal rounded-md" id="floatingPuntal"
                                     placeholder="PUNTAL" name="puntal" required />
                                 <label style="font-size: 10px;" for="floatingNumeroCasco">{{ __('PUNTAL') }}</label>
@@ -103,7 +103,7 @@
                     </div>
                     {{-- Tipo de embarcacion y uso --}}
                     <div class="row g-2">
-                        <div class="bg-gray-700 text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded "
+                        <div class=" text-black text-sm font-semibold py-1.5 -mb-1 mt-3 rounded "
                             role="alert">
                             <div class="inline-block float-start">
                                 <strong>{{ __('TIPO') }}</strong>
@@ -111,23 +111,23 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select name="tipo_embarcacion" id="" class="form-select" required>
+                                <select name="tipo_embarcacion" id="" class="form-select rounded-md" required>
                                     <option value="">- {{ __('Seleccione') }} -</option>
                                     <option value="VELERO">{{ __('VELERO') }}</option>
                                     <option value="YATE">{{ __('YATE') }}</option>
                                     <option value="CATAMARAN">{{ __('CATAMARAN') }}</option>
                                 </select>
-                                <label for="floatinEslora">{{ __('TIPO EMBARCACIÓN') }}</label>
+                                <label style="font-size: 10px;" for="floatinEslora">{{ __('TIPO EMBARCACIÓN') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select name="tipo_uso" id="" class="form-select" required>
+                                <select name="tipo_uso" id="" class="form-select rounded-md" required>
                                     <option value="">- {{ __('Seleccione') }} -</option>
                                     <option value="TURISMO">{{ __('TURISMO') }}</option>
                                     <option value="RECREO">{{ __('RECREO') }}</option>
                                 </select>
-                                <label for="floatingEmbarcacion">{{ __('TIPO DE USO') }}</label>
+                                <label style="font-size: 10px;" for="floatingEmbarcacion">{{ __('TIPO DE USO') }}</label>
                             </div>
                         </div>
                     </div>
