@@ -20,7 +20,7 @@
     <div class="row g-2">
         <form action="{{ route('movimientos.salidas.store') }}" method="POST" class="form-inline" autocomplete="off">
             @csrf
-            <div class="card">
+            <div class="card shadow-xl">
                 <div class="card-header bg-blue-900">
                     <div class="text-white" role="alert">
                             <div class="inline-block float-start">
@@ -33,32 +33,32 @@
                         
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control matricula" id="floatinMatricula"
+                                <input type="text" class="form-control matricula rounded-md" id="floatinMatricula"
                                     placeholder="MATRICULA" name="matricula" />
-                                <label for="floatinMatricula">{{ __('MATRÍCULA') }}</label>
+                                <label style="font-size: 10px;" for="floatinMatricula">{{ __('MATRÍCULA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control nombre_emb" id="floatingNombreEmbarcacion"
+                                <input type="text" class="form-control nombre_emb rounded-md" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" />
-                                <label for="floatingNombreEmbarcacion">{{ __('NOMBRE DE LA EMBARCACIÓN') }}</label>
+                                <label style="font-size: 10px;" for="floatingNombreEmbarcacion">{{ __('NOMBRE DE LA EMBARCACIÓN') }}</label>
                             </div>
                         </div>
                     </div>
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control numero_casco" id="floatingNumeroCasco"
+                                <input type="text" class="form-control numero_casco rounded-md" id="floatingNumeroCasco"
                                     placeholder="NUMERO DE CASCO" name="numero_casco" />
-                                <label for="floatingNumeroCasco">{{ __('NUMERO DE CASCO')}}</label>
+                                <label style="font-size: 10px;" for="floatingNumeroCasco">{{ __('NUMERO DE CASCO')}}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
-                                <input type="text" class="form-control color" id="floatingColor"
+                                <input type="text" class="form-control color rounded-md" id="floatingColor"
                                     placeholder="COLOR DE LA EMBARCACIÓN" name="color" />
-                                <label for="floatingColor">{{ __('COLOR') }}</label>
+                                <label style="font-size: 10px;" for="floatingColor">{{ __('COLOR') }}</label>
                             </div>
                         </div>
                     </div>
