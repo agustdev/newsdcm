@@ -38,7 +38,7 @@
                     <div class="row g-2">
                         
                         <div class="col-md">
-                            <div class="form-floating mb-2">
+                            <div class="form-floating">
                                 {{-- <input type="text" class="form-control matricula" id="floatinMatricula"
                                     placeholder="MATRICULA" name="matricula" /> --}}
 
@@ -57,14 +57,14 @@
                             </div>
                         </div>
                         <div class="col-md">
-                            <div class="form-floating mb-2">
+                            <div class="form-floating">
                                 <input type="text" class="form-control nombre_emb" id="floatingNombreEmbarcacion"
                                     placeholder="{{ __('NOMBRE DE LA EMBARCACIÓN') }}" name="nombre" readonly />
                                 <label for="floatingNombreEmbarcacion">{{ __('NOMBRE DE LA EMBARCACIÓN') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
-                            <div class="form-floating mb-3">
+                            <div class="form-floating">
                                 <input type="text" class="form-control numero_casco" id="floatingNumeroCasco"
                                     placeholder="NUMERO DE CASCO" name="numero_casco" readonly />
                                 <label for="floatingNumeroCasco">{{ __('NÚMERO DE CASCO') }}</label>
@@ -79,7 +79,7 @@
                         </div>
 
                         <span
-                                class="uppercase text-black text-sm font-medium -mb-4 py-2.5">
+                                class="uppercase text-black text-sm font-semibold -mb-4 py-2.5">
                                 {{ __('INFORMACIÓN DEL MOTOR DE LA EMBARCACIÓN') }}
                             </span>
                         <div class="row g-2"> 
