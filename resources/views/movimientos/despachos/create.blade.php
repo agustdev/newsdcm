@@ -13,7 +13,7 @@
         <form action="{{ route('movimientos.despachos.store') }}" method="POST" class="form-inline needs-validation"
             autocomplete="off">
             @csrf
-            <div class="card">
+            <div class="card shadow-xl">
                 <div class="card-header bg-blue-900">
                   <div class="text-white" role="alert">
                             <div class="inline-block float-start">
@@ -150,7 +150,7 @@
         </div>
     </div>
 
-<div class="card-body">
+<div class="card-body shadow-xl">
     <div class="row">
                         
         <div class="col-md">
