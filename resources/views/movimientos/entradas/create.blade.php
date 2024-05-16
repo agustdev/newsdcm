@@ -622,18 +622,16 @@
 </div>
 {{-- componente tripulantes --}}
 
-<div class="row">
-    @livewire('pasajeros-post')
-</div>
+
 </div>
     </div>
 </div>
 
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-header bg-blue-900">
-        <div class="text-white mt-2" role="alert">
-            <strong>DATOS DE LOS PASAJEROS (MAX: <span class="cant-pas">0</span>)</strong>
-        </div>
+        <div class="text-white" role="alert">
+        <strong>{{ __('DATOS DE LOS TRIPULANTES')}} (MAX: <span class="cant-trip">0</span>)</strong>
+    </div>
     </div>
 
     <div class="card-body">
@@ -641,6 +639,20 @@
             @livewire('tripulantes-post')
         </div>
     </div>
+</div>
+
+<div class="card">
+    <div class="card-header bg-blue-900">
+<div class="text-white" role="alert">
+        <strong>{{ __('DATOS DE LOS PASAJEROS') }} (MAX: <span class="cant-pas">0</span>)</strong>
+    </div>
+    </div>
+<div class="card-body">
+    <div class="row">
+        @livewire('pasajeros-post')
+    </div>
+</div>
+
 </div>
 
 
