@@ -33,14 +33,14 @@
                     <div class="row g-2">
                         
                         <div class="col-md">
-                            <div class="form-floating mb-2">
+                            <div class="form-floating">
                                 <input type="text" class="form-control matricula rounded-md" id="floatinMatricula"
                                     placeholder="MATRICULA" name="matricula" required />
                                 <label style="font-size: 10px;" for="floatinMatricula">{{ __('MATRÍCULA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
-                            <div class="form-floating mb-2">
+                            <div class="form-floating">
                                 <input type="text" class="form-control nombre_emb rounded-md" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" required />
                                 <label style="font-size: 10px;" for="floatingNombreEmbarcacion">{{ __('NOMBRE DE LA EMBARCACIÓN') }}</label>
@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="col-md">
-                            <div class="form-floating mb-3">
+                            <div class="form-floating">
                                 <input type="text" class="form-control numero_casco rounded-md" id="floatingNumeroCasco"
                                     placeholder="NUMERO DE CASCO" name="numero_casco" required />
                                 <label style="font-size: 10px;" for="floatingNumeroCasco">{{ __('NUMERO DE CASCO') }}</label>
@@ -63,40 +63,41 @@
                         </div>
                     </div>
                     {{-- Medidas de la embarcacion --}}
+
                     <div class="row g-2">
-                        <div class="bg-blue-500 text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded  dark:text-blue-300"
+                        <div class=" text-black text-sm font-semibold py-1.5 -mb-1 mt-3 rounded"
                             role="alert">
                             <div class="inline-block float-start">
                                 <strong>{{ __('MEDIDAS DE LA EMBARCACIÓN') }}</strong>
                             </div>
                         </div>
                         <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" name="material_casco" class="form-control" id="floatingMaterial"
+                            <div class="form-floating">
+                                <input type="text" name="material_casco" class="form-control rounded-md" id="floatingMaterial"
                                     placeholder="MATERIAL DEL CASCO" required>
-                                <label for="floatinEslora">{{ __('MATERIAL DEL CASCO') }}</label>
+                                <label style="font-size: 10px;" for="floatinEslora">{{ __('MATERIAL DEL CASCO') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="number" class="form-control eslora" id="floatinEslora"
+                            <div class="form-floating">
+                                <input type="number" class="form-control eslora rounded-md" id="floatinEslora"
                                     placeholder="ESLORA" name="eslora" required />
-                                <label for="floatinEslora">{{ __('ESLORA') }}</label>
+                                <label style="font-size: 10px;" for="floatinEslora">{{ __('ESLORA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="number" class="form-control nombre_emb" id="floatingManga"
+                            <div class="form-floating">
+                                <input type="number" class="form-control nombre_emb rounded-md" id="floatingManga"
                                     placeholder="MANGA" name="manga" required />
-                                <label for="floatingManga">{{ __('MANGA') }}</label>
+                                <label style="font-size: 10px;" for="floatingManga">{{ __('MANGA') }}</label>
                             </div>
                         </div>
 
                         <div class="col-md">
                             <div class="form-floating mb-3">
-                                <input type="number" class="form-control puntal" id="floatingPuntal"
+                                <input type="number" class="form-control puntal rounded-md" id="floatingPuntal"
                                     placeholder="PUNTAL" name="puntal" required />
-                                <label for="floatingNumeroCasco">{{ __('PUNTAL') }}</label>
+                                <label style="font-size: 10px;" for="floatingNumeroCasco">{{ __('PUNTAL') }}</label>
                             </div>
                         </div>
                     </div>
