@@ -168,9 +168,6 @@
                         </div>
                     </div>
 
-                    
-
-
 
                 <div class="card-footer">
                     <div class="float-end">
