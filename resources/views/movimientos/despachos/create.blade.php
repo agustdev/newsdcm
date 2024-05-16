@@ -82,8 +82,7 @@
                                 class="uppercase text-black text-sm font-medium py-2.5">
                                 {{ __('INFORMACIÓN DEL MOTOR DE LA EMBARCACIÓN') }}
                             </span>
-                        <div class="row ">
-                            
+                        <div class="row g-2"> 
                             <div class="col-md">
                                 <div class="form-floating">
                                     <input type="text" class="form-control marca_motor" id="floatingColor"
