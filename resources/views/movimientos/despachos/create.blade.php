@@ -4,7 +4,7 @@
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
     @endpush
     <x-slot name="header">
-        <h2 class="h2 mb-3 mt-2">
+        <h2 class="h2 mb-3 mt-4 text-black">
             {{ __('Solicitud Despacho') }}
         </h2>
     </x-slot>
