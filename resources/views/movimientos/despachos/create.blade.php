@@ -79,7 +79,7 @@
                         </div>
 
                         <span
-                                class="uppercase text-black text-sm font-medium py-2.5">
+                                class="uppercase text-black text-sm font-medium -mb-4 py-2.5">
                                 {{ __('INFORMACIÓN DEL MOTOR DE LA EMBARCACIÓN') }}
                             </span>
                         <div class="row g-2"> 
