@@ -14,16 +14,8 @@
             autocomplete="off">
             @csrf
             <div class="card">
-                <div class="card-header">
-                    <div class="col-lg-12 mb-2">
-                        <h3 class="h4 uppercase">{{ __('Número de solicitud') }}:
-                            {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
-                        </h3>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row g-2">
-                        <div class="alert alert-warning" role="alert">
+                <div class="card-header bg-blue-900">
+                  <div class="text-white" role="alert">
                             <div class="inline-block float-start">
                                 <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
                             </div>
@@ -40,7 +32,11 @@
                                 </svg>
                                 <span class="sr-only">Loading...</span>
                             </div>
-                        </div>
+                        </div>  
+                </div>
+                <div class="card-body">
+                    <div class="row g-2">
+                        
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 {{-- <input type="text" class="form-control matricula" id="floatinMatricula"
