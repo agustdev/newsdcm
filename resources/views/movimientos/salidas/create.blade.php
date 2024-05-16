@@ -7,7 +7,7 @@
     <link href="{{ asset('assets/css/vendor/responsive.bootstrap5.css') }}" rel="stylesheet" type="text/css" />
     @endpush
     <x-slot name="header">
-        <h2 class="h2 mb-2 mt-2">
+        <h2 class="h2 mb-2 mt-4 text-black">
             {{ __('Salidas Internacionales') }}
         </h2>
     </x-slot>
@@ -22,10 +22,7 @@
             @csrf
             <div class="card">
                 <div class="card-header">
-                    <div class="col-lg-12 mb-2">
-                        <h3 class="h4 uppercase">{{ __('Número de solicitud') }}: {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
-                        </h3>
-                    </div>
+                    
                 </div>
                 <div class="card-body">
                     <div class="row g-2">
