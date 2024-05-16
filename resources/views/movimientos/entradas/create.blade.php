@@ -132,7 +132,7 @@
                         </div>
                     </div>
                     <div class="row g-2">
-                        <div class="bg-green-800 text-white text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded "
+                        <div class=" text-black text-sm font-semibold py-1.5 -mb-1 mt-1 rounded "
                             role="alert">
                             <div class="inline-block float-start">
                                 <strong>{{ __('DATOS DEL MOTOR') }}</strong>
@@ -140,30 +140,30 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" name="tipo_motor" class="form-control"
+                                <input type="text" name="tipo_motor" class="form-control rounded-md"
                                     placeholder="TIPO MOTOR" required>
-                                <label for="floatinTipoMotor">{{ __('TIPO MOTOR') }}</label>
+                                <label style="font-size: 10px;" for="floatinTipoMotor">{{ __('TIPO MOTOR') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" name="marca_modelo_motor" class="form-control"
+                                <input type="text" name="marca_modelo_motor" class="form-control rounded-md"
                                     placeholder="MARCA MOTOR" required>
-                                <label for="floatinMarcaMotor">{{ __('MARCA MOTOR') }}</label>
+                                <label style="font-size: 10px;" for="floatinMarcaMotor">{{ __('MARCA MOTOR') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" name="caballos_fuerza_motor" class="form-control"
+                                <input type="text" name="caballos_fuerza_motor" class="form-control rounded-md"
                                     placeholder="CABALLOS DE FUERZA" required>
-                                <label for="floatinCaballosFuerza">{{ __('CABALLOS DE FUERZA') }}</label>
+                                <label style="font-size: 10px;" for="floatinCaballosFuerza">{{ __('CABALLOS DE FUERZA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" name="no_motor" class="form-control"
+                                <input type="text" name="no_motor" class="form-control rounded-md"
                                     placeholder="CANTIDAD MOTOR" required>
-                                <label for="floatinCaballosFuerza">{{ __('CANTIDAD MOTOR') }}</label>
+                                <label style="font-size: 10px;" for="floatinCaballosFuerza">{{ __('CANTIDAD MOTOR') }}</label>
                             </div>
                         </div>
                     </div>
