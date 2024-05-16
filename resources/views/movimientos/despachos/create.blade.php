@@ -142,11 +142,11 @@
     </div>
 
 <div class="card-body shadow-xl">
-    <div class="row">
+    <div class="row g-2">
                         
         <div class="col-md">
             <div class="form-floating mb-2">
-                <select class="form-select tipo_documento" name="tipo_documento" id="floatingSelect">
+                <select class="form-select tipo_documento rounded-md" name="tipo_documento" id="floatingSelect">
                     <option>- {{ __('Seleccione') }} -</option>
                     <option value="cedula">{{ __('Cédula') }}</option>
                     <option value="pasaporte">{{ __('Pasaporte') }}</option>
@@ -156,14 +156,14 @@
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control documento" id="floatinDocumento"
+                <input type="text" class="form-control documento rounded-md" id="floatinDocumento"
                     placeholder="Documento" name="documento" />
                 <label for="floatinMatricula">{{ __('DOCUMENTO DE IDENTIDAD DEL CAPITÁN') }}</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control nombre_capitan" id="floatingNombreCapitan"
+                <input type="text" class="form-control nombre_capitan rounded-md" id="floatingNombreCapitan"
                     placeholder="{{ __('NOMBRE Y APELLIDO DEL CAPITÁN') }}" value=""
                     name="nombre_capitan" />
                 <label
@@ -173,7 +173,7 @@
 
         <div class="col-md">
             <div class="form-floating mb-2">
-                <select name="nacionalidad" class="form-select nacionalidad" id="" required>
+                <select name="nacionalidad" class="form-select nacionalidad rounded-md" id="" required>
                     <option value="">- {{ __('Seleccione') }} -</option>
                     <option value="DOMINICANO">{{ __('DOMINICANO') }}</option>
                     <option value="FRANCES">{{ __('FRANCES') }}</option>
@@ -186,17 +186,17 @@
         </div>
 
     </div>
-    <div class="row">
+    <div class="row g-2">
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="text" class="form-control telefono" id="floatingNombreEmbarcacion"
+                <input type="text" class="form-control telefono rounded-md" id="floatingNombreEmbarcacion"
                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="telefono" />
                 <label for="floatingNombreEmbarcacion">{{ __('TELÉFONO DEL CAPITÁN') }}</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
-                <select name="motivo_viaje" class="form-select" id="" required>
+                <select name="motivo_viaje" class="form-select rounded-md" id="" required>
                     <option value="">- {{ __('Seleccione motivo del viaje') }} -</option>
                     <option value="TURISMO">{{ __('TURISMO') }}</option>
                     <option value="RECREO">{{ __('RECREO') }}</option>
@@ -207,17 +207,17 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row g-2">
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="date" class="form-control" id="floatingFecha" placeholder="FECHA"
+                <input type="date" class="form-control rounded-md" id="floatingFecha" placeholder="FECHA"
                     name="fecha" min="{{ date('Y-m-d') }}" />
                 <label for="floatingFecha">{{ __('FECHA SALIDA') }}</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
-                <select class="form-select" name="lugar_salida" id="floatingSelect">
+                <select class="form-select rounded-md" name="lugar_salida" id="floatingSelect">
                     <option>- {{ __('Seleccione') }} -</option>
                     @foreach ($destinos as $dest)
                         <option value="{{ $dest->id }}|{{ $dest->descripcion }}">
@@ -231,7 +231,7 @@
 
         <div class="col-md">
             <div class="form-floating mb-2">
-                <select class="form-select" name="lugar_destino" id="floatingSelect">
+                <select class="form-select rounded-md" name="lugar_destino" id="floatingSelect">
                     <option>-{{ __('Seleccione') }}-</option>
                     @foreach ($destinos as $dest)
                         <option value="{{ $dest->id }}|{{ $dest->descripcion }}">
@@ -243,17 +243,17 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row g-2">
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="number" class="form-control" id="floatingNombreEmbarcacion"
+                <input type="number" class="form-control rounded-md" id="floatingNombreEmbarcacion"
                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="cantidad_tripulantes" />
                 <label for="floatingNombreEmbarcacion">{{ __('CANTIDAD TRIPULANTES')}}</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-2">
-                <input type="number" class="form-control" id="floatinMatricula"
+                <input type="number" class="form-control rounded-md" id="floatinMatricula"
                     placeholder="CANTIDAD PASAJEROS" name="cantidad_pasajeros"
                     name="cantidad_pasajeros" />
                 <label for="floatinMatricula">{{ __('CANTIDAD PASAJEROS')}}</label>
