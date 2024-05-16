@@ -112,7 +112,19 @@
 {{-- aqui termina la informacion del motor --}}
 
                     
-
+                    {{-- cardbody no tocar --}}
+                </div>
+                {{-- card footer --}}
+                <div class="card-footer">
+                    <div class="float-end">
+                        <a href="{{ route('movimientos.despachos.index') }}"
+                            class="inline-flex items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">{{ __('Atras') }}</a>
+                        <button type="submit"
+                            class="inline-flex items-center justify-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 active:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150 disabled:opacity-25 send"><i
+                                class="mdi mdi-send mr-2"></i> {{ __('Enviar') }}</button>
+                    </div>
+                </div>
+                
             </div>
             <input type="hidden" name="mov" value="{{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}">
             <input type="hidden" name="user" value="{{ auth()->user()->id }}">
@@ -258,16 +270,6 @@
         </div>
 
     </div>
-</div>
-<div class="card-footer">
-    <div class="float-end">
-        <a href="{{ route('movimientos.despachos.index') }}"
-            class="inline-flex items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">{{ __('Atras') }}</a>
-        <button type="submit"
-            class="inline-flex items-center justify-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 active:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150 disabled:opacity-25 send"><i
-                class="mdi mdi-send mr-2"></i> {{ __('Enviar') }}</button>
-    </div>
-</div>
 </div>
 
 </div>
