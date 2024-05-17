@@ -22,14 +22,14 @@
                     <div class="row g-2">
                         
                         <div class="col-md">
-                            <div class="form-floating mb-2">
+                            <div class="form-floating">
                                 <input type="text" class="form-control rounded-md" id="floatinMatricula" placeholder="MATRICULA"
                                     name="matricula" readonly value="{{ $embarcacion->matricula }}" required />
                                 <label style= "font-size: 10px;" for="floatinMatricula">MATRÍCULA</label>
                             </div>
                         </div>
                         <div class="col-md">
-                            <div class="form-floating mb-2">
+                            <div class="form-floating">
                                 <input type="text" class="form-control rounded-md" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" readonly
                                     value="{{ $embarcacion->nombre }}" required />
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="col-md">
-                            <div class="form-floating mb-3">
+                            <div class="form-floating">
                                 <input type="text" class="form-control rounded-md" id="floatingNumeroCasco"
                                     placeholder="NUMERO DE CASCO" name="numero_casco" readonly
                                     value="{{ $embarcacion->no_chasis }}" required />
@@ -53,11 +53,12 @@
                                 <label style= "font-size: 10px; " for="floatingColor">COLOR</label>
                             </div>
                         </div>
-                        <div class="row">
-                            <span
-                                class="uppercase text-black text-sm font-semibold mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
+                        <span
+                                class="uppercase text-black text-sm font-semibold rounded ">
                                 INFORMACIóN DEL MOTOR DE LA EMBARCACIóN
                             </span>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                            
                             <div class="col-md">
                                 <div class="form-floating">
                                     <input type="text" class="uppercase form-control marca_motor rounded-md" id="floatingColor"
