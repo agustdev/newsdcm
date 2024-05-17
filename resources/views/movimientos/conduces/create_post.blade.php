@@ -314,7 +314,7 @@
             
 
             <div class="col-md">
-                <div class="form-floating mb-2">
+                <div class="form-floating mb-1">
                     <select class="form-select rounded-md" name="provincia" id="floatingSelectProvincia">
                         <option>- Seleccione -</option>
                         @foreach ($provincias as $prov)
@@ -328,7 +328,7 @@
             </div>
 
             <div class="col-md">
-                <div class="form-floating mb-2">
+                <div class="form-floating mb-1">
                     <select class="form-select rounded-md" name="municipio" id="floatingSelectMunicipio">
                         <option>- Seleccione -</option>
                     </select>
@@ -343,7 +343,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row g-2">
             <div class="col-md">
                 <div class="form-floating mb-2">
                     <input type="text" class="form-control rounded-md" id="floatingCalle" placeholder="CALLE"
@@ -354,7 +354,7 @@
         </div>
         <div class="row">
             <div class="col-md">
-                <div class="form-floating mb-2">
+                <div class="form-floating">
                     <input type="text" class="form-control rounded-md" id="floatinObservacion"
                         placeholder="OBSERVACIÓN" name="observacion" />
                     <label style="font-size: 10px;" for="floatinObservacion">OBSERVACIÓN</label>
