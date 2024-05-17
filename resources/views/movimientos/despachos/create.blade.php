@@ -171,7 +171,11 @@
             </div>
         </div>
 
-        <div class="col-md">
+        
+
+    </div>
+    <div class="row g-2">
+    <div class="col-md">
             <div class="form-floating mb-2">
                 <select name="nacionalidad" class="form-select nacionalidad rounded-md" id="" required>
                     <option value="">- {{ __('Seleccione') }} -</option>
@@ -185,8 +189,6 @@
             </div>
         </div>
 
-    </div>
-    <div class="row g-2">
         <div class="col-md">
             <div class="form-floating mb-2">
                 <input type="text" class="form-control telefono rounded-md" id="floatingNombreEmbarcacion"
