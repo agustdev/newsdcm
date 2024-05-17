@@ -36,36 +36,36 @@
                     <div class="row g-2">
                         
                         <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="uppercase form-control" id="floatinMatricula"
+                            <div class="form-floating">
+                                <input type="text" class="uppercase form-control rounded-md" id="floatinMatricula"
                                     placeholder="MATRICULA" name="matricula" readonly
                                     value="{{ $embarcacion->matricula }}" />
-                                <label for="floatinMatricula">MATRÍCULA</label>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="uppercase form-control" id="floatingNombreEmbarcacion"
-                                    placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" readonly
-                                    value="{{ $embarcacion->nombre }}" />
-                                <label for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
-                            </div>
-                        </div>
-
-                        <div class="col-md">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="uppercase form-control" id="floatingNumeroCasco"
-                                    placeholder="NUMERO DE CASCO" name="numero_casco" readonly
-                                    value="{{ $embarcacion->no_chasis }}" />
-                                <label for="floatingNumeroCasco">NUMERO DE CASCO</label>
+                                <label style="font-size: 10px;" for="floatinMatricula">MATRÍCULA</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
-                                <input type="text" class="uppercase form-control" id="floatingColor"
+                                <input type="text" class="uppercase form-control rounded-md" id="floatingNombreEmbarcacion"
+                                    placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" readonly
+                                    value="{{ $embarcacion->nombre }}" />
+                                <label style="font-size: 10px;" for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input type="text" class="uppercase form-control rounded-md" id="floatingNumeroCasco"
+                                    placeholder="NUMERO DE CASCO" name="numero_casco" readonly
+                                    value="{{ $embarcacion->no_chasis }}" />
+                                <label style="font-size: 10px;" for="floatingNumeroCasco">NUMERO DE CASCO</label>
+                            </div>
+                        </div>
+                        <div class="col-md mb-2">
+                            <div class="form-floating">
+                                <input type="text" class="uppercase form-control rounded-md" id="floatingColor"
                                     placeholder="COLOR DE LA EMBARCACIÓN" readonly name="color"
                                     value="{{ $embarcacion->color }}" />
-                                <label for="floatingColor">COLOR</label>
+                                <label style="font-size: 10px;" for="floatingColor">COLOR</label>
                             </div>
                         </div>
                         <div class="row">
