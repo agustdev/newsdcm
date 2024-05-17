@@ -250,36 +250,36 @@
     
     <div class="col-md">
         <div class="form-floating mb-2">
-            <select class="form-select tipo_documento" name="tipo_documento" id="floatingSelect">
+            <select class="form-select tipo_documento rounded-md" name="tipo_documento" id="floatingSelect">
                 <option>- Seleccione -</option>
                 <option value="cedula">Cédula</option>
                 <option value="pasaporte">Pasaporte</option>
             </select>
-            <label for="floatinMatricula">TIPO DE DOCUMENTO</label>
+            <label style="font-size: 10px;" for="floatinMatricula">TIPO DE DOCUMENTO</label>
         </div>
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input type="text" class="form-control documento" id="floatinDocumento"
+            <input type="text" class="form-control documento rounded-md" id="floatinDocumento"
                 placeholder="Documento" name="documento" required />
-            <label for="floatinDocumento">DOCUMENTO DE IDENTIDAD DEL CONDUCTOR</label>
+            <label style="font-size: 10px;" for="floatinDocumento">DOCUMENTO DE IDENTIDAD DEL CONDUCTOR</label>
         </div>
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input type="text" class="form-control nombre_capitan"
+            <input type="text" class="form-control nombre_capitan rounded-md"
                 id="floatingNombreConductor" placeholder="NOMBRE Y APELLIDO DEL CONDUCTOR"
                 value="" name="nombre_conductor" required />
-            <label for="floatingNombreConductor">NOMBRE Y APELLIDO DEL CONDUCTOR</label>
+            <label style="font-size: 10px;" for="floatingNombreConductor">NOMBRE Y APELLIDO DEL CONDUCTOR</label>
         </div>
     </div>
 
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input type="text" class="form-control telefono1" id="floatingTelefonoConductor"
+            <input type="text" class="form-control telefono1 rounded-md" id="floatingTelefonoConductor"
                 placeholder="TELEFONO CONDUCTOR" name="telefono_conductor" value=""
                 required />
-            <label for="floatingTelefonoConductor">TELÉFONO DEL CONDUCTOR</label>
+            <label style="font-size: 10px;" for="floatingTelefonoConductor">TELÉFONO DEL CONDUCTOR</label>
         </div>
     </div>
 </div>
@@ -287,10 +287,10 @@
 <div class="row">
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input type="text" class="form-control telefono2" id="floatingTelefono2Conductor"
+            <input type="text" class="form-control telefono2 rounded-md" id="floatingTelefono2Conductor"
                 placeholder="OTRO TELÉFONO DEL CONDUCTOR" name="telefono_conductor_otro"
                 value="" />
-            <label for="floatingTelefono2Conductor">OTRO TELÉFONO DEL CONDUCTOR</label>
+            <label style="font-size: 10px;" for="floatingTelefono2Conductor">OTRO TELÉFONO DEL CONDUCTOR</label>
         </div>
     </div>
 </div>
@@ -298,34 +298,34 @@
 
 {{-- datos de vehiculo --}}
 <div class="row">
-    <span class="bg-gray-500  text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded  text-gray-300">
+    <span class="text-sm font-semibold text-black py-1.5 mb-1 rounded">
         DATOS DEL VEHÍCULO</span>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input type="text" class="form-control marca" id="floatingMarcaModelo"
+            <input type="text" class="form-control marca rounded-md" id="floatingMarcaModelo"
                 placeholder="NOMBRE DE LA EMBARCACIÓN" name="marca" required />
-            <label for="floatingMarcaModelo">MARCA Y MODELO</label>
+            <label style="font-size: 10px;" for="floatingMarcaModelo">MARCA Y MODELO</label>
         </div>
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input type="text" class="form-control color" id="floatinColor"
+            <input type="text" class="form-control color rounded-md" id="floatinColor"
                 placeholder="COLOR" name="color" required />
-            <label for="floatinColor">COLOR</label>
+            <label style="font-size: 10px;" for="floatinColor">COLOR</label>
         </div>
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input type="text" class="form-control year" id="floatingYear" placeholder="AÑO"
+            <input type="text" class="form-control year rounded-md" id="floatingYear" placeholder="AÑO"
                 name="year" />
-            <label for="floatingYear">AÑO</label>
+            <label style="font-size: 10px;" for="floatingYear">AÑO</label>
         </div>
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input type="text" class="form-control placa" id="floatingPlaca"
+            <input type="text" class="form-control placa rounded-md" id="floatingPlaca"
                 placeholder="PLACA" name="placa" />
-            <label for="floatingPlaca">PLACA</label>
+            <label style="font-size: 10px;" for="floatingPlaca">PLACA</label>
         </div>
     </div>
 </div>
