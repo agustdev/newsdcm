@@ -60,7 +60,7 @@
                                 <label style="font-size: 10px;" for="floatingNumeroCasco">NUMERO DE CASCO</label>
                             </div>
                         </div>
-                        <div class="col-md mb-2">
+                        <div class="col-md">
                             <div class="form-floating">
                                 <input type="text" class="uppercase form-control rounded-md" id="floatingColor"
                                     placeholder="COLOR DE LA EMBARCACIÓN" readonly name="color"
@@ -68,39 +68,39 @@
                                 <label style="font-size: 10px;" for="floatingColor">COLOR</label>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row g-2">
                             <span
-                                class="uppercase bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
+                                class="uppercase text-black text-sm font-semibold px-2.5  mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
                                 INFORMACIóN DEL MOTOR DE LA EMBARCACIóN
                             </span>
                             <div class="col-md">
                                 <div class="form-floating">
-                                    <input type="text" class="uppercase form-control marca_motor" id="floatingColor"
+                                    <input type="text" class="uppercase form-control marca_motor rounded-md" id="floatingColor"
                                         placeholder="MARCA MOTOR DE LA EMBARCACIÓN" readonly name="marca_modelo_motor"
                                         value="{{ $embarcacion->marca_modelo_motor }}" />
-                                    <label for="floatingColor">MARCA </label>
+                                    <label style="font-size: 10px;" for="floatingColor">MARCA </label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control caballos_motor" id="floatingColor"
+                                    <input type="text" class="form-control caballos_motor rounded-md" id="floatingColor"
                                         placeholder="CABALLOS DE FUERZA MOTOR DE LA EMBARCACIÓN" readonly
                                         name="caballos_fuerza_motor"
                                         value="{{ $embarcacion->caballos_fuerza_motor }}" />
-                                    <label for="floatingColor">CABALLOS DE FUERZA </label>
+                                    <label style="font-size: 10px;" for="floatingColor">CABALLOS DE FUERZA </label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating">
-                                    <input type="number" class="uppercase form-control numero_motor" id="floatingColor"
+                                    <input type="number" class="uppercase form-control numero_motor rounded-md" id="floatingColor"
                                         placeholder="NUMERO DE MOTOR" readonly name="no_motor"
                                         value="{{ $embarcacion->no_motor }}" />
-                                    <label for="floatingColor">NÚMERO DE MOTOR</label>
+                                    <label style="font-size: 10px;" for="floatingColor">NÚMERO DE MOTOR</label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row g-2">
                         <div class="alert alert-info mt-2" role="alert">
                             <strong>INFORMACIÓN DEL CAPITÁN</strong>
                             <div role="status" class="spin-cap float-end hidden">
