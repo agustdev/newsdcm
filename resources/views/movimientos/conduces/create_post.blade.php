@@ -279,7 +279,7 @@
 {{-- fin de lugar de salida --}}
 
 {{-- lugar de destino --}}
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-header bg-blue-900">
         <span
         class=" text-white text-sm font-bold">
