@@ -8,7 +8,7 @@
     @endpush
 
     <x-slot name="header">
-        <h2 class="h2 mb-2 mt-2">
+        <h2 class="h2 mb-2 mt-4 text-black">
             {{ __('Despachos') }}
         </h2>
     </x-slot>
@@ -17,18 +17,18 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="h3">
+                    <h2 class="h3 text-black">
                         {{ __('Listado de Solicitudes de Despacho') }}
                         <a href="{{ route('movimientos.despachos.create') }}"
-                            class="inline-flex items-center justify-center px-3 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 active:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150 float-end"><i
+                            class="inline-flex items-center justify-center px-3 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150 float-end"><i
                                 class="mdi mdi-plus mdi-18px"></i>{{ __('Nueva Solicitud') }}</a>
                     </h2>
                 </div>
 
                 <div class="card-body">
                     <table id="table-despacho" class="table dt-responsive table-striped nowrap w-100">
-                        <thead>
-                            <tr>
+                        <thead class="bg-blue-900">
+                            <tr class="text-white">
                                 <th>ID</th>
                                 <th>{{ __('Fecha Salida') }}</th>
                                 <th>{{ __('Matrícula') }}</th>
@@ -159,7 +159,7 @@
                     title: '¿Estas seguro de anular esta solicitud?',
                     text: "¡Esta acción no podra ser revertida!",
                     showCancelButton: true,
-                    confirmButtonColor: '#2563EB',
+                    confirmButtonColor: '#1089FF',
                     cancelButtonColor: '#DC2626',
                     confirmButtonText: '¡Si, anular!',
                     cancelButtonText: 'Cancelar'
