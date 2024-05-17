@@ -70,8 +70,8 @@
                         </div>
                         <div class="row g-2">
                             <span
-                                class="uppercase text-black text-sm font-semibold px-2.5  mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
-                                INFORMACIóN DEL MOTOR DE LA EMBARCACIóN
+                                class=" text-black font-semibold px-2.5 mb-1 ">
+                                INFORMACIÓN DEL MOTOR DE LA EMBARCACIÓN
                             </span>
                             <div class="col-md">
                                 <div class="form-floating">
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                     <div class="row g-2">
-                        <div class="alert alert-info mt-2" role="alert">
+                        <div class="mt-3 text-black font-semibold" role="alert">
                             <strong>INFORMACIÓN DEL CAPITÁN</strong>
                             <div role="status" class="spin-cap float-end hidden">
                                 <svg aria-hidden="true"
@@ -119,33 +119,33 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select class="form-select tipo_documento" name="tipo_documento" id="floatingSelect">
+                                <select class="form-select tipo_documento rounded-md" name="tipo_documento" id="floatingSelect">
                                     <option>- Seleccione -</option>
                                     <option value="cedula">Cédula</option>
                                     <option value="pasaporte">Pasaporte</option>
                                 </select>
-                                <label for="floatinMatricula">TIPO DE DOCUMENTO</label>
+                                <label style="font-size: 10px;" for="floatinMatricula">TIPO DE DOCUMENTO</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control documento" id="floatinDocumento"
+                                <input type="text" class="form-control documento rounded-md" id="floatinDocumento"
                                     placeholder="Documento" name="documento" />
-                                <label for="floatinMatricula">DOCUMENTO DE IDENTIDAD DEL CAPITÁN</label>
+                                <label style="font-size: 10px;" for="floatinMatricula">DOCUMENTO DE IDENTIDAD DEL CAPITÁN</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control nombre_capitan" id="floatingNombreCapitan"
+                                <input type="text" class="form-control nombre_capitan rounded-md" id="floatingNombreCapitan"
                                     placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value=""
                                     name="nombre_capitan" />
-                                <label for="floatingNombreEmbarcacion">NOMBRE Y APELLIDO DEL CAPITÁN</label>
+                                <label style="font-size: 10px;" for="floatingNombreEmbarcacion">NOMBRE Y APELLIDO DEL CAPITÁN</label>
                             </div>
                         </div>
 
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select name="nacionalidad" class="form-select" id="" required>
+                                <select name="nacionalidad" class="form-select rounded-md" id="" required>
                                     <option value="">- Seleccione -</option>
                                     <option value="DOMINICANO">DOMINICANO</option>
                                     <option value="FRANCES">FRANCES</option>
@@ -153,42 +153,42 @@
                                     <option value="RUSO">RUSO</option>
                                     <option value="ITALIANO">ITALIANO</option>
                                 </select>
-                                <label for="floatinMatricula">NACIONALIDAD DEL CAPITÁN</label>
+                                <label style="font-size: 10px;" for="floatinMatricula">NACIONALIDAD DEL CAPITÁN</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control telefono" id="floatingNombreEmbarcacion"
+                                <input type="text" class="form-control telefono rounded-md" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="telefono" />
-                                <label for="floatingNombreEmbarcacion">TELÉFONO DEL CAPITÁN</label>
+                                <label style="font-size: 10px;" for="floatingNombreEmbarcacion">TELÉFONO DEL CAPITÁN</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select name="motivo_viaje" class="form-select" id="" required>
+                                <select name="motivo_viaje" class="form-select rounded-md" id="" required>
                                     <option value="">- Seleccione motivo del viaje -</option>
                                     <option value="TURISMO">TURISMO</option>
                                     <option value="RECREO">RECREO</option>
                                     <option value="NEGOCIOS">NEGOCIOS</option>
                                     <option value="VACACIONES">VACACIONES</option>
                                 </select>
-                                <label for="floatinMatricula">MOTIVO DEL VIAJE</label>
+                                <label style="font-size: 10px;" for="floatinMatricula">MOTIVO DEL VIAJE</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="date" class="form-control" id="floatingFecha" placeholder="FECHA"
+                                <input type="date" class="form-control rounded-md" id="floatingFecha" placeholder="FECHA"
                                     name="fecha" min="{{ date('Y-m-d') }}" />
-                                <label for="floatingFecha">FECHA SALIDA</label>
+                                <label style="font-size: 10px;" for="floatingFecha">FECHA SALIDA</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select class="form-select" name="lugar_salida" id="floatingSelect">
+                                <select class="form-select rounded-md" name="lugar_salida" id="floatingSelect">
                                     <option>- Seleccione -</option>
                                     @foreach ($destinos as $dest)
                                         <option value="{{ $dest->id }}|{{ $dest->descripcion }}">
@@ -196,13 +196,13 @@
                                         </option>
                                     @endforeach
                                 </select>
-                                <label for="floatingSelect">LUGAR SALIDA</label>
+                                <label style="font-size: 10px;" for="floatingSelect">LUGAR SALIDA</label>
                             </div>
                         </div>
 
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select class="form-select" name="lugar_destino" id="floatingSelect">
+                                <select class="form-select rounded-md" name="lugar_destino" id="floatingSelect">
                                     <option>- Seleccione -</option>
                                     @foreach ($destinos as $dest)
                                         <option value="{{ $dest->id }}|{{ $dest->descripcion }}">
@@ -210,24 +210,24 @@
                                         </option>
                                     @endforeach
                                 </select>
-                                <label for="floatingSelect">LUGAR DESTINO</label>
+                                <label style="font-size: 10px;" for="floatingSelect">LUGAR DESTINO</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="number" class="form-control" id="floatingNombreEmbarcacion"
+                                <input type="number" class="form-control rounded-md" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="cantidad_tripulantes" />
-                                <label for="floatingNombreEmbarcacion">CANTIDAD TRIPULANTES</label>
+                                <label style="font-size: 10px;" for="floatingNombreEmbarcacion">CANTIDAD TRIPULANTES</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="number" class="form-control" id="floatinMatricula"
+                                <input type="number" class="form-control rounded-md" id="floatinMatricula"
                                     placeholder="CANTIDAD PASAJEROS" name="cantidad_pasajeros"
                                     name="cantidad_pasajeros" />
-                                <label for="floatinMatricula">CANTIDAD PASAJEROS</label>
+                                <label style="font-size: 10px;" for="floatinMatricula">CANTIDAD PASAJEROS</label>
                             </div>
                         </div>
 
