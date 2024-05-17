@@ -4,7 +4,7 @@
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
     @endpush
     <x-slot name="header">
-        <h2 class="h2 mb-3 mt-2">
+        <h2 class="h2 mb-3 mt-4 text-black uppercase">
             {{ __('Solicitud de Conduce') }}
         </h2>
     </x-slot>
@@ -13,77 +13,74 @@
         <form action="{{ route('movimientos.conduces.store') }}" method="POST" class="form-inline" autocomplete="off">
             @csrf
             <div class="card">
-                <div class="card-header">
-                    <div class="col-lg-12 mb-2">
-                        <h3 class="h4 uppercase">{{ __('Número de solicitud') }}: {{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}
-                        </h3>
-                    </div>
+                <div class="card-header bg-blue-900">
+                <div class="text-white" role="alert">
+                            <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
+                        </div>
                 </div>
                 <div class="card-body">
                     <div class="row g-2">
-                        <div class="alert alert-warning" role="alert">
-                            <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
-                        </div>
+                        
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control" id="floatinMatricula" placeholder="MATRICULA"
+                                <input type="text" class="form-control rounded-md" id="floatinMatricula" placeholder="MATRICULA"
                                     name="matricula" readonly value="{{ $embarcacion->matricula }}" required />
-                                <label for="floatinMatricula">MATRÍCULA</label>
+                                <label style= "font-size: 10px;" for="floatinMatricula">MATRÍCULA</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control" id="floatingNombreEmbarcacion"
+                                <input type="text" class="form-control rounded-md" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="nombre" readonly
                                     value="{{ $embarcacion->nombre }}" required />
-                                <label for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
+                                <label style= "font-size: 10px;" for="floatingNombreEmbarcacion">NOMBRE DE LA EMBARCACIÓN</label>
                             </div>
                         </div>
 
                         <div class="col-md">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingNumeroCasco"
+                                <input type="text" class="form-control rounded-md" id="floatingNumeroCasco"
                                     placeholder="NUMERO DE CASCO" name="numero_casco" readonly
                                     value="{{ $embarcacion->no_chasis }}" required />
-                                <label for="floatingNumeroCasco">NUMERO DE CASCO</label>
+                                <label style= "font-size: 10px;" for="floatingNumeroCasco">NUMERO DE CASCO</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="floatingColor"
+                                <input type="text" class="form-control rounded-md" id="floatingColor"
                                     placeholder="COLOR DE LA EMBARCACIÓN" readonly name="color_emb"
                                     value="{{ $embarcacion->color }}" required />
-                                <label for="floatingColor">COLOR</label>
+                                <label style= "font-size: 10px; " for="floatingColor">COLOR</label>
                             </div>
                         </div>
                         <div class="row">
                             <span
-                                class="uppercase bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
+                                class="uppercase text-black text-sm font-semibold mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
                                 INFORMACIóN DEL MOTOR DE LA EMBARCACIóN
                             </span>
                             <div class="col-md">
                                 <div class="form-floating">
-                                    <input type="text" class="uppercase form-control marca_motor" id="floatingColor"
+                                    <input type="text" class="uppercase form-control marca_motor rounded-md" id="floatingColor"
                                         placeholder="MARCA MOTOR DE LA EMBARCACIÓN" readonly name="marca_modelo_motor"
                                         value="{{ $embarcacion->marca_modelo_motor }}" />
-                                    <label for="floatingColor">MARCA </label>
+                                    <label style= "font-size: 10px;" for="floatingColor">MARCA </label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control caballos_motor" id="floatingColor"
+                                    <input type="text" class="form-control caballos_motor rounded-md" id="floatingColor"
                                         placeholder="CABALLOS DE FUERZA MOTOR DE LA EMBARCACIÓN" readonly
                                         name="caballos_fuerza_motor"
                                         value="{{ $embarcacion->caballos_fuerza_motor }}" />
-                                    <label for="floatingColor">CABALLOS DE FUERZA</label>
+                                    <label style= "font-size: 10px;" for="floatingColor">CABALLOS DE FUERZA</label>
                                 </div>
                             </div>
                             <div class="col-md">
                                 <div class="form-floating">
-                                    <input type="number" class="uppercase form-control numero_motor" id="floatingColor"
+                                    <input type="number" class="uppercase form-control numero_motor rounded-md" id="floatingColor"
                                         placeholder="NUMERO DE MOTOR" readonly name="no_motor"
                                         value="{{ $embarcacion->no_motor }}" />
-                                    <label for="floatingColor">NÚMERO DE MOTOR</label>
+                                    <label style= "font-size: 10px;" for="floatingColor">NÚMERO DE MOTOR</label>
                                 </div>
                             </div>
                         </div>
