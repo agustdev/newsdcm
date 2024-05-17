@@ -175,7 +175,7 @@
 
 
 
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-header bg-blue-900">
         <div class="text-white mt-2 mb-2" role="alert">
             <strong>INFORMACIÓN DEL VEHÍCULO / CONDUCTOR / DESTINO</strong>
