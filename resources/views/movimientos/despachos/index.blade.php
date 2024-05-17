@@ -159,7 +159,7 @@
                     title: '¿Estas seguro de anular esta solicitud?',
                     text: "¡Esta acción no podra ser revertida!",
                     showCancelButton: true,
-                    confirmButtonColor: '#2563EB',
+                    confirmButtonColor: '#1089FF',
                     cancelButtonColor: '#DC2626',
                     confirmButtonText: '¡Si, anular!',
                     cancelButtonText: 'Cancelar'
