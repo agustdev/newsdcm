@@ -8,18 +8,18 @@
     @endpush
 
     <x-slot name="header">
-        <h2 class="h2 mb-2 mt-2">
+        <h2 class="h2 mb-2 mt-4 text-black">
             {{ __('Entradas Internacionales') }}
         </h2>
     </x-slot>
     <div class="row">
         <div class="col-lg-12">
-            <div class="card">
+            <div class="card shadow-xl">
                 <div class="card-header">
-                    <h2 class="h3">
+                    <h2 class="h3 text-black ">
                         {{ __('Listado de Solicitudes de Entrada') }}
                         <a href="{{ route('movimientos.entradas.create') }}"
-                            class="inline-flex items-center justify-center px-3 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 active:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150 float-end"><i
+                            class="inline-flex items-center justify-center px-3 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150 float-end"><i
                                 class="mdi mdi-plus mdi-18px"></i>{{ __('Nueva Solicitud')}}</a>
                     </h2>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="card-body">
                     <table id="table-despacho" class="table dt-responsive table-striped nowrap w-100">
                         <thead>
-                            <tr>
+                            <tr class="bg-blue-900 text-white">
                                 <th>ID</th>
                                 <th>{{ __('Fecha Llegada') }}</th>
                                 <th>{{ __('Matrícula') }}</th>
