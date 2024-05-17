@@ -161,7 +161,7 @@
                 <label style="font-size: 10px;" for="floatinMatricula">{{ __('DOCUMENTO DE IDENTIDAD DEL CAPITÁN') }}</label>
             </div>
         </div>
-        <div class="col-md">
+        <div class="col-md-6">
             <div class="form-floating mb-2">
                 <input type="text" class="form-control nombre_capitan rounded-md" id="floatingNombreCapitan"
                     placeholder="{{ __('NOMBRE Y APELLIDO DEL CAPITÁN') }}" value=""
