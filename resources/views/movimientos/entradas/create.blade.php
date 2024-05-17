@@ -596,14 +596,14 @@
     </div>
     <div class="col-md carmas" style="display: none;">
         <div class="form-floating mb-2">
-            <input type="number" class="form-control cant-armas" id="floatingCantidadArmas"
+            <input type="number" class="form-control cant-armas rounded-md" id="floatingCantidadArmas"
                 placeholder="CANTIDAD DE ARMAS" name="cantidad_armas" required />
             <label style="font-size: 10px;" for="floatingCantidadArmas">{{ __('CANTIDAD DE ARMAS') }}</label>
         </div>
     </div>
     <div class="col-md tarmas" style="display: none;">
         <div class="form-floating mb-2">
-            <textarea name="tipo_armas" id="" cols="30" rows="10" class="form-control"
+            <textarea name="tipo_armas" id="" cols="30" rows="10" class="form-control rounded-md"
                 id="floatingTipoArmas" required></textarea>
             <label style="font-size: 10px;" for="floatingTipoArmas">{{ __('TIPO DE ARMAS') }}</label>
         </div>
