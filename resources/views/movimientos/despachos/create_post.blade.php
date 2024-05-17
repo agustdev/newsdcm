@@ -13,7 +13,7 @@
 
         <form action="{{ route('movimientos.despachos.store') }}" method="POST" class="form-inline" autocomplete="off">
             @csrf
-            <div class="card">
+            <div class="card shadow-xl">
                 <div class="card-header bg-blue-900">
                     <div class="text-white" role="alert">
                         <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
