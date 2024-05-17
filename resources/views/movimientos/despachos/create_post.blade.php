@@ -112,7 +112,7 @@
 
 
 
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-header bg-blue-900">
         <div class=" text-white font-semibold" role="alert">
             <strong>INFORMACIÓN DEL CAPITÁN</strong>
