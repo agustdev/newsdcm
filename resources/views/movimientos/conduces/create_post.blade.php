@@ -140,7 +140,7 @@
         <div class="form-floating mb-2">
             <input type="text" class="form-control documento rounded-md" id="floatinDocumento"
                 placeholder="Documento" name="documento" required />
-            <label style="font-size: 10px;" for="floatinDocumento">DOCUMENTO DE IDENTIDAD DEL CONDUCTOR</label>
+            <label style="font-size: 10px;" for="floatinDocumento">DOCUMENTO DE IDENTIDAD</label>
         </div>
     </div>
     <div class="col-md">
@@ -148,7 +148,7 @@
             <input type="text" class="form-control nombre_capitan rounded-md"
                 id="floatingNombreConductor" placeholder="NOMBRE Y APELLIDO DEL CONDUCTOR"
                 value="" name="nombre_conductor" required />
-            <label style="font-size: 10px;" for="floatingNombreConductor">NOMBRE Y APELLIDO DEL CONDUCTOR</label>
+            <label style="font-size: 10px;" for="floatingNombreConductor">NOMBRE Y APELLIDO</label>
         </div>
     </div>
 
@@ -157,7 +157,7 @@
             <input type="text" class="form-control telefono1 rounded-md" id="floatingTelefonoConductor"
                 placeholder="TELEFONO CONDUCTOR" name="telefono_conductor" value=""
                 required />
-            <label style="font-size: 10px;" for="floatingTelefonoConductor">TELÉFONO DEL CONDUCTOR</label>
+            <label style="font-size: 10px;" for="floatingTelefonoConductor">TELÉFONO</label>
         </div>
     </div>
 </div>
@@ -168,7 +168,7 @@
             <input type="text" class="form-control telefono2 rounded-md" id="floatingTelefono2Conductor"
                 placeholder="OTRO TELÉFONO DEL CONDUCTOR" name="telefono_conductor_otro"
                 value="" />
-            <label style="font-size: 10px;" for="floatingTelefono2Conductor">OTRO TELÉFONO DEL CONDUCTOR</label>
+            <label style="font-size: 10px;" for="floatingTelefono2Conductor">OTRO TELÉFONO</label>
         </div>
     </div>
 </div>

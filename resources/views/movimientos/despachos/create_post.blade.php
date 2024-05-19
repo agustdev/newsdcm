@@ -149,7 +149,7 @@
                 <div class="form-floating">
                     <input type="text" class="form-control documento rounded-md" id="floatinDocumento"
                         placeholder="Documento" name="documento" />
-                    <label style="font-size: 10px;" for="floatinMatricula">DOCUMENTO DE IDENTIDAD DEL CAPITÁN</label>
+                    <label style="font-size: 10px;" for="floatinMatricula">DOCUMENTO DE IDENTIDAD</label>
                 </div>
             </div>
             <div class="col-md">
@@ -157,7 +157,7 @@
                     <input type="text" class="form-control nombre_capitan rounded-md" id="floatingNombreCapitan"
                         placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value=""
                         name="nombre_capitan" />
-                    <label style="font-size: 10px;" for="floatingNombreEmbarcacion">NOMBRE Y APELLIDO DEL CAPITÁN</label>
+                    <label style="font-size: 10px;" for="floatingNombreEmbarcacion">NOMBRE Y APELLIDO</label>
                 </div>
             </div>
 
@@ -171,7 +171,7 @@
                         <option value="RUSO">RUSO</option>
                         <option value="ITALIANO">ITALIANO</option>
                     </select>
-                    <label style="font-size: 10px;" for="floatinMatricula">NACIONALIDAD DEL CAPITÁN</label>
+                    <label style="font-size: 10px;" for="floatinMatricula">NACIONALIDAD</label>
                 </div>
             </div>
         </div>
@@ -180,7 +180,7 @@
                 <div class="form-floating mb-2">
                     <input type="text" class="form-control telefono rounded-md" id="floatingNombreEmbarcacion"
                         placeholder="NOMBRE DE LA EMBARCACIÓN" name="telefono" />
-                    <label style="font-size: 10px;" for="floatingNombreEmbarcacion">TELÉFONO DEL CAPITÁN</label>
+                    <label style="font-size: 10px;" for="floatingNombreEmbarcacion">TELÉFONO</label>
                 </div>
             </div>
             <div class="col-md">
