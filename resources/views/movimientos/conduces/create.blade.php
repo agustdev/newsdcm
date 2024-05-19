@@ -183,7 +183,7 @@
             <div class="form-floating mb-2">
                 <input type="text" class="form-control documento rounded-md" id="floatinDocumento"
                     placeholder="Documento" name="documento" required />
-                <label style="font-size: 10px;" for="floatinDocumento">{{ __('DOCUMENTO DE IDENTIDAD DEL CONDUCTOR') }}</label>
+                <label style="font-size: 10px;" for="floatinDocumento">{{ __('DOCUMENTO DE IDENTIDAD') }}</label>
             </div>
         </div>
         <div class="col-md">
@@ -192,7 +192,7 @@
                     id="floatingNombreConductor" placeholder="NOMBRE Y APELLIDO DEL CONDUCTOR"
                     value="" name="nombre_conductor" required />
                 <label style="font-size: 10px;"
-                    for="floatingNombreConductor">{{ __('NOMBRE Y APELLIDO DEL CONDUCTOR') }}R</label>
+                    for="floatingNombreConductor">{{ __('NOMBRE Y APELLIDO') }}R</label>
             </div>
         </div>
 
@@ -201,7 +201,7 @@
                 <input type="text" class="form-control telefono1 rounded-md" id="floatingTelefonoConductor"
                     placeholder="TELEFONO CONDUCTOR" name="telefono_conductor" value=""
                     required />
-                <label style="font-size: 10px;" for="floatingTelefonoConductor">{{ __('TELÉFONO DEL CONDUCTOR') }}</label>
+                <label style="font-size: 10px;" for="floatingTelefonoConductor">{{ __('TELÉFONO') }}</label>
             </div>
         </div>
     </div>
@@ -212,7 +212,7 @@
                     placeholder="OTRO TELÉFONO DEL CONDUCTOR" name="telefono_conductor_otro"
                     value="" />
                 <label style="font-size: 10px;"
-                    for="floatingTelefono2Conductor">{{ __('OTRO TELÉFONO DEL CONDUCTOR') }}</label>
+                    for="floatingTelefono2Conductor">{{ __('OTRO TELÉFONO') }}</label>
             </div>
         </div>
     </div>

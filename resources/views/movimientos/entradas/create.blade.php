@@ -209,7 +209,7 @@
         <div class="form-floating mb-2">
             <input type="text" class="form-control documento_cap rounded-md" id="floatinDocumento"
                 placeholder="Documento" name="documento_cap" required />
-            <label style="font-size: 10px;" for="floatinMatricula">{{ __('DOCUMENTO DE IDENTIDAD DEL CAPITÁN') }}</label>
+            <label style="font-size: 10px;" for="floatinMatricula">{{ __('DOCUMENTO DE IDENTIDAD') }}</label>
         </div>
     </div>
     <div class="col-md">
@@ -218,7 +218,7 @@
                 placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value="" name="nombre_capitan"
                 required />
             <label style="font-size: 10px;"
-                for="floatingNombreEmbarcacion">{{ __('NOMBRE Y APELLIDO DEL CAPITÁN') }}</label>
+                for="floatingNombreEmbarcacion">{{ __('NOMBRE Y APELLIDO') }}</label>
         </div>
     </div>
     <div class="col-md">
@@ -232,7 +232,7 @@
                 <option value="RUSO">{{ __('RUSO') }}</option>
                 <option value="ITALIANO">{{ __('ITALIANO') }}</option>
             </select>
-            <label style="font-size: 10px;" for="floatinMatricula">{{ __('NACIONALIDAD DEL CAPITÁN') }}</label>
+            <label style="font-size: 10px;" for="floatinMatricula">{{ __('NACIONALIDAD') }}</label>
         </div>
     </div>
 </div>
@@ -241,7 +241,7 @@
         <div class="form-floating mb-2">
             <input type="text" class="form-control telefono rounded-md" id="floatingNombreEmbarcacion"
                 placeholder="NOMBRE DE LA EMBARCACIÓN" name="telefono" required />
-            <label style="font-size: 10px;" for="floatingNombreEmbarcacion">{{ __('TELÉFONO DEL CAPITÁN') }}</label>
+            <label style="font-size: 10px;" for="floatingNombreEmbarcacion">{{ __('TELÉFONO') }}</label>
         </div>
     </div>
     <div class="col-md">
