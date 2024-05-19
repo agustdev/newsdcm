@@ -8,7 +8,7 @@
     @endpush
 
     <x-slot name="header">
-        <h2 class="h2 mb-2 mt-4 text-black">
+        <h2 class="h2 mb-2 mt-4 text-black uppercase">
             {{ __('Despachos') }}
         </h2>
     </x-slot>
