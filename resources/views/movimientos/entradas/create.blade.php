@@ -7,7 +7,7 @@
         <link href="{{ asset('assets/css/vendor/responsive.bootstrap5.css') }}" rel="stylesheet" type="text/css" />
     @endpush
     <x-slot name="header">
-        <h2 class="h2 mb-2 mt-4 text-black">
+        <h2 class="h2 mb-2 mt-4 text-black uppercase">
             {{ __('Entradas Internacionales') }}
         </h2>
     </x-slot>
