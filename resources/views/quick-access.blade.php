@@ -4,15 +4,15 @@
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
     @endpush
     <x-slot name="header">
-        <h2 class="h2 mb-2">
+        <h2 class="h2 mb-2 mt-4 uppercase text-black">
             {{ __('Acceso Rápido') }}
         </h2>
     </x-slot>
     <div class="row mb-2">
-        <div class="relative flex py-2 items-center">
-            <div class="flex-grow border-t border-gray-400"></div>
-            <span class="flex-shrink mx-4 text-gray-400">{{ __('NACIONAL') }}</span>
-            <div class="flex-grow border-t border-gray-400"></div>
+        <div class="relative flex py-1 items-center">
+            <div class="flex-grow border-t border-yellow-600"></div>
+            <span class="flex-shrink mx-2 text-black font-medium">{{ __('NACIONAL') }}</span>
+            <div class="flex-grow border-t border-yellow-600"></div>
         </div>
     </div>
     <div class="row">
@@ -57,9 +57,9 @@
     </div>
     <div class="row mb-2">
         <div class="relative flex py-2 items-center">
-            <div class="flex-grow border-t border-gray-400"></div>
-            <span class="flex-shrink mx-4 text-gray-400">{{ __('INTERNACIONAL') }}</span>
-            <div class="flex-grow border-t border-gray-400"></div>
+            <div class="flex-grow border-t  border-yellow-600"></div>
+            <span class="flex-shrink mx-2 text-black font-medium">{{ __('INTERNACIONAL') }}</span>
+            <div class="flex-grow border-t border-yellow-600"></div>
         </div>
     </div>
     <div class="row">
