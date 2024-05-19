@@ -80,14 +80,14 @@
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control documento" id="floatinDocumento"
                                     placeholder="Documento" name="documento" />
-                                <label for="floatinMatricula">DOCUMENTO DE IDENTIDAD DEL CAPITÁN</label>
+                                <label for="floatinMatricula">DOCUMENTO DE IDENTIDAD</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control nombre_capitan" id="floatingNombreCapitan"
                                     placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value="" name="nombre_capitan" />
-                                <label for="floatingNombreEmbarcacion">NOMBRE Y APELLIDO DEL CAPITÁN</label>
+                                <label for="floatingNombreEmbarcacion">NOMBRE Y APELLIDO</label>
                             </div>
                         </div>
 
@@ -95,7 +95,7 @@
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control nacionalidad" id="floatinMatricula"
                                     placeholder="name@example.com" name="nacionalidad" value="" />
-                                <label for="floatinMatricula">NACIONALIDAD DEL CAPITÁN</label>
+                                <label for="floatinMatricula">NACIONALIDAD</label>
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control telefono" id="floatingNombreEmbarcacion"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="telefono" />
-                                <label for="floatingNombreEmbarcacion">TELÉFONO DEL CAPITÁN</label>
+                                <label for="floatingNombreEmbarcacion">TELÉFONO</label>
                             </div>
                         </div>
                         <div class="col-md">
