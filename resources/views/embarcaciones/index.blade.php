@@ -122,7 +122,7 @@
                             </form>
 
                             <a href="{{ route('conduces.createpost') }}"
-                                class="items-center px-3 py-2 bg-yellow-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-700 focus:bg-yellow-700 active:bg-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 url_conduce"
+                                class="items-center px-3 py-2 bg-yellow-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-600 focus:bg-yellow-700 active:bg-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 url_conduce"
                                 onclick="event.preventDefault(); document.getElementById('conduce-form-{{ $emb->id }}').submit();">{{ __('CONDUCE') }}</a>
 
                             <form id="conduce-form-{{ $emb->id }}" action="{{ route('conduces.createpost') }}"
