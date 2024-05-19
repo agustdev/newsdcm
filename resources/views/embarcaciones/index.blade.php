@@ -103,15 +103,15 @@
                 aria-labelledby="standard-modalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title h3" id="standard-modalLabel">
+                        <div class="modal-header mx-auto">
+                            <h4 class="modal-title h3 uppercase text-black" id="standard-modalLabel">
                                 {{ __('MOVIMIENTOS A SOLICITAR') }}</h4>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-hidden="true"></button>
                         </div>
                         <div class="modal-body text-center">
                             <a href="{{ route('despachos.createpost') }}"
-                                class="items-center px-3 py-2 bg-blue-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 url_despacho"
+                                class="items-center px-3 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-600 focus:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 url_despacho"
                                 onclick="event.preventDefault(); document.getElementById('despacho-form-{{ $emb->id }}').submit();">{{ __('DESPACHO') }}
 
                             </a>
