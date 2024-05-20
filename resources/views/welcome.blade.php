@@ -57,8 +57,8 @@
             }
 
             .button-primary-ard {
-                width: 244px;
-                height: 50px;
+                width: auto;
+                height: auto;
                 border: 1px solid #01136E;
                 color: #01136E;
                 background: white;
@@ -68,8 +68,8 @@
             }
 
             .button-secondary-ard {
-                width: 244px;
-                height: 50px;
+                width: auto;
+                height: auto;
                 color: white;
                 background: #FF0000;
                 border-radius: 8px;
@@ -77,6 +77,18 @@
                 font-size: 16px;
                 border: none;
             }
+
+            /* aqui agregare el color de hover que tendra  */
+            .button-primary-ard:hover {
+    background-color: #D0D0D0; /* Cambia el fondo al color del texto original */
+    color: black; /* Cambia el texto a blanco */
+}
+.button-secondary-ard:hover {
+            background-color: #B00000; /* Cambia el fondo a blanco */
+            color: white; /* Cambia el texto al color de fondo original */
+        }
+
+            /* aqui terminara el fin del  hover  */
 
             footer {
                 position: fixed;
@@ -99,7 +111,11 @@
             }
 
             .welcome {
-                font-size: 60px;
+                font-size: 40px;
+            }
+
+            .h1 {
+                font-size: 30px;
             }
 
             @media only screen and (max-width: 600px) {
@@ -129,16 +145,16 @@
                 }
             }
 
-            @media only screen and (max-height: 1100px) {
+            /* @media only screen and (max-height: 1100px) {
                 h1 {
                     font-size: 20px !important;
                     margin-top: 100px !important;
-                }
+                } */
 
                 /* en caso recordar que puedo borrar por aqui */
 
-
-                .buttons {
+/* este codigo comentado hara que los botones se alineen verticalmente por eso esta comentado */
+                /* .buttons {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -149,12 +165,13 @@
                 .buttons button,
                 .buttons a {
                     width: 244px !important;
-                }
+                } */
             }
+            /* este codigo comentado hara que los botones se alineen verticalmente por eso esta comentado */
 
             @media screen and (min-width: 629px) {
                 .welcome {
-                    font-size: 55px;
+                    font-size: 45px;
                 }
 
                 .sub-title {

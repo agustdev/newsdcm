@@ -5,7 +5,7 @@
     @endpush
 
     <x-slot name="header">
-        <h2 class="h2 mb-3 mt-4 text-black capitalize">
+        <h2 class="h2 mb-3 mt-4 text-black uppercase">
             {{ __('Solicitud de Conduce') }}
         </h2>
     </x-slot>
