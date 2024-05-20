@@ -111,7 +111,7 @@
             }
 
             .welcome {
-                font-size: 60px;
+                font-size: 40px;
             }
 
             @media only screen and (max-width: 600px) {
@@ -141,11 +141,11 @@
                 }
             }
 
-            @media only screen and (max-height: 1100px) {
+            /* @media only screen and (max-height: 1100px) {
                 h1 {
                     font-size: 20px !important;
                     margin-top: 100px !important;
-                }
+                } */
 
                 /* en caso recordar que puedo borrar por aqui */
 
@@ -167,7 +167,7 @@
 
             @media screen and (min-width: 629px) {
                 .welcome {
-                    font-size: 55px;
+                    font-size: 45px;
                 }
 
                 .sub-title {
