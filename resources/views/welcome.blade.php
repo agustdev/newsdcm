@@ -114,6 +114,10 @@
                 font-size: 40px;
             }
 
+            .h1 {
+                font-size: 30px;
+            }
+
             @media only screen and (max-width: 600px) {
                 h1 {
                     font-size: 25px !important;
