@@ -11,7 +11,7 @@
     <div class="row mb-2">
         <div class="relative flex py-1 items-center">
             <div class="flex-grow border-t border-1 border-yellow-600"></div>
-            <span class="flex-shrink mx-2 text-black font-medium">{{ __('NACIONAL') }}</span>
+            <span class="flex-shrink mx-2 text-xl text-black font-bold">{{ __('NACIONAL') }}</span>
             <div class="flex-grow border-t border-1 border-yellow-600"></div>
         </div>
     </div>
@@ -58,7 +58,7 @@
     <div class="row mb-2">
         <div class="relative flex py-2 items-center">
             <div class="flex-grow border-t border-1 border-yellow-600"></div>
-            <span class="flex-shrink mx-2 text-black font-medium">{{ __('INTERNACIONAL') }}</span>
+            <span class="flex-shrink mx-2 text-xl text-black font-bold">{{ __('INTERNACIONAL') }}</span>
             <div class="flex-grow border-t border-1 border-yellow-600"></div>
         </div>
     </div>
