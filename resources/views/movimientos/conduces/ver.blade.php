@@ -105,7 +105,7 @@
     {{-- aqui termina este card que es para la informacion de la embarcacion --}}
 
     {{-- nuevo card para la siguiente informacion --}}
-<div class="card">
+<div class="card shadow-xl">
     <div class="card-header bg-blue-900">
         <div class="text-white" role="alert">
             <strong>{{ __('INFORMACIÓN DEL CONDUCTOR') }}</strong>
@@ -113,35 +113,36 @@
     </div>
     <div class="card-body">
         @if (!empty($conduce->conductor))
-        <h4 class="header-title mt-3">
-            
-            <div class="row mb-2 nt-2">
-                <p class="col-md-2">
+        <h4 class="header-title">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+            <div class="">
+                <p class="header-title col-md-2 d-inline">
                     <strong>{{ __('Nombre') }}:</strong>
                 </p>
                 <span
                     class="col-md-2">{{ !empty($conduce->conductor) ? $conduce->conductor->nombre : '' }}</span>
             </div>
-            <div class="row mb-2 mt-2">
-                <p class="col-md-2">
+            <div class="">
+                <p class="header-title col-md-2 d-inline">
                     <strong>{{ __('Documento de identidad') }}:</strong>
                 </p>
                 <span
                     class="col-md-2">{{ !empty($conduce->conductor) ? $conduce->conductor->documento : '' }}</span>
             </div>
-            <div class="row mb-2 mt-2">
-                <p class="col-md-2">
+            <div class="">
+                <p class="header-title col-md-2 d-inline">
                     <strong>{{ __('Teléfonos') }}:</strong>
                 </p>
                 <span
                     class="col-md-2">{{ str_replace('|', ', ', $conduce->conductor->telefono) }}</span>
             </div>
-            <div class="row mb-2 mt-2">
-                <p class="col-md-2">
+            <div class="">
+                <p class="header-title col-md-2 d-inline">
                     <strong>{{ __('Fecha Salida') }}:</strong>
                 </p>
                 <span class="col-md-2">{{ $conduce->fecha->format('d-m-Y') }}</span>
             </div>
+        </div>
         </h4>
     @else
         <div class="alert alert-danger">
