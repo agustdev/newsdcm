@@ -2,7 +2,7 @@
     @section('titulo', __('Detalle del conduce'))
     <div class="">
         <div class="col-xl-12">
-            <div class="card shadow-xl">
+            <div class="card mt-3 shadow-xl">
                 <div class="card-header bg-blue-900">
                     <div class="font-bold text-white uppercase">
                         {{ __('Tipo movimiento') }}:
