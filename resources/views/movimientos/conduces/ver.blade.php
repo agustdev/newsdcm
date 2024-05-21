@@ -64,19 +64,19 @@
         <p class="header-title col-md-2 d-inline text-black">
             <strong>{{ __('Matrícula') }}:</strong>
         </p>
-        <span class="col-md-2">{{ $conduce->matricula }}</span>
+        <span class="">{{ $conduce->matricula }}</span>
     </div>
     <div class="">
         <p class="header-title col-md-2 d-inline text-black">
             <strong>{{ __('Nombre de la Embarcación') }}:</strong>
         </p>
-        <span class="col-md-2">{{ $conduce->nombre }}</span>
+        <span class="">{{ $conduce->nombre }}</span>
     </div>
     <div class="">
         <p class="header-title col-md-2 d-inline text-black">
             <strong>{{ __('No Chasis') }}:</strong>
         </p>
-        <span class="col-md-2">{{ $conduce->numero_casco }}</span>
+        <span class="">{{ $conduce->numero_casco }}</span>
     </div>
     <div class="">
         <p class="header-title col-md-2 d-inline text-black">
@@ -88,13 +88,13 @@
         <p class="header-title col-md-2 d-inline text-black">
             <strong>{{ __('Cantidad de Pasajeros') }}:</strong>
         </p>
-        <span class="col-md-2">{{ $conduce->embarcacion->capacidad_tripulantes }}</span>
+        <span class="">{{ $conduce->embarcacion->capacidad_tripulantes }}</span>
     </div>
     <div class="">
         <p class="header-title col-md-2 d-inline text-black">
             <strong>{{ __('Tipo embarcación') }}:</strong>
         </p>
-        <span class="col-md-2">{{ $conduce->embarcacion->tipo_embarcacion }}</span>
+        <span class="">{{ $conduce->embarcacion->tipo_embarcacion }}</span>
     </div>
 </h4>
 </div>
@@ -120,27 +120,27 @@
                     <strong>{{ __('Nombre') }}:</strong>
                 </p>
                 <span
-                    class="col-md-2">{{ !empty($conduce->conductor) ? $conduce->conductor->nombre : '' }}</span>
+                    class="">{{ !empty($conduce->conductor) ? $conduce->conductor->nombre : '' }}</span>
             </div>
             <div class="">
-                <p class="header-title col-md-2 d-inline text-black">
+                <p class="header-title d-inline text-black">
                     <strong>{{ __('Documento de identidad') }}:</strong>
                 </p>
                 <span
-                    class="col-md-2">{{ !empty($conduce->conductor) ? $conduce->conductor->documento : '' }}</span>
+                    class="">{{ !empty($conduce->conductor) ? $conduce->conductor->documento : '' }}</span>
             </div>
             <div class="">
-                <p class="header-title col-md-2 d-inline text-black">
+                <p class="header-title d-inline text-black">
                     <strong>{{ __('Teléfonos') }}:</strong>
                 </p>
                 <span
-                    class="col-md-2">{{ str_replace('|', ', ', $conduce->conductor->telefono) }}</span>
+                    class="">{{ str_replace('|', ', ', $conduce->conductor->telefono) }}</span>
             </div>
             <div class="">
-                <p class="header-title col-md-2 d-inline text-black">
+                <p class="header-title d-inline text-black">
                     <strong>{{ __('Fecha Salida') }}:</strong>
                 </p>
-                <span class="col-md-2">{{ $conduce->fecha->format('d-m-Y') }}</span>
+                <span class="">{{ $conduce->fecha->format('d-m-Y') }}</span>
             </div>
         </div>
         </h4>
@@ -157,55 +157,55 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
             <div class="">
-                <p class="header-title col-md-2 d-inline text-black">
+                <p class="header-title d-inline text-black">
                     <strong>{{ __('Marca') }}:</strong>
                 </p>
-                <span class="col-md-2">{{ $conduce->vehiculo->marca }}</span>
+                <span class="">{{ $conduce->vehiculo->marca }}</span>
             </div>
             <div class="">
-                <p class="header-title col-md-2 d-inline text-black">
+                <p class="header-title d-inline text-black">
                     <strong>{{ __('Color') }}:</strong>
                 </p>
-                <span class="col-md-2">{{ $conduce->vehiculo->color }}</span>
+                <span class="">{{ $conduce->vehiculo->color }}</span>
             </div>
             <div class="">
-                <p class="header-title col-md-2 d-inline text-black">
+                <p class="header-title d-inline text-black">
                     <strong>{{ __('Año') }}:</strong>
                 </p>
-                <span class="col-md-2">{{ $conduce->vehiculo->year }}</span>
+                <span class="">{{ $conduce->vehiculo->year }}</span>
             </div>
             <div class="">
-                <p class="header-title col-md-2 d-inline text-black">
+                <p class="header-title d-inline text-black">
                     <strong>{{ __('Placa') }}:</strong>
                 </p>
-                <span class="col-md-2">{{ $conduce->vehiculo->placa }}</span>
+                <span class="">{{ $conduce->vehiculo->placa }}</span>
             </div>
             <div class="">
-                <p class="header-title col-md-2 d-inline text-black">
+                <p class="header-title d-inline text-black">
                     <strong>{{ __('Provincia') }}:</strong>
                 </p>
-                <span class="col-md-2">{{ $conduce->vehiculo->provincia }}</span>
+                <span class="">{{ $conduce->vehiculo->provincia }}</span>
             </div>
             <div class="">
-                <p class="header-title col-md-2 d-inline text-black">
+                <p class="header-title d-inline text-black">
                     <strong>{{ __('Municipio') }}:</strong>
                 </p>
                 <span class="">{{ $conduce->vehiculo->municipio }}</span>
             </div>
             <div class="">
-                <p class="header-title col-md-2 d-inline text-black">
+                <p class="header-title d-inline text-black">
                     <strong>{{ __('sector') }}:</strong>
                 </p>
-                <span class="col-md-2">{{ $conduce->vehiculo->sector }}</span>
+                <span class="">{{ $conduce->vehiculo->sector }}</span>
             </div>
             <div class="">
-                <p class="header-title col-md-2 d-inline text-black">
+                <p class="header-title d-inline text-black">
                     <strong>{{ __('calle') }}:</strong>
                 </p>
-                <span class="col-md-2">{{ $conduce->vehiculo->calle }}</span>
+                <span class="">{{ $conduce->vehiculo->calle }}</span>
             </div>
-            <div class="col-span-3">
-                <p class="header-title col-md-2 d-inline text-black">
+            <div class="md:col-span-3">
+                <p class="header-title d-inline text-black">
                     <strong>{{ __('Observación') }}:</strong>
                 </p>
                 <span class="">{{ $conduce->vehiculo->observacion }}</span>
