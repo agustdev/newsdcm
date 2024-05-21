@@ -57,7 +57,7 @@
         </div>
 <div class="card-body">
 {{-- datos de la embarcacion --}}
-<h4 class="header-title mt-3">
+<h4 class="header-title">
     
     <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
     <div class="">
