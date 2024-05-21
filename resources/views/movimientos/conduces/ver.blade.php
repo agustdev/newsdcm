@@ -145,14 +145,14 @@
         </div>
         </h4>
     @else
-        <div class="alert alert-danger">
+        <div class="text-red-500"><i class="mdi mdi-alert-circle"></i>
             <strong>{{ __('SOLICITUD INCOMPLETA FALTA INFORMACIÓN DEL CONDUCTOR') }}</strong>
         </div>
     @endif
     @if (!empty($conduce->vehiculo))
         <h4 class="header-title mt-3">
             <div
-                class="bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
+                class=" text-black text-sm font-bold mb-2"><i class="mdi mdi-car-back"></i>
                 {{ __('DATOS DEL VEHÍCULO') }}
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
@@ -204,11 +204,11 @@
                 </p>
                 <span class="col-md-2">{{ $conduce->vehiculo->calle }}</span>
             </div>
-            <div class="">
+            <div class="col-span-3">
                 <p class="header-title col-md-2 d-inline text-black">
                     <strong>{{ __('Observación') }}:</strong>
                 </p>
-                <span class="col-md-2">{{ $conduce->vehiculo->observacion }}</span>
+                <span class="">{{ $conduce->vehiculo->observacion }}</span>
             </div>
         </div>
         </h4>
