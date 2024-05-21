@@ -155,60 +155,62 @@
                 class="bg-gray-100 text-gray-600 text-sm font-medium mr-2 px-2.5 py-1.5 mb-1 rounded dark:bg-gray-700 dark:text-gray-300">
                 {{ __('DATOS DEL VEHÍCULO') }}
             </div>
-            <div class="row mb-2 mt-2">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+            <div class="">
                 <p class="col-md-2">
                     <strong>{{ __('Marca') }}:</strong>
                 </p>
                 <span class="col-md-2">{{ $conduce->vehiculo->marca }}</span>
             </div>
-            <div class="row mb-2 mt-2">
+            <div class="">
                 <p class="col-md-2">
                     <strong>{{ __('Color') }}:</strong>
                 </p>
                 <span class="col-md-2">{{ $conduce->vehiculo->color }}</span>
             </div>
-            <div class="row mb-2 mt-2">
-                <p class="col-md-2">
+            <div class="">
+                <p class="">
                     <strong>{{ __('Año') }}:</strong>
                 </p>
                 <span class="col-md-2">{{ $conduce->vehiculo->year }}</span>
             </div>
-            <div class="row mb-2 mt-2">
-                <p class="col-md-2">
+            <div class="">
+                <p class="">
                     <strong>{{ __('Placa') }}:</strong>
                 </p>
                 <span class="col-md-2">{{ $conduce->vehiculo->placa }}</span>
             </div>
-            <div class="row mb-2 mt-2">
-                <p class="col-md-2">
+            <div class="">
+                <p class="">
                     <strong>{{ __('Provincia') }}:</strong>
                 </p>
                 <span class="col-md-2">{{ $conduce->vehiculo->provincia }}</span>
             </div>
-            <div class="row mb-2 mt-2">
-                <p class="col-md-2">
+            <div class="">
+                <p class="">
                     <strong>{{ __('Municipio') }}:</strong>
                 </p>
-                <span class="col-md-2">{{ $conduce->vehiculo->municipio }}</span>
+                <span class="">{{ $conduce->vehiculo->municipio }}</span>
             </div>
-            <div class="row mb-2 mt-2">
-                <p class="col-md-2">
+            <div class="">
+                <p class="">
                     <strong>{{ __('sector') }}:</strong>
                 </p>
                 <span class="col-md-2">{{ $conduce->vehiculo->sector }}</span>
             </div>
-            <div class="row mb-2 mt-2">
-                <p class="col-md-2">
+            <div class="">
+                <p class="">
                     <strong>{{ __('calle') }}:</strong>
                 </p>
                 <span class="col-md-2">{{ $conduce->vehiculo->calle }}</span>
             </div>
-            <div class="row mb-2 mt-2">
-                <p class="col-md-2">
+            <div class="">
+                <p class="">
                     <strong>{{ __('Observación') }}:</strong>
                 </p>
                 <span class="col-md-2">{{ $conduce->vehiculo->observacion }}</span>
             </div>
+        </div>
         </h4>
     @else
         <div class="text-red-500 mt-3"><i class="mdi mdi-alert-circle"></i>
