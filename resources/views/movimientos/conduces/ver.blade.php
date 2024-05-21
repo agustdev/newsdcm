@@ -42,50 +42,7 @@
                 </div>
 {{-- aqui termina la primera columna de tipo de movimiento  --}}
 
-                    {{-- datos de la embarcacion --}}
-                    <h4 class="header-title mt-3">
-                        <div class="alert alert-warning" role="alert">
-                            <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
-                        <div class="">
-                            <p class="header-title col-md-2 d-inline">
-                                <strong>{{ __('Matrícula') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $conduce->matricula }}</span>
-                        </div>
-                        <div class="">
-                            <p class="header-title col-md-2 d-inline">
-                                <strong>{{ __('Nombre de la Embarcación') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $conduce->nombre }}</span>
-                        </div>
-                        <div class="">
-                            <p class="header-title col-md-2 d-inline">
-                                <strong>{{ __('No Chasis') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $conduce->numero_casco }}</span>
-                        </div>
-                        <div class="">
-                            <p class="header-title col-md-2 d-inline">
-                                <strong>{{ __('Cantidad de Tripulantes') }}:</strong>
-                            </p>
-                            <span class="">{{ $conduce->embarcacion->capacidad_personas }}</span>
-                        </div>
-                        <div class="">
-                            <p class="header-title col-md-2 d-inline">
-                                <strong>{{ __('Cantidad de Pasajeros') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $conduce->embarcacion->capacidad_tripulantes }}</span>
-                        </div>
-                        <div class="">
-                            <p class="header-title col-md-2 d-inline">
-                                <strong>{{ __('Tipo embarcación') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $conduce->embarcacion->tipo_embarcacion }}</span>
-                        </div>
-                    </h4>
-                </div>
+                    
                     @if (!empty($conduce->conductor))
                         <h4 class="header-title mt-3">
                             <div class="alert alert-info mt-2" role="alert">
@@ -208,5 +165,59 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="card shadow-xl">
+        <div class="card-header bg-blue-900">
+            <div class="text-white" role="alert">
+                <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
+            </div>
+        </div>
+<div class="card-body">
+{{-- datos de la embarcacion --}}
+<h4 class="header-title mt-3">
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+    <div class="">
+        <p class="header-title col-md-2 d-inline">
+            <strong>{{ __('Matrícula') }}:</strong>
+        </p>
+        <span class="col-md-2">{{ $conduce->matricula }}</span>
+    </div>
+    <div class="">
+        <p class="header-title col-md-2 d-inline">
+            <strong>{{ __('Nombre de la Embarcación') }}:</strong>
+        </p>
+        <span class="col-md-2">{{ $conduce->nombre }}</span>
+    </div>
+    <div class="">
+        <p class="header-title col-md-2 d-inline">
+            <strong>{{ __('No Chasis') }}:</strong>
+        </p>
+        <span class="col-md-2">{{ $conduce->numero_casco }}</span>
+    </div>
+    <div class="">
+        <p class="header-title col-md-2 d-inline">
+            <strong>{{ __('Cantidad de Tripulantes') }}:</strong>
+        </p>
+        <span class="">{{ $conduce->embarcacion->capacidad_personas }}</span>
+    </div>
+    <div class="">
+        <p class="header-title col-md-2 d-inline">
+            <strong>{{ __('Cantidad de Pasajeros') }}:</strong>
+        </p>
+        <span class="col-md-2">{{ $conduce->embarcacion->capacidad_tripulantes }}</span>
+    </div>
+    <div class="">
+        <p class="header-title col-md-2 d-inline">
+            <strong>{{ __('Tipo embarcación') }}:</strong>
+        </p>
+        <span class="col-md-2">{{ $conduce->embarcacion->tipo_embarcacion }}</span>
+    </div>
+</h4>
+</div>
+{{-- fin de datos de la embarcacion --}}
+</div>
+
     </div>
 </x-app-layout>
