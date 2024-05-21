@@ -2,9 +2,9 @@
     @section('titulo', __('Detalle del conduce'))
     <div class="row">
         <div class="col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="h3 mb-3">
+            <div class="card shadow-xl">
+                <div class="card-header bg-blue-900">
+                    <h3 class="h3 text-white">
                         {{ __('Tipo movimiento') }}:
                         @if ($conduce->tipo_movimiento == 'C')
                             {{ __('Conduce') }}
@@ -12,17 +12,18 @@
                     </h3>
                 </div>
                 <div class="card-body">
-                    <div class="row">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                    <div class="">
                         <span
                             class="header-title col-md-2 d-inline"><strong>{{ __('Número solicitud') }}:</strong></span>
                         <span class="header-title col-md-2 d-inline">{{ $conduce->id }}</span>
                     </div>
-                    <div class="row">
+                    <div class="">
                         <span
                             class="header-title col-md-2 d-inline"><strong>{{ __('Fecha Solicitud') }}:</strong></span>
                         <span class="header-title col-md-2 d-inline">{{ $conduce->created_at->format('d-m-Y') }}</span>
                     </div>
-                    <div class="row">
+                    <div class="">
                         <span class="header-title  col-md-2 d-inline"><strong>{{ __('Estatus') }}:</strong></span>
                         @if ($conduce->estado == 'Aprobado')
                             <span
@@ -38,48 +39,53 @@
                                 class="header-title col-md-1 d-inline bg-blue-100 text-blue-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-700 dark:text-blue-300">{{ __($conduce->estado) }}</span>
                         @endif
                     </div>
+                </div>
+{{-- aqui termina la primera columna de tipo de movimiento  --}}
+
                     {{-- datos de la embarcacion --}}
                     <h4 class="header-title mt-3">
                         <div class="alert alert-warning" role="alert">
                             <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
                         </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <div class="">
+                            <p class="">
                                 <strong>{{ __('Matrícula') }}:</strong>
                             </p>
                             <span class="col-md-2">{{ $conduce->matricula }}</span>
                         </div>
-                        <div class="row mt-2">
-                            <p class="col-md-2">
+                        <div class="">
+                            <p class="">
                                 <strong>{{ __('Nombre de la Embarcación') }}:</strong>
                             </p>
                             <span class="col-md-2">{{ $conduce->nombre }}</span>
                         </div>
-                        <div class="row mt-2">
-                            <p class="col-md-2">
+                        <div class="">
+                            <p class="">
                                 <strong>{{ __('No Chasis') }}:</strong>
                             </p>
                             <span class="col-md-2">{{ $conduce->numero_casco }}</span>
                         </div>
-                        <div class="row mt-2">
-                            <p class="col-md-2">
+                        <div class="">
+                            <p class="">
                                 <strong>{{ __('Cantidad de Tripulantes') }}:</strong>
                             </p>
-                            <span class="col-md-2">{{ $conduce->embarcacion->capacidad_personas }}</span>
+                            <span class="">{{ $conduce->embarcacion->capacidad_personas }}</span>
                         </div>
-                        <div class="row mt-2">
-                            <p class="col-md-2">
+                        <div class="">
+                            <p class="">
                                 <strong>{{ __('Cantidad de Pasajeros') }}:</strong>
                             </p>
                             <span class="col-md-2">{{ $conduce->embarcacion->capacidad_tripulantes }}</span>
                         </div>
-                        <div class="row mt-2">
-                            <p class="col-md-2">
+                        <div class="">
+                            <p class="">
                                 <strong>{{ __('Tipo embarcación') }}:</strong>
                             </p>
                             <span class="col-md-2">{{ $conduce->embarcacion->tipo_embarcacion }}</span>
                         </div>
                     </h4>
+                </div>
                     @if (!empty($conduce->conductor))
                         <h4 class="header-title mt-3">
                             <div class="alert alert-info mt-2" role="alert">
