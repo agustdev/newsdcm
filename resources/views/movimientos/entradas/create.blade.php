@@ -177,15 +177,7 @@
                     </div>
 
 
-
-
-
-
                 </div>
-
-
-
-
 
 
                 <input type="hidden" name="mov" value="{{ empty($ultimo_mov) ? 1 : $ultimo_mov->id + 1 }}">
