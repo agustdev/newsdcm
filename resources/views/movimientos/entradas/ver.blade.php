@@ -42,102 +42,8 @@
                 </div>
                     {{-- datos de la embarcacion --}}
                     
-                    {{-- datos del capitan --}}
-                    @if (!empty($entrada->capitan_internacional))
-                        <h4 class="header-title mt-3">
-                            <div class="alert alert-info mt-2" role="alert">
-                                <strong>{{ __('INFORMACIÓN DEL CAPITÁN') }}</strong>
-                            </div>
-                            <div class="row mb-2 mt-2">
-                                <p class="col-md-2">
-                                    <strong>{{ __('Nombre') }}:</strong>
-                                </p>
-                                <span
-                                    class="col-md-2">{{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->nombre : '' }}</span>
-                            </div>
-                            <div class="row mb-2 mt-2">
-                                <p class="col-md-2">
-                                    <strong>{{ __('Tipo Documento') }}:</strong>
-                                </p>
-                                <span
-                                    class="col-md-2">{{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->tipo_documento : '' }}</span>
-                            </div>
-                            <div class="row mb-2 mt-2">
-                                <p class="col-md-2">
-                                    <strong>{{ __('Documento') }}:</strong>
-                                </p>
-                                <span
-                                    class="col-md-2">{{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->documento : '' }}</span>
-                            </div>
-                            <div class="row mb-2 mt-2">
-                                <p class="col-md-2">
-                                    <strong>{{ __('Teléfono') }}:</strong>
-                                </p>
-                                <span
-                                    class="col-md-2">{{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->telefono : '' }}</span>
-                            </div>
-                            <div class="row mb-2 mt-2">
-                                <p class="col-md-2">
-                                    <strong>{{ __('Motivo del viaje') }}:</strong>
-                                </p>
-                                <span
-                                    class="col-md-2">{{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->motivo_viaje : '' }}</span>
-                            </div>
-                            <div class="row mb-2 mt-2">
-                                <p class="col-md-2">
-                                    <strong>{{ __('Fecha Salida') }}:</strong>
-                                </p>
-                                <span class="col-md-2">{{ $entrada->fecha->format('d-m-Y') }}</span>
-                            </div>
-                            <div class="row mb-2 mt-2">
-                                <p class="col-md-2">
-                                    <strong>{{ __('Lugar salida') }}:</strong>
-                                </p>
-                                <span
-                                    class="col-md-2">{{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->lugar_salida : '' }}</span>
-                            </div>
-                            <div class="row mb-2 mt-2">
-                                <p class="col-md-2">
-                                    <strong>{{ __('Lugar destino') }}:</strong>
-                                </p>
-                                <span
-                                    class="col-md-2">{{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->lugar_destino : '' }}</span>
-                            </div>
-                        </h4>
-                    @else
-                        <div class="alert alert-danger">
-                            <strong>{{ __('SOLICITUD INCOMPLETA') }}</strong>
-                        </div>
-                    @endif
-                    @if ($entrada->tripulantes->count() > 0)
-                        <h4 class="header-title mt-3">
-                            <div class="alert alert-dark mt-2" role="alert">
-                                <strong>{{ __('INFORMACIÓN DE LOS TRIPULANTES') }}</strong>
-                            </div>
-                            <table class="table table-responsive" style="width: 60%">
-                                <thead>
-                                    <tr>
-                                        <th>NOMBRE</th>
-                                        <th>DOCUMENTO DE IDENTIDAD</th>
-                                        <th>NACIONALIDAD</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($entrada->tripulantes as $tripulante)
-                                        <tr>
-                                            <td>{{ $tripulante->nombre }}</td>
-                                            <td>{{ $tripulante->documento }}</td>
-                                            <td>{{ $tripulante->nacionalidad }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </h4>
-                    @else
-                        <div class="alert alert-warning">
-                            <strong>{{ __('NO TIENE TRIPULANTES REGISTRADOS') }}</strong>
-                        </div>
-                    @endif
+                    
+                    
                     @if ($entrada->pasajeros->count() > 0)
                         <h4 class="header-title mt-3">
                             <div class="alert alert-dark mt-2" role="alert">
@@ -197,7 +103,7 @@
             </div>
         </div>
         <div class="card-body">
-            <h4 class="header-title mt-3">
+            <h4 class="header-title">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
                 <div class="">
                     <p class="header-title d-inline text-black">
@@ -296,4 +202,123 @@
         </div>
     </div>
     {{-- find de datos del card de la embarcacion --}}
+
+
+    <div class="card shadow-xl">
+        <div class="card-header bg-blue-900">
+            <div class="text-white" role="alert">
+                <strong>{{ __('INFORMACIÓN DEL CAPITÁN') }}</strong>
+            </div>
+        </div>
+        <div class="card-body">
+{{-- datos del capitan --}}
+                    @if (!empty($entrada->capitan_internacional))
+                        <h4 class="header-title mt-3">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                            <div class="">
+                                <p class="header-title d-inline text-black">
+                                    <strong>{{ __('Nombre') }}:</strong>
+                                </p>
+                                <span
+                                    class="">{{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->nombre : '' }}</span>
+                            </div>
+                            <div class="">
+                                <p class="header-title d-inline text-black">
+                                    <strong>{{ __('Tipo Documento') }}:</strong>
+                                </p>
+                                <span
+                                    class="">{{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->tipo_documento : '' }}</span>
+                            </div>
+                            <div class="">
+                                <p class="header-title d-inline text-black">
+                                    <strong>{{ __('Documento') }}:</strong>
+                                </p>
+                                <span
+                                    class="">{{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->documento : '' }}</span>
+                            </div>
+                            <div class="">
+                                <p class="header-title d-inline text-black">
+                                    <strong>{{ __('Teléfono') }}:</strong>
+                                </p>
+                                <span
+                                    class="">{{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->telefono : '' }}</span>
+                            </div>
+                            <div class="">
+                                <p class="header-title d-inline text-black">
+                                    <strong>{{ __('Motivo del viaje') }}:</strong>
+                                </p>
+                                <span
+                                    class="">{{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->motivo_viaje : '' }}</span>
+                            </div>
+                            <div class="">
+                                <p class="header-title d-inline text-black">
+                                    <strong>{{ __('Fecha Salida') }}:</strong>
+                                </p>
+                                <span class="">{{ $entrada->fecha->format('d-m-Y') }}</span>
+                            </div>
+                            <div class="">
+                                <p class="header-title d-inline text-black">
+                                    <strong>{{ __('Lugar salida') }}:</strong>
+                                </p>
+                                <span
+                                    class="">{{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->lugar_salida : '' }}</span>
+                            </div>
+                            <div class="">
+                                <p class="header-title d-inline text-black">
+                                    <strong>{{ __('Lugar destino') }}:</strong>
+                                </p>
+                                <span
+                                    class="">{{ !empty($entrada->capitan_internacional) ? $entrada->capitan_internacional->lugar_destino : '' }}</span>
+                            </div>
+                        </div>
+                        </h4>
+                    @else
+                        <div class="text-red-500"><i class="mdi mdi-alert-circle"></i>
+                            <strong>{{ __('SOLICITUD INCOMPLETA') }}</strong>
+                        </div>
+                    @endif
+        </div>
+    </div>
+
+
+    {{-- tercer card de los tripulantes --}}
+
+<div class="card">
+    <div class="card-header bg-blue-900">
+        <div class="text-white" role="alert">
+            <strong>{{ __('INFORMACIÓN DE LOS TRIPULANTES') }}</strong>
+        </div>
+    </div>
+    <div class="card-body">
+        @if ($entrada->tripulantes->count() > 0)
+        <h4 class="header-title mt-3">
+            
+            <table class="table table-responsive" style="width: 60%">
+                <thead>
+                    <tr class="bg-blue-900 text-white">
+                        <th>NOMBRE</th>
+                        <th>DOCUMENTO DE IDENTIDAD</th>
+                        <th>NACIONALIDAD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($entrada->tripulantes as $tripulante)
+                        <tr>
+                            <td>{{ $tripulante->nombre }}</td>
+                            <td>{{ $tripulante->documento }}</td>
+                            <td>{{ $tripulante->nacionalidad }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </h4>
+    @else
+        <div class="text-red-500"><i class="mdi mdi-alert-circle"></i>
+            <strong>{{ __('NO TIENE TRIPULANTES REGISTRADOS') }}</strong>
+        </div>
+    @endif
+    </div>
+</div>
+
+    {{-- fin del tercer card --}}
 </x-app-layout>
