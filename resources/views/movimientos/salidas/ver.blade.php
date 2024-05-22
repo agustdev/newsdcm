@@ -1,10 +1,10 @@
 <x-app-layout>
     @section('titulo', 'Detalle de la entrada')
-    <div class="row">
+    <div class="">
         <div class="col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="h3 mb-3">
+            <div class="card shadow-xl">
+                <div class="card-header bg-blue-900">
+                    <h3 class="font-bold uppercase text-white">
                         Tipo movimiento:
                         @if ($salida->tipo_movimiento == 'S')
                             Salida internacional
@@ -12,10 +12,17 @@
                     </h3>
                 </div>
                 <div class="card-body">
-                    <h5 class="header-title"><strong>Número solicitud:</strong> {{ $salida->id }}</h5>
-                    <h5 class="header-title"><strong>Fecha Solicitud:</strong> {{ $salida->created_at->format('d-m-Y') }}
-                    </h5>
-                    <h5 class="header-title border-bottom py-2"><strong>Estatus:</strong>
+                    <div class="grid grid-cols-1 md:grid-cols-3">
+                    <div>
+                    <span class="header-title d-inline text-black"><strong>Número solicitud:</strong> </span>
+                    <span>{{ $salida->id }}</span>
+                </div>
+                <div>
+                    <span class="header-title d-inline text-black"><strong>Fecha Solicitud:</strong> </span>
+                    <span>{{ $salida->created_at->format('d-m-Y') }}</span>
+                </div>
+                <div>
+                    <span class="header-title d-inline text-black"><strong>Estatus:</strong></span>
                         @if ($salida->estado == 'Aprobado')
                             <span
                                 class="bg-green-100 text-green-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-700 dark:text-green-300">{{ $salida->estado }}</span>
@@ -28,8 +35,9 @@
                         @elseif ($salida->estado == 'En proceso')
                             <span
                                 class="bg-blue-100 text-blue-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-700 dark:text-blue-300">{{ $salida->estado }}</span>
-                        @endif
-                    </h5>
+                        @endif 
+                </div>
+            </div>
                     {{-- datos de la embarcacion --}}
                     <h4 class="header-title mt-3">
                         <div class="alert alert-warning" role="alert">
