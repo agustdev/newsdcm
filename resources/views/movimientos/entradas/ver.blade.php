@@ -44,35 +44,7 @@
                     
                     
                     
-                    @if ($entrada->pasajeros->count() > 0)
-                        <h4 class="header-title mt-3">
-                            <div class="alert alert-dark mt-2" role="alert">
-                                <strong>{{ __('INFORMACIÓN DE LOS PASAJEROS') }}</strong>
-                            </div>
-                            <table class="table table-responsive" style="width: 60%">
-                                <thead>
-                                    <tr>
-                                        <th>NOMBRE</th>
-                                        <th>DOCUMENTO DE IDENTIDAD</th>
-                                        <th>NACIONALIDAD</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($entrada->pasajeros as $pasajero)
-                                        <tr>
-                                            <td>{{ $pasajero->nombre }}</td>
-                                            <td>{{ $pasajero->documento }}</td>
-                                            <td>{{ $pasajero->nacionalidad }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </h4>
-                    @else
-                        <div class="alert alert-warning">
-                            <strong>{{ __('NO TIENE PASAJEROS REGISTRADOS') }}</strong>
-                        </div>
-                    @endif
+                    
                 </div>
                 <div class="card-footer">
                     <div class="float-end">
@@ -321,4 +293,45 @@
 </div>
 
     {{-- fin del tercer card --}}
+
+
+
+{{-- card para datos de los pasajeros --}}
+    <div class="card shadow-xl">
+        <div class="card-header bg-blue-900">
+            <div class="text-white" role="alert">
+                <strong>{{ __('INFORMACIÓN DE LOS PASAJEROS') }}</strong>
+            </div>
+        </div>
+        <div class="card-body">
+            @if ($entrada->pasajeros->count() > 0)
+            <h4 class="header-title">
+                
+                <table class="table table-responsive" style="width: 60%">
+                    <thead>
+                        <tr class="bg-blue-900 text-white">
+                            <th>NOMBRE</th>
+                            <th>DOCUMENTO DE IDENTIDAD</th>
+                            <th>NACIONALIDAD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($entrada->pasajeros as $pasajero)
+                            <tr>
+                                <td>{{ $pasajero->nombre }}</td>
+                                <td>{{ $pasajero->documento }}</td>
+                                <td>{{ $pasajero->nacionalidad }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </h4>
+        @else
+            <div class="text-red-500"><i class="mdi mdi-alert-circle"></i>
+                <strong>{{ __('NO TIENE PASAJEROS REGISTRADOS') }}</strong>
+            </div>
+        @endif
+        </div>
+    </div>
+    {{-- aqui termina el card para los datos del pasajero --}}
 </x-app-layout>
