@@ -5,7 +5,7 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Actualice la información del perfil y la dirección de correo electrónico de su cuenta.') }}
+        {{ __('Actualice la información del perfil y la dirección de correo electrónico de su cuenta') }}.
     </x-slot>
 
     <x-slot name="form">
@@ -97,7 +97,7 @@
 
     <x-slot name="actions">
         <x-action-message class="mr-3" on="saved">
-            {{ __('Guardar.') }}
+            {{ __('Guardar') }}.
         </x-action-message>
 
         <x-button wire:loading.attr="disabled" wire:target="photo">

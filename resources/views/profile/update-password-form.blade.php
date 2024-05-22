@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Asegúrese de que su cuenta utilice una contraseña larga y aleatoria para mantenerse segura.') }}
+        {{ __('Asegúrese de que su cuenta utilice una contraseña larga y aleatoria para mantenerse segura') }}.
     </x-slot>
 
     <x-slot name="form">
@@ -32,11 +32,11 @@
 
     <x-slot name="actions">
         <x-action-message class="mr-3" on="saved">
-            {{ __('Guadar.') }}
+            {{ __('Guardar') }}.
         </x-action-message>
 
         <x-button>
-            {{ __('Guadar') }}
+            {{ __('Guardar') }}
         </x-button>
     </x-slot>
 </x-form-section>
