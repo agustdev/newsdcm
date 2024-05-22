@@ -4,12 +4,12 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Manage and log out your active sessions on other browsers and devices.') }}
+        {{ __('Manage and log out your active sessions on other browsers and devices') }}.
     </x-slot>
 
     <x-slot name="content">
         <div class="card-body">
-            {{ __('If necessary, you may log out of all of your other browser sessions across all of your devices. Some of your recent sessions are listed below; however, this list may not be exhaustive. If you feel your account has been compromised, you should also update your password.') }}
+            {{ __('If necessary, you may log out of all of your other browser sessions across all of your devices. Some of your recent sessions are listed below; however, this list may not be exhaustive. If you feel your account has been compromised, you should also update your password') }}.
             @if (count($this->sessions) > 0)
                 <div class="mt-3 space-y-6">
                     <!-- Other Browser Sessions -->
@@ -74,7 +74,7 @@
             </x-slot>
 
             <x-slot name="content">
-                {{ __('Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices.') }}
+                {{ __('Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices') }}.
 
                 <div class="mt-4" x-data="{}"
                     x-on:confirming-logout-other-browser-sessions.window="setTimeout(() => $refs.password.focus(), 250)">
