@@ -38,91 +38,141 @@
                         @endif 
                 </div>
             </div>
-                    {{-- datos de la embarcacion --}}
-                    <h4 class="header-title mt-3">
-                        <div class="alert alert-warning" role="alert">
-                            <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
-                        </div>
-                        <p class="mb-2 mt-2">
-                            <strong>{{ __('Matrícula') }}:</strong> {{ $salida->matricula }}
-                        </p>
-                        <p>
-                            <strong>{{ __('Nombre de la Embarcación') }}:</strong> {{ $salida->nombre }}
-                        </p>
-                        <p class="mt-2">
-                            <strong>{{ __('No Chasis') }}:</strong> {{ $salida->numero_casco }}
-                        </p>
-                        <p class="mt-2">
-                            <strong>{{ __('Cantidad de Tripulantes') }}:</strong> {{ $salida->embarcacion->capacidad_personas }}
-                        </p>
-                        <p class="mt-2">
-                            <strong>{{ __('Cantidad de Pasajeros') }}:</strong> {{ $salida->embarcacion->capacidad_tripulantes }}
-                        </p>
-                        <p class="mt-2">
-                            <strong>{{ __('Tipo tripulación') }}:</strong> {{ $salida->embarcacion->tipo_embarcacion }}
-                        </p>
-
-                    </h4>
-                    {{-- datos del capitan --}}
-                    @if (!empty($salida->capitan))
-                        <h4 class="header-title mt-3">
-                            <div class="alert alert-info mt-2" role="alert">
-                                <strong>{{ __('INFORMACIÓN DEL CAPITÁN') }}</strong>
-                            </div>
-                            <p class="mb-2 mt-2">
-                                <strong>{{ __('Nombre') }}:</strong> {{ !empty($salida->capitan) ? $salida->capitan->nombre : '' }}
-                            </p>
-                            <p class="mb-2 mt-2">
-                                <strong>{{ __('Documento') }}:</strong>
-                                {{ !empty($salida->capitan) ? $salida->capitan->documento : '' }}
-                            </p>
-                            <p class="mb-2 mt-2">
-                                <strong>{{ __('Teléfono') }}:</strong>
-                                {{ !empty($salida->capitan) ? $salida->capitan->telefono : '' }}
-                            </p>
-                            <p class="mb-2 mt-2 py-2">
-                                <strong>{{ __('Motivo del viaje') }}:</strong>
-                                {{ !empty($salida->capitan) ? $salida->capitan->motivo_viaje : '' }}
-                            </p>
-                            <p>
-                                <strong>{{ __('Fecha Salida') }}:</strong>
-                                {{ $salida->fecha->format('d-m-Y') }}
-                            </p>
-                            <p class="mb-2 mt-2">
-                                <strong>{{ __('Lugar salida') }}:</strong>
-                                {{ !empty($salida->capitan) ? $salida->capitan->lugar_salida : '' }}
-                            </p>
-                            <p class="mb-2 mt-2">
-                                <strong>{{ __('Lugar destino') }}:</strong>
-                                {{ !empty($salida->capitan) ? $salida->capitan->lugar_destino : '' }}
-                            </p>
-                        </h4>
-                    @else
-                        <div class="alert alert-danger">
-                            <strong>{{ __('SOLICITUD INCOMPLETA') }}</strong>
-                        </div>
-                    @endif
+                    
+                    
                 </div>
-                <div class="card-footer">
-                    <div class="float-end">
-                        <a href="{{ route('movimientos.salidas.index') }}"
-                            class="inline-flex items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">Atras</a>
-                        @if ($salida->estado != 'Cancelado')
-                            <a href="{{ route('pdf.eticket', $salida) }}"
-                                class="inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150">GENERAR
-                                E-TICKET</a>
-                        @endif
-                        @php
-                            $estados = ['Rechazado', 'En proceso', 'Cancelado', 'Enviado'];
-                        @endphp
-                        @if (!in_array($salida->estado, $estados))
-                            <a href="#"
-                                class="inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150">Descargar
-                                PDF</a>
-                        @endif
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
+
+{{-- informacion de la embarcacion --}}
+    <div class="card shadow-xl">
+        <div class="card-header bg-blue-900">
+            <div class="text-white" role="alert">
+                <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
+            </div>
+        </div>
+        <div class="card-body">
+            {{-- datos de la embarcacion --}}
+            <h4 class="header-title">
+                <div class="grid grid-cols-1 md:grid-cols-3">
+                <div>
+                <span class="header-title d-inline text-black">
+                    <strong>{{ __('Matrícula') }}:</strong></span>
+                <span>{{ $salida->matricula }}</span>
+            </div>
+            <div>
+                <span class="header-title d-inline text-black">
+                    <strong>{{ __('Nombre de la Embarcación') }}:</strong> 
+                </span>
+                <span>{{ $salida->nombre }}</span>
+            </div>
+            <div>
+                <span class="header-title d-inline text-black">
+                    <strong>{{ __('No Chasis') }}:</strong></span>
+                <span>{{ $salida->numero_casco }}</span>
+            </div>
+            <div>
+                <span class="header-title d-inline text-black">
+                    <strong>{{ __('Cantidad de Tripulantes') }}:</strong></span>
+                <span>{{ $salida->embarcacion->capacidad_personas }}</span>
+            </div>
+            <div>
+                <span class="header-title d-inline text-black">
+                    <strong>{{ __('Cantidad de Pasajeros') }}:</strong> </span>
+                <span>{{ $salida->embarcacion->capacidad_tripulantes }}</span>
+            </div>
+            <div>
+                <span class="header-title d-inline text-black">
+                    <strong>{{ __('Tipo tripulación') }}:</strong></span>
+                <span>{{ $salida->embarcacion->tipo_embarcacion }}</span>
+            </div>
+        </div>
+            </h4>
+        </div>
+    </div>
+{{-- fin de la informacion de la embarcacion --}}
+
+
+    {{-- nuevo card --}}
+<div class="card shadow-xl">
+    <div class="card-header bg-blue-900">
+        <div class="text-white" role="alert">
+            <strong>{{ __('INFORMACIÓN DEL CAPITÁN') }}</strong>
+        </div>
+    </div>
+    <div class="card-body">
+{{-- datos del capitan --}}
+@if (!empty($salida->capitan))
+<h4 class="header-title">
+<div class="grid grid-cols-1 md:grid-cols-3">
+    <div>
+    <span class="header-title d-inline text-black">
+        <strong>{{ __('Nombre') }}:</strong> 
+    </span>
+    <span>{{ !empty($salida->capitan) ? $salida->capitan->nombre : '' }}</span>
+</div>
+<div>
+    <span class="header-title d-inline text-black">
+        <strong>{{ __('Documento') }}:</strong></span>
+        <span>{{ !empty($salida->capitan) ? $salida->capitan->documento : '' }}</span>
+</div>
+<div>
+    <span class="header-title d-inline text-black">
+        <strong>{{ __('Teléfono') }}:</strong></span>
+    <span>{{ !empty($salida->capitan) ? $salida->capitan->telefono : '' }}</span>
+</div>
+<div>
+    <span class="header-title d-inline text-black">
+        <strong>{{ __('Motivo del viaje') }}:</strong></span>
+    <span>{{ !empty($salida->capitan) ? $salida->capitan->motivo_viaje : '' }}</span>
+</div>
+<div>
+    <span class="header-title d-inline text-black">
+        <strong>{{ __('Fecha Salida') }}:</strong></span>
+    <span>{{ $salida->fecha->format('d-m-Y') }}</span>
+</div>
+<div>
+    <span class="header-title d-inline text-black">
+        <strong>{{ __('Lugar salida') }}:</strong></span>
+    <span>{{ !empty($salida->capitan) ? $salida->capitan->lugar_salida : '' }}</span>
+</div>
+<div>
+    <span class="header-title d-inline text-black">
+        <strong>{{ __('Lugar destino') }}:</strong></span>
+    <span>{{ !empty($salida->capitan) ? $salida->capitan->lugar_destino : '' }}</span>
+</div>
+</div>
+</h4>
+@else
+<div class="text-red-500"><i class="mdi mdi-alert-circle"></i>
+    <strong>{{ __('SOLICITUD INCOMPLETA') }}</strong>
+</div>
+@endif
+    </div>
+    <div class="card-footer">
+        <div class="float-end">
+            <a href="{{ route('movimientos.salidas.index') }}"
+                class="inline-flex items-center px-3 py-2 bg- bg-slate-300 border border-transparent rounded-md font-semibold text-xs text-black uppercase tracking-widest hover:bg-slate-400 focus:bg-slate-500 active:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">Atras</a>
+            @if ($salida->estado != 'Cancelado')
+                <a href="{{ route('pdf.eticket', $salida) }}"
+                    class="inline-flex items-center justify-center px-4 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 transition ease-in-out duration-150 disabled:opacity-25">GENERAR
+                    E-TICKET</a>
+            @endif
+            @php
+                $estados = ['Rechazado', 'En proceso', 'Cancelado', 'Enviado'];
+            @endphp
+            @if (!in_array($salida->estado, $estados))
+                <a href="#"
+                    class="inline-flex items-center justify-center px-4 py-2 bg-yellow-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-600 active:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 transition ease-in-out duration-150">Descargar
+                    PDF</a>
+            @endif
+        </div>
+    </div>
+</div>
+
+    {{-- fin del nuevo card --}}
+
+    
 </x-app-layout>
