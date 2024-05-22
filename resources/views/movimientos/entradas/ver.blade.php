@@ -1,10 +1,10 @@
 <x-app-layout>
     @section('titulo', __('Detalle de la entrada'))
-    <div class="row">
+    <div class="">
         <div class="col-xl-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="h3 mb-3">
+            <div class="card shadow-xl">
+                <div class="card-header bg-blue-900">
+                    <h3 class="font-bold uppercase text-white">
                         {{ __('Tipo movimiento') }}:
                         @if ($entrada->tipo_movimiento == 'E')
                             {{ __('Entrada internacional') }}
@@ -12,18 +12,19 @@
                     </h3>
                 </div>
                 <div class="card-body">
-                    <div class="row">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                    <div class="">
                         <span
-                            class="header-title col-md-2 d-inline"><strong>{{ __('Número solicitud') }}:</strong></span>
-                        <span class="header-title col-md-1 d-inline">{{ $entrada->id }}</span>
+                            class="header-title d-inline text-black"><strong>{{ __('Número solicitud') }}:</strong></span>
+                        <span class="">{{ $entrada->id }}</span>
                     </div>
-                    <div class="row">
+                    <div class="">
                         <span
-                            class="header-title col-md-2 d-inline"><strong>{{ __('Fecha Solicitud') }}:</strong></span>
-                        <span class="header-title col-md-2 d-inline">{{ $entrada->created_at->format('d-m-Y') }}</span>
+                            class="header-title d-inline text-black"><strong>{{ __('Fecha Solicitud') }}:</strong></span>
+                        <span class="">{{ $entrada->created_at->format('d-m-Y') }}</span>
                     </div>
-                    <div class="row">
-                        <span class="header-title col-md-2 d-inline"><strong>{{ __('Estatus') }}:</strong></span>
+                    <div class="">
+                        <span class="header-title d-inline text-black"><strong>{{ __('Estatus') }}:</strong></span>
                         @if ($entrada->estado == 'Aprobado')
                             <span
                                 class="header-title col-md-1 d-inline bg-green-100 text-green-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-700 dark:text-green-300">{{ __($entrada->estado) }}</span>
@@ -38,104 +39,9 @@
                                 class="header-title col-md-1 d-inline bg-blue-100 text-blue-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-700 dark:text-blue-300">{{ __($entrada->estado) }}</span>
                         @endif
                     </div>
+                </div>
                     {{-- datos de la embarcacion --}}
-                    <h4 class="header-title mt-3">
-                        <div class="alert alert-warning" role="alert">
-                            <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
-                                <strong>{{ __('Matrícula') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $entrada->matricula }}</span>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
-                                <strong>{{ __('Nombre de la Embarcación') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $entrada->nombre }}</span>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
-                                <strong>{{ __('Material del casco') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $entrada->embarcacion_internacional->material_casco }}</span>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
-                                <strong>{{ __('No Chasis') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $entrada->numero_casco }}</span>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
-                                <strong>{{ __('Cantidad de Tripulantes') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $entrada->embarcacion_internacional->capacidad_personas }}</span>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
-                                <strong>{{ __('Cantidad de Pasajeros') }}:</strong>
-                            </p>
-                            <span
-                                class="col-md-2">{{ $entrada->embarcacion_internacional->capacidad_tripulantes }}</span>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
-                                <strong>{{ __('Tipo embarcación') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $entrada->embarcacion_internacional->tipo_embarcacion }}</span>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
-                                <strong>{{ __('Tipo uso') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $entrada->embarcacion_internacional->tipo_uso }}</span>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
-                                <strong>{{ __('Eslora') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $entrada->embarcacion_internacional->eslora }}</span>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
-                                <strong>{{ __('Manga') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $entrada->embarcacion_internacional->manga }}</span>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
-                                <strong>{{ __('Puntal') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $entrada->embarcacion_internacional->puntal }}</span>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
-                                <strong>{{ __('Tipo motor') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $entrada->embarcacion_internacional->tipo_motor }}</span>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
-                                <strong>{{ __('Marca del motor') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $entrada->embarcacion_internacional->marca_modelo_motor }}</span>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
-                                <strong>{{ __('Caballos de fuerza del motor') }}:</strong>
-                            </p>
-                            <span
-                                class="col-md-2">{{ $entrada->embarcacion_internacional->caballos_fuerza_motor }}</span>
-                        </div>
-                        <div class="row mb-2 mt-2">
-                            <p class="col-md-2">
-                                <strong>{{ __('Cantidad motor') }}:</strong>
-                            </p>
-                            <span class="col-md-2">{{ $entrada->embarcacion_internacional->no_motor }}</span>
-                        </div>
-                    </h4>
+                    
                     {{-- datos del capitan --}}
                     @if (!empty($entrada->capitan_internacional))
                         <h4 class="header-title mt-3">
@@ -283,4 +189,111 @@
             </div>
         </div>
     </div>
+{{-- datos de la embarcacion --}}
+    <div class="card shadow-xl">
+        <div class="card-header bg-blue-900">
+            <div class="text-white" role="alert">
+                <strong>{{ __('INFORMACIÓN DE LA EMBARCACIÓN') }}</strong>
+            </div>
+        </div>
+        <div class="card-body">
+            <h4 class="header-title mt-3">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                <div class="">
+                    <p class="header-title d-inline text-black">
+                        <strong>{{ __('Matrícula') }}:</strong>
+                    </p>
+                    <span class="">{{ $entrada->matricula }}</span>
+                </div>
+                <div class="header-title d-inline text-black">
+                    <p class="">
+                        <strong>{{ __('Nombre de la Embarcación') }}:</strong>
+                    </p>
+                    <span class="">{{ $entrada->nombre }}</span>
+                </div>
+                <div class="">
+                    <p class="header-title d-inline text-black">
+                        <strong>{{ __('Material del casco') }}:</strong>
+                    </p>
+                    <span class="">{{ $entrada->embarcacion_internacional->material_casco }}</span>
+                </div>
+                <div class="">
+                    <p class="header-title d-inline text-black">
+                        <strong>{{ __('No Chasis') }}:</strong>
+                    </p>
+                    <span class="">{{ $entrada->numero_casco }}</span>
+                </div>
+                <div class="">
+                    <p class="header-title d-inline text-black">
+                        <strong>{{ __('Cantidad de Tripulantes') }}:</strong>
+                    </p>
+                    <span class="">{{ $entrada->embarcacion_internacional->capacidad_personas }}</span>
+                </div>
+                <div class="">
+                    <p class="header-title d-inline text-black">
+                        <strong>{{ __('Cantidad de Pasajeros') }}:</strong>
+                    </p>
+                    <span
+                        class="">{{ $entrada->embarcacion_internacional->capacidad_tripulantes }}</span>
+                </div>
+                <div class="">
+                    <p class="header-title d-inline text-black">
+                        <strong>{{ __('Tipo embarcación') }}:</strong>
+                    </p>
+                    <span class="">{{ $entrada->embarcacion_internacional->tipo_embarcacion }}</span>
+                </div>
+                <div class="">
+                    <p class="header-title d-inline text-black">
+                        <strong>{{ __('Tipo uso') }}:</strong>
+                    </p>
+                    <span class="">{{ $entrada->embarcacion_internacional->tipo_uso }}</span>
+                </div>
+                <div class="">
+                    <p class="header-title d-inline text-black">
+                        <strong>{{ __('Eslora') }}:</strong>
+                    </p>
+                    <span class="">{{ $entrada->embarcacion_internacional->eslora }}</span>
+                </div>
+                <div class="">
+                    <p class="header-title d-inline text-black">
+                        <strong>{{ __('Manga') }}:</strong>
+                    </p>
+                    <span class="">{{ $entrada->embarcacion_internacional->manga }}</span>
+                </div>
+                <div class="">
+                    <p class="header-title d-inline text-black">
+                        <strong>{{ __('Puntal') }}:</strong>
+                    </p>
+                    <span class="">{{ $entrada->embarcacion_internacional->puntal }}</span>
+                </div>
+                <div class="">
+                    <p class="header-title d-inline text-black">
+                        <strong>{{ __('Tipo motor') }}:</strong>
+                    </p>
+                    <span class="">{{ $entrada->embarcacion_internacional->tipo_motor }}</span>
+                </div>
+                <div class="">
+                    <p class="header-title d-inline text-black">
+                        <strong>{{ __('Marca del motor') }}:</strong>
+                    </p>
+                    <span class="">{{ $entrada->embarcacion_internacional->marca_modelo_motor }}</span>
+                </div>
+                <div class="">
+                    <p class="header-title d-inline text-black">
+                        <strong>{{ __('Caballos de fuerza del motor') }}:</strong>
+                    </p>
+                    <span
+                        class="">{{ $entrada->embarcacion_internacional->caballos_fuerza_motor }}</span>
+                </div>
+                <div class="">
+                    <p class="header-title d-inline text-black">
+                        <strong>{{ __('Cantidad motor') }}:</strong>
+                    </p>
+                    <span class="">{{ $entrada->embarcacion_internacional->no_motor }}</span>
+                </div>
+            </div>
+            </h4>
+        </div>
+    </div>
+    {{-- find de datos del card de la embarcacion --}}
 </x-app-layout>
