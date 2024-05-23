@@ -35,7 +35,7 @@
                 <img class="" src="{{ asset('images/logo1.png') }}" alt="">
             </div>
         </header>
-        <div class="flex justify-center items-center mt-10">
+        {{-- <div class="flex justify-center items-center mt-10">
             <div class="p-8 bg-slate-300 rounded-lg">
                 <div>
                     <h1 class="title text-center">Validación de solicitud1</h1>
@@ -72,25 +72,19 @@
                         </div>
                     </div>
 
-                    <!-- <h1 class="text-center font-bold text-2xl mt-3">Información del Conductor</h1>
-      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3 border-b-2 border-slate-950 pb-3">
-      <div class="flex justify-center bg-white rounded-full"><h1>Nombre:</h1><h1 class="ml-2">Dean Winchester</h1></div>
-      <div class="flex justify-center bg-white rounded-full"><h1>Documento de Identidad:</h1><h1 class="ml-2">000-00000-8</h1></div>
-      <div class="flex justify-center bg-white rounded-full"><h1>Teléfono:</h1><h1 class="ml-2"></h1>809-555-5555</div>
-      <div class="flex justify-center bg-white rounded-full"><h1>Fecha de salida:</h1><h1 class="ml-2">23/5/23</h1></div>
+                    
       </div> -->
 
-                    {{-- verificar si es un despacho o un conduce --}}
-                   
-                        <!-- fin de la segunda columna -->
+                    
+                        
                         
 
                         
             </div>
-        </div>
+        </div> --}}
 
 <div class="container mx-auto">
-<div class="card mt-2 mb-2 shadow-xl">
+<div class="card mt-20 mb-2 shadow-xl">
     <div class="card-header">
         <span class=""><strong>Detalle tipo movimiento:</strong>
             @if ($solicitud->tipo_movimiento == 'D')
