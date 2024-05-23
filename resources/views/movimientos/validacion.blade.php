@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Validación de solicitud</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ asset('css/validacion.css') }}">
         <script>
             tailwind.config = {
@@ -34,45 +35,17 @@
                 <img class="" src="{{ asset('images/logo1.png') }}" alt="">
             </div>
         </header>
-        <div class="flex justify-center items-center min-h-screen">
+        <div class="flex justify-center items-center mt-10">
             <div class="p-8 bg-slate-300 rounded-lg">
                 <div>
-                    <h1 class="title text-center">Validación de solicitud</h1>
-                    <h1 class="text-center text-2xl">Detalle tipo movimiento: <br>
-                        @if ($solicitud->tipo_movimiento == 'D')
-                            Despacho
-                        @else
-                            Conduce
-                        @endif
-                    </h1>
+                    <h1 class="title text-center">Validación de solicitud1</h1>
+                    
                     <!-- primera columna -->
                     <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3 border-b-2 border-slate-950 pb-3">
-                        <div class="text-center font-bold text-xl">{{ __('Número de solicitud') }}: {{ $solicitud->id }} </div>
-                        <div class="text-center font-bold text-xl">Fecha de solicitud:
-                            {{ $solicitud->created_at->format('d-m-Y') }}</div>
-                        <div class="flex justify-center font-bold text-xl">
-                            <h1 class="mr-1">Estatus: </h1>
-                            @if ($solicitud->estado == 'Aprobado')
-                                <h1
-                                    class="bg-green-100 text-green-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-700 dark:text-green-300">
-                                    {{ $solicitud->estado }}</h1>
-                            @elseif ($solicitud->estado == 'Rechazado' or $solicitud->estado == 'Cancelado')
-                                <h1
-                                    class="bg-red-100 text-red-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-700 dark:text-red-300">
-                                    {{ $solicitud->estado }}</h1>
-                            @elseif ($solicitud->estado == 'Enviado')
-                                <h1
-                                    class="bg-yellow-100 text-yellow-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-700 dark:text-yellow-300">
-                                    {{ $solicitud->estado }}</h1>
-                            @elseif ($solicitud->estado == 'En proceso')
-                                <h1
-                                    class="bg-blue-100 text-blue-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-700 dark:text-blue-300">
-                                    {{ $solicitud->estado }}</h1>
-                            @endif
-                        </div>
+                        
                     </div>
                     <!-- fin primera columna -->
-                    <h1 class="text-center font-bold text-2xl mt-3">{{ __('Información de la embarcación') }}</h1>
+                    
                     <!-- segunda  columma -->
                     <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3 border-b-2 border-slate-950 pb-3">
                         <div class="flex justify-center bg-white rounded-full">
@@ -230,6 +203,89 @@
             </div>
         </div>
 
+<div class="container mx-auto">
+<div class="card mt-2 mb-2 shadow-xl">
+    <div class="card-header">
+        <span class=""><strong>Detalle tipo movimiento:</strong>
+            @if ($solicitud->tipo_movimiento == 'D')
+                Despacho
+            @else
+                Conduce
+            @endif
+        </span>
+
+
+    </div>
+    <div class="card-body">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+        <div class="md:text-center">
+        <span class="header-title d-inline text-black bg-blue-200"><strong>{{ __('Número de solicitud') }}:</strong></span>
+        <span>{{ $solicitud->id }}</span>
+        </div>
+        <div class="md:text-center">
+        <span class="header-title d-inline text-black bg-blue-200"><strong>Fecha de solicitud:</strong></span>
+            <span>{{ $solicitud->created_at->format('d-m-Y') }}</span>
+        </div>
+
+        <div class="md:text-center">
+            <span class="header-title d-inline text-black"><strong>Estatus:</strong></span>
+            @if ($solicitud->estado == 'Aprobado')
+                <span
+                    class="bg-green-100 text-green-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-700 dark:text-green-300">
+                    {{ $solicitud->estado }}</span>
+            @elseif ($solicitud->estado == 'Rechazado' or $solicitud->estado == 'Cancelado')
+                <span
+                    class="bg-red-100 text-red-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-700 dark:text-red-300">
+                    {{ $solicitud->estado }}</span>
+            @elseif ($solicitud->estado == 'Enviado')
+                <span
+                    class="bg-yellow-100 text-yellow-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-700 dark:text-yellow-300">
+                    {{ $solicitud->estado }}</span>
+            @elseif ($solicitud->estado == 'En proceso')
+                <span
+                    class="bg-blue-100 text-blue-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-700 dark:text-blue-300">
+                    {{ $solicitud->estado }}</span>
+            @endif
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <span class="text-center font-bold text-2xl mt-3">{{ __('Información de la embarcación') }}</span>
+    </div>
+    <div class="card-body">
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3 border-b-2 border-slate-950 pb-3">
+            <div class="flex justify-center bg-white rounded-full">
+                <h1>Matrícula:</h1>
+                <h1 class="ml-2">{{ $solicitud->matricula }}</h1>
+            </div>
+            <div class="flex justify-center bg-white rounded-full">
+                <h1>Nombre de la embarcación:</h1>
+                <h1 class="ml-2">{{ $solicitud->nombre }}</h1>
+            </div>
+            <div class="flex justify-center bg-white rounded-full">
+                <h1>No Chasis:</h1>
+                <h1 class="ml-2">{{ $solicitud->numero_casco }}</h1>
+            </div>
+            <div class="flex justify-center bg-white rounded-full">
+                <h1>Cantidad de tripulantes:</h1>
+                <h1 class="ml-2">{{ $solicitud->embarcacion->capacidad_tripulantes }}</h1>
+            </div>
+            <div class="flex justify-center bg-white rounded-full">
+                <h1>Cantidad de pasajeros:</h1>
+                <h1 class="ml-2">{{ $solicitud->embarcacion->capacidad_personas }}</h1>
+            </div>
+            <div class="flex justify-center bg-white rounded-full">
+                <h1>Tipo de tripulación:</h1>
+                <h1 class="ml-2">{{ $solicitud->embarcacion->tipo_embarcacion }}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
 
     </body>
 
