@@ -82,10 +82,13 @@
                         
             </div>
         </div> --}}
+<div class="mt-24">
+    <h1 class="title text-center text-white">Validación de solicitud</h1>
+</div>
 
 <div class="container mx-auto">
-<div class="card mt-20 mb-2 shadow-xl">
-    <div class="card-header">
+<div class="card mt-8 mb-2 shadow-xl">
+    <div class="card-header bg-slate-200">
         <span class=""><strong>Detalle tipo movimiento:</strong>
             @if ($solicitud->tipo_movimiento == 'D')
                 Despacho
@@ -132,32 +135,32 @@
 </div>
 
 <div class="card mt-2 mb-2 shadow-xl">
-    <div class="card-header">
-        <span class="">{{ __('Información de la embarcación') }}</span>
+    <div class="card-header bg-slate-200">
+        <span class=""><strong>{{ __('Información de la embarcación') }}</strong></span>
     </div>
     <div class="card-body">
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-            <div class="md:text-center">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>Matrícula:</strong></span>
                 <span class="">{{ $solicitud->matricula }}</span>
             </div>
-            <div class="md:text-center">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>Nombre de la embarcación:</strong></span>
                 <span class="">{{ $solicitud->nombre }}</span>
             </div>
-            <div class="md:text-center">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>No Chasis:</strong></span>
                 <span class="">{{ $solicitud->numero_casco }}</span>
             </div>
-            <div class="md:text-center">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>Cantidad de tripulantes:</strong></span>
                 <span class="">{{ $solicitud->embarcacion->capacidad_tripulantes }}</span>
             </div>
-            <div class="md:text-center">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>Cantidad de pasajeros:</strong></span>
                 <span class="">{{ $solicitud->embarcacion->capacidad_personas }}</span>
             </div>
-            <div class="md:text-center">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>Tipo de tripulación:</strong></span>
                 <span class="">{{ $solicitud->embarcacion->tipo_embarcacion }}</span>
             </div>
@@ -167,46 +170,46 @@
 
 
 <div class="card">
-    <div class="card-header">
-        <span class="">Información del capitán</span>
+    <div class="card-header bg-slate-200">
+        <span class=""><strong>Información del capitán</strong></span>
     </div>
     <div class="card-body">
         @if ($solicitud->tipo_movimiento == 'D')
         <!-- fin de la tercera columna -->
         
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-            <div class="md:text-center">
-                <span class="header-title d-inline text-black">Nombre:</span>
+            <div class="">
+                <span class="header-title d-inline text-black"><strong>Nombre:</strong></span>
                 <span class="">{{ !empty($solicitud->capitan) ? $solicitud->capitan->nombre : '' }}
                 </span>
             </div>
-            <div class="md:text-center">
-                <span class="header-title d-inline text-black">Documento de identidad:</span>
+            <div class="">
+                <span class="header-title d-inline text-black"><strong>Documento de identidad:</strong></span>
                 <span class="">{{ !empty($solicitud->capitan) ? $solicitud->capitan->documento : '' }}</span>
                 
             </div>
-            <div class="md:text-center">
-                <span class="header-title d-inline text-black">Télefono:</span>
+            <div class="">
+                <span class="header-title d-inline text-black"><strong>Télefono:</strong></span>
                 <span class="">
                     {{ !empty($solicitud->capitan) ? $solicitud->capitan->telefono : '' }}
                 </span>
             </div>
-            <div class="md:text-center">
-                <span class="header-title d-inline text-black">{{ __('Fecha de salida') }}:</span>
+            <div class="">
+                <span class="header-title d-inline text-black"><strong>{{ __('Fecha de salida') }}:</strong></span>
                 <span class="">{{ $solicitud->fecha->format('d-m-Y') }}</span>
             </div>
-            <div class="md:text-center">
-                <span class="header-title d-inline text-black">Lugar de salida:</span>
+            <div class="">
+                <span class="header-title d-inline text-black"><strong>Lugar de salida:</strong></span>
                 <span class="">
                     {{ !empty($solicitud->capitan) ? $solicitud->capitan->lugar_salida : '' }}</span>
             </div>
-            <div class="md:text-center">
-                <span class="header-title d-inline text-black">Lugar de destino:</span>
+            <div class="">
+                <span class="header-title d-inline text-black"><strong>Lugar de destino:</strong></span>
                 <span class="">
                     {{ !empty($solicitud->capitan) ? $solicitud->capitan->lugar_destino : '' }}</span>
             </div>
-            <div class="md:text-center">
-                <span class="header-title d-inline text-black">Motivo del viaje:</span>
+            <div class="sm:col-span-3">
+                <span class="header-title d-inline text-black"><strong>Motivo del viaje:</strong></span>
                 <span class="">
                     {{ !empty($solicitud->capitan) ? $solicitud->capitan->motivo_viaje : '' }}</span>
             </div>
@@ -219,29 +222,29 @@
 
 {{-- informacion del conductor --}}
 <div class="card">
-    <div class="card-header">
-        <span class="">Información del Conductor</span>
+    <div class="card-header bg-slate-200">
+        <span class=""><strong>Información del Conductor</strong></span>
     </div>
     <div class="card-body">
         
         <!-- principio de la tercera columna -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-            <div class="flex justify-center bg-white rounded-full">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>Nombre:</strong></span>
                 <span class="">
                     {{ !empty($solicitud->conductor) ? $solicitud->conductor->nombre : '' }}</span>
             </div>
-            <div class="flex justify-center bg-white rounded-full">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>Documento de Identidad:</strong></span>
                 <span class="">
                     {{ !empty($solicitud->conductor) ? $solicitud->conductor->documento : '' }}</span>
             </div>
-            <div class="flex justify-center bg-white rounded-full">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>Teléfono:</strong></span>
                 <span class="">{{ !empty($solicitud->conductor) ? str_replace('|', ', ', $solicitud->conductor->telefono) : '' }}</span>
                 
             </div>
-            <div class="flex justify-center bg-white rounded-full">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>{{ __('Fecha de salida') }}:</strong></span>
                 <span class="">
                     {{ !empty($solicitud->conductor) ? $solicitud->fecha->format('d-m-Y') : '' }}</span>
@@ -254,54 +257,54 @@
 {{-- card sobre la informacion del vehiculo --}}
 <div class="card">
     <div class="card-header">
-        <span class="">Datos del Vehículo</span>
+        <span class=""><strong>Datos del Vehículo</strong></span>
     </div>
 
     <div class="card-body">
         
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-            <div class="md:text-center">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>Marca:</strong></span>
                 <span class="">
                     {{ !empty($solicitud->vehiculo) ? $solicitud->vehiculo->marca : '' }}</span>
             </div>
-            <div class="md:text-center">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>Año:</strong></span>
                 <span class="ml-2">{{ !empty($solicitud->vehiculo) ? $solicitud->vehiculo->year : '' }}</span>
             </div>
-            <div class="md:text-center">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>Color:</strong></span>
                 <span class="">
                     {{ !empty($solicitud->vehiculo) ? $solicitud->vehiculo->color : '' }}</span>
             </div>
-            <div class="md:text-center">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>Placa:</strong></span>
                 <span class="">
                     {{ !empty($solicitud->vehiculo) ? $solicitud->vehiculo->placa : '' }}</span>
             </div>
-            <div class="md:text-center">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>Provincia:</strong></span>
                 <span class="">
                     {{ !empty($solicitud->vehiculo) ? $solicitud->vehiculo->provincia : '' }}</span>
             </div>
-            <div class="md:text-center">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>Municipio:</strong></span>
                 <span class="">
                     {{ !empty($solicitud->vehiculo) ? $solicitud->vehiculo->municipio : '' }}</span>
             </div>
-            <div class="md:text-center">
+            <div class="">
                 <span class="header-title d-inline text-black"><strong>Sector:</strong></span>
                 <span class="">
                     {{ !empty($solicitud->vehiculo) ? $solicitud->vehiculo->sector : '' }}</span>
             </div>
-            <div class="md:text-center">
+            <div class=r">
                 <span class="header-title d-inline text-black"><strong>Calle:</strong></span>
                 <span class="ml-2">{{ !empty($solicitud->vehiculo) ? $solicitud->vehiculo->calle : '' }}
                 </span>
             </div>
-            <div class="md:text-center md:col-span-3">
+            <div class="md:col-span-3">
                 <span class="header-title d-inline text-black"><strong>Observación:</strong></span>
-                <span class="ml-2 text-wrap">
+                <span class="">
                     {{ !empty($solicitud->vehiculo) ? $solicitud->vehiculo->observacion : '' }}</span>
             </div>
     @endif
