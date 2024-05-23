@@ -157,7 +157,7 @@
                     <input type="text" class="form-control nombre_capitan rounded-md" id="floatingNombreCapitan"
                         placeholder="NOMBRE Y APELLIDO DEL CAPITAN" value=""
                         name="nombre_capitan" />
-                    <label style="font-size: 10px;" for="floatingNombreEmbarcacion">NOMBRE Y APELLIDO</label>
+                    <label style="font-size: 10px;" for="floatingNombreEmbarcacion">{{ __('NOMBRE Y APELLIDO') }}</label>
                 </div>
             </div>
 
