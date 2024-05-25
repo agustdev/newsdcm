@@ -46,7 +46,7 @@
         @if ($tripulantes->count() > 0)
             <table class="table">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                    <tr>
+                    <tr class="bg-blue-900 text-white">
                         <th scope="col" class="px-6 py-3">{{ __('Nombre') }}</th>
                         <th scope="col" class="px-6 py-3">{{ __('Nacionalidad') }}</th>
                         <th scope="col" class="px-6 py-3">{{ __('Documento de identidad') }}</th>
