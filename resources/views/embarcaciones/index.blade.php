@@ -151,9 +151,9 @@
                 aria-labelledby="standard-modalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title h3" id="standard-modalLabel">
-                                {{ __('FOTOS DE LA EMBARCACION') }}</h4>
+                        <div class="modal-header text-center bg-blue-900">
+                            <h4 class="modal-title h3 uppercase text-white" id="standard-modalLabel">
+                               <strong> {{ __('FOTOS DE LA EMBARCACION') }}</strong></h4>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-hidden="true"></button>
                         </div>
