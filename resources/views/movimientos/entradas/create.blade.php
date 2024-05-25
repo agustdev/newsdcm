@@ -604,10 +604,10 @@
                                 <h3 class="mb-2 mt-2 bold text-black">{{ __('¿POSEE ARMAS DE FUEGO?') }}</h3>
                                 <input type="radio" name='armas' id="armas_si" value="Si"
                                     class="form-control">
-                                <label for="armas_si">Si</label>
+                                <label for="armas_si">{{ __('Si') }}</label>
                                 <input type="radio" name='armas' id="armas_no" value="No" checked
                                     class="form-control">
-                                <label for="armas_no">No</label>
+                                <label for="armas_no">{{ __('No') }}</label>
                             </div>
                         </div>
                         <div class="col-md carmas" style="display: none;">

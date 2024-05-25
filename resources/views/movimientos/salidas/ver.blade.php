@@ -37,9 +37,23 @@
                                 class="bg-blue-100 text-blue-600 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-700 dark:text-blue-300">{{ $salida->estado }}</span>
                         @endif 
                 </div>
-            </div>
-                    
-                    
+                <div class="card-footer">
+                    <div class="float-end">
+                        <a href="{{ route('movimientos.salidas.index') }}"
+                            class="inline-flex items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1">Atras</a>
+                        @if ($salida->estado != 'Cancelado')
+                            <a href="{{ route('pdf.eticket', $salida) }}"
+                                class="inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150">GENERAR
+                                E-TICKET</a>
+                        @endif
+                        @php
+                            $estados = ['Rechazado', 'En proceso', 'Cancelado', 'Enviado'];
+                        @endphp
+                        @if (!in_array($salida->estado, $estados))
+                            <a href="#"
+                                class="inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150">{{ __('Descargar PDF') }}</a>
+                        @endif
+                    </div>
                 </div>
                 
             </div>
