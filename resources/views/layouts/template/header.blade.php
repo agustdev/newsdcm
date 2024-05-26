@@ -47,6 +47,11 @@
                 box-shadow: #444 0px 3px 5px;
                 border: 0;
             }
+
+            .page-item.active .page-link {
+                background-color: #1089FF !important;
+                border-color: #1089FF !important;
+            }
         </style>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
