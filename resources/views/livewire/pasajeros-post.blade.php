@@ -48,7 +48,7 @@
         @if ($pasajeros->count() > 0)
             <table class="table">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                    <tr>
+                    <tr class="bg-blue-900 text-white">
                         <th scope="col" class="px-6 py-3">{{ __('Nombre') }}</th>
                         <th scope="col" class="px-6 py-3">{{ __('Nacionalidad') }}</th>
                         <th scope="col" class="px-6 py-3">{{ __('Documento de identidad') }}</th>
@@ -84,7 +84,7 @@
                     text: "Esta acción no podra ser revertida!",
                     icon: "warning",
                     showCancelButton: true,
-                    confirmButtonColor: "#1E3A8A",
+                    confirmButtonColor: "#1089FF",
                     cancelButtonColor: "#d33",
                     confirmButtonText: "Si, eliminar!"
                 }).then((result) => {
@@ -94,7 +94,7 @@
                             title: "Eliminado!",
                             text: "El registro fue elminiado con exito.",
                             icon: "success",
-                            confirmButtonColor: "#1E3A8A",
+                            confirmButtonColor: "#1089FF",
                             confirmButtonText: "Aceptar"
                         });
                     }
