@@ -5,6 +5,13 @@
         <!-- Datatables css -->
         <link href="{{ asset('assets/css/vendor/dataTables.bootstrap5.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/css/vendor/responsive.bootstrap5.css') }}" rel="stylesheet" type="text/css" />
+        <style>
+            textarea {
+                border-right: 1px solid #6b7280 !important;
+                border-top: 1px solid #6b7280 !important;
+                border-bottom: 1px solid #6b7280 !important;
+            }
+        </style>
     @endpush
     <x-slot name="header">
         <h2 class="h2 mb-2 mt-4 text-black uppercase">
@@ -603,10 +610,10 @@
                             <div class="">
                                 <h3 class="mb-2 mt-2 bold text-black">{{ __('¿POSEE ARMAS DE FUEGO?') }}</h3>
                                 <input type="radio" name='armas' id="armas_si" value="Si"
-                                    class="form-control">
+                                    class="w-4 h-4 text-blue-900 bg-gray-100 border-gray-300 focus:ring-blue-600  focus:ring-2 ">
                                 <label for="armas_si">{{ __('Si') }}</label>
                                 <input type="radio" name='armas' id="armas_no" value="No" checked
-                                    class="form-control">
+                                    class="w-4 h-4 text-blue-900 bg-gray-100 border-gray-300 focus:ring-blue-600 focus:ring-2 ">
                                 <label for="armas_no">{{ __('No') }}</label>
                             </div>
                         </div>
@@ -621,8 +628,8 @@
                         </div>
                         <div class="col-md tarmas" style="display: none;">
                             <div class="form-floating mb-2">
-                                <textarea name="tipo_armas" id="" cols="30" rows="10" class="form-control rounded-md"
-                                    id="floatingTipoArmas" required></textarea>
+                                <textarea name="tipo_armas" id="" cols="30" rows="10" placeholder="{{ __('TIPO DE ARMAS') }}"
+                                    class="form-control rounded-md" id="floatingTipoArmas" required></textarea>
                                 <label style="font-size: 10px;"
                                     for="floatingTipoArmas">{{ __('TIPO DE ARMAS') }}</label>
                             </div>
