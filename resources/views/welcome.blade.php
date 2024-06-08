@@ -120,11 +120,15 @@
 
             @media only screen and (max-width: 600px) {
                 h1 {
-                    font-size: 25px !important;
+                    font-size: 15px !important;
                     /* cosas que si no funciona puedo borrar esto */
                     /* esto lo estoy utilizando para mover el h1 un poco mas arriba */
-                    margin-top: -80px !important;
+                    margin-top: 80px !important;
                     /* en caso de que se dañe algo*/
+                }
+
+                h3 {
+                    margin-top: -40px
                 }
 
                 .sub-title {
