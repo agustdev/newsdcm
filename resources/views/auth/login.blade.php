@@ -31,7 +31,7 @@
                 </label>
             </div>
             <div class="flex items-center justify-center mt-4">
-                <x-button class="ml-4">
+                <x-button class="">
                     {{ __('Iniciar Sesion') }}
                 </x-button>
 
