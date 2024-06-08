@@ -255,5 +255,15 @@
     "Previsualizar": "Anteprima",
     "POSEE ARMAS DE FUEGO": "POSSIEDE ARMI DA FUOCO",
     "Si": "Si",
-    "No": "No"
+    "No": "No",
+    "Contraseña": "Parola d ordine",
+    "Generar": "Grilletto",
+    "Seguridad de la contraseña": "Sicurezza della password",
+    "Débil": "Debole",
+    "Confirma Contraseña": "Conferma password",
+    "Términos de servicio": "Termini di servizio",
+    "No documento": "Numero del documento",
+    "Tipo documento": "Tipo di documento",
+    "Ya registrado": "Già registrato",
+    "Registrarse": "Registrare"
 }

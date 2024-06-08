@@ -74,7 +74,7 @@
                 focus:bg-blue-800 active:bg-blue-900 active:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
                 transition ease-in-out duration-150 ml-1"
                     href="{{ route('login') }}">
-                    {{ __('¿Ya registrado?') }}
+                    ¿{{ __('Ya registrado') }}?
                 </a>
 
                 <x-button-register class="ml-4 disabled:opacity-25">

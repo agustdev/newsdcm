@@ -255,5 +255,15 @@
     "Previsualizar": "Vorschau",
     "POSEE ARMAS DE FUEGO": "BESITZT SCHUSSWAFFEN",
     "Si": "Ja",
-    "No": "NEIN"
+    "No": "NEIN",
+    "Contraseña": "Passwort",
+    "Generar": "Auslösen",
+    "Seguridad de la contraseña": "Passwortsicherheit",
+    "Débil": "Schwach",
+    "Confirma Contraseña": "Bestätige das Passwort",
+    "Términos de servicio": "Nutzungsbedingungen",
+    "No documento": "Dokumentnummer",
+    "Tipo documento": "Art des Dokuments",
+    "Ya registrado": "Bereits registriert",
+    "Registrarse": "Einchecken"
 }

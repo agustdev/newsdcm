@@ -429,5 +429,15 @@
     "Previsualizar": "Preview",
     "POSEE ARMAS DE FUEGO": "OWNS FIREARMS",
     "Si": "Yes",
-    "No": "No"
+    "No": "No",
+    "Contraseña": "Password",
+    "Generar": "Trigger",
+    "Seguridad de la contraseña": "Password security",
+    "Débil": "Weak",
+    "Confirma Contraseña": "Confirm Password",
+    "Términos de servicio": "Terms of Service",
+    "No documento": "Document number",
+    "Tipo documento": "Document type",
+    "Ya registrado": "Already registered",
+    "Registrarse": "Check in"
 }
