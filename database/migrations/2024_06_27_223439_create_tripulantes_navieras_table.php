@@ -13,6 +13,19 @@ return new class extends Migration
     {
         Schema::create('tripulantes_navieras', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('movimiento_naviera_id');
+            $table->string('family_name');
+            $table->string('given_names');
+            $table->string('rank');
+            $table->string('nationality');
+            $table->date('date_birth');
+            $table->string('place_birth');
+            $table->string('gender');
+            $table->string('nature_document');
+            $table->string('number_document');
+            $table->string('issuing_state');
+            $table->date('expiry_date');
+            $table->date('date_signature');
             $table->timestamps();
         });
     }
