@@ -198,7 +198,7 @@
                             id="floatingNombreConductor" placeholder="NOMBRE Y APELLIDO DEL CONDUCTOR" value=""
                             name="nombre_conductor" required />
                         <label style="font-size: 10px;"
-                            for="floatingNombreConductor">{{ __('NOMBRE Y APELLIDO') }}R</label>
+                            for="floatingNombreConductor">{{ __('NOMBRE Y APELLIDO') }}</label>
                     </div>
                 </div>
 
