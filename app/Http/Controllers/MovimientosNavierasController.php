@@ -17,8 +17,13 @@ class MovimientosNavierasController extends Controller
 
     public function entradasNavieras()
     {
-        $entradasnavieras = movimientosNavieras::where('tipo', 'NE')->get();
-        return view('navieras.entradas.index', compact('entrasnavieras'));
+        $entradasnavieras = movimientosNavieras::where('tipo_movimiento', 'NE')->get();
+        return view('navieras.entradas.index', compact('entradasnavieras'));
+    }
+
+    public function entradasNavierasCreate()
+    {
+        return view('navieras.entradas.create');
     }
 
     /**

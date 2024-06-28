@@ -61,8 +61,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::resource('navieras/usuarios', UsuariosNavierasController::class)->names('usuarios.navieras');
     Route::get('navieras/solicitudes/entradas', [MovimientosNavierasController::class, 'entradasNavieras'])->name('solicitudes.navieras.entradas');
     Route::get('navieras/solicitudes/salidas', [MovimientosNavierasController::class, 'salidasNavieras'])->name('solicitudes.navieras.salidas');
-    Route::post('navieras/solicitudes/salidas', [MovimientosNavierasController::class, 'entradasNavierasCreate'])->name('solicitudes.navieras.entradas.create');
-    Route::post('navieras/solicitudes/salidas', [MovimientosNavierasController::class, 'salidasNavierasCreate'])->name('solicitudes.navieras.salidas.create');
+    Route::get('navieras/solicitudes/entradas/create', [MovimientosNavierasController::class, 'entradasNavierasCreate'])->name('solicitudes.navieras.entradas.create');
+    Route::post('navieras/solicitudes/entradas/store', [MovimientosNavierasController::class, 'entradasNavierasStore'])->name('solicitudes.navieras.entradas.store');
+    Route::get('navieras/solicitudes/salidas/create', [MovimientosNavierasController::class, 'salidasNavierasCreate'])->name('solicitudes.navieras.salidas.create');
+    Route::post('navieras/solicitudes/salidas/store', [MovimientosNavierasController::class, 'salidasNavierasStore'])->name('solicitudes.navieras.salidas.store');
 });
 //end views sdcm
 
