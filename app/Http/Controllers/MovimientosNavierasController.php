@@ -26,6 +26,17 @@ class MovimientosNavierasController extends Controller
         return view('navieras.entradas.create');
     }
 
+    public function salidasNavieras()
+    {
+        $salidasnavieras = movimientosNavieras::where('tipo_movimiento', 'NE')->get();
+        return view('navieras.salidas.index', compact('salidasnavieras'));
+    }
+
+    public function salidasNavierasCreate()
+    {
+        return view('navieras.salidas.create');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
