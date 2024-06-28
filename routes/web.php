@@ -9,6 +9,7 @@ use App\Http\Controllers\EntradasController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\SalidasController;
 use App\Http\Controllers\MovimientosController;
+use App\Http\Controllers\MovimientosNavierasController;
 use App\Http\Controllers\SolicitudesNavierasController;
 use App\Http\Controllers\UsuariosNavierasController;
 use Illuminate\Support\Facades\Route;
@@ -58,10 +59,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // modulo para navieras
     Route::resource('navieras/usuarios', UsuariosNavierasController::class)->names('usuarios.navieras');
-    Route::get('navieras/solicitudes/entradas', [MovimientosController::class, 'entradasNavieras'])->name('solicitudes.navieras.entradas');
-    Route::get('navieras/solicitudes/salidas', [MovimientosController::class, 'salidasNavieras'])->name('solicitudes.navieras.salidas');
-    Route::post('navieras/solicitudes/salidas', [MovimientosController::class, 'entradasNavierasCreate'])->name('solicitudes.navieras.entradas.create');
-    Route::post('navieras/solicitudes/salidas', [MovimientosController::class, 'salidasNavierasCreate'])->name('solicitudes.navieras.salidas.create');
+    Route::get('navieras/solicitudes/entradas', [MovimientosNavierasController::class, 'entradasNavieras'])->name('solicitudes.navieras.entradas');
+    Route::get('navieras/solicitudes/salidas', [MovimientosNavierasController::class, 'salidasNavieras'])->name('solicitudes.navieras.salidas');
+    Route::post('navieras/solicitudes/salidas', [MovimientosNavierasController::class, 'entradasNavierasCreate'])->name('solicitudes.navieras.entradas.create');
+    Route::post('navieras/solicitudes/salidas', [MovimientosNavierasController::class, 'salidasNavierasCreate'])->name('solicitudes.navieras.salidas.create');
 });
 //end views sdcm
 

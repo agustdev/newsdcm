@@ -28,11 +28,7 @@ class UsuariosNavierasController extends Controller
         return view('navieras.usuarios.create');
     }
 
-    public function entradasNavieras()
-    {
 
-        return view('navieras.entradas.index', compact('entrasnavieras'));
-    }
 
     /**
      * Store a newly created resource in storage.
