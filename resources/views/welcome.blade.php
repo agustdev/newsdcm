@@ -90,7 +90,7 @@
                             </video>
                             <div class="carousel-caption mt-20">
                                 <p
-                                    class="text-xl md:text-3xl font-bold animate__animated animate__backInDown animate__delay-2s">
+                                    class="text-sm md:text-3xl font-bold animate__animated animate__backInDown animate__delay-2s">
                                     Avisos a los Navegantes
                                 </p>
                             </div>
