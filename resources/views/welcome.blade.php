@@ -12,311 +12,436 @@
         <!-- App css -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="light-style">
-        <link href="assets/css/app-dark.min.css" rel="stylesheet" type="text/css" id="dark-style">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
         {{-- estilos del landing --}}
-        <style>
-            body {
-                box-sizing: border-box;
-                padding: 0;
-                margin: 0;
-            }
-
-            nav {
-                height: 75px;
-                position: absolute;
-                width: 100%;
-                background: linear-gradient(90deg, rgb(6, 5, 84) 0%, rgb(13, 47, 144) 80%);
-            }
-
-            .hero {
-                width: 100%;
-                height: 100vh;
-                background: url("./images/hero1.jpg");
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-
-            .layer {
-                width: 100%;
-                height: 100vh;
-                background: rgba(17, 34, 122, 0.50);
-                display: grid;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .buttons {
-                display: flex;
-                justify-content: center;
-                flex-direction: row;
-                margin: 0 10px;
-                gap: 20px;
-            }
-
-            .button-primary-ard {
-                width: auto;
-                height: auto;
-                border: 1px solid #01136E;
-                color: #01136E;
-                background: white;
-                border-radius: 8px;
-                font-weight: bold;
-                font-size: 16px;
-            }
-
-            .button-secondary-ard {
-                width: auto;
-                height: auto;
-                color: white;
-                background: #FF0000;
-                border-radius: 8px;
-                font-weight: bold;
-                font-size: 16px;
-                border: none;
-            }
-
-            /* aqui agregare el color de hover que tendra  */
-            .button-primary-ard:hover {
-    background-color: #D0D0D0; /* Cambia el fondo al color del texto original */
-    color: black; /* Cambia el texto a blanco */
-}
-.button-secondary-ard:hover {
-            background-color: #B00000; /* Cambia el fondo a blanco */
-            color: white; /* Cambia el texto al color de fondo original */
-        }
-
-            /* aqui terminara el fin del  hover  */
-
-            footer {
-                position: fixed;
-                text-align: center;
-                bottom: 0;
-                width: 100%;
-                height: 50px;
-                background: white;
-                color: #01136E;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .lang {
-                display: flex;
-                justify-content: end;
-                margin-right: 15px;
-                margin-top: -50px;
-            }
-
-            .welcome {
-                font-size: 40px;
-            }
-
-            .h1 {
-                font-size: 30px;
-            }
-
-            @media only screen and (max-width: 600px) {
-                h1 {
-                    font-size: 15px !important;
-                    /* cosas que si no funciona puedo borrar esto */
-                    /* esto lo estoy utilizando para mover el h1 un poco mas arriba */
-                    margin-top: 80px !important;
-                    /* en caso de que se dañe algo*/
-                }
-
-                h3 {
-                    margin-top: -40px
-                }
-
-                .sub-title {
-                    margin-top: 100px;
-                    margin-bottom: 0px;
-                }
-
-                .buttons {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    width: 100%;
-                }
-
-                .buttons button,
-                .buttons a {
-                    width: 244px !important;
-                }
-            }
-
-            /* @media only screen and (max-height: 1100px) {
-                h1 {
-                    font-size: 20px !important;
-                    margin-top: 100px !important;
-                } */
-
-                /* en caso recordar que puedo borrar por aqui */
-
-/* este codigo comentado hara que los botones se alineen verticalmente por eso esta comentado */
-                /* .buttons {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    width: 100%;
-
-                }
-
-                .buttons button,
-                .buttons a {
-                    width: 244px !important;
-                } */
-            }
-            /* este codigo comentado hara que los botones se alineen verticalmente por eso esta comentado */
-
-            @media screen and (min-width: 629px) {
-                .welcome {
-                    font-size: 45px;
-                }
-
-                .sub-title {
-                    font-size: 20px;
-                }
-            }
-
-            @media screen and (max-width: 380px) {
-                .welcome {
-                    font-size: 40px;
-                }
-            }
-
-            @media screen and (max-width: 700px) {
-                .lang {
-                    display: flex;
-                    justify-content: end;
-                    margin-right: 15px;
-                    margin-top: 15px;
-                }
-
-                .selector {
-                    display: flex;
-                    justify-content: end;
-                    margin-right: 15px;
-                    margin-top: 15px;
-                }
-            }
-
-            @media screen and (max-width: 741px) {
-                .hero {
-                    background: url(images/mobilecarroybarco.jpg);
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                }
-            }
-        </style>
-
+        <link rel="stylesheet" href="{{ asset('css/landing.css') }}">
     </head>
 
     <body>
-        <header>
-            <nav>
-                <div style="height: 100%; display: flex; justify-content: center; align-items: center;">
-                    <img src="{{ asset('images/logo1.png') }}" style="max-width: 350px; height: auto;" />
-                </div>
-                <div class="lang">
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <form action="{{ route('lang.switch') }}" method="POST">
-                                @csrf
-                                <select onchange="this.form.submit()" name="language" id="language"
-                                    class="form-select block w-full pt-1 pb-1 mb-6 changeLang">
-                                    @foreach (Config::get('languages') as $lang => $language)
-                                        <option value="{{ $language['flag'] }}"
-                                            {{ app()->getLocale() === $language['flag'] ? 'selected' : '' }}
-                                            data-img="{{ asset('images/' . $language['image']) }}">
-                                            {{ $language['display'] }}</option>
-                                    @endforeach
-                                </select>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        {{-- <header class="bg-white h-30">
-            <div class="flex justify-center">
-                <img src="{{ asset('assets/images/capitania_web3.png') }}" alt="logo-cdp">
+        <!-- navbar -->
+        <nav class="navbar bg-slate-100">
+            <div class="simbol">
+                <img src="https://ogtic.gob.do/wp-content/themes/optic/img/rd.svg"
+                    alt="Escudo de la República Dominicana" class="mb-2 md:hidden h-10" />
+                <div class="division container md:hidden"></div>
             </div>
-        </header> --}}
-        <div class="hero">
-            <div class="layer">
-                <div class="container">
-                    <h1 class="h1" style="font-weight: bold; color: white; text-align: center;">
-                        <div style="color: #FAFF00;" class="welcome">{{ __('BIENVENIDOS') }}</div>
-                        {{-- <br /> --}}
-                        {{ __('ARMADA DE REPÚBLICA DOMINICANA') }} <br />
-                        {{ __('SISTEMA DE CONDUCE Y DESPACHO DE EMBARCACIONES') }}
-                        <br>
-                        (SISCODEM)
-                    </h1>
-                    <!-- <h6 style="color: white; text-align: center;">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu gravida magna. Duis condimentum et nibh nec scelerisque. Nulla eros lacus, luctus auctor viverra nec, faucibus et sem.
-                    </h6> -->
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <div>
-                        <h3 style="color: #FAFF00; font-weight: bold; text-align: center;" class="entrada">
-                            {{ __('ENTRADAS Y SALIDAS INTERNACIONALES') }}
-                        </h3>
-                        <h3 style="color: white; text-align: center; text-decoration: underline;" class="mt-3">
-                            <span>
-                                <a style="color: white;"
-                                    href="{{ route('register') }}">{{ __('E-Ticket Marítimo') }}</a>
-                            </span>
-                        </h3>
+            <div class="simbol">
+                <img src="{{ asset('images/capitania_web.png') }}" alt="" class="md:hidden h-16" />
+            </div>
+
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <!-- <img src="/img/logo-1-1.png" alt="Logo 1" class="me-2"> -->
+
+                    <a class="navbar-brand hidden md:block" href="#">
+                        <img src="{{ asset('images/capitania_web.png') }}" alt="Logo" width="300" height="24"
+                            class="d-inline-block align-text-top" />
+                    </a>
+                </div>
+                <div>
+                    <div class="d-flex align-items-center size">
+                        <img src="{{ asset('images/rd.svg') }}" alt="Escudo de la República Dominicana"
+                            class="mb-2 hidden md:block" />
+                    </div>
+                    <form action="{{ route('lang.switch') }}" method="POST">
+                        @csrf
+                        <select onchange="this.form.submit()" name="language" id="language"
+                            class="form-select border-amber-400 size hidden md:block changeLang">
+                            <option value="es" selected>Selecciona el Idioma</option>
+                            @foreach (Config::get('languages') as $lang => $language)
+                                <option value="{{ $language['flag'] }}"
+                                    {{ app()->getLocale() === $language['flag'] ? 'selected' : '' }}
+                                    data-img="{{ asset('images/' . $language['image']) }}">
+                                    {{ $language['display'] }}</option>
+                            @endforeach
+                        </select>
+                    </form>
+                    <div class=""></div>
+                </div>
+            </div>
+            <form action="{{ route('lang.switch') }}" method="POST">
+                @csrf
+                <select onchange="this.form.submit()" name="language" id="language"
+                    class="form-select border-amber-400 md:hidden w-full mx-4 changeLang">
+                    <option value="es" selected>Idioma</option>
+                    @foreach (Config::get('languages') as $lang => $language)
+                        <option value="{{ $language['flag'] }}"
+                            {{ app()->getLocale() === $language['flag'] ? 'selected' : '' }}
+                            data-img="{{ asset('images/' . $language['image']) }}">
+                            {{ $language['display'] }}</option>
+                    @endforeach
+                </select>
+            </form>
+        </nav>
+        <!-- aqui empieza el contenido de la web -->
+        <div class="container-fluid">
+            <div id="indicators-carousel" class="relative w-full" data-carousel="static">
+                <!-- Carousel wrapper -->
+                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                    <!-- Item 1 -->
+                    <div class="carousel-item active">
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <video autoplay muted loop
+                                class="absolute block w-full -translate-x-1/2 -translate-y-1/4 top-1/2 left-1/2 brightness-25">
+                                <source src="{{ asset('video/video.mp4') }}" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="carousel-caption mt-20">
+                                <p
+                                    class="text-xl md:text-3xl font-bold animate__animated animate__backInDown animate__delay-2s">
+                                    Avisos a los Navegantes
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="carousel-item active">
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="https://images.pexels.com/photos/813011/pexels-photo-813011.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                class="absolute block w-full -translate-x-1/2 -translate-y-1/4 top-1/2 left-1/2"
+                                alt="..." />
+                            <div class="carousel-caption mt-20">
+                                <!-- <h1 class="text-4xl font-bold mb-1 shadow-2xl animate__animated animate__backInDown animate__delay-1s ">Bienvenidos</h1> -->
+                                <p
+                                    class="text-xl md:text-3xl font-bold animate__animated animate__backInDown animate__delay-2s">
+                                    Avisos a los Navegantes
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
-                    <br />
-                    <div class="buttons">
-                        @auth
-                            {{-- <a href="{{ route('redireccion') }}" class="nav-link d-lg-none">SISCODEM</a> --}}
-                            <a href="{{ route('redireccion') }}" class="btn button-primary-ard">
-                                {{-- <i class="mdi mdi-ship-wheel mdi-18px me-2"></i>  --}}
-                                {{ __('ENTRAR AL SISTEMA') }}
-                            </a>
-                        @else
-                            {{-- <a href="{{ route('login') }}" class="nav-link d-lg-none">{{ __('INICIAR SESIÓN') }}</a> --}}
-                            @if (Route::has('register'))
-                                {{-- <button style="color: blue; " type="button" class="btn btn-light">{{ __('INICIAR SESIÓN') }}</button> --}}
-
-                                {{-- <a href="{{ route('register') }}" class="nav-link d-lg-none">{{ __('REGISTRARSE') }}</a> --}}
-                                <a href="{{ route('login') }}" class="btn button-primary-ard">
-                                    {{ __('INICIAR SESIÓN') }}
-                                </a>
-                                <a href="{{ route('register') }}" class="btn button-secondary-ard">
-                                    {{ __('REGISTRARSE') }}
-                                </a>
-                            @endif
-                        @endauth
-
+                    <!-- Item 3 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="{{ asset('images/costa-1.jpg') }}"
+                            class="absolute block w-full -translate-x-1/2 -translate-y-3/4 top-1/2 left-1/2"
+                            alt="..." />
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="{{ asset('images/investigacion1.jpg') }}"
+                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                            alt="..." />
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="https://images.pexels.com/photos/8387647/pexels-photo-8387647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                            alt="..." />
                     </div>
                 </div>
+                <!-- Slider indicators -->
+                <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
+                        data-carousel-slide-to="0"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+                        data-carousel-slide-to="1"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
+                        data-carousel-slide-to="2"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
+                        data-carousel-slide-to="3"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
+                        data-carousel-slide-to="4"></button>
+                </div>
+                <!-- Slider controls -->
+                <button type="button"
+                    class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    data-carousel-prev>
+                    <span
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="M5 1 1 5l4 4" />
+                        </svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button"
+                    class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    data-carousel-next>
+                    <span
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 9 4-4-4-4" />
+                        </svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
             </div>
         </div>
+
+        <section>
+            <div class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-16 max-w-7xl lg:py-24">
+                <div class="flex w-full mx-auto text-left">
+                    <div class="relative inline-flex items-center mx-auto align-middle">
+                        <div class="text-center">
+                            <h1
+                                class="max-w-5xl -mt-4 text-4xl font-bold leading-none tracking-tighter text-blue-900 md:text-5xl lg:text-5xl lg:max-w-7xl">
+                                BIENVENIDOS AL <br class="lg:block" />
+                                <p class="text-2xl md:text-4xl mt-3 leading-1 text-black"
+                                    style="letter-spacing: 0.5px">
+                                    SISTEMA DE ARRIBO, CONDUCE Y DESPACHO DE EMBARCACIONES
+                                </p>
+                            </h1>
+                            <p class="mx-auto mt-4 text-sm leading-normal text-gray-500 justificado">
+                                El Comando Naval de Capitanías de Puertos y Autoridad Maritima,
+                                con el objetivo de eficientizar los servicios de solicitudes de
+                                Arribo, Conduce y Despacho de Embarcaciones, a decidido poner en
+                                funcionamiento esta plataforma para que todos los propietarios
+                                de embarciones y/o navieras, puedan tener acceso a esta
+                                herramienta tecnologica, para que atraves de la misma puedan
+                                formalizar sus solicitudes, acoorde a las normas establecidas
+                                por la Autoridad Maritima Nacional.
+                            </p>
+
+                            <!-- botones -->
+                            <div class="mt-4">
+                                @auth
+                                    <a href="{{ route('redireccion') }}" class="btn button-primary-ard">
+                                        {{-- <i class="mdi mdi-ship-wheel mdi-18px me-2"></i>  --}}
+                                        {{ __('ENTRAR AL SISTEMA') }}
+                                    </a>
+                                @else
+                                    @if (Route::has('register'))
+                                        <a class="btn outline outline-primario hover:bg-primario hover:text-white mx-2 px-4"
+                                            href="{{ route('login') }}">{{ __('INICIAR SESIÓN') }}</a>
+                                        <a class="btn outline outline-primario bg-primario text-white mx-2 hover:bg-blue-600 hover:outline-blue-600 focus:bg-blue-900 active:bg-blue-900 px-4 top"
+                                            href="{{ route('register') }}">{{ __('REGISTRARSE') }}</a>
+                                    @endif
+                                @endauth
+                            </div>
+                            <!-- fin de los botones -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="">
+            <div class="container flex justify-center items-center mt-3 mb-10">
+                <a href="#section" class="animate__animated animate__bounce animate__infinite animate__slower"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                        class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z" />
+                    </svg></a>
+            </div>
+        </div>
+
+        <!-- todo esta parte esta por si acaso se usara mas adelante -->
+
+        <!-- Aqui sera el espacio para poner las dependencias de capitania de puerto -->
+
+        <section class="scroll-section bg-gray-50 -mt-1" id="section">
+            <div class="container mx-auto">
+                <!-- Primera parte -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Lado izquierdo -->
+                    <div class="flex justify-center items-center">
+                        <!-- La clase circle fue una clase que cree mediante css y es lo que me permite tener una imagen circular -->
+                        <img class="rounded-full circle" src="{{ asset('images/hero1.jpg') }}"
+                            alt="Imagen de un barco" />
+                    </div>
+                    <!-- Lado derecho -->
+                    <div class="flex justify-center items-center">
+                        <p class="justificado text-black md:-ml-10 md:mr-24">
+                            <strong>Conduce y Despacho de embarcaciones:</strong> Este
+                            servicio está actualmente disponible única y exclusivamente para
+                            las embarcaciones de recreo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Segunda parte -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
+                    <!-- Lado izquierdo (visible en pantallas grandes) -->
+                    <div class="hidden md:flex justify-center items-center">
+                        <p class="justificado text-black md:-mr-10 md:ml-24">
+                            <strong>Buques de carga:</strong> Con el objetivo de eficientizar
+                            y automatizar este servicio también hemos desarrollado en esta
+                            plataforma el servicio de arribo y despacho de los buques de
+                            carga, por lo que, a través de las navieras, a las cuales se les
+                            ha otorgado permiso de crear múltiples usuarios para que las
+                            mismas puedan realizar sus solicitudes en tiempo récord a las
+                            diferentes capitanías de puertos.
+                        </p>
+                    </div>
+                    <!-- Lado derecho -->
+                    <div class="flex justify-center items-center">
+                        <!-- La clase circle fue una clase que cree mediante css y es lo que me permite tener una imagen circular -->
+                        <img class="rounded-full circle" src="{{ asset('images/barcocontenedor.jpeg') }}"
+                            alt="Imagen de un barco" />
+                    </div>
+                    <!-- Lado izquierdo (visible en pantallas pequeñas) -->
+                    <div class="md:hidden flex justify-center items-center">
+                        <p class="justificado text-black">
+                            <strong>Buques de carga:</strong> Con el objetivo de eficientizar
+                            y automatizar este servicio también hemos desarrollado en esta
+                            plataforma el servicio de arribo y despacho de los buques de
+                            carga, por lo que, a través de las navieras, a las cuales se les
+                            ha otorgado permiso de crear múltiples usuarios para que las
+                            mismas puedan realizar sus solicitudes en tiempo récord a las
+                            diferentes capitanías de puertos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tercera parte -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
+                    <!-- Lado izquierdo -->
+                    <div class="flex justify-center items-center">
+                        <!-- La clase circle fue una clase que cree mediante css y es lo que me permite tener una imagen circular -->
+                        <img class="rounded-full circle" src="{{ asset('images/Foto1.jpg') }}"
+                            alt="Imagen de un barco" />
+                    </div>
+                    <!-- Lado derecho -->
+                    <div class="flex justify-center items-center">
+                        <p class="justificado text-black md:-ml-10 md:mr-24">
+                            <strong>Embarcaciones de Pesca:</strong> en proceso (para una
+                            segunda fase)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aqui para el fin de las dependencias -->
+
+        <!-- Nueva sección que aparece al hacer scroll -->
+
+        <section class="bg-blue-900">
+            <h1 class="text-center pt-3 font-bold text-white text-2xl">
+                Enlaces de Interes
+            </h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 p-4 md:p-12 w-full mb-8">
+                <a href="https://cdp.mil.do/page/" title="Acceder a la pagina" target="_blank">
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <div class="flex justify-center">
+                            <img src="{{ asset('images/cdp2.png') }}" alt="" class="w-64 h-64" />
+                        </div>
+
+                        <h2 class="font-semibold text-md text-center text-gray-800 mt-2">
+                            Comando Naval de Capitanías de Puertos y Autoridad Maritima
+                        </h2>
+
+                        <p class="mt-2 text-gray-800 text-center justificado">
+                            Se encarga de asegurar el cumplimiento de las leyes y los convenios
+                            internacionales en los espacios acuáticos, costeros y portuarios de
+                            la República Dominicana.
+                        </p>
+                    </div>
+                </a>
+                <a href="https://cdp.mil.do/page/digmar/" title="Acceder a la pagina" target="_blank">
+                    <div class="p-6 bg-gray-100 rounded-lg">
+                        <div class="flex justify-center">
+                            <img src="{{ asset('images/Direcciondegentedemar.png') }}" alt=""
+                                class="w-64 h-64" />
+                        </div>
+
+                        <h2 class="font-semibold text-md text-center text-gray-800 mt-2">
+                            Dirección de Gente de Mar
+                        </h2>
+
+                        <p class="mt-2 text-gray-800 text-center">
+                            Es una dirección encargada de coordinar y dirigir todo lo relativo
+                            al registro y gestión de la gente de mar.
+                        </p>
+                    </div>
+                </a>
+                <a href="https://cdp.mil.do/page/dierp/" title="Acceder a la pagina" target="_blank">
+                    <div class="p-6 bg-gray-100 rounded-lg">
+                        <div class="flex justify-center">
+                            <img src="{{ asset('images/direcciondeinspectores.png') }}" alt=""
+                                class="w-64 h-64" />
+                        </div>
+
+                        <h2 class="font-semibold text-md text-center text-gray-800 mt-2">
+                            Dirección de Inspectores por el Estado Rector de Puertos
+                        </h2>
+
+                        <p class="mt-2 text-gray-800 text-center justificado">
+                            Es la inspección de buques extranjeros que arriban voluntariamente a
+                            los puertos nacionales con el propósito de asegurar que se cumpla
+                            con las disposiciones establecidas en los convenios internacionales.
+                        </p>
+                    </div>
+                </a>
+                <a href="https://cdp.mil.do/page/diseho/" title="Acceder a la pagina" target="_blank">
+                    <div class="p-6 bg-gray-100 rounded-lg">
+                        <div class="flex justify-center">
+                            <img src="{{ asset('images/direcciondeservicioshidrograficos.png') }}" alt=""
+                                class="w-64 h-64" />
+                        </div>
+
+                        <h2 class="font-semibold text-md text-center text-gray-800 mt-2">
+                            Dirección de Servicios Hidrográficos y Oceanográficos
+                        </h2>
+
+                        <p class="mt-2 text-gray-800 text-center">
+                            Esta dirección lleva a cabo publicaciones sobre informaciones de
+                            seguridad marítima (avisos costeros y navales), correciones y
+                            actualizaciones de carta náutica.
+                        </p>
+                    </div>
+                </a>
+                <a href="https://cdp.mil.do/page/emmd/" title="Acceder a la pagina" target="_blank">
+                    <div class="p-6 bg-gray-100 rounded-lg">
+                        <div class="flex justify-center">
+                            <img src="{{ asset('images/escuelamarinamercante.png') }}" alt=""
+                                class="w-64 h-64" />
+                        </div>
+
+                        <h2 class="font-semibold text-md text-center text-gray-800 mt-2">
+                            Dirección de la Escuela de Marina Mercante
+                        </h2>
+
+                        <p class="mt-2 text-gray-800 text-center">
+                            Es un centro modelo de formación náutica, la cual fundamenta sus
+                            procesos en los estándares establecidos por la organización Marítima
+                            Internacional (OMI)
+                        </p>
+                    </div>
+                </a>
+                <a href="https://cdp.mil.do/page/doa/" title="Acceder a la pagina" target="_blank">
+                    <div class="p-6 bg-gray-100 rounded-lg">
+                        <div class="flex justify-center">
+                            <img src="{{ asset('images/direcciondeoperacionesacuaticas.png') }}" alt=""
+                                class="w-64 h-64" />
+                        </div>
+
+                        <h2 class="font-semibold text-md text-center text-gray-800 mt-2">
+                            Dirección de Operaciones Acuaticas
+                        </h2>
+
+                        <p class="mt-2 text-gray-800 text-center">
+                            Dirige, coordina y controla las actividades acuáticas de recreo y
+                            pesca con turistas en el litoral costero y los espacios maítimos de
+                            los distintos polos turísticos del país.
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </section>
         <!-- START FOOTER -->
-        <footer>
-            © {{ date('Y') }} - Comando Naval de Capitanias de Puerto y Autoridad Maritima, ARD.
+        <footer class="">
+            <nav class="navbar fixed-bottom bg-blue-900">
+                <div class="container d-flex justify-content-center">
+                    <p class="text-center text-white font-thin mb-0">
+                        © {{ date('Y') }} - Comando Naval de Capitanias de Puerto y Autoridad Maritima, ARD.
+                    </p>
+                    <img src="{{ asset('images/bandera-de-la-republica-dominicana-imagen-animada-0001.gif') }}"
+                        alt="" class="ml-2 h-4" />
+                </div>
+            </nav>
         </footer>
         <!-- END FOOTER -->
 
         <!-- bundle -->
-        <script src="assets/js/vendor.min.js"></script>
-        <script src="assets/js/app.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>

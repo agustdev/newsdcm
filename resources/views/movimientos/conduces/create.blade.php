@@ -333,6 +333,15 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md">
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control rounded-md" id="floatingCalle"
+                            placeholder="{{ __('DIRECCION') }}" name="calle_salida" />
+                        <label style="font-size: 10px;" for="floatingCalle">{{ __('DIRECCION') }}</label>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     {{-- fin de lugar de salida --}}
