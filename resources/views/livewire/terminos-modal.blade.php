@@ -1,12 +1,12 @@
 <div>
     <a wire:click.prevent="$set('terminoModal', true)" href="#"
-        class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">'
-        {{ __('Términos de servicio') }}
+        class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+        {{ __('Términos y condiciones del servicio') }}
     </a>
     <x-dialog-modal-term wire:model="terminoModal">
         <x-slot name="title">
             <h2 class="text-2xl font-extrabold ">
-                {{ __('Términos de servicio') }}
+                {{ __('Términos y condiciones del servicio') }}
             </h2>
         </x-slot>
 
