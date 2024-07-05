@@ -20,7 +20,7 @@
             </x-secondary-button>
 
             <x-button-register class="ml-3 accept_t" wire:click="$set('terminoModal', false)"
-                wire:loading.attr="disabled">
+                wire:loading.attr="disabled" x-bind:checked="terms">
                 {{ __('Aceptar') }}
             </x-button-register>
         </x-slot>
