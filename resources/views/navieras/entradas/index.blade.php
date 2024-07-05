@@ -15,7 +15,7 @@
     @endpush
     <x-slot name="header">
         <h2 class="h2 mb-2 mt-4 text-black uppercase">
-            {{ __('Listado de entradas') }}
+            {{ __('Reporte de entradas') }}
         </h2>
     </x-slot>
     <div class="row">
@@ -23,7 +23,7 @@
             <div class="card shadow-xl">
                 <div class="card-header">
                     <h2 class="h3 text-slate-600">
-                        {{ __('Listado de movimientos de entrada') }}
+                        {{ __('Reporte de movimientos de entrada') }}
                         <a href="{{ route('solicitudes.navieras.entradas.create') }}"
                             class="inline-flex items-center justify-center px-3 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition ease-in-out duration-150 float-end"><i
                                 class="mdi mdi-plus mdi-18px"></i>{{ __('Nueva solicitud') }}</a>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Nacionalidades;
 use App\Models\Tripulantes;
 use Livewire\Component;
 
@@ -35,6 +36,7 @@ class TripulantesPost extends Component
     public function render()
     {
         $tripulantes = Tripulantes::where('userid', auth()->user()->id)->where('mov_id', 0)->orderBy('id', 'desc')->get();
-        return view('livewire.tripulantes-post', compact('tripulantes'));
+        $nacionalidades = Nacionalidades::all();
+        return view('livewire.tripulantes-post', compact('tripulantes', 'nacionalidades'));
     }
 }

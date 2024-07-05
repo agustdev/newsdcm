@@ -136,8 +136,9 @@
                         <div class="text-center">
                             <h3 class="m-0 fw-normal cta-box-title">
                                 {{ __('SALIDAS') }}</h3>
-                            <img class="my-3 text-center mx-auto" src="{{ asset('images/barco3.2.png') }}"
-                                width="180" alt="Generic placeholder image">
+                            <img class="my-3 text-center mx-auto" style="transform: scaleX(-1);"
+                                src="{{ asset('images/e-internacional-icon.png') }}" width="180"
+                                alt="Generic placeholder image">
                             <br>
                             <a href="{{ route('solicitudes.navieras.salidas') }}"
                                 class="text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 me-2 mb-2">{{ __('SOLICITAR') }}

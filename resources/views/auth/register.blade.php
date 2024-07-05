@@ -8,21 +8,21 @@
 
         <div x-data="{
             openTab: 1,
-            activeClasses: 'border-l border-t border-r rounded-t text-blue-700',
-            inactiveClasses: 'text-blue-500 hover:text-blue-700'
+            activeClasses: 'border-l border-t border-r rounded-t text-black border-blue-600',
+            inactiveClasses: 'text-blue-400 hover:text-blue-700'
         }" class="p-2">
-            <ul class="flex border-b">
+            <ul class="flex border-b border-blue-600">
                 <li @click="openTab = 1" :class="{ '-mb-px': openTab === 1 }" class="-mb-px mr-1">
                     <a href="#" :class="openTab === 1 ? activeClasses : inactiveClasses"
                         class="bg-white inline-block py-2 px-4 font-semibold" x-on:click.prevent>
-                        {{ __('Propietarios') }}
+                        {{ __('Propietario') }}
                     </a>
                 </li>
                 <li @click="openTab = 2" :class="{ '-mb-px': openTab === 2 }" class="mr-1">
                     <!-- Set active class by using :class provided by Alpine -->
                     <a href="#" :class="openTab === 2 ? activeClasses : inactiveClasses"
                         class="bg-white inline-block py-2 px-4 font-semibold" x-on:click.prevent>
-                        {{ __('Navieras') }}
+                        {{ __('Naviera') }}
                     </a>
                 </li>
             </ul>
@@ -97,7 +97,7 @@
                             focus:bg-blue-800 active:bg-blue-900 active:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
                             transition ease-in-out duration-150 ml-1"
                                 href="{{ route('login') }}">
-                                {{ __('¿Ya registrado?') }}
+                                {{ __('¿Posees una cuenta?') }}
                             </a>
 
                             <x-button-register class="ml-4 disabled:opacity-25">
@@ -186,8 +186,8 @@
                         </div>
                     </form>
                 </div>
-            @endif
-        </div>
+
+            </div>
     </x-authentication-card>
 
     @push('js')

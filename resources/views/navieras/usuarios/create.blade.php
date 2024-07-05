@@ -15,7 +15,7 @@
     @endpush
     <x-slot name="header">
         <h2 class="h2 mb-2 mt-4 text-black uppercase">
-            {{ __('Registro de usuarios operativos') }}
+            {{ __('Registro de sub-usuarios') }}
         </h2>
     </x-slot>
 
@@ -25,7 +25,7 @@
                 @csrf
                 <x-card>
                     <x-slot name="title">
-                        {{ __('Creación de usuario') }}
+                        {{ __('Creación de sub-usuario') }}
                         <div role="status" class="spin-user float-end hidden">
                             <svg aria-hidden="true"
                                 class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-white"

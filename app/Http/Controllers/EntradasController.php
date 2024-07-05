@@ -6,6 +6,7 @@ use App\Models\CapitanesInternacionales;
 use App\Models\Destinos;
 use App\Models\EmbarcacionesInternacionales;
 use App\Models\MovimientosInternacionales;
+use App\Models\Nacionalidades;
 use App\Models\Pasajeros;
 use App\Models\Tripulantes;
 use Carbon\Carbon;
@@ -35,7 +36,8 @@ class EntradasController extends Controller
     {
         $ultimo_mov = auth()->user()->movimientos_internacionales()->orderBy('id', 'DESC')->first();
         $destinos = Destinos::all();
-        return view('movimientos.entradas.create', compact('ultimo_mov', 'destinos'));
+        $nacionalidades = Nacionalidades::all();
+        return view('movimientos.entradas.create', compact('ultimo_mov', 'destinos', 'nacionalidades'));
     }
 
     /**
