@@ -26,6 +26,13 @@ class MovimientosNavierasController extends Controller
         return view('navieras.entradas.create');
     }
 
+    public function entradasNavierasStore(Request $request)
+    {
+        $movimiento = movimientosNavieras::create($request->all());
+
+        return redirect()->route('solicitudes.navieras.entradas');
+    }
+
     public function salidasNavieras()
     {
         $salidasnavieras = movimientosNavieras::where('tipo_movimiento', 'NE')->get();
@@ -35,6 +42,13 @@ class MovimientosNavierasController extends Controller
     public function salidasNavierasCreate()
     {
         return view('navieras.salidas.create');
+    }
+
+    public function salidasNavierasStore(Request $request)
+    {
+        $movimiento = movimientosNavieras::create($request->all());
+
+        return redirect()->route('solicitudes.navieras.salidas');
     }
 
     /**
