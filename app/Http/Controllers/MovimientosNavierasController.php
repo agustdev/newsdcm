@@ -35,7 +35,7 @@ class MovimientosNavierasController extends Controller
 
     public function salidasNavieras()
     {
-        $salidasnavieras = movimientosNavieras::where('tipo_movimiento', 'NE')->get();
+        $salidasnavieras = movimientosNavieras::where('tipo_movimiento', 'NS')->get();
         return view('navieras.salidas.index', compact('salidasnavieras'));
     }
 
