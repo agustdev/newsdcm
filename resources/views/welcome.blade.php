@@ -247,7 +247,7 @@
         <!-- Aqui sera el espacio para poner las dependencias de capitania de puerto -->
 
         <section class="scroll-section bg-gray-50 -mt-1" id="section">
-            <div class="container mx-auto">
+            <div class="container mx-auto hidden md:block">
                 <!-- Primera parte -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Lado izquierdo -->
@@ -299,7 +299,7 @@
                         </p>
                     </div>
                 </div>
-
+{{-- 
                 <!-- Tercera parte -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
                     <!-- Lado izquierdo -->
@@ -315,7 +315,59 @@
                             segunda fase)
                         </p>
                     </div>
+                </div> --}}
+
+            </div>
+
+            <div class="container mx-auto md:hidden grid grid-cols-1">
+
+                {{-- items 1 --}}
+                <div class="flex px-3 py-3">
+                    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                        <img class="w-full" src="{{ asset('images/hero1.jpg') }}" alt="Sunset in the mountains">
+                        <div class="px-6 py-4">
+                            <div class="font-bold text-sm mb-2">Buques de carga</div>
+                            <p class="text-gray-700 text-sm justificado">
+                                Con el objetivo de eficientizar
+                                y automatizar este servicio también hemos desarrollado en esta
+                                plataforma el servicio de arribo y despacho de los buques de
+                                carga, por lo que, a través de las navieras, a las cuales se les
+                                ha otorgado permiso de crear múltiples usuarios para que las
+                                mismas puedan realizar sus solicitudes en tiempo récord a las
+                                diferentes capitanías de puertos.
+                            </p>
+                        </div>
+                        {{-- <div class="px-6 py-4">
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#travel</span>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#winter</span>
+                        </div> --}}
+                    </div>
                 </div>
+{{-- items 1 --}}
+
+{{-- items 2 --}}
+<div class="flex px-3 py-3">
+    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+        <img class="w-full" src="{{ asset('images/barcocontenedor.jpeg') }}" alt="Sunset in the mountains">
+        <div class="px-6 py-4">
+            <div class="font-bold text-sm mb-2">Conduce y Despacho de embarcaciones</div>
+            <p class="text-gray-700 text-sm justificado">
+                Este
+                            servicio está actualmente disponible única y exclusivamente para
+                            las embarcaciones de recreo.
+            </p>
+        </div>
+        {{-- <div class="px-6 py-4">
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#travel</span>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#winter</span>
+        </div> --}}
+    </div>
+</div>
+{{-- items 2 --}}
+
+
             </div>
         </section>
 
@@ -436,14 +488,11 @@
                 </a>
             </div>
         </section>
-
-        <div class="owl-carousel owl-theme mb-10 container-fluid">
-            <div class="item" style="width:750px"><img src="https://images.pexels.com/photos/15804651/pexels-photo-15804651/free-photo-of-people-together-on-motorcycle-on-road-in-mountains.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" alt=""></div>
-            <div class="item" style="width:700px"><h4>2<img src="https://images.pexels.com/photos/15804651/pexels-photo-15804651/free-photo-of-people-together-on-motorcycle-on-road-in-mountains.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" alt=""></h4></div>
-            <div class="item" style="width:700px" ><h4>3<img src="https://images.pexels.com/photos/15804651/pexels-photo-15804651/free-photo-of-people-together-on-motorcycle-on-road-in-mountains.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" alt=""></h4></div>
-            <div class="item" style="width:700px"><h4>4<img src="https://images.pexels.com/photos/15804651/pexels-photo-15804651/free-photo-of-people-together-on-motorcycle-on-road-in-mountains.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" alt=""></h4></div>
+{{-- nuevo carousel al final  --}}
+        <div>
+            
         </div>
-
+{{-- fin del nuevo carousel --}}
         <!-- START FOOTER -->
         <footer class="">
             <nav class="navbar fixed-bottom bg-blue-900">
@@ -469,7 +518,6 @@
 //             $(document).ready(function(){
 //   $(".owl-carousel").owlCarousel();
 // });
-
 var owl = $('.owl-carousel');
 owl.owlCarousel({
     items:1,
@@ -487,11 +535,11 @@ $('.stop').on('click',function(){
 })
 
 $('.owl-carousel').owlCarousel({
+    items:1,
     margin:10,
-    loop:true,
-    autoWidth:true,
-    items:1
-})
+    autoHeight:true
+});
+
          </script>
     </body>
 
