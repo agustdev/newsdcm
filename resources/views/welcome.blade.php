@@ -17,6 +17,10 @@
         <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
         {{-- estilos del landing --}}
         <link rel="stylesheet" href="{{ asset('css/landing.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
     </head>
 
     <body>
@@ -199,7 +203,7 @@
                             </p>
 
                             <!-- botones -->
-                            <div class="mt-4">
+                            <div class="max-w-lg mx-auto flex flex-col justify-center items-center gap-3 sm:flex-row mt-4 md:mt-8 lg:mt-10">
                                 @auth
                                     <a href="{{ route('redireccion') }}" class="btn button-primary-ard">
                                         {{-- <i class="mdi mdi-ship-wheel mdi-18px me-2"></i>  --}}
@@ -207,10 +211,16 @@
                                     </a>
                                 @else
                                     @if (Route::has('register'))
-                                        <a class="btn outline outline-primario hover:bg-primario hover:text-white mx-2 px-4"
-                                            href="{{ route('login') }}">{{ __('INICIAR SESIÓN') }}</a>
-                                        <a class="btn outline outline-primario bg-primario text-white mx-2 hover:bg-blue-600 hover:outline-blue-600 focus:bg-blue-900 active:bg-blue-900 px-4 top"
-                                            href="{{ route('register') }}">{{ __('REGISTRARSE') }}</a>
+                                        <a type="button" class="group relative inline-flex border rounded-lg border-blue-900 focus:outline-none w-full sm:w-auto"
+                                            href="{{ route('login') }}">
+                                            <span class="rounded-lg w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-blue-900 hover:text-white text-center font-bold uppercase hover:bg-blue-500 ring-1 ring-blue-500 ring-offset-1 ring-offset-blue-500 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">
+
+                                            {{ __('INICIAR SESIÓN') }}</span></a>
+                                        <a class="group relative inline-flex border border-blue-900 rounded-lg focus:outline-none w-full sm:w-auto"
+                                            href="{{ route('register') }}">
+                                            <span class="rounded-lg w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase bg-blue-900 ring-1 ring-blue-700 hover:bg-blue-800 ring-offset-1 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">
+
+                                            {{ __('REGISTRARSE') }}</span></a>
                                     @endif
                                 @endauth
                             </div>
@@ -426,6 +436,14 @@
                 </a>
             </div>
         </section>
+
+        <div class="owl-carousel owl-theme mb-10 container-fluid">
+            <div class="item" style="width:750px"><img src="https://images.pexels.com/photos/15804651/pexels-photo-15804651/free-photo-of-people-together-on-motorcycle-on-road-in-mountains.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" alt=""></div>
+            <div class="item" style="width:700px"><h4>2<img src="https://images.pexels.com/photos/15804651/pexels-photo-15804651/free-photo-of-people-together-on-motorcycle-on-road-in-mountains.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" alt=""></h4></div>
+            <div class="item" style="width:700px" ><h4>3<img src="https://images.pexels.com/photos/15804651/pexels-photo-15804651/free-photo-of-people-together-on-motorcycle-on-road-in-mountains.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" alt=""></h4></div>
+            <div class="item" style="width:700px"><h4>4<img src="https://images.pexels.com/photos/15804651/pexels-photo-15804651/free-photo-of-people-together-on-motorcycle-on-road-in-mountains.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" alt=""></h4></div>
+        </div>
+
         <!-- START FOOTER -->
         <footer class="">
             <nav class="navbar fixed-bottom bg-blue-900">
@@ -445,6 +463,36 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+         <script>
+//             $(document).ready(function(){
+//   $(".owl-carousel").owlCarousel();
+// });
+
+var owl = $('.owl-carousel');
+owl.owlCarousel({
+    items:1,
+    loop:true,
+    margin:10,
+    autoplay:true,
+    autoplayTimeout:1000,
+    autoplayHoverPause:true
+});
+$('.play').on('click',function(){
+    owl.trigger('play.owl.autoplay',[1000])
+})
+$('.stop').on('click',function(){
+    owl.trigger('stop.owl.autoplay')
+})
+
+$('.owl-carousel').owlCarousel({
+    margin:10,
+    loop:true,
+    autoWidth:true,
+    items:1
+})
+         </script>
     </body>
 
 </html>
