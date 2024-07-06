@@ -314,7 +314,7 @@
         <!-- Nueva sección que aparece al hacer scroll -->
 
         <section class="bg-blue-900">
-            <h1 class="text-center pt-3 font-bold text-white text-2xl">
+            <h1 class="text-center pt-3 font-bold text-white text-2xl md:text-4xl">
                 Enlaces de Interes
             </h1>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 p-4 md:p-12 w-full mb-8">
