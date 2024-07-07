@@ -6,6 +6,7 @@ use App\Models\Capitanes;
 use App\Models\Destinos;
 use App\Models\Embarcaciones;
 use App\Models\Movimientos;
+use App\Models\Nacionalidades;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -33,7 +34,8 @@ class DespachosController extends Controller
         $embarcaciones = auth()->user()->embarcaciones()
             ->whereRaw('fecha_validez >= CURDATE()')
             ->get();
-        return view('movimientos.despachos.create', compact('ultimo_mov', 'destinos', 'embarcaciones'));
+        $nacionalidades = Nacionalidades::all();
+        return view('movimientos.despachos.create', compact('ultimo_mov', 'destinos', 'embarcaciones', 'nacionalidades'));
         // return $embarcaciones;
     }
 
@@ -43,7 +45,8 @@ class DespachosController extends Controller
         $embarcacion = auth()->user()->embarcaciones()->where('matricula', '=', $matricula)->first();
         $ultimo_mov = auth()->user()->movimientos()->orderBy('id', 'DESC')->first();
         $destinos = Destinos::all();
-        return view('movimientos.despachos.create_post', compact('ultimo_mov', 'embarcacion', 'destinos'));
+        $nacionalidades = Nacionalidades::all();
+        return view('movimientos.despachos.create_post', compact('ultimo_mov', 'embarcacion', 'destinos', 'nacionalidades'));
         // return dd($embarcacion);
     }
 

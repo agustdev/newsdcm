@@ -129,15 +129,24 @@
                                     <option value="CATAMARAN">{{ __('CATAMARAN') }}</option>
                                 </select>
                                 <label style="font-size: 10px;"
-                                    for="floatinEslora">{{ __('TIPO EMBARCACIÓN') }}</label>
+                                    for="floatinEslora">{{ __('TIPO DE EMBARCACIÓN') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select name="tipo_uso" id="" class="form-select rounded-md" required>
                                     <option value="">- {{ __('Seleccione') }} -</option>
-                                    <option value="TURISMO">{{ __('TURISMO') }}</option>
-                                    <option value="RECREO">{{ __('RECREO') }}</option>
+                                    <option value="DRAGA">DRAGA</option>
+                                    <option value="DEPORTIVA">DEPORTIVA</option>
+                                    <option value="ESPECIAL">ESPECIAL</option>
+                                    <option value="LANCHA PRACTICO">LANCHA PRÁCTICO</option>
+                                    <option value="CARGA SECA">CARGA SECA</option>
+                                    <option value="TANQUERO">TANQUERO</option>
+                                    <option value="PLATAFORMA">PLATAFORMA</option>
+                                    <option value="RECREATIVA">RECREATIVA</option>
+                                    <option value="ARTEFACTO NAVAL">ARTEFACTO NAVAL</option>
+                                    <option value="PESCA">PESCA</option>
+                                    <option value="REMOLCADOR">REMOLCADOR</option>
                                 </select>
                                 <label style="font-size: 10px;"
                                     for="floatingEmbarcacion">{{ __('TIPO DE USO') }}</label>
@@ -238,11 +247,15 @@
                                 <select name="nacionalidad_cap" class="form-select nacionalidad rounded-md"
                                     id="" required>
                                     <option value="">- {{ __('Seleccione') }} -</option>
-                                    <option value="DOMINICANO">{{ __('DOMINICANO') }}</option>
+                                    @foreach ($nacionalidades as $nac)
+                                        <option value="{{ __($nac->gentilicio) }}" class="uppercase">
+                                            {{ $nac->gentilicio }}</option>
+                                    @endforeach
+                                    {{-- <option value="DOMINICANO">{{ __('DOMINICANO') }}</option>
                                     <option value="FRANCES">{{ __('FRANCES') }}</option>
                                     <option value="ALEMAN">{{ __('ALEMAN') }}</option>
                                     <option value="RUSO">{{ __('RUSO') }}</option>
-                                    <option value="ITALIANO">{{ __('ITALIANO') }}</option>
+                                    <option value="ITALIANO">{{ __('ITALIANO') }}</option> --}}
                                 </select>
                                 <label style="font-size: 10px;"
                                     for="floatinMatricula">{{ __('NACIONALIDAD') }}</label>
@@ -263,10 +276,18 @@
                             <div class="form-floating mb-2">
                                 <select name="motivo_viaje" class="form-select rounded-md" id="" required>
                                     <option value="">- {{ __('Seleccione motivo del viaje') }} -</option>
-                                    <option value="TURISMO">{{ __('TURISMO') }}</option>
+                                    <option value="TURISTICO">{{ __('TURÍSTICO') }}</option>
+                                    <option value="DEPORTIVO">{{ __('DEPORTIVO') }}</option>
+                                    <option value="LANCHA_PRACTICO">{{ __('LANCHA PRÁCTICO') }}</option>
+                                    <option value="CARGA">{{ __('CARGA') }}</option>
+                                    <option value="ATRAQUE">{{ __('ATRAQUE') }}</option>
+                                    <option value="PASAJERO">{{ __('PASAJERO') }}</option>
+                                    <option value="PESCA">{{ __('PESCA') }}</option>
+                                    <option value="TRANSPORTE_COMBUSTIBLE">{{ __('TRANSPORTE DE COMBUSTIBLE') }}
+                                    </option>
+                                    <option value="REMOLQUE">{{ __('REMOLQUE') }}</option>
+                                    <option value="BUCEO">{{ __('BUCEO') }}</option>
                                     <option value="RECREO">{{ __('RECREO') }}</option>
-                                    <option value="NEGOCIOS">{{ __('NEGOCIOS') }}</option>
-                                    <option value="VACACIONES">{{ __('VACACIONES') }}</option>
                                 </select>
                                 <label style="font-size: 10px;"
                                     for="floatinMatricula">{{ __('MOTIVO DEL VIAJE') }}</label>

@@ -28,9 +28,18 @@
     </div>
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input wire:model='nacionalidad' type="text" class="form-control nombre_capitan rounded-md"
+            {{-- <input wire:model='nacionalidad' type="text" class="form-control nombre_capitan rounded-md"
                 id="floatingNombreCapitan" placeholder="NOMBRE Y APELLIDO DEL CAPITAN" name="nacionalidad"
-                @error('nacionalidad') style="border-left: 2px solid red" @enderror />
+                @error('nacionalidad') style="border-left: 2px solid red" @enderror /> --}}
+
+            <select wire:model='nacionalidad' @error('nacionalidad') style="border-left: 2px solid red" @enderror
+                name="nacionalidad" class="form-select rounded-md" id="">
+                <option value="">- {{ __('Seleccione') }} -</option>
+                @foreach ($nacionalidades as $nac)
+                    <option value="{{ $nac->gentilicio }}" class="uppercase">
+                        {{ __($nac->gentilicio) }}</option>
+                @endforeach
+            </select>
             <label style="font-size: 10px;" for="floatingNombreEmbarcacion">{{ __('NACIONALIDAD') }}</label>
             @error('nacionalidad')
                 <span class="text-red-600">{{ $message }}</span>

@@ -1,0 +1,66 @@
+.circle {
+    width: 300px;
+    height: 300px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.scroll-section {
+    /* Cambia el color de fondo aquí */
+    padding: 60px 20px;
+    margin-top: 80vh; /* Hace que la sección no sea visible hasta que se haga scroll */
+}
+
+footer {
+    background-color: blue;
+}
+
+.carousel-item {
+    position: relative;
+}
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #f3e9e7;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.justificado {
+    text-align: justify;
+}
+
+@media (max-width: 815px) {
+    .size {
+        width: 150px;
+        height: auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .top {
+        margin-top: 10px;
+    }
+}
+.simbol {
+    display: block;
+    padding: 0.5rem;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.division {
+    background-color: rgba(123, 98, 0, 0.2);
+    width: 90%;
+    height: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.encabcont {
+    display: flex;
+    justify-content: space-between;
+}

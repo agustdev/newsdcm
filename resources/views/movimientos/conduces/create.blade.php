@@ -198,7 +198,7 @@
                             id="floatingNombreConductor" placeholder="NOMBRE Y APELLIDO DEL CONDUCTOR" value=""
                             name="nombre_conductor" required />
                         <label style="font-size: 10px;"
-                            for="floatingNombreConductor">{{ __('NOMBRE Y APELLIDO') }}R</label>
+                            for="floatingNombreConductor">{{ __('NOMBRE Y APELLIDO') }}</label>
                     </div>
                 </div>
 
@@ -330,6 +330,15 @@
                         </select>
                         <label style="font-size: 10px;"
                             for="floatingSelectMunicipioSalida">{{ __('MUNICIPIO') }}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control rounded-md" id="floatingCalle"
+                            placeholder="{{ __('DIRECCION') }}" name="calle_salida" />
+                        <label style="font-size: 10px;" for="floatingCalle">{{ __('DIRECCION') }}</label>
                     </div>
                 </div>
             </div>

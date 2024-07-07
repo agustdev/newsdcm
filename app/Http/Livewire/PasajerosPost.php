@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Nacionalidades;
 use App\Models\Pasajeros;
 use Livewire\Component;
 
@@ -37,6 +38,7 @@ class PasajerosPost extends Component
     public function render()
     {
         $pasajeros = Pasajeros::where('userid', auth()->user()->id)->orderBy('id', 'desc')->get();
-        return view('livewire.pasajeros-post', compact('pasajeros'));
+        $nacionalidades = Nacionalidades::all();
+        return view('livewire.pasajeros-post', compact('pasajeros', 'nacionalidades'));
     }
 }
