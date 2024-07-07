@@ -70,4 +70,12 @@
             </a>
         </li>
     @endif
+
+    <li class="side-nav-item">
+        <a href="{{ route('logout') }}" class="side-nav-link"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <i class="uil-exit"></i>
+            <span>{{ __('Cerrar Sesión') }}</span>
+        </a>
+    </li>
 </ul>

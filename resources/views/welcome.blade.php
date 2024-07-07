@@ -78,8 +78,6 @@
             </div>
         </div>
         <div class="container mx-auto">
-
-            {{ 'lenguaje actual: ' . Session::get('language') }}
             <form action="{{ route('lang.switch') }}" method="POST">
                 @csrf
                 <select onchange="this.form.submit()" name="language" id="language"
