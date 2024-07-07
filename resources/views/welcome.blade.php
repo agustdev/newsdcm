@@ -37,19 +37,36 @@
 <div class="container">
             <div class="division mx-auto"></div>
         </div>
-            <div class="simbol">
-                <img src="{{ asset('images/capitania_web.png') }}" alt="" class="h-16" />
+            <div class="simbol flex items-center">
+                <a class="md:hidden" href="#">
+                    <img src="{{ asset('images/logo armada.png') }}" alt="Logo" width="150" height="24"
+                        class="inline align-top mx-1" />
+                </a>
+
+                <a class="md:hidden" href="#">
+                    <img src="{{ asset('images/capitania_web.png') }}" alt="Logo" width="200" height="24"
+                        class="inline align-top mx-1" />
+                </a>
             </div>
         </div>
             {{-- fin del navbar celular --}}
             <div class="md:container items-center flex justify-between mx-auto py-3">
                 <div class="flex items-center">
                     <!-- <img src="/img/logo-1-1.png" alt="Logo 1" class="me-2"> -->
-            
+                    
+                    <a class="hidden md:block" href="#">
+                        <img src="{{ asset('images/logo armada.png') }}" alt="Logo" width="250" height="24"
+                            class="inline align-top" />
+                    </a>
+
                     <a class="hidden md:block" href="#">
                         <img src="{{ asset('images/capitania_web.png') }}" alt="Logo" width="300" height="24"
                             class="inline align-top" />
                     </a>
+
+                    
+
+
                 </div>
                 <div>
                     <div class="flex items-center size">
@@ -60,7 +77,7 @@
                         @csrf
                         <select onchange="this.form.submit()" name="language" id="language"
                             class="form-select px-2 w-full rounded-lg border-amber-400 size hidden md:block changeLang">
-                            <option value="es" selected>Selecciona el Idioma</option>
+                            <option value="es" selected>Seleccione su idioma</option>
                             @foreach (Config::get('languages') as $lang => $language)
                                 <option value="{{ $language['flag'] }}"
                                     {{ app()->getLocale() === $language['flag'] ? 'selected' : '' }}
@@ -77,7 +94,7 @@
                 @csrf
                 <select onchange="this.form.submit()" name="language" id="language"
                     class="form-select rounded-lg px-3 mb-2 border-amber-400 md:hidden w-full changeLang">
-                    <option value="es" selected>Seleccione el idioma</option>
+                    <option value="es" selected>Seleccione su idioma</option>
                     @foreach (Config::get('languages') as $lang => $language)
                         <option value="{{ $language['flag'] }}"
                             {{ app()->getLocale() === $language['flag'] ? 'selected' : '' }}
@@ -106,12 +123,12 @@
                                     <source src="{{ asset('video/video.mp4') }}" type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
-                                <div class="carousel-caption mt-20">
+                                {{-- <div class="carousel-caption mt-20">
                                     <p
                                         class="text-sm md:text-3xl font-bold animate__animated animate__backInDown animate__delay-2s">
                                         Avisos a los Navegantes
                                     </p>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <!-- Item 2 -->
@@ -122,10 +139,10 @@
                                     alt="..." />
                                 <div class=" mt-8">
                                     <!-- <h1 class="text-4xl font-bold mb-1 shadow-2xl animate__animated animate__backInDown animate__delay-1s ">Bienvenidos</h1> -->
-                                    <p
+                                    {{-- <p
                                         class="text-xl md:text-3xl font-bold animate__animated animate__backInDown animate__delay-2s">
                                         Avisos a los Navegantes
-                                    </p>
+                                    </p> --}}
                                 </div>
                             </div>
                         </div>
@@ -198,7 +215,7 @@
                     <div class="relative inline-flex items-center mx-auto align-middle">
                         <div class="text-center">
                             <h1
-                                class="max-w-5xl -mt-4 text-4xl font-bold leading-none tracking-tighter text-blue-900 md:text-5xl lg:text-5xl lg:max-w-7xl">
+                                class="max-w-5xl -mt-4 md:-mt-10 text-4xl font-bold leading-none tracking-tighter text-blue-900 md:text-5xl lg:text-5xl lg:max-w-7xl">
                                 BIENVENIDOS AL <br class="lg:block" />
                                 <p class="text-2xl md:text-4xl mt-3 leading-1 text-black"
                                     style="letter-spacing: 0.5px">
@@ -274,10 +291,10 @@
                     </div>
                     <!-- Lado derecho -->
                     <div class="flex justify-center items-center">
-                        <p class="justificado text-black md:-ml-10 md:mr-24">
-                            <strong>Conduce y Despacho de embarcaciones:</strong> Este
+                        <p class="justificado text-black md:-ml-6 md:mr-20">
+                            <strong>Conduce y Despacho de embarcaciones:</strong> <br> <span class="">Este
                             servicio está actualmente disponible única y exclusivamente para
-                            las embarcaciones de recreo.
+                            las embarcaciones de recreo.</span>
                         </p>
                     </div>
                 </div>
@@ -286,14 +303,14 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
                     <!-- Lado izquierdo (visible en pantallas grandes) -->
                     <div class="hidden md:flex justify-center items-center">
-                        <p class="justificado text-black md:-mr-10 md:ml-24">
-                            <strong>Buques de carga:</strong> Con el objetivo de eficientizar
+                        <p class="justificado text-black md:-mr-6 md:ml-20">
+                            <strong>Buques de carga:</strong> <br> <span class=""> Con el objetivo de eficientizar
                             y automatizar este servicio también hemos desarrollado en esta
                             plataforma el servicio de arribo y despacho de los buques de
                             carga, por lo que, a través de las navieras, a las cuales se les
                             ha otorgado permiso de crear múltiples usuarios para que las
                             mismas puedan realizar sus solicitudes en tiempo récord a las
-                            diferentes capitanías de puertos.
+                            diferentes capitanías de puertos. </span>
                         </p>
                     </div>
                     <!-- Lado derecho -->
@@ -392,7 +409,7 @@
         <!-- Nueva sección que aparece al hacer scroll -->
 
         <section class="bg-blue-900">
-            <h1 class="text-center pt-3 font-bold text-white text-2xl md:text-4xl">
+            <h1 class="text-center pt-3 font-bold text-white text-2xl md:pt-4 md:text-4xl">
                 Enlaces de Interes
             </h1>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 p-4 md:p-12 w-full">
@@ -510,12 +527,12 @@
         <!-- START FOOTER -->
         <footer class="">
             <nav class="navbar fixed-bottom bg-blue-900">
-                <div class="container flex justify-center items-center">
+                <div class="pb-2 flex justify-center items-center">
                     <p class="text-center text-white font-thin mb-0">
                         © {{ date('Y') }} - Comando Naval de Capitanias de Puerto y Autoridad Maritima, ARD.
                     </p>
-                    <img src="{{ asset('images/bandera-de-la-republica-dominicana-imagen-animada-0001.gif') }}"
-                        alt="" class="ml-2 h-4"/>
+                    {{-- <img src="{{ asset('images/bandera-de-la-republica-dominicana-imagen-animada-0001.gif') }}"
+                        alt="" class="ml-2 h-4"/> --}}
                 </div>
             </nav>
         </footer>
