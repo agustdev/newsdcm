@@ -255,5 +255,15 @@
     "Previsualizar": "Предварительный просмотр",
     "POSEE ARMAS DE FUEGO": "ВЛАДЕЕТ ОГНЕВАРНЫМ ОРУЖИЕМ",
     "Si": "Ага",
-    "No": "Нет"
+    "No": "Нет",
+    "Contraseña": "Пароль",
+    "Generar": "Курок",
+    "Seguridad de la contraseña": "Безопасность пароля",
+    "Débil": "Слабый",
+    "Confirma Contraseña": "Подтвердите пароль",
+    "Términos de servicio": "Условия использования",
+    "No documento": "Номер документа",
+    "Tipo documento": "Тип документа",
+    "Ya registrado": "Уже зарегистрирован",
+    "Registrarse": "Регистрироваться"
 }

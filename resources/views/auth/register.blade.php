@@ -186,6 +186,7 @@
                         </div>
                     </form>
                 </div>
+        </form>
 
             </div>
     </x-authentication-card>
