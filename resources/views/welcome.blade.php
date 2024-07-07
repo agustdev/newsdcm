@@ -10,8 +10,8 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('assets/images/capitania_web2_sm.png') }}">
         <!-- App css -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> --}}
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
@@ -23,36 +23,43 @@
 
     </head>
 
+    
     <body>
         <!-- navbar -->
         <nav class="navbar bg-slate-100">
+            {{-- navbar celular --}}
+            <div class="md:hidden flex flex-col">
             <div class="simbol">
                 <img src="https://ogtic.gob.do/wp-content/themes/optic/img/rd.svg"
                     alt="Escudo de la República Dominicana" class="mb-2 md:hidden h-10" />
-                <div class="division container md:hidden"></div>
+                
             </div>
+<div class="container">
+            <div class="division mx-auto"></div>
+        </div>
             <div class="simbol">
-                <img src="{{ asset('images/capitania_web.png') }}" alt="" class="md:hidden h-16" />
+                <img src="{{ asset('images/capitania_web.png') }}" alt="" class="h-16" />
             </div>
-
-            <div class="container-fluid d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center">
+        </div>
+            {{-- fin del navbar celular --}}
+            <div class="md:container items-center flex justify-between mx-auto py-3">
+                <div class="flex items-center">
                     <!-- <img src="/img/logo-1-1.png" alt="Logo 1" class="me-2"> -->
-
-                    <a class="navbar-brand hidden md:block" href="#">
+            
+                    <a class="hidden md:block" href="#">
                         <img src="{{ asset('images/capitania_web.png') }}" alt="Logo" width="300" height="24"
-                            class="d-inline-block align-text-top" />
+                            class="inline align-top" />
                     </a>
                 </div>
                 <div>
-                    <div class="d-flex align-items-center size">
+                    <div class="flex items-center size">
                         <img src="{{ asset('images/rd.svg') }}" alt="Escudo de la República Dominicana"
                             class="mb-2 hidden md:block" />
                     </div>
                     <form action="{{ route('lang.switch') }}" method="POST">
                         @csrf
                         <select onchange="this.form.submit()" name="language" id="language"
-                            class="form-select border-amber-400 size hidden md:block changeLang">
+                            class="form-select px-2 w-full rounded-lg border-amber-400 size hidden md:block changeLang">
                             <option value="es" selected>Selecciona el Idioma</option>
                             @foreach (Config::get('languages') as $lang => $language)
                                 <option value="{{ $language['flag'] }}"
@@ -65,11 +72,12 @@
                     <div class=""></div>
                 </div>
             </div>
+            <div class="container mx-auto">
             <form action="{{ route('lang.switch') }}" method="POST">
                 @csrf
                 <select onchange="this.form.submit()" name="language" id="language"
-                    class="form-select border-amber-400 md:hidden w-full mx-4 changeLang">
-                    <option value="es" selected>Idioma</option>
+                    class="form-select rounded-lg px-3 mb-2 border-amber-400 md:hidden w-full changeLang">
+                    <option value="es" selected>Seleccione el idioma</option>
                     @foreach (Config::get('languages') as $lang => $language)
                         <option value="{{ $language['flag'] }}"
                             {{ app()->getLocale() === $language['flag'] ? 'selected' : '' }}
@@ -78,106 +86,112 @@
                     @endforeach
                 </select>
             </form>
+        </div>
         </nav>
-        <!-- aqui empieza el contenido de la web -->
-        <div class="container-fluid">
-            <div id="indicators-carousel" class="relative w-full" data-carousel="static">
-                <!-- Carousel wrapper -->
-                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-                    <!-- Item 1 -->
-                    <div class="carousel-item active">
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <video autoplay muted loop
-                                class="absolute block w-full -translate-x-1/2 -translate-y-1/4 top-1/2 left-1/2 brightness-25">
-                                <source src="{{ asset('video/video.mp4') }}" type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
-                            <div class="carousel-caption mt-20">
-                                <p
-                                    class="text-sm md:text-3xl font-bold animate__animated animate__backInDown animate__delay-2s">
-                                    Avisos a los Navegantes
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="carousel-item active">
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="https://images.pexels.com/photos/813011/pexels-photo-813011.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                                class="absolute block w-full -translate-x-1/2 -translate-y-1/4 top-1/2 left-1/2"
-                                alt="..." />
-                            <div class="carousel-caption mt-20">
-                                <!-- <h1 class="text-4xl font-bold mb-1 shadow-2xl animate__animated animate__backInDown animate__delay-1s ">Bienvenidos</h1> -->
-                                <p
-                                    class="text-xl md:text-3xl font-bold animate__animated animate__backInDown animate__delay-2s">
-                                    Avisos a los Navegantes
-                                </p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Item 3 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{ asset('images/costa-1.jpg') }}"
-                            class="absolute block w-full -translate-x-1/2 -translate-y-3/4 top-1/2 left-1/2"
-                            alt="..." />
+        
+
+
+        <!-- aqui empieza el contenido de la web -->
+        <div class="overflow-hidden w-full">
+            <div class="container-fluid">
+                <div id="indicators-carousel" class="relative h-auto" data-carousel="static">
+                    <!-- Carousel wrapper -->
+                    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                        <!-- Item 1 -->
+                        <div class="carousel-item active">
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <video autoplay muted loop
+                                    class="absolute block w-full -translate-x-1/2 -translate-y-1/4 top-1/2 left-1/2 brightness-25">
+                                    <source src="{{ asset('video/video.mp4') }}" type="video/mp4" />
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="carousel-caption mt-20">
+                                    <p
+                                        class="text-sm md:text-3xl font-bold animate__animated animate__backInDown animate__delay-2s">
+                                        Avisos a los Navegantes
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="carousel-item active">
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img src="https://images.pexels.com/photos/813011/pexels-photo-813011.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                    class="absolute block w-full -translate-x-1/2 -translate-y-1/4 top-1/2 left-1/2"
+                                    alt="..." />
+                                <div class=" mt-8">
+                                    <!-- <h1 class="text-4xl font-bold mb-1 shadow-2xl animate__animated animate__backInDown animate__delay-1s ">Bienvenidos</h1> -->
+                                    <p
+                                        class="text-xl md:text-3xl font-bold animate__animated animate__backInDown animate__delay-2s">
+                                        Avisos a los Navegantes
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="{{ asset('images/costa-1.jpg') }}"
+                                class="absolute block w-full -translate-x-1/2 -translate-y-3/4 top-1/2 left-1/2"
+                                alt="..." />
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="{{ asset('images/investigacion1.jpg') }}"
+                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                alt="..." />
+                        </div>
+                        <!-- Item 5 -->
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="https://images.pexels.com/photos/8387647/pexels-photo-8387647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                alt="..." />
+                        </div>
                     </div>
-                    <!-- Item 4 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="{{ asset('images/investigacion1.jpg') }}"
-                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                            alt="..." />
+                    <!-- Slider indicators -->
+                    <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
+                            data-carousel-slide-to="0"></button>
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+                            data-carousel-slide-to="1"></button>
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
+                            data-carousel-slide-to="2"></button>
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
+                            data-carousel-slide-to="3"></button>
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
+                            data-carousel-slide-to="4"></button>
                     </div>
-                    <!-- Item 5 -->
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src="https://images.pexels.com/photos/8387647/pexels-photo-8387647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                            alt="..." />
-                    </div>
+                    <!-- Slider controls -->
+                    <button type="button"
+                        class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                        data-carousel-prev>
+                        <span
+                            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M5 1 1 5l4 4" />
+                            </svg>
+                            <span class="sr-only">Previous</span>
+                        </span>
+                    </button>
+                    <button type="button"
+                        class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                        data-carousel-next>
+                        <span
+                            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 9 4-4-4-4" />
+                            </svg>
+                            <span class="sr-only">Next</span>
+                        </span>
+                    </button>
                 </div>
-                <!-- Slider indicators -->
-                <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
-                        data-carousel-slide-to="0"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
-                        data-carousel-slide-to="1"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
-                        data-carousel-slide-to="2"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
-                        data-carousel-slide-to="3"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
-                        data-carousel-slide-to="4"></button>
-                </div>
-                <!-- Slider controls -->
-                <button type="button"
-                    class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                    data-carousel-prev>
-                    <span
-                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M5 1 1 5l4 4" />
-                        </svg>
-                        <span class="sr-only">Previous</span>
-                    </span>
-                </button>
-                <button type="button"
-                    class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                    data-carousel-next>
-                    <span
-                        class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="m1 9 4-4-4-4" />
-                        </svg>
-                        <span class="sr-only">Next</span>
-                    </span>
-                </button>
             </div>
         </div>
-
         <section>
             <div class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-16 max-w-7xl lg:py-24">
                 <div class="flex w-full mx-auto text-left">
@@ -216,6 +230,7 @@
                                             <span class="rounded-lg w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-blue-900 hover:text-white text-center font-bold uppercase hover:bg-blue-500 ring-1 ring-blue-500 ring-offset-1 ring-offset-blue-500 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">
 
                                             {{ __('INICIAR SESIÓN') }}</span></a>
+                                            
                                         <a class="group relative inline-flex border border-blue-900 rounded-lg focus:outline-none w-full sm:w-auto"
                                             href="{{ route('register') }}">
                                             <span class="rounded-lg w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase bg-blue-900 ring-1 ring-blue-700 hover:bg-blue-800 ring-offset-1 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">
@@ -229,10 +244,8 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-        <div class="">
-            <div class="container flex justify-center items-center mt-3 mb-10">
+            
+            <div class="container flex justify-center items-center w-full mt-3 mb-10 mx-auto">
                 <a href="#section" class="animate__animated animate__bounce animate__infinite animate__slower"><svg
                         xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                         class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
@@ -240,7 +253,10 @@
                             d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z" />
                     </svg></a>
             </div>
-        </div>
+        </section>
+
+        
+            
 
         <!-- todo esta parte esta por si acaso se usara mas adelante -->
 
@@ -323,7 +339,7 @@
 
                 {{-- items 1 --}}
                 <div class="flex px-3 py-3">
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                    <div class="rounded overflow-hidden shadow-lg">
                         <img class="w-full" src="{{ asset('images/hero1.jpg') }}" alt="Sunset in the mountains">
                         <div class="px-6 py-4">
                             <div class="font-bold text-sm mb-2">Buques de carga</div>
@@ -348,7 +364,7 @@
 
 {{-- items 2 --}}
 <div class="flex px-3 py-3">
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+    <div class="rounded overflow-hidden shadow-lg">
         <img class="w-full" src="{{ asset('images/barcocontenedor.jpeg') }}" alt="Sunset in the mountains">
         <div class="px-6 py-4">
             <div class="font-bold text-sm mb-2">Conduce y Despacho de embarcaciones</div>
@@ -379,9 +395,9 @@
             <h1 class="text-center pt-3 font-bold text-white text-2xl md:text-4xl">
                 Enlaces de Interes
             </h1>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 p-4 md:p-12 w-full mb-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 p-4 md:p-12 w-full">
                 <a href="https://cdp.mil.do/page/" title="Acceder a la pagina" target="_blank">
-                    <div class="p-6 bg-gray-50 rounded-lg">
+                    <div class="p-6 h-full bg-gray-50 rounded-lg">
                         <div class="flex justify-center">
                             <img src="{{ asset('images/cdp2.png') }}" alt="" class="w-64 h-64" />
                         </div>
@@ -398,7 +414,7 @@
                     </div>
                 </a>
                 <a href="https://cdp.mil.do/page/digmar/" title="Acceder a la pagina" target="_blank">
-                    <div class="p-6 bg-gray-100 rounded-lg">
+                    <div class="p-6 h-full bg-gray-100 rounded-lg">
                         <div class="flex justify-center">
                             <img src="{{ asset('images/Direcciondegentedemar.png') }}" alt=""
                                 class="w-64 h-64" />
@@ -415,7 +431,7 @@
                     </div>
                 </a>
                 <a href="https://cdp.mil.do/page/dierp/" title="Acceder a la pagina" target="_blank">
-                    <div class="p-6 bg-gray-100 rounded-lg">
+                    <div class="p-6 h-full bg-gray-100 rounded-lg">
                         <div class="flex justify-center">
                             <img src="{{ asset('images/direcciondeinspectores.png') }}" alt=""
                                 class="w-64 h-64" />
@@ -433,7 +449,7 @@
                     </div>
                 </a>
                 <a href="https://cdp.mil.do/page/diseho/" title="Acceder a la pagina" target="_blank">
-                    <div class="p-6 bg-gray-100 rounded-lg">
+                    <div class="p-6 h-full bg-gray-100 rounded-lg">
                         <div class="flex justify-center">
                             <img src="{{ asset('images/direcciondeservicioshidrograficos.png') }}" alt=""
                                 class="w-64 h-64" />
@@ -451,7 +467,7 @@
                     </div>
                 </a>
                 <a href="https://cdp.mil.do/page/emmd/" title="Acceder a la pagina" target="_blank">
-                    <div class="p-6 bg-gray-100 rounded-lg">
+                    <div class="p-6 h-full bg-gray-100 rounded-lg">
                         <div class="flex justify-center">
                             <img src="{{ asset('images/escuelamarinamercante.png') }}" alt=""
                                 class="w-64 h-64" />
@@ -469,7 +485,7 @@
                     </div>
                 </a>
                 <a href="https://cdp.mil.do/page/doa/" title="Acceder a la pagina" target="_blank">
-                    <div class="p-6 bg-gray-100 rounded-lg">
+                    <div class="p-6 h-full bg-gray-100 rounded-lg">
                         <div class="flex justify-center">
                             <img src="{{ asset('images/direcciondeoperacionesacuaticas.png') }}" alt=""
                                 class="w-64 h-64" />
@@ -489,19 +505,17 @@
             </div>
         </section>
 {{-- nuevo carousel al final  --}}
-        <div>
-            
-        </div>
+       
 {{-- fin del nuevo carousel --}}
         <!-- START FOOTER -->
         <footer class="">
             <nav class="navbar fixed-bottom bg-blue-900">
-                <div class="container d-flex justify-content-center">
+                <div class="container flex justify-center items-center">
                     <p class="text-center text-white font-thin mb-0">
                         © {{ date('Y') }} - Comando Naval de Capitanias de Puerto y Autoridad Maritima, ARD.
                     </p>
                     <img src="{{ asset('images/bandera-de-la-republica-dominicana-imagen-animada-0001.gif') }}"
-                        alt="" class="ml-2 h-4" />
+                        alt="" class="ml-2 h-4"/>
                 </div>
             </nav>
         </footer>
