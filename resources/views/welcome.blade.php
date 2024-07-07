@@ -26,6 +26,8 @@
     
     <body>
         <!-- navbar -->
+
+        {{-- estoy agregnado estas clases al navbar para despues quitarlo de ser necesario border-gray-200 py-2.5 --}}
         <nav class="navbar bg-slate-100">
             {{-- navbar celular --}}
             <div class="md:hidden flex flex-col">
@@ -89,7 +91,7 @@
                     <div class=""></div>
                 </div>
             </div>
-            <div class="container mx-auto">
+            <div class="container w-full flex justify-center">
             <form action="{{ route('lang.switch') }}" method="POST">
                 @csrf
                 <select onchange="this.form.submit()" name="language" id="language"
@@ -103,7 +105,67 @@
                     @endforeach
                 </select>
             </form>
+            
+<div class="flex items-center justify-center lg:hidden">
+                        <button id="menu-button" class="focus:outline-none text-slate-200">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" class="text-2xl text-slate-800 focus:outline-none active:scale-110 active:text-red-500" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </div>
+            
         </div>
+
+        {{-- probando lo del menu del navbar --}}
+        <div id="mainmenu" class="top-0 py-1 lg:py-0 w-full md:block bg-blue-900 sm:hidden lg:relative z-50">
+            <nav class="z-10 sticky top-0 left-0 right-0 max-w-4xl xl:max-w-5xl mx-auto px-5 py-2.5 lg:border-none lg:py-4">
+                <div class="flex items-center justify-center">
+                    <div class="hidden lg:block">
+                        <ul class="flex space-x-10 text-base font-bold text-white">
+                            <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                <a href="#">Home</a>
+                            </li>
+                            <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                <a href="#">Our services</a>
+                            </li>
+                            <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                <a href="#">About</a>
+                            </li>
+                            <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                <a href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    {{-- <div class="flex items-center justify-center lg:hidden">
+                        <button id="menu-button" class="focus:outline-none text-slate-200">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" class="text-2xl text-slate-800 focus:outline-none active:scale-110 active:text-red-500" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </div> --}}
+                </div>
+                <div id="mobile-menu" class="lg:hidden hidden">
+                    <ul class="flex flex-col space-y-4 text-base font-bold text-white mt-4">
+                        <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                            <a href="#">Our services</a>
+                        </li>
+                        <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                            <a href="#">About</a>
+                        </li>
+                        <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        {{-- fin del menu del navbar --}}
+
+
         </nav>
 
         
@@ -114,7 +176,7 @@
             <div class="container-fluid">
                 <div id="indicators-carousel" class="relative h-auto" data-carousel="static">
                     <!-- Carousel wrapper -->
-                    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                    <div class="relative h-56 overflow-hidden md:h-96">
                         <!-- Item 1 -->
                         <div class="carousel-item active">
                             <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -215,9 +277,9 @@
                     <div class="relative inline-flex items-center mx-auto align-middle">
                         <div class="text-center">
                             <h1
-                                class="max-w-5xl -mt-4 md:-mt-10 text-4xl font-bold leading-none tracking-tighter text-blue-900 md:text-5xl lg:text-5xl lg:max-w-7xl">
+                                class="max-w-5xl -mt-4 md:-mt-10 text-4xl font-bold leading-none tracking-tighter text-blue-900 md:text-5xl lg:text-4xl lg:max-w-7xl">
                                 BIENVENIDOS AL <br class="lg:block" />
-                                <p class="text-2xl md:text-4xl mt-3 leading-1 text-black"
+                                <p class="text-2xl md:text-3xl mt-3 leading-1 text-black"
                                     style="letter-spacing: 0.5px">
                                     SISTEMA DE ARRIBO, CONDUCE Y DESPACHO DE EMBARCACIONES
                                 </p>
@@ -571,6 +633,22 @@ $('.owl-carousel').owlCarousel({
     autoHeight:true
 });
 
+
+// document.getElementById('menu-button').addEventListener('click', function() {
+//             var menu = document.getElementById('mobile-menu');
+//             if (menu.classList.contains('hidden')) {
+//                 menu.classList.remove('hidden');
+//             } else {
+//                 menu.classList.add('hidden');
+//             }
+//         });
+
+        $(document).ready(function() {
+            $('#menu-button').on('click', function() { 
+                // $('#mainmenu').slideToggle('fast');
+                $('#mainmenu, #mobile-menu').slideToggle(90);
+            });
+        });
          </script>
     </body>
 
