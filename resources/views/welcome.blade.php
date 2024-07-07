@@ -119,22 +119,27 @@
         {{-- probando lo del menu del navbar --}}
         <div id="mainmenu" class="top-0 py-1 lg:py-0 w-full md:block bg-blue-900 sm:hidden lg:relative z-50">
             <nav class="z-10 sticky top-0 left-0 right-0 max-w-4xl xl:max-w-5xl mx-auto px-5 py-2.5 lg:border-none lg:py-4">
-                <div class="flex items-center justify-center">
+                <div class="flex items-center justify-between">
                     <div class="hidden lg:block">
                         <ul class="flex space-x-10 text-base font-bold text-white">
                             <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                <a href="#">Home</a>
+                                <a href="#">Inicio</a>
                             </li>
                             <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                <a href="#">Our services</a>
+                                <a href="#">Nuestros Servicios</a>
                             </li>
                             <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                <a href="#">About</a>
+                                <a href="#">Manual de Usuario</a>
                             </li>
                             <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                <a href="#">Contact</a>
+                                <a href="#">Contactos</a>
                             </li>
-                        </ul>
+                        </ul>  
+                        
+                    </div>
+                    <div class="hidden lg:flex lg:items-center gap-x-2">
+                        <button class="flex items-center text-black dark:text-white justify-center px-6 py-2.5 font-semibold hover:underline hover:underline-offset-4 hover:w-fit">Iniciar Sesión</button>
+                        <button class="flex items-center justify-center rounded-md bg-white hover:bg-gray-300 text-black px-6 py-1.5 font-semibold hover:shadow-lg hover:drop-shadow transition duration-200">Registrarse</button>
                     </div>
                     {{-- <div class="flex items-center justify-center lg:hidden">
                         <button id="menu-button" class="focus:outline-none text-slate-200">
@@ -147,19 +152,26 @@
                 <div id="mobile-menu" class="lg:hidden hidden">
                     <ul class="flex flex-col space-y-4 text-base font-bold text-white mt-4">
                         <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Home</a>
+                            <a href="#">Inicio</a>
                         </li>
                         <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Our services</a>
+                            <a href="#">Nuestros Servicios</a>
                         </li>
                         <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">About</a>
+                            <a href="#">Sobre Nosotros</a>
                         </li>
                         <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Contact</a>
+                            <a href="#">Contactos</a>
+                        </li>
+                        <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                            <a href="#">Iniciar Sesión</a>
+                        </li>
+                        <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                            <a href="#">Registrarse</a>
                         </li>
                     </ul>
                 </div>
+                
             </nav>
         </div>
 
