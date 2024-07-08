@@ -66,9 +66,6 @@
                             class="inline align-top" />
                     </a>
 
-                    
-
-
                 </div>
                 <div>
                     <div class="flex items-center size">

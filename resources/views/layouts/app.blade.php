@@ -117,6 +117,7 @@
                             @csrf
                             <select onchange="this.form.submit()" name="language" id="language"
                                 class="mr-2 mt-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 mb-6 changeLang">
+                                <option value="es">-Selecicone su idioma-</option>
                                 @foreach (Config::get('languages') as $lang => $language)
                                     <option value="{{ $language['flag'] }}"
                                         {{ app()->getLocale() === $language['flag'] ? 'selected' : '' }}
