@@ -158,7 +158,7 @@
                                 <input type="text" class="form-control telefono2 rounded-md"
                                     id="floatingTelefono2Conductor" placeholder="OTRO TELÉFONO DEL CONDUCTOR"
                                     name="telefono_conductor_otro" value="" />
-                                <label style="font-size: 10px;" for="floatingTelefono2Conductor">OTRO TELÉFONO</label>
+                                <label style="font-size: 10px;" for="floatingTelefono2Conductor">{{ __('OTRO TELÉFONO') }}</label>
                             </div>
                         </div>
                     </div>

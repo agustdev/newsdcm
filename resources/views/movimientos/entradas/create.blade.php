@@ -629,7 +629,7 @@
                     <div class="row">
                         <div class="col-md">
                             <div class="">
-                                <h3 class="mb-2 mt-2 bold text-black">{{ __('¿POSEE ARMAS DE FUEGO?') }}</h3>
+                                <h3 class="mb-2 mt-2 bold text-black">¿{{ __('POSEE ARMAS DE FUEGO') }}?</h3>
                                 <input type="radio" name='armas' id="armas_si" value="Si"
                                     class="w-4 h-4 text-blue-900 bg-gray-100 border-gray-300 focus:ring-blue-600  focus:ring-2 ">
                                 <label for="armas_si">{{ __('Si') }}</label>

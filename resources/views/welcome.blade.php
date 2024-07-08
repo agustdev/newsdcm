@@ -120,23 +120,23 @@
                     <div class="hidden lg:block">
                         <ul class="flex space-x-10 text-base font-bold text-white">
                             <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                <a href="#">Inicio</a>
+                                <a href="#">{{ __('Inicio') }}</a>
                             </li>
                             <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                <a href="#">Nuestros Servicios</a>
+                                <a href="#">{{ __('Nuestros Servicios') }}</a>
                             </li>
                             <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                <a href="#">Manual de Usuario</a>
+                                <a href="#">{{ __('Manual de Usuario') }}</a>
                             </li>
                             <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                <a href="#">Contactos</a>
+                                <a href="#">{{ __('Contactos') }}</a>
                             </li>
                         </ul>  
                         
                     </div>
                     <div class="hidden lg:flex lg:items-center gap-x-2">
-                        <button class="flex items-center text-black dark:text-white justify-center px-6 py-2.5 font-semibold hover:underline hover:underline-offset-4 hover:w-fit">Iniciar Sesión</button>
-                        <button class="flex items-center justify-center rounded-md bg-white hover:bg-gray-300 text-black px-6 py-1.5 font-semibold hover:shadow-lg hover:drop-shadow transition duration-200">Registrarse</button>
+                        <button class="flex items-center text-black dark:text-white justify-center px-6 py-2.5 font-semibold hover:underline hover:underline-offset-4 hover:w-fit">{{ __('Iniciar Sesión') }}</button>
+                        <button class="flex items-center justify-center rounded-md bg-white hover:bg-gray-300 text-black px-6 py-1.5 font-semibold hover:shadow-lg hover:drop-shadow transition duration-200">{{ __('Registrarse') }}</button>
                     </div>
                     {{-- <div class="flex items-center justify-center lg:hidden">
                         <button id="menu-button" class="focus:outline-none text-slate-200">
@@ -149,22 +149,22 @@
                 <div id="mobile-menu" class="lg:hidden hidden">
                     <ul class="flex flex-col space-y-4 text-base font-bold text-white mt-4">
                         <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Inicio</a>
+                            <a href="#">{{ __('Inicio') }}</a>
                         </li>
                         <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Nuestros Servicios</a>
+                            <a href="#">{{ __('Nuestros Servicios') }}</a>
                         </li>
                         <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Sobre Nosotros</a>
+                            <a href="#">{{ __('Sobre Nosotros') }}</a>
                         </li>
                         <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Contactos</a>
+                            <a href="#">{{ __('Contactos') }}</a>
                         </li>
                         <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Iniciar Sesión</a>
+                            <a href="#">{{ __('Iniciar Sesión') }}</a>
                         </li>
                         <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Registrarse</a>
+                            <a href="#">{{ __('Registrarse') }}</a>
                         </li>
                     </ul>
                 </div>
@@ -287,21 +287,14 @@
                         <div class="text-center">
                             <h1
                                 class="max-w-5xl -mt-4 md:-mt-10 text-4xl font-bold leading-none tracking-tighter text-blue-900 md:text-5xl lg:text-4xl lg:max-w-7xl">
-                                BIENVENIDOS AL <br class="lg:block" />
+                                {{ __('BIENVENIDOS AL') }} <br class="lg:block" />
                                 <p class="text-2xl md:text-3xl mt-3 leading-1 text-black"
                                     style="letter-spacing: 0.5px">
-                                    SISTEMA DE ARRIBO, CONDUCE Y DESPACHO DE EMBARCACIONES
+                                    {{ __('SISTEMA DE ARRIBO, CONDUCE Y DESPACHO DE EMBARCACIONES') }}
                                 </p>
                             </h1>
                             <p class="mx-auto mt-4 text-sm leading-normal text-gray-500 justificado">
-                                El Comando Naval de Capitanías de Puertos y Autoridad Maritima,
-                                con el objetivo de eficientizar los servicios de solicitudes de
-                                Arribo, Conduce y Despacho de Embarcaciones, a decidido poner en
-                                funcionamiento esta plataforma para que todos los propietarios
-                                de embarciones y/o navieras, puedan tener acceso a esta
-                                herramienta tecnologica, para que atraves de la misma puedan
-                                formalizar sus solicitudes, acoorde a las normas establecidas
-                                por la Autoridad Maritima Nacional.
+                               {{ __('El Comando Naval de Capitanías de Puertos y Autoridad Maritima, con el objetivo de eficientizar los servicios de solicitudes de Arribo, Conduce y Despacho de Embarcaciones, a decidido poner en funcionamiento esta plataforma para que todos los propietarios de embarciones y/o navieras, puedan tener acceso a esta herramienta tecnologica, para que a traves de la misma puedan formalizar sus solicitudes, acoorde a las normas establecidas por la Autoridad Maritima Nacional') }}.
                             </p>
 
                             <!-- botones -->
@@ -363,9 +356,7 @@
                     <!-- Lado derecho -->
                     <div class="flex justify-center items-center">
                         <p class="justificado text-black md:-ml-6 md:mr-20">
-                            <strong>Conduce y Despacho de embarcaciones:</strong> <br> <span class="">Este
-                            servicio está actualmente disponible única y exclusivamente para
-                            las embarcaciones de recreo.</span>
+                            <strong>{{ __('Conduce y Despacho de embarcaciones') }}:</strong> <br> <span class="">{{ __('Este servicio está actualmente disponible única y exclusivamente para las embarcaciones de recreo') }}.</span>
                         </p>
                     </div>
                 </div>
@@ -375,13 +366,7 @@
                     <!-- Lado izquierdo (visible en pantallas grandes) -->
                     <div class="hidden md:flex justify-center items-center">
                         <p class="justificado text-black md:-mr-6 md:ml-20">
-                            <strong>Buques de carga:</strong> <br> <span class=""> Con el objetivo de eficientizar
-                            y automatizar este servicio también hemos desarrollado en esta
-                            plataforma el servicio de arribo y despacho de los buques de
-                            carga, por lo que, a través de las navieras, a las cuales se les
-                            ha otorgado permiso de crear múltiples usuarios para que las
-                            mismas puedan realizar sus solicitudes en tiempo récord a las
-                            diferentes capitanías de puertos. </span>
+                            <strong>{{ __('Buques de carga') }}:</strong> <br> <span class=""> {{ __('Con el objetivo de eficientizar y automatizar este servicio también hemos desarrollado en esta plataforma el servicio de arribo y despacho de los buques de carga, por lo que, a través de las navieras, a las cuales se les ha otorgado permiso de crear múltiples usuarios para que las mismas puedan realizar sus solicitudes en tiempo récord a las diferentes capitanías de puertos') }}. </span>
                         </p>
                     </div>
                     <!-- Lado derecho -->
@@ -393,13 +378,7 @@
                     <!-- Lado izquierdo (visible en pantallas pequeñas) -->
                     <div class="md:hidden flex justify-center items-center">
                         <p class="justificado text-black">
-                            <strong>Buques de carga:</strong> Con el objetivo de eficientizar
-                            y automatizar este servicio también hemos desarrollado en esta
-                            plataforma el servicio de arribo y despacho de los buques de
-                            carga, por lo que, a través de las navieras, a las cuales se les
-                            ha otorgado permiso de crear múltiples usuarios para que las
-                            mismas puedan realizar sus solicitudes en tiempo récord a las
-                            diferentes capitanías de puertos.
+                            <strong>{{ __('Buques de carga') }}:</strong> {{ __('Con el objetivo de eficientizar y automatizar este servicio también hemos desarrollado en esta plataforma el servicio de arribo y despacho de los buques de carga, por lo que, a través de las navieras, a las cuales se les ha otorgado permiso de crear múltiples usuarios para que las mismas puedan realizar sus solicitudes en tiempo récord a las diferentes capitanías de puertos') }}.
                         </p>
                     </div>
                 </div>
@@ -415,8 +394,8 @@
                     <!-- Lado derecho -->
                     <div class="flex justify-center items-center">
                         <p class="justificado text-black md:-ml-10 md:mr-24">
-                            <strong>Embarcaciones de Pesca:</strong> en proceso (para una
-                            segunda fase)
+                            <strong>{{ __('Embarcaciones de Pesca') }}:</strong> {{ __('en proceso (para una
+                            segunda fase) ')}}
                         </p>
                     </div>
                 </div> --}}
@@ -430,15 +409,15 @@
                     <div class="rounded overflow-hidden shadow-lg">
                         <img class="w-full" src="{{ asset('images/hero1.jpg') }}" alt="Sunset in the mountains">
                         <div class="px-6 py-4">
-                            <div class="font-bold text-sm mb-2">Buques de carga</div>
+                            <div class="font-bold text-sm mb-2">{{ __('Buques de carga') }}</div>
                             <p class="text-gray-700 text-sm justificado">
-                                Con el objetivo de eficientizar
+                                {{ __('Con el objetivo de eficientizar
                                 y automatizar este servicio también hemos desarrollado en esta
                                 plataforma el servicio de arribo y despacho de los buques de
                                 carga, por lo que, a través de las navieras, a las cuales se les
                                 ha otorgado permiso de crear múltiples usuarios para que las
                                 mismas puedan realizar sus solicitudes en tiempo récord a las
-                                diferentes capitanías de puertos.
+                                diferentes capitanías de puertos') }}.
                             </p>
                         </div>
                         {{-- <div class="px-6 py-4">
@@ -455,11 +434,9 @@
     <div class="rounded overflow-hidden shadow-lg">
         <img class="w-full" src="{{ asset('images/barcocontenedor.jpeg') }}" alt="Sunset in the mountains">
         <div class="px-6 py-4">
-            <div class="font-bold text-sm mb-2">Conduce y Despacho de embarcaciones</div>
+            <div class="font-bold text-sm mb-2">{{ __('Conduce y Despacho de embarcaciones') }}</div>
             <p class="text-gray-700 text-sm justificado">
-                Este
-                            servicio está actualmente disponible única y exclusivamente para
-                            las embarcaciones de recreo.
+                {{ __('Este servicio está actualmente disponible única y exclusivamente para las embarcaciones de recreo') }}.
             </p>
         </div>
         {{-- <div class="px-6 py-4">
@@ -481,7 +458,7 @@
 
         <section class="bg-blue-900">
             <h1 class="text-center pt-3 font-bold text-white text-2xl md:pt-4 md:text-4xl">
-                Enlaces de Interes
+                {{ __('Enlaces de Interes') }}
             </h1>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 p-4 md:p-12 w-full">
                 <a href="https://cdp.mil.do/page/" title="Acceder a la pagina" target="_blank">
@@ -491,13 +468,11 @@
                         </div>
 
                         <h2 class="font-semibold text-md text-center text-gray-800 mt-2">
-                            Comando Naval de Capitanías de Puertos y Autoridad Maritima
+                            {{ __('Comando Naval de Capitanías de Puertos y Autoridad Maritima') }}
                         </h2>
 
                         <p class="mt-2 text-gray-800 text-center justificado">
-                            Se encarga de asegurar el cumplimiento de las leyes y los convenios
-                            internacionales en los espacios acuáticos, costeros y portuarios de
-                            la República Dominicana.
+                            {{ __('Se encarga de asegurar el cumplimiento de las leyes y los convenios internacionales en los espacios acuáticos, costeros y portuarios de la República Dominicana') }}.
                         </p>
                     </div>
                 </a>
@@ -509,12 +484,11 @@
                         </div>
 
                         <h2 class="font-semibold text-md text-center text-gray-800 mt-2">
-                            Dirección de Gente de Mar
+                            {{ __('Dirección de Gente de Mar') }}
                         </h2>
 
                         <p class="mt-2 text-gray-800 text-center">
-                            Es una dirección encargada de coordinar y dirigir todo lo relativo
-                            al registro y gestión de la gente de mar.
+                            {{ __('Es una dirección encargada de coordinar y dirigir todo lo relativo al registro y gestión de la gente de mar') }}.
                         </p>
                     </div>
                 </a>
@@ -526,13 +500,11 @@
                         </div>
 
                         <h2 class="font-semibold text-md text-center text-gray-800 mt-2">
-                            Dirección de Inspectores por el Estado Rector de Puertos
+                            {{ __('Dirección de Inspectores por el Estado Rector de Puertos') }}
                         </h2>
 
                         <p class="mt-2 text-gray-800 text-center justificado">
-                            Es la inspección de buques extranjeros que arriban voluntariamente a
-                            los puertos nacionales con el propósito de asegurar que se cumpla
-                            con las disposiciones establecidas en los convenios internacionales.
+                            {{ __('Es la inspección de buques extranjeros que arriban voluntariamente a los puertos nacionales con el propósito de asegurar que se cumpla con las disposiciones establecidas en los convenios internacionales') }}.
                         </p>
                     </div>
                 </a>
@@ -544,13 +516,11 @@
                         </div>
 
                         <h2 class="font-semibold text-md text-center text-gray-800 mt-2">
-                            Dirección de Servicios Hidrográficos y Oceanográficos
+                            {{ __('Dirección de Servicios Hidrográficos y Oceanográficos') }}
                         </h2>
 
                         <p class="mt-2 text-gray-800 text-center">
-                            Esta dirección lleva a cabo publicaciones sobre informaciones de
-                            seguridad marítima (avisos costeros y navales), correciones y
-                            actualizaciones de carta náutica.
+                            {{ __('Esta dirección lleva a cabo publicaciones sobre informaciones de seguridad marítima (avisos costeros y navales), correciones y actualizaciones de carta náutica') }}.
                         </p>
                     </div>
                 </a>
@@ -562,13 +532,11 @@
                         </div>
 
                         <h2 class="font-semibold text-md text-center text-gray-800 mt-2">
-                            Dirección de la Escuela de Marina Mercante
+                            {{ __('Dirección de la Escuela de Marina Mercante') }}
                         </h2>
 
                         <p class="mt-2 text-gray-800 text-center">
-                            Es un centro modelo de formación náutica, la cual fundamenta sus
-                            procesos en los estándares establecidos por la organización Marítima
-                            Internacional (OMI)
+                            {{ __('Es un centro modelo de formación náutica, la cual fundamenta sus procesos en los estándares establecidos por la organización Marítima Internacional (OMI)') }}
                         </p>
                     </div>
                 </a>
@@ -580,13 +548,11 @@
                         </div>
 
                         <h2 class="font-semibold text-md text-center text-gray-800 mt-2">
-                            Dirección de Operaciones Acuaticas
+                            {{ __('Dirección de Operaciones Acuaticas') }}
                         </h2>
 
                         <p class="mt-2 text-gray-800 text-center">
-                            Dirige, coordina y controla las actividades acuáticas de recreo y
-                            pesca con turistas en el litoral costero y los espacios maítimos de
-                            los distintos polos turísticos del país.
+                            {{ __('Dirige, coordina y controla las actividades acuáticas de recreo y pesca con turistas en el litoral costero y los espacios maítimos de los distintos polos turísticos del país') }}.
                         </p>
                     </div>
                 </a>
@@ -600,7 +566,7 @@
             <nav class="navbar fixed-bottom bg-blue-900">
                 <div class="pb-2 flex justify-center items-center">
                     <p class="text-center text-white font-thin mb-0">
-                        © {{ date('Y') }} - Comando Naval de Capitanias de Puerto y Autoridad Maritima, ARD.
+                        © {{ date('Y') }} - {{ __('Comando Naval de Capitanias de Puerto y Autoridad Maritima, ARD') }}.
                     </p>
                     {{-- <img src="{{ asset('images/bandera-de-la-republica-dominicana-imagen-animada-0001.gif') }}"
                         alt="" class="ml-2 h-4"/> --}}
