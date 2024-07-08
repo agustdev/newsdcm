@@ -17,13 +17,19 @@
         <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
         {{-- estilos del landing --}}
         <link rel="stylesheet" href="{{ asset('css/landing.css') }}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+            integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+            integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     </head>
 
-    
+
     <body>
         <!-- navbar -->
 
@@ -31,31 +37,31 @@
         <nav class="navbar bg-slate-100">
             {{-- navbar celular --}}
             <div class="md:hidden flex flex-col">
-            <div class="simbol">
-                <img src="https://ogtic.gob.do/wp-content/themes/optic/img/rd.svg"
-                    alt="Escudo de la República Dominicana" class="mb-2 md:hidden h-10" />
-                
-            </div>
-<div class="container">
-            <div class="division mx-auto"></div>
-        </div>
-            <div class="simbol flex items-center">
-                <a class="md:hidden" href="#">
-                    <img src="{{ asset('images/logo armada.png') }}" alt="Logo" width="150" height="24"
-                        class="inline align-top mx-1" />
-                </a>
+                <div class="simbol">
+                    <img src="https://ogtic.gob.do/wp-content/themes/optic/img/rd.svg"
+                        alt="Escudo de la República Dominicana" class="mb-2 md:hidden h-10" />
 
-                <a class="md:hidden" href="#">
-                    <img src="{{ asset('images/capitania_web.png') }}" alt="Logo" width="200" height="24"
-                        class="inline align-top mx-1" />
-                </a>
+                </div>
+                <div class="container">
+                    <div class="division mx-auto"></div>
+                </div>
+                <div class="simbol flex items-center">
+                    <a class="md:hidden" href="#">
+                        <img src="{{ asset('images/logo armada.png') }}" alt="Logo" width="150" height="24"
+                            class="inline align-top mx-1" />
+                    </a>
+
+                    <a class="md:hidden" href="#">
+                        <img src="{{ asset('images/capitania_web.png') }}" alt="Logo" width="200" height="24"
+                            class="inline align-top mx-1" />
+                    </a>
+                </div>
             </div>
-        </div>
             {{-- fin del navbar celular --}}
             <div class="md:container items-center flex justify-between mx-auto py-3">
                 <div class="flex items-center">
                     <!-- <img src="/img/logo-1-1.png" alt="Logo 1" class="me-2"> -->
-                    
+
                     <a class="hidden md:block" href="#">
                         <img src="{{ asset('images/logo armada.png') }}" alt="Logo" width="250" height="24"
                             class="inline align-top" />
@@ -89,95 +95,114 @@
                 </div>
             </div>
             <div class="container w-full flex justify-center">
-            <form action="{{ route('lang.switch') }}" method="POST">
-                @csrf
-                <select onchange="this.form.submit()" name="language" id="language"
-                    class="form-select rounded-lg px-3 mb-2 border-amber-400 md:hidden w-full changeLang">
-                    <option value="es" selected>Seleccione su idioma</option>
-                    @foreach (Config::get('languages') as $lang => $language)
-                        <option value="{{ $language['flag'] }}"
-                            {{ app()->getLocale() === $language['flag'] ? 'selected' : '' }}
-                            data-img="{{ asset('images/' . $language['image']) }}">
-                            {{ $language['display'] }}</option>
-                    @endforeach
-                </select>
-            </form>
-            
-<div class="flex items-center justify-center lg:hidden">
-                        <button id="menu-button" class="focus:outline-none text-slate-200">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" class="text-2xl text-slate-800 focus:outline-none active:scale-110 active:text-red-500" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                    </div>
-            
-        </div>
+                <form action="{{ route('lang.switch') }}" method="POST">
+                    @csrf
+                    <select onchange="this.form.submit()" name="language" id="language"
+                        class="form-select rounded-lg px-3 mb-2 border-amber-400 md:hidden w-full changeLang">
+                        <option value="es" selected>Seleccione su idioma</option>
+                        @foreach (Config::get('languages') as $lang => $language)
+                            <option value="{{ $language['flag'] }}"
+                                {{ app()->getLocale() === $language['flag'] ? 'selected' : '' }}
+                                data-img="{{ asset('images/' . $language['image']) }}">
+                                {{ $language['display'] }}</option>
+                        @endforeach
+                    </select>
+                </form>
 
-        {{-- probando lo del menu del navbar --}}
-        <div id="mainmenu" class="top-0 py-1 lg:py-0 w-full md:block bg-blue-900 sm:hidden lg:relative z-50">
-            <nav class="z-10 sticky top-0 left-0 right-0 max-w-4xl xl:max-w-5xl mx-auto px-5 py-2.5 lg:border-none lg:py-4">
-                <div class="flex items-center justify-between">
-                    <div class="hidden lg:block">
-                        <ul class="flex space-x-10 text-base font-bold text-white">
-                            <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                <a href="#">Inicio</a>
-                            </li>
-                            <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                <a href="#">Nuestros Servicios</a>
-                            </li>
-                            <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                <a href="#">Manual de Usuario</a>
-                            </li>
-                            <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                <a href="#">Contactos</a>
-                            </li>
-                        </ul>  
-                        
-                    </div>
-                    <div class="hidden lg:flex lg:items-center gap-x-2">
-                        <button class="flex items-center text-black dark:text-white justify-center px-6 py-2.5 font-semibold hover:underline hover:underline-offset-4 hover:w-fit">Iniciar Sesión</button>
-                        <button class="flex items-center justify-center rounded-md bg-white hover:bg-gray-300 text-black px-6 py-1.5 font-semibold hover:shadow-lg hover:drop-shadow transition duration-200">Registrarse</button>
-                    </div>
-                    {{-- <div class="flex items-center justify-center lg:hidden">
+                <div class="flex items-center justify-center lg:hidden">
+                    <button id="menu-button" class="focus:outline-none text-slate-200">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20"
+                            aria-hidden="true"
+                            class="text-2xl text-slate-800 focus:outline-none active:scale-110 active:text-red-500"
+                            height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+
+            {{-- probando lo del menu del navbar --}}
+            <div id="mainmenu" class="top-0 py-1 lg:py-0 w-full md:block bg-blue-900 sm:hidden lg:relative z-50">
+                <nav
+                    class="z-10 sticky top-0 left-0 right-0 max-w-4xl xl:max-w-5xl mx-auto px-5 py-2.5 lg:border-none lg:py-4">
+                    <div class="flex items-center justify-between">
+                        <div class="hidden lg:block">
+                            <ul class="flex space-x-10 text-base font-bold text-white">
+                                <li
+                                    class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                    <a href="#">Inicio</a>
+                                </li>
+                                <li
+                                    class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                    <a href="#">Nuestros Servicios</a>
+                                </li>
+                                <li
+                                    class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                    <a href="#">Manual de Usuario</a>
+                                </li>
+                                <li
+                                    class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                    <a href="#">Contactos</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="hidden lg:flex lg:items-center gap-x-2">
+                            <button
+                                class="flex items-center text-black dark:text-white justify-center px-6 py-2.5 font-semibold hover:underline hover:underline-offset-4 hover:w-fit">Iniciar
+                                Sesión</button>
+                            <button
+                                class="flex items-center justify-center rounded-md bg-white hover:bg-gray-300 text-black px-6 py-1.5 font-semibold hover:shadow-lg hover:drop-shadow transition duration-200">Registrarse</button>
+                        </div>
+                        {{-- <div class="flex items-center justify-center lg:hidden">
                         <button id="menu-button" class="focus:outline-none text-slate-200">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" class="text-2xl text-slate-800 focus:outline-none active:scale-110 active:text-red-500" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
                             </svg>
                         </button>
                     </div> --}}
-                </div>
-                <div id="mobile-menu" class="lg:hidden hidden">
-                    <ul class="flex flex-col space-y-4 text-base font-bold text-white mt-4">
-                        <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Inicio</a>
-                        </li>
-                        <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Nuestros Servicios</a>
-                        </li>
-                        <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Sobre Nosotros</a>
-                        </li>
-                        <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Contactos</a>
-                        </li>
-                        <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Iniciar Sesión</a>
-                        </li>
-                        <li class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                            <a href="#">Registrarse</a>
-                        </li>
-                    </ul>
-                </div>
-                
-            </nav>
-        </div>
+                    </div>
+                    <div id="mobile-menu" class="lg:hidden hidden">
+                        <ul class="flex flex-col space-y-4 text-base font-bold text-white mt-4">
+                            <li
+                                class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                <a href="#">Inicio</a>
+                            </li>
+                            <li
+                                class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                <a href="#">Nuestros Servicios</a>
+                            </li>
+                            <li
+                                class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                <a href="#">Sobre Nosotros</a>
+                            </li>
+                            <li
+                                class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                <a href="#">Contactos</a>
+                            </li>
+                            <li
+                                class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                <a href="#">Iniciar Sesión</a>
+                            </li>
+                            <li
+                                class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                <a href="#">Registrarse</a>
+                            </li>
+                        </ul>
+                    </div>
 
-        {{-- fin del menu del navbar --}}
+                </nav>
+            </div>
+
+            {{-- fin del menu del navbar --}}
 
 
         </nav>
 
-        
+
 
 
         <!-- aqui empieza el contenido de la web -->
@@ -241,14 +266,14 @@
                     <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
                         <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
                             data-carousel-slide-to="0"></button>
-                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
-                            data-carousel-slide-to="1"></button>
-                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
-                            data-carousel-slide-to="2"></button>
-                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
-                            data-carousel-slide-to="3"></button>
-                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
-                            data-carousel-slide-to="4"></button>
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false"
+                            aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false"
+                            aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false"
+                            aria-label="Slide 4" data-carousel-slide-to="3"></button>
+                        <button type="button" class="w-3 h-3 rounded-full" aria-current="false"
+                            aria-label="Slide 5" data-carousel-slide-to="4"></button>
                     </div>
                     <!-- Slider controls -->
                     <button type="button"
@@ -305,7 +330,8 @@
                             </p>
 
                             <!-- botones -->
-                            <div class="max-w-lg mx-auto flex flex-col justify-center items-center gap-3 sm:flex-row mt-4 md:mt-8 lg:mt-10">
+                            <div
+                                class="max-w-lg mx-auto flex flex-col justify-center items-center gap-3 sm:flex-row mt-4 md:mt-8 lg:mt-10">
                                 @auth
                                     <a href="{{ route('redireccion') }}" class="btn button-primary-ard">
                                         {{-- <i class="mdi mdi-ship-wheel mdi-18px me-2"></i>  --}}
@@ -313,17 +339,20 @@
                                     </a>
                                 @else
                                     @if (Route::has('register'))
-                                        <a type="button" class="group relative inline-flex border rounded-lg border-blue-900 focus:outline-none w-full sm:w-auto"
+                                        <a type="button"
+                                            class="group relative inline-flex border rounded-lg border-blue-900 focus:outline-none w-full sm:w-auto"
                                             href="{{ route('login') }}">
-                                            <span class="rounded-lg w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-blue-900 hover:text-white text-center font-bold uppercase hover:bg-blue-500 ring-1 ring-blue-500 ring-offset-1 ring-offset-blue-500 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">
+                                            <span
+                                                class="rounded-lg w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-blue-900 hover:text-white text-center font-bold uppercase hover:bg-blue-500 ring-1 ring-blue-500 ring-offset-1 ring-offset-blue-500 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">
 
-                                            {{ __('INICIAR SESIÓN') }}</span></a>
-                                            
+                                                {{ __('INICIAR SESIÓN') }}</span></a>
+
                                         <a class="group relative inline-flex border border-blue-900 rounded-lg focus:outline-none w-full sm:w-auto"
                                             href="{{ route('register') }}">
-                                            <span class="rounded-lg w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase bg-blue-900 ring-1 ring-blue-700 hover:bg-blue-800 ring-offset-1 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">
+                                            <span
+                                                class="rounded-lg w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase bg-blue-900 ring-1 ring-blue-700 hover:bg-blue-800 ring-offset-1 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">
 
-                                            {{ __('REGISTRARSE') }}</span></a>
+                                                {{ __('REGISTRARSE') }}</span></a>
                                     @endif
                                 @endauth
                             </div>
@@ -332,7 +361,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="container flex justify-center items-center w-full mt-3 mb-10 mx-auto">
                 <a href="#section" class="animate__animated animate__bounce animate__infinite animate__slower"><svg
                         xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
@@ -343,8 +372,8 @@
             </div>
         </section>
 
-        
-            
+
+
 
         <!-- todo esta parte esta por si acaso se usara mas adelante -->
 
@@ -364,8 +393,8 @@
                     <div class="flex justify-center items-center">
                         <p class="justificado text-black md:-ml-6 md:mr-20">
                             <strong>Conduce y Despacho de embarcaciones:</strong> <br> <span class="">Este
-                            servicio está actualmente disponible única y exclusivamente para
-                            las embarcaciones de recreo.</span>
+                                servicio está actualmente disponible única y exclusivamente para
+                                las embarcaciones de recreo.</span>
                         </p>
                     </div>
                 </div>
@@ -375,13 +404,14 @@
                     <!-- Lado izquierdo (visible en pantallas grandes) -->
                     <div class="hidden md:flex justify-center items-center">
                         <p class="justificado text-black md:-mr-6 md:ml-20">
-                            <strong>Buques de carga:</strong> <br> <span class=""> Con el objetivo de eficientizar
-                            y automatizar este servicio también hemos desarrollado en esta
-                            plataforma el servicio de arribo y despacho de los buques de
-                            carga, por lo que, a través de las navieras, a las cuales se les
-                            ha otorgado permiso de crear múltiples usuarios para que las
-                            mismas puedan realizar sus solicitudes en tiempo récord a las
-                            diferentes capitanías de puertos. </span>
+                            <strong>Buques de carga:</strong> <br> <span class=""> Con el objetivo de
+                                eficientizar
+                                y automatizar este servicio también hemos desarrollado en esta
+                                plataforma el servicio de arribo y despacho de los buques de
+                                carga, por lo que, a través de las navieras, a las cuales se les
+                                ha otorgado permiso de crear múltiples usuarios para que las
+                                mismas puedan realizar sus solicitudes en tiempo récord a las
+                                diferentes capitanías de puertos. </span>
                         </p>
                     </div>
                     <!-- Lado derecho -->
@@ -403,7 +433,7 @@
                         </p>
                     </div>
                 </div>
-{{-- 
+                {{-- 
                 <!-- Tercera parte -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
                     <!-- Lado izquierdo -->
@@ -448,28 +478,29 @@
                         </div> --}}
                     </div>
                 </div>
-{{-- items 1 --}}
+                {{-- items 1 --}}
 
-{{-- items 2 --}}
-<div class="flex px-3 py-3">
-    <div class="rounded overflow-hidden shadow-lg">
-        <img class="w-full" src="{{ asset('images/barcocontenedor.jpeg') }}" alt="Sunset in the mountains">
-        <div class="px-6 py-4">
-            <div class="font-bold text-sm mb-2">Conduce y Despacho de embarcaciones</div>
-            <p class="text-gray-700 text-sm justificado">
-                Este
-                            servicio está actualmente disponible única y exclusivamente para
-                            las embarcaciones de recreo.
-            </p>
-        </div>
-        {{-- <div class="px-6 py-4">
+                {{-- items 2 --}}
+                <div class="flex px-3 py-3">
+                    <div class="rounded overflow-hidden shadow-lg">
+                        <img class="w-full" src="{{ asset('images/barcocontenedor.jpeg') }}"
+                            alt="Sunset in the mountains">
+                        <div class="px-6 py-4">
+                            <div class="font-bold text-sm mb-2">Conduce y Despacho de embarcaciones</div>
+                            <p class="text-gray-700 text-sm justificado">
+                                Este
+                                servicio está actualmente disponible única y exclusivamente para
+                                las embarcaciones de recreo.
+                            </p>
+                        </div>
+                        {{-- <div class="px-6 py-4">
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#travel</span>
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#winter</span>
         </div> --}}
-    </div>
-</div>
-{{-- items 2 --}}
+                    </div>
+                </div>
+                {{-- items 2 --}}
 
 
             </div>
@@ -484,7 +515,7 @@
                 Enlaces de Interes
             </h1>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 p-4 md:p-12 w-full">
-                <a href="https://cdp.mil.do/page/" title="Acceder a la pagina" target="_blank">
+                <a href="https://cdp.mil.do/page/quienes-somos-0-1/" title="Acceder a la pagina" target="_blank">
                     <div class="p-6 h-full bg-gray-50 rounded-lg">
                         <div class="flex justify-center">
                             <img src="{{ asset('images/cdp2.png') }}" alt="" class="w-64 h-64" />
@@ -592,9 +623,9 @@
                 </a>
             </div>
         </section>
-{{-- nuevo carousel al final  --}}
-       
-{{-- fin del nuevo carousel --}}
+        {{-- nuevo carousel al final  --}}
+
+        {{-- fin del nuevo carousel --}}
         <!-- START FOOTER -->
         <footer class="">
             <nav class="navbar fixed-bottom bg-blue-900">
@@ -614,51 +645,55 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-         <script>
-//             $(document).ready(function(){
-//   $(".owl-carousel").owlCarousel();
-// });
-var owl = $('.owl-carousel');
-owl.owlCarousel({
-    items:1,
-    loop:true,
-    margin:10,
-    autoplay:true,
-    autoplayTimeout:1000,
-    autoplayHoverPause:true
-});
-$('.play').on('click',function(){
-    owl.trigger('play.owl.autoplay',[1000])
-})
-$('.stop').on('click',function(){
-    owl.trigger('stop.owl.autoplay')
-})
-
-$('.owl-carousel').owlCarousel({
-    items:1,
-    margin:10,
-    autoHeight:true
-});
-
-
-// document.getElementById('menu-button').addEventListener('click', function() {
-//             var menu = document.getElementById('mobile-menu');
-//             if (menu.classList.contains('hidden')) {
-//                 menu.classList.remove('hidden');
-//             } else {
-//                 menu.classList.add('hidden');
-//             }
-//         });
-
-        $(document).ready(function() {
-            $('#menu-button').on('click', function() { 
-                // $('#mainmenu').slideToggle('fast');
-                $('#mainmenu, #mobile-menu').slideToggle(90);
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+            integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            //             $(document).ready(function(){
+            //   $(".owl-carousel").owlCarousel();
+            // });
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                items: 1,
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 1000,
+                autoplayHoverPause: true
             });
-        });
-         </script>
+            $('.play').on('click', function() {
+                owl.trigger('play.owl.autoplay', [1000])
+            })
+            $('.stop').on('click', function() {
+                owl.trigger('stop.owl.autoplay')
+            })
+
+            $('.owl-carousel').owlCarousel({
+                items: 1,
+                margin: 10,
+                autoHeight: true
+            });
+
+
+            // document.getElementById('menu-button').addEventListener('click', function() {
+            //             var menu = document.getElementById('mobile-menu');
+            //             if (menu.classList.contains('hidden')) {
+            //                 menu.classList.remove('hidden');
+            //             } else {
+            //                 menu.classList.add('hidden');
+            //             }
+            //         });
+
+            $(document).ready(function() {
+                $('#menu-button').on('click', function() {
+                    // $('#mainmenu').slideToggle('fast');
+                    $('#mainmenu, #mobile-menu').slideToggle(90);
+                });
+            });
+        </script>
     </body>
 
 </html>
