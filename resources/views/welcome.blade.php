@@ -94,7 +94,7 @@
                     <div class=""></div>
                 </div>
             </div>
-            <div class="container w-full flex justify-center">
+            <div class="container w-full flex justify-center items-center">
                 <form action="{{ route('lang.switch') }}" method="POST">
                     @csrf
                     <select onchange="this.form.submit()" name="language" id="language"
@@ -109,16 +109,12 @@
                     </select>
                 </form>
 
-                <div class="flex items-center justify-center lg:hidden">
+                <div class=" justify-center lg:hidden">
                     <button id="menu-button" class="focus:outline-none text-slate-200">
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20"
-                            aria-hidden="true"
-                            class="text-2xl text-slate-800 focus:outline-none active:scale-110 active:text-red-500"
-                            height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-                                clip-rule="evenodd"></path>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-black">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                          </svg>
+                          
                     </button>
                 </div>
 
@@ -342,7 +338,7 @@
                                         <a class="group relative inline-flex border border-blue-900 rounded-lg focus:outline-none w-full sm:w-auto"
                                             href="{{ route('register') }}">
                                             <span
-                                                class="rounded-lg w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase bg-blue-900 ring-1 ring-blue-700 hover:bg-blue-800 ring-offset-1 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">
+                                                class="rounded-lg w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-white text-center font-bold uppercase bg-yellow-500 ring-1 ring-yellow-700 hover:bg-yellow-600 ring-offset-1 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">
 
                                                 {{ __('REGISTRARSE') }}</span></a>
                                     @endif
