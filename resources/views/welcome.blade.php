@@ -94,7 +94,8 @@
                     <div class=""></div>
                 </div>
             </div>
-            <div class="container w-full flex justify-center items-center">
+            <div class="container mx-4 grid grid-cols-4 gap-2">
+                <div class="col-span-3">
                 <form action="{{ route('lang.switch') }}" method="POST">
                     @csrf
                     <select onchange="this.form.submit()" name="language" id="language"
@@ -108,7 +109,7 @@
                         @endforeach
                     </select>
                 </form>
-
+            </div>
                 <div class=" justify-center lg:hidden">
                     <button id="menu-button" class="focus:outline-none text-slate-200">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-black">
