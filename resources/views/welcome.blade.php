@@ -195,10 +195,7 @@
 
                 </nav>
             </div>
-
             {{-- fin del menu del navbar --}}
-
-
         </nav>
         </div>
 
@@ -314,7 +311,7 @@
                                 {{ __('BIENVENIDOS AL') }} <br class="lg:block" />
                                 <p class="text-2xl md:text-3xl mt-3 leading-1 text-black"
                                     style="letter-spacing: 0.5px">
-                                    {{ __('SISTEMA DE ARRIBO, CONDUCE Y DESPACHO DE EMBARCACIONES') }}
+                                    {{ __('SISTEMA DE CONDUCE Y DESPACHO DE EMBARCACIONES') }}
                                 </p>
                             </h1>
                             <p class="mx-auto mt-4 text-sm leading-normal text-gray-500 justificado">
@@ -363,14 +360,8 @@
                     </svg></a>
             </div>
         </section>
-
-
-
-
         <!-- todo esta parte esta por si acaso se usara mas adelante -->
-
         <!-- Aqui sera el espacio para poner las dependencias de capitania de puerto -->
-
         <section class="scroll-section bg-gray-50 -mt-1" id="section">
             <div class="container mx-auto hidden md:block">
                 <!-- Primera parte -->
@@ -385,7 +376,7 @@
                     <div class="flex justify-center items-center">
                         <p class="justificado text-black md:-ml-6 md:mr-20">
 
-                            <strong>{{ __('Conduce y Despacho de embarcaciones') }}:</strong> <br> <span
+                            <strong class="uppercase">{{ __('Despacho de embarcaciones') }}:</strong> <br> <span
                                 class="">{{ __('Este servicio está actualmente disponible única y exclusivamente para las embarcaciones de recreo') }}.</span>
 
                         </p>
@@ -398,8 +389,9 @@
                     <div class="hidden md:flex justify-center items-center">
                         <p class="justificado text-black md:-mr-6 md:ml-20">
 
-                            <strong>{{ __('Buques de carga') }}:</strong> <br> <span class="">
-                                {{ __('Con el objetivo de eficientizar y automatizar este servicio también hemos desarrollado en esta plataforma el servicio de arribo y despacho de los buques de carga, por lo que, a través de las navieras, a las cuales se les ha otorgado permiso de crear múltiples usuarios para que las mismas puedan realizar sus solicitudes en tiempo récord a las diferentes capitanías de puertos') }}.
+                            <strong class="uppercase">{{ __('Conduce de embarcaciones') }}:</strong> <br> <span
+                                class="">
+                                {{ __('Con el objetivo de automatizar este servicio se ha desarrollado con los fines de saber los movimientos por via maritima que realizan los propietarios') }}.
                             </span>
                         </p>
                     </div>
@@ -447,12 +439,12 @@
                             <div class="font-bold text-sm mb-2">{{ __('Buques de carga') }}</div>
                             <p class="text-gray-700 text-sm justificado">
                                 {{ __('Con el objetivo de eficientizar
-                                                                                                                                y automatizar este servicio también hemos desarrollado en esta
-                                                                                                                                plataforma el servicio de arribo y despacho de los buques de
-                                                                                                                                carga, por lo que, a través de las navieras, a las cuales se les
-                                                                                                                                ha otorgado permiso de crear múltiples usuarios para que las
-                                                                                                                                mismas puedan realizar sus solicitudes en tiempo récord a las
-                                                                                                                                diferentes capitanías de puertos') }}.
+                                                                                                                                                                                                                                                                                                y automatizar este servicio también hemos desarrollado en esta
+                                                                                                                                                                                                                                                                                                plataforma el servicio de arribo y despacho de los buques de
+                                                                                                                                                                                                                                                                                                carga, por lo que, a través de las navieras, a las cuales se les
+                                                                                                                                                                                                                                                                                                ha otorgado permiso de crear múltiples usuarios para que las
+                                                                                                                                                                                                                                                                                                mismas puedan realizar sus solicitudes en tiempo récord a las
+                                                                                                                                                                                                                                                                                                diferentes capitanías de puertos') }}.
                             </p>
                         </div>
                         {{-- <div class="px-6 py-4">
