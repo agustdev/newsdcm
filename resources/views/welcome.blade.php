@@ -26,9 +26,7 @@
             integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
     </head>
-
 
     <body>
         <!-- navbar -->
@@ -121,7 +119,6 @@
                         </svg>
                     </button>
                 </div>
-
             </div>
 
             {{-- probando lo del menu del navbar --}}
@@ -151,10 +148,16 @@
 
                         </div>
                         <div class="hidden lg:flex lg:items-center gap-x-2">
-                            <button
-                                class="flex items-center text-black dark:text-white justify-center px-6 py-2.5 font-semibold hover:underline hover:underline-offset-4 hover:w-fit">{{ __('Iniciar Sesión') }}</button>
-                            <button
-                                class="flex items-center justify-center rounded-md bg-white hover:bg-gray-300 text-black px-6 py-1.5 font-semibold hover:shadow-lg hover:drop-shadow transition duration-200">{{ __('Registrarse') }}</button>
+                            @auth
+                                <a href="{{ route('redireccion') }}"
+                                    class="flex items-center justify-center rounded-md bg-white hover:bg-gray-300 text-black px-6 py-1.5 font-semibold hover:shadow-lg hover:drop-shadow transition duration-200">{{ __('ENTRAR AL SISTEMA') }}</a>
+                            @else
+                                <a href="{{ route('login') }}"
+                                    class="flex items-center text-black dark:text-white justify-center px-6 py-2.5 font-semibold hover:underline hover:underline-offset-4 hover:w-fit">{{ __('Iniciar Sesión') }}</a>
+                                <a href="{{ route('register') }}"
+                                    class="flex items-center justify-center rounded-md bg-white hover:bg-gray-300 text-black px-6 py-1.5 font-semibold hover:shadow-lg hover:drop-shadow transition duration-200">{{ __('Registrarse') }}</a>
+                            @endauth
+
                         </div>
                         {{-- <div class="flex items-center justify-center lg:hidden">
                         <button id="menu-button" class="focus:outline-none text-slate-200">
@@ -182,14 +185,23 @@
                                 class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
                                 <a href="#">{{ __('Contactos') }}</a>
                             </li>
-                            <li
-                                class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                <a href="#">{{ __('Iniciar Sesión') }}</a>
-                            </li>
-                            <li
-                                class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                <a href="#">{{ __('Registrarse') }}</a>
-                            </li>
+                            @auth
+                                <li
+                                    class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                    <a href="{{ route('redireccion') }}">
+                                        {{ __('ENTRAR AL SISTEMA') }}
+                                    </a>
+                                </li>
+                            @else
+                                <li
+                                    class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                    <a href="{{ route('login') }}">{{ __('Iniciar Sesión') }}</a>
+                                </li>
+                                <li
+                                    class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                    <a href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+                                </li>
+                            @endauth
                         </ul>
                     </div>
 
@@ -328,8 +340,7 @@
                                     </a>
                                 @else
                                     @if (Route::has('register'))
-                                        <a type="button"
-                                            class="group relative inline-flex border rounded-lg border-blue-900 focus:outline-none w-full sm:w-auto"
+                                        <a class="group relative inline-flex border rounded-lg border-blue-900 focus:outline-none w-full sm:w-auto"
                                             href="{{ route('login') }}">
                                             <span
                                                 class="rounded-lg w-full inline-flex items-center justify-center self-stretch px-4 py-2 text-sm text-blue-900 hover:text-white text-center font-bold uppercase hover:bg-blue-500 ring-1 ring-blue-500 ring-offset-1 ring-offset-blue-500 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1">
@@ -439,12 +450,12 @@
                             <div class="font-bold text-sm mb-2">{{ __('Buques de carga') }}</div>
                             <p class="text-gray-700 text-sm justificado">
                                 {{ __('Con el objetivo de eficientizar
-                                                                                                                                                                                                                                                                                                y automatizar este servicio también hemos desarrollado en esta
-                                                                                                                                                                                                                                                                                                plataforma el servicio de arribo y despacho de los buques de
-                                                                                                                                                                                                                                                                                                carga, por lo que, a través de las navieras, a las cuales se les
-                                                                                                                                                                                                                                                                                                ha otorgado permiso de crear múltiples usuarios para que las
-                                                                                                                                                                                                                                                                                                mismas puedan realizar sus solicitudes en tiempo récord a las
-                                                                                                                                                                                                                                                                                                diferentes capitanías de puertos') }}.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                y automatizar este servicio también hemos desarrollado en esta
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                plataforma el servicio de arribo y despacho de los buques de
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                carga, por lo que, a través de las navieras, a las cuales se les
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ha otorgado permiso de crear múltiples usuarios para que las
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                mismas puedan realizar sus solicitudes en tiempo récord a las
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                diferentes capitanías de puertos') }}.
                             </p>
                         </div>
                         {{-- <div class="px-6 py-4">
