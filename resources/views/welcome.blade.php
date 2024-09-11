@@ -14,7 +14,7 @@
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> --}}
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-        <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css"  rel="stylesheet" />
         {{-- estilos del landing --}}
         <link rel="stylesheet" href="{{ asset('css/landing.css') }}">
         <link rel="stylesheet"
@@ -32,6 +32,9 @@
 
     <body>
         <!-- navbar -->
+
+<div class="hidden md:block">
+        {{-- arriba el div que quiero usar para ocultar todo --}}
 
         {{-- estoy agregnado estas clases al navbar para despues quitarlo de ser necesario border-gray-200 py-2.5 --}}
         <nav class="navbar bg-slate-100">
@@ -197,10 +200,11 @@
 
 
         </nav>
-        </div>
+        {{-- comento este div por que no estoy seguro si no pertenece a nada --}}
+        
 
         {{-- fin del menu del navbar --}}
-        </nav>
+        {{-- </nav> --}}
         <!-- aqui empieza el contenido de la web -->
         <div class="overflow-hidden w-full">
             <div class="container-fluid">
@@ -498,7 +502,9 @@
 
         <!-- Nueva sección que aparece al hacer scroll -->
 
-        <section class="bg-blue-900">
+
+        {{-- este seccion se oculta en moviles --}}
+        <section class="bg-blue-900 hidden md:block">
             <h1 class="text-center pt-3 font-bold text-white text-2xl md:pt-4 md:text-4xl">
                 {{ __('Enlaces de Interes') }}
             </h1>
@@ -604,7 +610,7 @@
 
         {{-- fin del nuevo carousel --}}
         <!-- START FOOTER -->
-        <footer class="">
+        <footer class="hidden md:block">
             <nav class="navbar fixed-bottom bg-blue-900">
                 <div class="pb-2 flex justify-center items-center">
                     <p class="text-center text-white font-thin mb-0">
@@ -618,8 +624,107 @@
         </footer>
         <!-- END FOOTER -->
 
+    </div>
+
+    {{-- esta parte solo es visible en pantallas pequeñas --}}
+    <div class="md:hidden bg-blue-900 h-screen">
+
+        <div class="mx-6 mt-4 -mb-4">
+            <form action="{{ route('lang.switch') }}" method="POST">
+                @csrf
+                <select onchange="this.form.submit()" name="language" id="language"
+                    class="form-select rounded-lg px-3 mb-2 border-amber-400 md:hidden w-full changeLang">
+                    <option value="es" selected>Seleccione su idioma</option>
+                    @foreach (Config::get('languages') as $lang => $language)
+                        <option value="{{ $language['flag'] }}"
+                            {{ app()->getLocale() === $language['flag'] ? 'selected' : '' }}
+                            data-img="{{ asset('images/' . $language['image']) }}">
+                            {{ $language['display'] }}</option>
+                    @endforeach
+                </select>
+            </form>
+        </div>
+
+    <div class="lg:-mt-10 grid grid-cols-1 lg:grid-cols-2  my-auto py-6 container flex justify-center items-center">
+        <div class="text-white">
+            <!-- div para la imagen de fondo -->
+            <div class="flex justify-center">
+            <img class="h-48 w-48" src="{{ asset('images/capitania de puerto1.png') }}" alt="" srcset="">
+        </div>
+        <!-- div para la imagen de fondo -->
+        <div class="flex justify-center">
+            <h1 class="text-2xl font-bold lg:hidden mt-4 -mt-4">Lorem Ipsum</h1>
+        </div>
+        
+        </div>
+        
+        <!-- esta es la seccion del lado derecho -->
+        
+        <div class="bg-blue-300 text-white ">
+            <!-- aqui pondre el carrousel -->
+        <div>
+        
+        
+        
+        <div id="animation-carousel" class="relative w-full" data-carousel="slide">
+            <!-- Carousel wrapper -->
+            <div class="relative h-56 overflow-hidden bg-blue-900 md:h-96">
+        <!--max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48-->
+        
+                 <!-- Item 1 -->
+                  
+                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="{{ asset('images/star.png') }}" class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <p class="text-center -mb-4 mt-3 font-bold">Lorem Ipsum</p>
+                </div>
+                <!-- Item 2 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="{{ asset('images/soldier.png') }}" class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <p class="text-center -mb-4 mt-3 font-bold">Lorem Ipsum</p>
+                </div>
+                <!-- Item 3 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="{{ asset('images/chat.png') }}" class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    <p class="text-center -mb-4 mt-4 font-bold">Lorem Ipsum</p>
+                </div>
+            </div>
+        <!-- comentare los controles del slider por que no quiero borrarlos en caso de necesaitarlo -->
+        
+            <!-- Slider controls -->
+            <!-- <button type="button" class="absolute bg-blue-900 top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                    </svg>
+                    <span class="sr-only">Previous</span>
+                </span>
+            </button>
+            <button type="button" class="absolute bg-blue-900 top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                    </svg>
+                    <span class="sr-only">Next</span>
+                </span>
+            </button> -->
+        </div>
+        
+        
+        </div>
+        <!-- aqui es dodne termian el carrousel -->
+        
+        <div class="bg-blue-900 flex justify-center">
+            <button class="px-8 py-4 bg-blue-400 text-white font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-500">
+                Iniciar Sesión o Registrarse
+              </button>
+        </div>
+        
+        
+    </div>
+
+</div>
         <!-- bundle -->
-        <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
