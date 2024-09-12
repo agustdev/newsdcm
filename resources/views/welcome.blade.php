@@ -629,7 +629,7 @@
     {{-- esta parte solo es visible en pantallas pequeñas --}}
     <div class="md:hidden bg-blue-900 h-screen">
 
-        <div class="mx-6 mt-4 -mb-4">
+        <div class="mx-10 pt-4 -pb-4">
             <form action="{{ route('lang.switch') }}" method="POST">
                 @csrf
                 <select onchange="this.form.submit()" name="language" id="language"
@@ -653,7 +653,7 @@
         </div>
         <!-- div para la imagen de fondo -->
         <div class="flex justify-center">
-            <h1 class="text-2xl font-bold lg:hidden mt-4 -mt-4">Lorem Ipsum</h1>
+            <h1 class="text-2xl font-bold lg:hidden mt-4 -mt-4">SISCODEM</h1>
         </div>
         
         </div>
@@ -675,17 +675,17 @@
                   
                  <div class="hidden duration-700 ease-in-out" data-carousel-item>
                     <img src="{{ asset('images/star.png') }}" class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    <p class="text-center -mb-4 mt-3 font-bold">Lorem Ipsum</p>
+                    <p class="text-center -mb-4 mt-3 font-bold">Servicio</p>
                 </div>
                 <!-- Item 2 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                     <img src="{{ asset('images/soldier.png') }}" class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    <p class="text-center -mb-4 mt-3 font-bold">Lorem Ipsum</p>
+                    <p class="text-center -mb-4 mt-3 font-bold">Asistencia</p>
                 </div>
                 <!-- Item 3 -->
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                     <img src="{{ asset('images/chat.png') }}" class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                    <p class="text-center -mb-4 mt-4 font-bold">Lorem Ipsum</p>
+                    <p class="text-center -mb-4 mt-4 font-bold">Chat</p>
                 </div>
             </div>
         <!-- comentare los controles del slider por que no quiero borrarlos en caso de necesaitarlo -->
@@ -714,7 +714,7 @@
         <!-- aqui es dodne termian el carrousel -->
         
         <div class="bg-blue-900 flex justify-center">
-            <button class="px-8 py-4 bg-blue-400 text-white font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-500">
+            <button class="px-8 py-4 text-white bg-blue-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-600">
                 Iniciar Sesión o Registrarse
               </button>
         </div>
