@@ -638,7 +638,7 @@
                 <form class="flex justify-center" action="{{ route('lang.switch') }}" method="POST">
                     @csrf
                     <select onchange="this.form.submit()" name="language" id="language"
-                        class="form-select rounded-lg px-3 mb-2 border-amber-400 md:hidden w-1/2 changeLang">
+                        class="form-select rounded-lg px-3 mb-2 border-amber-400 md:hidden w-1/2 h-9 changeLang">
                         <option value="es" selected>Seleccione su idioma</option>
                         @foreach (Config::get('languages') as $lang => $language)
                             <option value="{{ $language['flag'] }}"
@@ -685,7 +685,7 @@
                                 </div>
                                 <!-- Item 2 -->
                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="{{ asset('images/soldier.png') }}"
+                                    <img src="{{ asset('images/smartphone.png') }}"
                                         class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                         alt="...">
                                     <p class="text-center -mb-4 mt-3 font-bold">Asistencia</p>
