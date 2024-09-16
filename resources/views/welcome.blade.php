@@ -725,8 +725,8 @@
 
                     <div class="bg-blue-900 flex justify-center">
                         <button
-                            class="px-8 py-4 text-white bg-yellow-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-yellow-600">
-                            Iniciar Sesión o Registrarse
+                            class="px-8 py-4 text-white bg-blue-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-600">
+                            Iniciar Sesión
                         </button>
                     </div>
 
