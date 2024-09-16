@@ -697,7 +697,7 @@
                                 </div>
                                 <!-- Item 3 -->
                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="{{ asset('images/ship.png') }}"
+                                    <img src="{{ asset('images/boat.png') }}"
                                         class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                         alt="...">
                                     <p class="text-center -mb-4 mt-4 font-bold">Embarcaciones</p>
