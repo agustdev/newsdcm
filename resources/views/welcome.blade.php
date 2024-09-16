@@ -730,7 +730,7 @@
 
                     <div class="flex justify-center">
                         <button
-                            class="px-8 py-4 text-white bg-blue-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-600">
+                            class="px-8 py-4 text-2xl text-white bg-blue-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-600">
                             Iniciar Sesión
                         </button>
                     </div>
