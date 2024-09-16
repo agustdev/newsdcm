@@ -632,13 +632,16 @@
 
     
         {{-- este div de aquí arriba estara vacio solo para pruebas --}}
-        <div class="md:hidden bg-blue-900 h-screen flex flex-col justify-center">
+        <div class="md:hidden h-screen flex flex-col justify-center bg-center bg-[url({{ asset('images/sea1.jpg') }})]">
+            
+            
 
-            <div class="mx-10 pt-4 -pb-4">
-                <form class="flex justify-center" action="{{ route('lang.switch') }}" method="POST">
+            <div class="flex items-center mx-auto pt-4 -pb-4">
+                <img src="{{ asset('images/bandera-de-la-republica-dominicana-imagen-animada-0001.gif') }}" alt="" class="mr-4">
+                <form class="flex justify-end" action="{{ route('lang.switch') }}" method="POST">
                     @csrf
                     <select onchange="this.form.submit()" name="language" id="language"
-                        class="form-select rounded-lg px-3 mb-2 border-amber-400 md:hidden w-1/2 h-9 changeLang">
+                        class="form-select rounded-lg px-3 mb-2 border-amber-400 md:hidden w-full changeLang">
                         <option value="es" selected>Seleccione su idioma</option>
                         @foreach (Config::get('languages') as $lang => $language)
                             <option value="{{ $language['flag'] }}"
@@ -667,12 +670,12 @@
 
                 <!-- esta es la seccion del lado derecho -->
 
-                <div class="bg-blue-300 text-white ">
+                <div class="text-white ">
                     <!-- aqui pondre el carrousel -->
                     <div>
                         <div id="animation-carousel" class="relative w-full" data-carousel="slide">
                             <!-- Carousel wrapper -->
-                            <div class="relative h-56 overflow-hidden bg-blue-900 md:h-96">
+                            <div class="relative h-56 overflow-hidden md:h-96">
                                 <!--max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48-->
 
                                 <!-- Item 1 -->
@@ -723,7 +726,7 @@
                     </div>
                     <!-- aqui es dodne termian el carrousel -->
 
-                    <div class="bg-blue-900 flex justify-center">
+                    <div class="flex justify-center">
                         <button
                             class="px-8 py-4 text-white bg-blue-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-600">
                             Iniciar Sesión
@@ -732,10 +735,8 @@
 
 
                 </div>
-
             </div>
 
-       
             <!-- bundle -->
             <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
