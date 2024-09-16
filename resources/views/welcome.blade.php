@@ -635,7 +635,6 @@
         <div class="md:hidden h-screen flex flex-col justify-center bg-center bg-[url({{ asset('images/sea1.jpg') }})]">
             
             
-
             <div class="flex items-center mx-auto pt-4 -pb-4">
                 <img src="{{ asset('images/bandera-de-la-republica-dominicana-imagen-animada-0001.gif') }}" alt="" class="mr-4">
                 <form class="flex justify-end" action="{{ route('lang.switch') }}" method="POST">
