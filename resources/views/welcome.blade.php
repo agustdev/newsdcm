@@ -648,7 +648,7 @@
             </div>
 
             <div
-                class="lg:-mt-10 grid grid-cols-1 lg:grid-cols-2  my-auto py-6 container flex justify-center items-center">
+                class="lg:-mt-10 grid grid-cols-1 lg:grid-cols-2  my-auto py-6 container justify-center items-center">
                 <div class="text-white">
                     <!-- div para la imagen de fondo -->
                     <div class="flex justify-center">
@@ -657,7 +657,7 @@
                     </div>
                     <!-- div para la imagen de fondo -->
                     <div class="flex justify-center">
-                        <h1 class="text-2xl font-bold lg:hidden mt-4 -mt-4 text-center">SISCODEM <br>DESPACHOS ARD</h1>
+                        <h1 class="text-2xl font-bold lg:hidden mt-4 text-center">SISCODEM <br>DESPACHOS ARD</h1>
                     </div>
 
                 </div>
