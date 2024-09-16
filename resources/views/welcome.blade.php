@@ -632,10 +632,10 @@
 
     
         {{-- este div de aquí arriba estara vacio solo para pruebas --}}
-        <div class="md:hidden h-screen flex flex-col justify-center bg-center bg-[url({{ asset('images/sea1.jpg') }})]">
+        <div class="md:hidden h-screen flex flex-col justify-center pb-4 bg-center bg-[url({{ asset('images/sea1.jpg') }})]">
             
             
-            <div class="flex items-center mx-auto pt-4 -pb-4">
+            <div class="flex items-center mx-auto pb-16">
                 <img src="{{ asset('images/bandera-de-la-republica-dominicana-imagen-animada-0001.gif') }}" alt="" class="mr-4">
                 <form class="flex justify-end" action="{{ route('lang.switch') }}" method="POST">
                     @csrf
@@ -651,9 +651,12 @@
                     </select>
                 </form>
             </div>
+            
+{{-- nuevo div --}}
 
+<div>
             <div
-                class="lg:-mt-10 grid grid-cols-1 lg:grid-cols-2 py-6 container justify-center items-center">
+                class="lg:-mt-10 grid grid-cols-1 lg:grid-cols-2 py-12 container justify-center items-center">
                 <div class="text-white">
                     <!-- div para la imagen de fondo -->
                     <div class="flex justify-center">
@@ -736,6 +739,9 @@
                 </div>
             </div>
 
+{{-- fin del nuevo div --}}
+</div>
+{{-- fin del nuevo --}}
             <!-- bundle -->
             <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
