@@ -629,13 +629,16 @@
         </div>
 
         {{-- esta parte solo es visible en pantallas pequeñas --}}
-        <div class="md:hidden bg-blue-900 h-screen">
+
+    
+        {{-- este div de aquí arriba estara vacio solo para pruebas --}}
+        <div class="md:hidden bg-blue-900 h-screen flex flex-col justify-center">
 
             <div class="mx-10 pt-4 -pb-4">
-                <form action="{{ route('lang.switch') }}" method="POST">
+                <form class="flex justify-center" action="{{ route('lang.switch') }}" method="POST">
                     @csrf
                     <select onchange="this.form.submit()" name="language" id="language"
-                        class="form-select rounded-lg px-3 mb-2 border-amber-400 md:hidden w-full changeLang">
+                        class="form-select rounded-lg px-3 mb-2 border-amber-400 md:hidden w-1/2 changeLang">
                         <option value="es" selected>Seleccione su idioma</option>
                         @foreach (Config::get('languages') as $lang => $language)
                             <option value="{{ $language['flag'] }}"
@@ -648,7 +651,7 @@
             </div>
 
             <div
-                class="lg:-mt-10 grid grid-cols-1 lg:grid-cols-2  my-auto py-6 container justify-center items-center">
+                class="lg:-mt-10 grid grid-cols-1 lg:grid-cols-2 py-6 container justify-center items-center">
                 <div class="text-white">
                     <!-- div para la imagen de fondo -->
                     <div class="flex justify-center">
@@ -657,7 +660,7 @@
                     </div>
                     <!-- div para la imagen de fondo -->
                     <div class="flex justify-center">
-                        <h1 class="text-2xl font-bold lg:hidden mt-4 text-center">SISCODEM <br>DESPACHOS ARD</h1>
+                        <h1 class="text-2xl font-bold lg:hidden mt-4 text-center">Armada de república Dominicana <br>DESPACHO RD</h1>
                     </div>
 
                 </div>
@@ -722,7 +725,7 @@
 
                     <div class="bg-blue-900 flex justify-center">
                         <button
-                            class="px-8 py-4 text-white bg-blue-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-600">
+                            class="px-8 py-4 text-white bg-yellow-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-yellow-600">
                             Iniciar Sesión o Registrarse
                         </button>
                     </div>
@@ -731,6 +734,8 @@
                 </div>
 
             </div>
+
+       
             <!-- bundle -->
             <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
