@@ -660,12 +660,12 @@
                 <div class="text-white">
                     <!-- div para la imagen de fondo -->
                     <div class="flex justify-center">
-                        <img class="h-48 w-48" src="{{ asset('images/capitania de puerto1.png') }}" alt=""
+                        <img class="h-48 w-48 -mt-10 mb-10" src="{{ asset('images/capitania de puerto1.png') }}" alt=""
                             srcset="">
                     </div>
                     <!-- div para la imagen de fondo -->
                     <div class="flex justify-center">
-                        <h1 class="text-2xl font-bold lg:hidden mt-4 text-center">Armada de República Dominicana <br>DESPACHO RD</h1>
+                        <h1 class="text-xl font-bold lg:hidden -mt-6 mb-4 text-center">ARMADA DE REPÚBLICA DOMINICANA <br><span class="text-xl">DESPACHO RD</span></h1>
                     </div>
 
                 </div>
@@ -683,24 +683,31 @@
                                 <!-- Item 1 -->
 
                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="{{ asset('images/star.png') }}"
-                                        class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                        alt="...">
-                                    <p class="text-center -mb-4 mt-3 font-bold">Servicio</p>
-                                </div>
-                                <!-- Item 2 -->
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="{{ asset('images/smartphone.png') }}"
-                                        class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                        alt="...">
-                                    <p class="text-center -mb-4 mt-3 font-bold">Asistencia</p>
-                                </div>
-                                <!-- Item 3 -->
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                     <img src="{{ asset('images/boat.png') }}"
                                         class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                         alt="...">
-                                    <p class="text-center -mb-4 mt-4 font-bold">Embarcaciones</p>
+                                    <p class="text-center text-xl pb-10 -mt-1 font-bold">Despacho</p>
+                                </div>
+                                <!-- Item 2 -->
+                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <img src="{{ asset('images/cruise.png') }}"
+                                        class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                        alt="...">
+                                    <p class="text-center text-xl pb-10 -mt-1 font-bold">Conduce</p>
+                                </div>
+                                <!-- Item 3 -->
+                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <img src="{{ asset('images/soldier.png') }}"
+                                        class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                        alt="...">
+                                    <p class="text-center text-xl pb-10 -mt-1 font-bold">Asistencia</p>
+                                </div>
+                                <!-- Item 4 -->
+                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <img src="{{ asset('images/darse-cuenta.png') }}"
+                                        class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                        alt="...">
+                                    <p class="text-center text-xl pb-10 -mt-1 font-bold">Aviso para navegantes</p>
                                 </div>
                             </div>
                             <!-- comentare los controles del slider por que no quiero borrarlos en caso de necesaitarlo -->
