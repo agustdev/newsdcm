@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Capitanes;
 use App\Models\CapitanesRegistrados;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class CapitanesRegistradosController extends Controller
      */
     public function index()
     {
-        //
+        $capitanes = CapitanesRegistrados::all();
+        return view('capitanes.index', compact('capitanes'));
     }
 
     /**
