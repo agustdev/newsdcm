@@ -747,6 +747,8 @@
             </div>
 
 {{-- fin del nuevo div --}}
+
+{{-- Nuevo comentario para guardar y subir los cambios --}}
 </div>
 {{-- fin del nuevo --}}
             <!-- bundle -->
