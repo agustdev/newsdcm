@@ -635,12 +635,15 @@
         <div class="md:hidden h-screen flex flex-col justify-center pb-4 bg-center bg-[url({{ asset('images/sea1.jpg') }})]">
             
             
-            <div class="flex items-center mx-auto pb-16">
-                <img src="{{ asset('images/bandera-de-la-republica-dominicana-imagen-animada-0001.gif') }}" alt="" class="mr-4">
-                <form class="flex justify-end" action="{{ route('lang.switch') }}" method="POST">
+            <div class="flex justify-center pb-16">
+<div class="flex h-12">
+                <img src="{{ asset('images/en.svg') }}" alt="" class="mr-4 ">
+            </div>
+<div class="flex">
+                <form class="flex justify-end items-center" action="{{ route('lang.switch') }}" method="POST">
                     @csrf
                     <select onchange="this.form.submit()" name="language" id="language"
-                        class="form-select rounded-lg px-3 mb-2 border-amber-400 md:hidden w-full changeLang">
+                        class="form-select rounded-lg px-3 h-8 border-amber-400 md:hidden w-full changeLang">
                         <option value="es" selected>Seleccione su idioma</option>
                         @foreach (Config::get('languages') as $lang => $language)
                             <option value="{{ $language['flag'] }}"
@@ -650,6 +653,7 @@
                         @endforeach
                     </select>
                 </form>
+            </div>
             </div>
             
 {{-- nuevo div --}}
