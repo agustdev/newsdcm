@@ -458,12 +458,12 @@
                                 <div class="font-bold text-sm mb-2">{{ __('Buques de carga') }}</div>
                                 <p class="text-gray-700 text-sm justificado">
                                     {{ __('Con el objetivo de eficientizar
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            y automatizar este servicio también hemos desarrollado en esta
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            plataforma el servicio de arribo y despacho de los buques de
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            carga, por lo que, a través de las navieras, a las cuales se les
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ha otorgado permiso de crear múltiples usuarios para que las
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            mismas puedan realizar sus solicitudes en tiempo récord a las
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            diferentes capitanías de puertos') }}.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    y automatizar este servicio también hemos desarrollado en esta
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    plataforma el servicio de arribo y despacho de los buques de
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    carga, por lo que, a través de las navieras, a las cuales se les
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ha otorgado permiso de crear múltiples usuarios para que las
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    mismas puedan realizar sus solicitudes en tiempo récord a las
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    diferentes capitanías de puertos') }}.
                                 </p>
                             </div>
                             {{-- <div class="px-6 py-4">
@@ -638,103 +638,139 @@
         </div>
 
         {{-- esta parte solo es visible en pantallas pequeñas --}}
-        <div class="md:hidden bg-blue-950 h-screen">
-
-            <div class="mx-10 pt-4 -pb-4">
-                <form action="{{ route('lang.switch') }}" method="POST">
-                    @csrf
-                    <select onchange="this.form.submit()" name="language" id="language"
-                        class="form-select rounded-lg px-3 mb-2 border-amber-400 md:hidden w-full changeLang">
-                        <option value="es" selected>Seleccione su idioma</option>
-                        @foreach (Config::get('languages') as $lang => $language)
-                            <option value="{{ $language['flag'] }}"
-                                {{ app()->getLocale() === $language['flag'] ? 'selected' : '' }}
-                                data-img="{{ asset('images/' . $language['image']) }}">
-                                {{ $language['display'] }}</option>
-                        @endforeach
-                    </select>
-                </form>
+        {{-- este div de aquí arriba estara vacio solo para pruebas --}}
+        <div
+            class="md:hidden h-screen flex flex-col justify-center pb-4 bg-center bg-[url({{ asset('images/sea1.jpg') }})]">
+            <div class="flex justify-center pb-16">
+                <div class="flex h-12">
+                    @foreach (Config::get('languages') as $lang => $language)
+                        @if (app()->getLocale() === $language['flag'])
+                            <img src="{{ asset('images/' . $language['image']) }}" alt="" class="mr-4">
+                        @endif
+                    @endforeach
+                </div>
+                <div class="flex">
+                    <form class="flex justify-end items-center" action="{{ route('lang.switch') }}" method="POST">
+                        @csrf
+                        <select onchange="this.form.submit()" name="language" id="language"
+                            class="form-select rounded-lg px-3 h-8 border-amber-400 md:hidden w-full changeLang">
+                            <option value="es" selected>Seleccione su idioma</option>
+                            @foreach (Config::get('languages') as $lang => $language)
+                                <option value="{{ $language['flag'] }}"
+                                    {{ app()->getLocale() === $language['flag'] ? 'selected' : '' }}
+                                    data-img="{{ asset('images/' . $language['image']) }}">
+                                    {{ $language['display'] }}</option>
+                            @endforeach
+                        </select>
+                    </form>
+                </div>
             </div>
 
-            <div
-                class="lg:-mt-10 grid grid-cols-1 lg:grid-cols-2  my-auto py-6 container flex justify-center items-center">
-                <div class="text-white">
-                    <!-- div para la imagen de fondo -->
-                    <div class="flex justify-center">
-                        <img class="h-48 w-48" src="{{ asset('images/capitania de puerto1.png') }}" alt=""
-                            srcset="">
-                    </div>
-                    <!-- div para la imagen de fondo -->
-                    <div class="flex justify-center">
-                        <h1 class="text-2xl font-bold lg:hidden mt-4 -mt-4 text-center">SISCODEM <br>DESPACHOS ARD</h1>
-                    </div>
+            {{-- nuevo div --}}
 
-                </div>
-
-                <!-- esta es la seccion del lado derecho -->
-
-                <div class="bg-blue-300 text-white ">
-                    <!-- aqui pondre el carrousel -->
-                    <div>
-                        <div id="animation-carousel" class="relative w-full" data-carousel="slide">
-                            <!-- Carousel wrapper -->
-                            <div class="relative h-56 overflow-hidden bg-blue-950 md:h-96">
-                                <!--max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48-->
-
-                                <!-- Item 1 -->
-
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="{{ asset('images/star.png') }}"
-                                        class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                        alt="...">
-                                    <p class="text-center -mb-4 mt-3 font-bold">{{ __('Servicio') }}</p>
-                                </div>
-                                <!-- Item 2 -->
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="{{ asset('images/soldier.png') }}"
-                                        class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                        alt="...">
-                                    <p class="text-center -mb-4 mt-3 font-bold">{{ __('Asistencia') }}</p>
-                                </div>
-
-                            </div>
-                            <!-- comentare los controles del slider por que no quiero borrarlos en caso de necesaitarlo -->
-
-                            <!-- Slider controls -->
-                            <!-- <button type="button" class="absolute bg-blue-900 top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                    </svg>
-                    <span class="sr-only">Previous</span>
-                </span>
-            </button>
-            <button type="button" class="absolute bg-blue-900 top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                    </svg>
-                    <span class="sr-only">Next</span>
-                </span>
-            </button> -->
+            <div>
+                <div class="lg:-mt-10 grid grid-cols-1 lg:grid-cols-2 py-12 container justify-center items-center">
+                    <div class="text-white mb-12 -mt-2">
+                        <!-- div para la imagen de fondo -->
+                        <div class="flex justify-center">
+                            <img class="h-48 w-48 -mt-10 mb-10" src="{{ asset('images/capitania de puerto1.png') }}"
+                                alt="" srcset="">
                         </div>
+                        <!-- div para la imagen de fondo -->
+                        <div class="flex justify-center">
+                            <h1 class="text-xl font-black lg:hidden -mt-6 mb-4 text-center">ARMADA DE REPÚBLICA
+                                DOMINICANA <br><span class="text-xl font-semibold">DESPACHO RD</span></h1>
+                        </div>
+
                     </div>
-                    <!-- aqui es dodne termian el carrousel -->
-                    <div class="bg-blue-950 flex justify-center">
-                        @auth
-                        <a href="{{ route('redireccion') }}"
-                                class="px-8 py-4 text-white bg-blue-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-600">
-                                {{ __('ENTRAR AL SISTEMA') }}
-                            </a>
-                        @else
+
+                    <!-- esta es la seccion del lado derecho -->
+
+                    <div class="text-white ">
+                        <!-- aqui pondre el carrousel -->
+                        <div>
+                            <div id="animation-carousel" class="relative w-full" data-carousel="slide">
+                                <!-- Carousel wrapper -->
+                                <div class="relative h-56 overflow-hidden md:h-96">
+                                    <!--max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48-->
+
+                                    {{-- slide contexto --}}
+                                    {{-- <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                 <p>hola mundo soy yo de nuevo</p>
+                                 <img src="{{ asset('images/boat.png') }}"
+                                     class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                     alt="...">
+                                 <p class="text-center text-xl pb-10 -mt-1 font-bold">Despacho</p>
+                             </div> --}}
+                                    <!-- Item 1 -->
+
+                                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                        <img src="{{ asset('images/boat.png') }}"
+                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                            alt="...">
+                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">Despacho</p>
+                                    </div>
+                                    <!-- Item 2 -->
+                                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                        <img src="{{ asset('images/cruise.png') }}"
+                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                            alt="...">
+                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">Conduce</p>
+                                    </div>
+                                    <!-- Item 3 -->
+                                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                        <img src="{{ asset('images/soldier.png') }}"
+                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                            alt="...">
+                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">Asistencia</p>
+                                    </div>
+                                    <!-- Item 4 -->
+                                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                        <img src="{{ asset('images/darse-cuenta.png') }}"
+                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                            alt="...">
+                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">Aviso para navegantes</p>
+                                    </div>
+                                </div>
+                                <!-- comentare los controles del slider por que no quiero borrarlos en caso de necesaitarlo -->
+
+                                <!-- Slider controls -->
+                                <!-- <button type="button" class="absolute bg-blue-900 top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+             <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                 <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                 </svg>
+                 <span class="sr-only">Previous</span>
+             </span>
+         </button>
+         <button type="button" class="absolute bg-blue-900 top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+             <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                 <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                 </svg>
+                 <span class="sr-only">Next</span>
+             </span>
+         </button> -->
+                            </div>
+                        </div>
+                        <!-- aqui es dodne termian el carrousel -->
+
+                        <div class="flex justify-center mt-8">
                             <a href="{{ route('login') }}"
-                                class="px-8 py-4 text-white bg-blue-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-600">
-                                {{ __('Iniciar Sesión o Registrarse') }}
+                                class="px-8 py-4 text-lg text-white bg-blue-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-600">
+                                Iniciar Sesión
                             </a>
-                        @endauth
+                        </div>
+
+
                     </div>
                 </div>
+
+                {{-- fin del nuevo div --}}
+
+                {{-- Nuevo comentario para guardar y subir los cambios --}}
             </div>
+            {{-- fin del nuevo --}}
             <!-- bundle -->
             <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
