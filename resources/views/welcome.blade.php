@@ -669,7 +669,7 @@
                     </div>
                     <!-- div para la imagen de fondo -->
                     <div class="flex justify-center">
-                        <h1 class="text-xl font-bold lg:hidden -mt-6 mb-4 text-center">ARMADA DE REPÚBLICA DOMINICANA <br><span class="text-xl">DESPACHO RD</span></h1>
+                        <h1 class="text-xl font-black lg:hidden -mt-6 mb-4 text-center">ARMADA DE REPÚBLICA DOMINICANA <br><span class="text-xl font-semibold">DESPACHO RD</span></h1>
                     </div>
 
                 </div>
