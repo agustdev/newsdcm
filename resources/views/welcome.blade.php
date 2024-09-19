@@ -661,7 +661,7 @@
 <div>
             <div
                 class="lg:-mt-10 grid grid-cols-1 lg:grid-cols-2 py-12 container justify-center items-center">
-                <div class="text-white">
+                <div class="text-white mb-12 -mt-2">
                     <!-- div para la imagen de fondo -->
                     <div class="flex justify-center">
                         <img class="h-48 w-48 -mt-10 mb-10" src="{{ asset('images/capitania de puerto1.png') }}" alt=""
