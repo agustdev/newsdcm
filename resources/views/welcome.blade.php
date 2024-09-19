@@ -150,10 +150,17 @@
 
                             </div>
                             <div class="hidden lg:flex lg:items-center gap-x-2">
-                                <button
-                                    class="flex items-center text-white dark:text-white justify-center px-6 py-2.5 font-semibold hover:underline hover:underline-offset-4 hover:w-fit">{{ __('Iniciar Sesión') }}</button>
-                                <button
-                                    class="flex items-center justify-center rounded-md bg-white hover:bg-gray-300 text-black px-6 py-1.5 font-semibold hover:shadow-lg hover:drop-shadow transition duration-200">{{ __('Registrarse') }}</button>
+
+                                @auth
+                                    <a href="{{ route('redireccion') }}"
+                                        class="flex items-center text-white dark:text-white justify-center px-6 py-2.5 font-semibold hover:underline hover:underline-offset-4 hover:w-fit">{{ __('ENTRAR AL SISTEMA') }}</a>
+                                @else
+                                    <a href="{{ route('login') }}"
+                                        class="flex items-center text-white dark:text-white justify-center px-6 py-2.5 font-semibold hover:underline hover:underline-offset-4 hover:w-fit">{{ __('Iniciar Sesión') }}</a>
+                                    <a href="{{ route('register') }}"
+                                        class="flex items-center justify-center rounded-md bg-white hover:bg-gray-300 text-black px-6 py-1.5 font-semibold hover:shadow-lg hover:drop-shadow transition duration-200">{{ __('Registrarse') }}</a>
+                                @endauth
+
                             </div>
                             {{-- <div class="flex items-center justify-center lg:hidden">
                         <button id="menu-button" class="focus:outline-none text-slate-200">
@@ -181,14 +188,24 @@
                                     class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
                                     <a href="#">{{ __('Contactos') }}</a>
                                 </li>
-                                <li
-                                    class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                    <a href="#">{{ __('Iniciar Sesión') }}</a>
-                                </li>
-                                <li
-                                    class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
-                                    <a href="#">{{ __('Registrarse') }}</a>
-                                </li>
+
+
+                                @auth
+                                    <li
+                                        class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                        <a href="{{ route('redireccion') }}">{{ __('ENTRAR AL SISTEMA') }}</a>
+                                    </li>
+                                @else
+                                    <li
+                                        class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                        <a href="{{ route('login') }}">{{ __('Iniciar Sesión') }}</a>
+                                    </li>
+                                    <li
+                                        class="hover:underline hover:underline-offset-4 hover:w-fit transition-all duration-100 ease-linear">
+                                        <a href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+                                    </li>
+                                @endauth
+
                             </ul>
                         </div>
 
@@ -315,7 +332,11 @@
                                     {{ __('BIENVENIDOS AL') }} <br class="lg:block" />
                                     <p class="text-2xl md:text-3xl mt-3 leading-1 text-black"
                                         style="letter-spacing: 0.5px">
-                                        {{ __('SISTEMA DE ARRIBO, CONDUCE Y DESPACHO DE EMBARCACIONES') }}
+
+
+
+                                        {{ __('SISTEMA DESPACHOS ARD') }}
+
                                     </p>
                                 </h1>
                                 <p class="mx-auto mt-4 text-sm leading-normal text-gray-500 justificado">
@@ -355,6 +376,7 @@
                     </div>
                 </div>
 
+
                 <div class="container flex justify-center items-center w-full mt-3 mb-10 mx-auto">
                     <a href="#section"
                         class="animate__animated animate__bounce animate__infinite animate__slower"><svg
@@ -365,10 +387,6 @@
                         </svg></a>
                 </div>
             </section>
-
-
-
-
             <!-- todo esta parte esta por si acaso se usara mas adelante -->
 
             <!-- Aqui sera el espacio para poner las dependencias de capitania de puerto -->
@@ -449,12 +467,7 @@
                                 <div class="font-bold text-sm mb-2">{{ __('Buques de carga') }}</div>
                                 <p class="text-gray-700 text-sm justificado">
                                     {{ __('Con el objetivo de eficientizar
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    y automatizar este servicio también hemos desarrollado en esta
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    plataforma el servicio de arribo y despacho de los buques de
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    carga, por lo que, a través de las navieras, a las cuales se les
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ha otorgado permiso de crear múltiples usuarios para que las
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    mismas puedan realizar sus solicitudes en tiempo récord a las
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    diferentes capitanías de puertos') }}.
+
                                 </p>
                             </div>
                             {{-- <div class="px-6 py-4">
@@ -630,13 +643,18 @@
 
         {{-- esta parte solo es visible en pantallas pequeñas --}}
 
-
         {{-- este div de aquí arriba estara vacio solo para pruebas --}}
         <div
             class="md:hidden h-screen flex flex-col justify-center pb-4 bg-center bg-[url({{ asset('images/sea1.jpg') }})]">
             <div class="flex justify-center pb-16">
                 <div class="flex h-12">
-                    <img src="{{ asset('images/en.svg') }}" alt="" class="mr-4 ">
+
+                    @foreach (Config::get('languages') as $lang => $language)
+                        @if (app()->getLocale() === $language['flag'])
+                            <img src="{{ asset('images/' . $language['image']) }}" alt="" class="mr-4">
+                        @endif
+                    @endforeach
+
                 </div>
                 <div class="flex">
                     <form class="flex justify-end items-center" action="{{ route('lang.switch') }}" method="POST">
@@ -685,12 +703,14 @@
 
                                     {{-- slide contexto --}}
                                     {{-- <div class="hidden duration-700 ease-in-out" data-carousel-item>
+
                                     <p>hola mundo soy yo de nuevo</p>
                                     <img src="{{ asset('images/boat.png') }}"
                                         class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                         alt="...">
                                     <p class="text-center text-xl pb-10 -mt-1 font-bold">Despacho</p>
                                 </div> --}}
+
 
 
 
@@ -728,32 +748,34 @@
 
                                 <!-- Slider controls -->
                                 <!-- <button type="button" class="absolute bg-blue-900 top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                    </svg>
-                    <span class="sr-only">Previous</span>
-                </span>
-            </button>
-            <button type="button" class="absolute bg-blue-900 top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                    </svg>
-                    <span class="sr-only">Next</span>
-                </span>
-            </button> -->
-                            </div>
 
+             <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                 <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                 </svg>
+                 <span class="sr-only">Previous</span>
+             </span>
+         </button>
+         <button type="button" class="absolute bg-blue-900 top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+             <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                 <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                 </svg>
+                 <span class="sr-only">Next</span>
+             </span>
+         </button> -->
+                            </div>
 
                         </div>
                         <!-- aqui es dodne termian el carrousel -->
 
                         <div class="flex justify-center mt-8">
-                            <button
+
+                            <a href="{{ route('login') }}"
                                 class="px-8 py-4 text-lg text-white bg-blue-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-600">
                                 Iniciar Sesión
-                            </button>
+                            </a>
+
                         </div>
 
 

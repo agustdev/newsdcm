@@ -45,6 +45,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin777'),
         ]);
 
+        $this->call(CapitanesRegistradosSeeder::class);
         $this->call(EmbarcacionSeeder::class);
         $this->call(DestinosSeeder::class);
         $this->call(MovimientoSeeder::class);

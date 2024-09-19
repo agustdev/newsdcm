@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CapitanesRegistradosController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DespachosController;
 use App\Http\Controllers\EmbarcacioneController;
@@ -29,6 +30,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/acceso-rapido', function () {
         return view('quick-access');
     })->name('acceso.rapido');
+
+    Route::resource('capitanes', CapitanesRegistradosController::class)->names('capitanes.registrados');
 
     Route::post('/consulta_embarcacion', [ConsultasController::class, 'consultar_embarcacion'])->name('consulta.embarcacion');
     Route::post('get/municipios', [ConsultasController::class, 'get_municipios'])->name('get.municipios');
