@@ -635,15 +635,12 @@
         <div class="md:hidden h-screen flex flex-col justify-center pb-4 bg-center bg-[url({{ asset('images/sea1.jpg') }})]">
             
             
-            <div class="flex justify-center pb-16">
-                <div class="flex h-12">
-                <img src="{{ asset('images/en.svg') }}" alt="" class="mr-4 ">
-            </div>
-            <div class="flex">
-                <form class="flex justify-end items-center" action="{{ route('lang.switch') }}" method="POST">
+            <div class="flex items-center mx-auto pb-16">
+                <img src="{{ asset('images/bandera-de-la-republica-dominicana-imagen-animada-0001.gif') }}" alt="" class="mr-4">
+                <form class="flex justify-end" action="{{ route('lang.switch') }}" method="POST">
                     @csrf
                     <select onchange="this.form.submit()" name="language" id="language"
-                        class="form-select rounded-lg px-3 h-8  border-amber-400 md:hidden w-full changeLang">
+                        class="form-select rounded-lg px-3 mb-2 border-amber-400 md:hidden w-full changeLang">
                         <option value="es" selected>Seleccione su idioma</option>
                         @foreach (Config::get('languages') as $lang => $language)
                             <option value="{{ $language['flag'] }}"
@@ -654,14 +651,13 @@
                     </select>
                 </form>
             </div>
-            </div>
             
 {{-- nuevo div --}}
 
 <div>
             <div
                 class="lg:-mt-10 grid grid-cols-1 lg:grid-cols-2 py-12 container justify-center items-center">
-                <div class="text-white mb-12 -mt-2">
+                <div class="text-white">
                     <!-- div para la imagen de fondo -->
                     <div class="flex justify-center">
                         <img class="h-48 w-48 -mt-10 mb-10" src="{{ asset('images/capitania de puerto1.png') }}" alt=""
@@ -669,7 +665,7 @@
                     </div>
                     <!-- div para la imagen de fondo -->
                     <div class="flex justify-center">
-                        <h1 class="text-xl font-black lg:hidden -mt-6 mb-4 text-center">ARMADA DE REPÚBLICA DOMINICANA <br><span class="text-xl font-semibold">DESPACHO RD</span></h1>
+                        <h1 class="text-xl font-bold lg:hidden -mt-6 mb-4 text-center">ARMADA DE REPÚBLICA DOMINICANA <br><span class="text-xl">DESPACHO RD</span></h1>
                     </div>
 
                 </div>
@@ -684,45 +680,34 @@
                             <div class="relative h-56 overflow-hidden md:h-96">
                                 <!--max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48-->
 
-                                {{-- slide contexto --}}
-                                {{-- <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <p>hola mundo soy yo de nuevo</p>
-
-                                    <img src="{{ asset('images/boat.png') }}"
-                                        class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                        alt="...">
-                                    <p class="text-center text-xl pb-10 -mt-1 font-bold">Despacho</p>
-                                </div> --}}
-
-
                                 <!-- Item 1 -->
 
                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                     <img src="{{ asset('images/boat.png') }}"
                                         class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                         alt="...">
-                                    <p class="text-center text-3xl pb-10 -mt-1 font-bold">Despacho</p>
+                                    <p class="text-center text-xl pb-10 -mt-1 font-bold">Despacho</p>
                                 </div>
                                 <!-- Item 2 -->
                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                     <img src="{{ asset('images/cruise.png') }}"
                                         class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                         alt="...">
-                                    <p class="text-center text-3xl pb-10 -mt-1 font-bold">Conduce</p>
+                                    <p class="text-center text-xl pb-10 -mt-1 font-bold">Conduce</p>
                                 </div>
                                 <!-- Item 3 -->
                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                     <img src="{{ asset('images/soldier.png') }}"
                                         class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                         alt="...">
-                                    <p class="text-center text-3xl pb-10 -mt-1 font-bold">Asistencia</p>
+                                    <p class="text-center text-xl pb-10 -mt-1 font-bold">Asistencia</p>
                                 </div>
                                 <!-- Item 4 -->
                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                     <img src="{{ asset('images/darse-cuenta.png') }}"
                                         class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                         alt="...">
-                                    <p class="text-center text-3xl pb-10 -mt-1 font-bold">Aviso para navegantes</p>
+                                    <p class="text-center text-xl pb-10 -mt-1 font-bold">Aviso para navegantes</p>
                                 </div>
                             </div>
                             <!-- comentare los controles del slider por que no quiero borrarlos en caso de necesaitarlo -->
@@ -750,7 +735,7 @@
                     </div>
                     <!-- aqui es dodne termian el carrousel -->
 
-                    <div class="flex justify-center mt-8">
+                    <div class="flex justify-center">
                         <button
                             class="px-8 py-4 text-lg text-white bg-blue-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-600">
                             Iniciar Sesión
