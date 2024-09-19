@@ -694,35 +694,35 @@
                                 </div> --}}
 
 
-                                
+
                                 <!-- Item 1 -->
 
                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                     <img src="{{ asset('images/boat.png') }}"
                                         class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                         alt="...">
-                                    <p class="text-center text-xl pb-10 -mt-1 font-bold">Despacho</p>
+                                    <p class="text-center text-2xl pb-10 -mt-1 font-bold">Despacho</p>
                                 </div>
                                 <!-- Item 2 -->
                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                     <img src="{{ asset('images/cruise.png') }}"
                                         class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                         alt="...">
-                                    <p class="text-center text-xl pb-10 -mt-1 font-bold">Conduce</p>
+                                    <p class="text-center text-2xl pb-10 -mt-1 font-bold">Conduce</p>
                                 </div>
                                 <!-- Item 3 -->
                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                     <img src="{{ asset('images/soldier.png') }}"
                                         class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                         alt="...">
-                                    <p class="text-center text-xl pb-10 -mt-1 font-bold">Asistencia</p>
+                                    <p class="text-center text-2xl pb-10 -mt-1 font-bold">Asistencia</p>
                                 </div>
                                 <!-- Item 4 -->
                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                     <img src="{{ asset('images/darse-cuenta.png') }}"
                                         class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                         alt="...">
-                                    <p class="text-center text-xl pb-10 -mt-1 font-bold">Aviso para navegantes</p>
+                                    <p class="text-center text-2xl pb-10 -mt-1 font-bold">Aviso para navegantes</p>
                                 </div>
                             </div>
                             <!-- comentare los controles del slider por que no quiero borrarlos en caso de necesaitarlo -->
