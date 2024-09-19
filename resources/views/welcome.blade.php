@@ -684,6 +684,17 @@
                             <div class="relative h-56 overflow-hidden md:h-96">
                                 <!--max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48-->
 
+ {{-- slide contexto --}}
+                                {{-- <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <p>hola mundo soy yo de nuevo</p>
+                                    <img src="{{ asset('images/boat.png') }}"
+                                        class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                        alt="...">
+                                    <p class="text-center text-xl pb-10 -mt-1 font-bold">Despacho</p>
+                                </div> --}}
+
+
+                                
                                 <!-- Item 1 -->
 
                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
