@@ -647,7 +647,9 @@
             class="md:hidden h-screen flex flex-col justify-center pb-4 bg-center bg-[url({{ asset('images/sea1.jpg') }})]">
             <div class="flex justify-center pb-16">
                 <div class="flex h-12">
-
+                    @if (app()->getLocale() == '')
+                        <img src="{{ asset('images/do.svg') }}" alt="" class="mr-4">
+                    @endif
                     @foreach (Config::get('languages') as $lang => $language)
                         @if (app()->getLocale() === $language['flag'])
                             <img src="{{ asset('images/' . $language['image']) }}" alt="" class="mr-4">
@@ -684,8 +686,11 @@
                         </div>
                         <!-- div para la imagen de fondo -->
                         <div class="flex justify-center">
-                            <h1 class="text-xl font-black lg:hidden -mt-6 mb-4 text-center">ARMADA DE REPÚBLICA
-                                DOMINICANA <br><span class="text-xl font-semibold">DESPACHO RD</span></h1>
+                            <h1 class="text-xl font-black lg:hidden -mt-6 mb-4 text-center">
+                                {{ __('ARMADA DE REPÚBLICA
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                DOMINICANA') }}
+                                <br><span class="text-xl font-semibold">{{ __('DESPACHO RD') }}</span>
+                            </h1>
                         </div>
 
                     </div>
@@ -719,21 +724,23 @@
                                         <img src="{{ asset('images/boat.png') }}"
                                             class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                             alt="...">
-                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">Despacho</p>
+                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">{{ __('Despacho') }}</p>
                                     </div>
                                     <!-- Item 2 -->
                                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                         <img src="{{ asset('images/cruise.png') }}"
                                             class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                             alt="...">
-                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">Conduce</p>
+                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">{{ __('Despacho') }}
+                                        </p>
                                     </div>
                                     <!-- Item 3 -->
                                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                         <img src="{{ asset('images/soldier.png') }}"
                                             class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                             alt="...">
-                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">Asistencia</p>
+                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">{{ __('Despacho') }}
+                                        </p>
                                     </div>
                                     <!-- Item 4 -->
                                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -772,7 +779,7 @@
 
                             <a href="{{ route('login') }}"
                                 class="px-8 py-4 text-lg text-white bg-blue-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-600">
-                                Iniciar Sesión
+                                {{ __('Iniciar Sesión') }}
                             </a>
 
                         </div>
