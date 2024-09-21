@@ -82,4 +82,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(EmbarcacionesInternacionales::class, 'no_documento', 'documento');
     }
+
+    public function capitanes_registrados_usuarios()
+    {
+        return $this->hasMany(CapitanesRegUsuarios::class);
+    }
 }
