@@ -644,9 +644,9 @@
 
         {{-- este div de aquí arriba estara vacio solo para pruebas --}}
         <div
-            class="md:hidden h-screen flex flex-col justify-center pb-4 bg-center bg-[url({{ asset('images/sea1.jpg') }})]">
-            <div class="flex justify-center pb-16">
-                <div class="flex h-12">
+            class="md:hidden h-screen flex flex-col justify-center bg-center bg-[url({{ asset('images/sea1.jpg') }})]">
+            <div class="flex flex-row justify-center mb-5">
+                <div class="flex h-12 mt-4">
                     @if (app()->getLocale() == '')
                         <img src="{{ asset('images/do.svg') }}" alt="" class="mr-4">
                     @endif
@@ -657,7 +657,7 @@
                     @endforeach
 
                 </div>
-                <div class="flex">
+                <div class="flex mt-4">
                     <form class="flex justify-end items-center" action="{{ route('lang.switch') }}" method="POST">
                         @csrf
                         <select onchange="this.form.submit()" name="language" id="language"
@@ -677,8 +677,8 @@
             {{-- nuevo div --}}
 
             <div>
-                <div class="lg:-mt-10 grid grid-cols-1 lg:grid-cols-2 py-12 container justify-center items-center">
-                    <div class="text-white mb-12 -mt-2">
+                <div class="lg:-mt-10 grid grid-cols-1 lg:grid-cols-2 py-10 container justify-center items-center">
+                    <div class="text-white mb-10 -mt-2">
                         <!-- div para la imagen de fondo -->
                         <div class="flex justify-center">
                             <img class="h-48 w-48 -mt-10 mb-10" src="{{ asset('images/capitania de puerto1.png') }}"
@@ -688,7 +688,7 @@
                         <div class="flex justify-center">
                             <h1 class="text-xl font-black lg:hidden -mt-6 mb-4 text-center">
                                 {{ __('ARMADA DE REPÚBLICA
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                DOMINICANA') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                DOMINICANA') }}
                                 <br><span class="text-xl font-semibold">{{ __('DESPACHO RD') }}</span>
                             </h1>
                         </div>
