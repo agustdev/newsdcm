@@ -5,22 +5,22 @@
 
     <x-dialog-modal wire:model='open'>
         <x-slot name="title">
-            Crear capitan
+            REGISTRAR CAPITAN
         </x-slot>
         <x-slot name="content">
-            <div class="mt-4 uppercase">
+            <div class="mt-3 uppercase">
                 <x-label class="text-3xl">Tipo de documento</x-label>
                 <x-select class="block w-full mt-2 uppercase" wire:model='tipo_documento'></x-select>
             </div>
-            <div class="mt-4 uppercase">
+            <div class="mt-3 uppercase">
                 <x-label class="text-3xl">Documento de identidad</x-label>
                 <x-input class="block w-full mt-2 uppercase" wire:model='documento'></x-input>
             </div>
-            <div class="mt-4 uppercase">
+            <div class="mt-3 uppercase">
                 <x-label class="text-3xl">Nombre</x-label>
                 <x-input class="block w-full mt-2 uppercase" wire:model='nombre'></x-input>
             </div>
-            <div class="mt-4 uppercase">
+            <div class="mt-3 uppercase">
                 <x-label class="text-3xl">Nacionalidad</x-label>
                 <select class="form-control mb-2 rounded-md" wire:model='nacionalidad'>
                     <option value="">- Seleccione -</option>
@@ -29,13 +29,13 @@
                     @endforeach
                 </select>
             </div>
-            <div class="mt-4 uppercase">
+            <div class="mt-3 uppercase">
                 <x-label class="text-3xl">Telefono</x-label>
                 <x-input class="block w-full mt-2 uppercase" wire:model='contacto'></x-input>
             </div>
         </x-slot>
         <x-slot name="footer">
-            <x-danger-button class="mr-4" wire:click="$set('open', false)">Cancelar</x-danger-button>
+            <x-danger-button class="mr-3" wire:click="$set('open', false)">Cancelar</x-danger-button>
             <x-blue-button wire:click='update' wire:loading.attr='disabled'
                 class="disabled:opacity-25">Aceptar</x-blue-button>
         </x-slot>
