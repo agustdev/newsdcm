@@ -646,8 +646,8 @@
         {{-- este div de aquí arriba estara vacio solo para pruebas --}}
         <div
             class="md:hidden h-screen flex flex-col justify-center bg-center bg-[url({{ asset('images/sea1.jpg') }})]">
-            <div class="flex flex-row justify-center mb-5">
-                <div class="flex h-12 mt-4">
+            <div class="grid grid-cols-2 gap-2 mx-6 justify-center mb-5">
+                <div class="flex justify-end h-12 mt-4">
                     @if (app()->getLocale() == '')
                         <img src="{{ asset('images/do.svg') }}" alt="" class="mr-4">
                     @endif
