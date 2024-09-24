@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Capitanes;
+use App\Models\CapitanesRegistrados;
 use App\Models\Destinos;
 use App\Models\Embarcaciones;
 use App\Models\Movimientos;
@@ -35,7 +36,8 @@ class DespachosController extends Controller
             ->whereRaw('fecha_validez >= CURDATE()')
             ->get();
         $nacionalidades = Nacionalidades::all();
-        return view('movimientos.despachos.create', compact('ultimo_mov', 'destinos', 'embarcaciones', 'nacionalidades'));
+        $capitanesreg = CapitanesRegistrados::join('capitanes_reg_usuarios', 'cap_id', 'capitanes_registrados.id')->where('user_id', auth()->user()->id)->get();
+        return view('movimientos.despachos.create', compact('ultimo_mov', 'destinos', 'embarcaciones', 'nacionalidades', 'capitanesreg'));
         // return $embarcaciones;
     }
 
@@ -80,11 +82,14 @@ class DespachosController extends Controller
             'vcode' => strtoupper(substr(md5(Str::uuid()->toString()), 1, 6)),
             'url_id' => Str::uuid()->toString()
         ]);
+
+        $capitan = CapitanesRegistrados::where('id', $request->capitan)->first();
+
         Capitanes::create([
-            'documento' => $request->documento,
-            'nombre' => $request->nombre_capitan,
-            'nacionalidad' => $request->nacionalidad,
-            'telefono' => $request->telefono,
+            'documento' => $capitan->documento,
+            'nombre' => $capitan->nombre,
+            'nacionalidad' => $capitan->nacionalidad,
+            'telefono' => $capitan->telefono,
             'motivo_viaje' => $request->motivo_viaje,
             'lugar_salida' => $salida[1],
             'lugar_destino' => $destino[1],
