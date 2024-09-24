@@ -716,40 +716,53 @@
                                         alt="...">
                                     <p class="text-center text-xl pb-10 -mt-1 font-bold">Despacho</p>
                                 </div> --}}
+                                {{-- descripcion del servicio --}}
+                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    {{-- <img src="{{ asset('images/darse-cuenta.png') }}"
+                                        class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-28 w-28 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                        alt="..."> --}}
 
+                                    <p class="text-center text-2xl pb-10 -mt-1 font-bold">Descripción del servicio</p>
+
+                                    <p class="text-center text-1xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nibh eros, tincidunt eu condimentum sit amet, sollicitudin quis erat. </p>
+                                </div>
+
+
+                                {{-- fin de la descripcion --}}
 
 
 
                                     <!-- Item 1 -->
-
                                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                        <img src="{{ asset('images/boat.png') }}"
-                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                        <img src="{{ asset('images/soldier.png') }}"
+                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-28 w-28 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                             alt="...">
-                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">{{ __('Despacho') }}</p>
+                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">Aviso para navegantes</p>
                                     </div>
+
+                                    
                                     <!-- Item 2 -->
                                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                        <img src="{{ asset('images/cruise.png') }}"
-                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                        <img src="{{ asset('images/trailer.png') }}"
+                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-28 w-28 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                             alt="...">
-                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">{{ __('Despacho') }}
+                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">{{ __('Conduce') }}
                                         </p>
                                     </div>
                                     <!-- Item 3 -->
                                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                        <img src="{{ asset('images/soldier.png') }}"
-                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                        <img src="{{ asset('images/ship-2.png') }}"
+                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-28 w-28 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                             alt="...">
                                         <p class="text-center text-2xl pb-10 -mt-1 font-bold">{{ __('Despacho') }}
                                         </p>
                                     </div>
                                     <!-- Item 4 -->
                                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                        <img src="{{ asset('images/darse-cuenta.png') }}"
-                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-48 w-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                        <img src="{{ asset('images/whatsapp.png') }}"
+                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-28 w-28 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                             alt="...">
-                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">Aviso para navegantes</p>
+                                        <p class="text-center text-2xl pb-10 -mt-1 font-bold">{{ __('Asistencia') }}</p>
                                     </div>
                                 </div>
                                 <!-- comentare los controles del slider por que no quiero borrarlos en caso de necesaitarlo -->
