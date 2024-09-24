@@ -759,8 +759,8 @@
                                     </div>
                                     <!-- Item 4 -->
                                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                        <img src="{{ asset('images/whatsapp.png') }}"
-                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-28 w-28 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                        <img src="{{ asset('images/icono whatsapp.png') }}"
+                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-24 w-24 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                             alt="...">
                                         <p class="text-center text-2xl pb-10 -mt-1 font-bold">{{ __('Asistencia') }}</p>
                                     </div>
