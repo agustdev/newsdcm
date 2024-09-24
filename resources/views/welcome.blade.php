@@ -653,7 +653,7 @@
                     @endif
                     @foreach (Config::get('languages') as $lang => $language)
                         @if (app()->getLocale() === $language['flag'])
-                            <img src="{{ asset('images/' . $language['image']) }}" alt="" class="mr-4">
+                            <img src="{{ asset('images/' . $language['image']) }}" alt="" class="">
                         @endif
                     @endforeach
 
