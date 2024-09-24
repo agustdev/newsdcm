@@ -649,7 +649,7 @@
             <div class="grid grid-cols-3 mx-6 justify-center mb-5">
                 <div class="flex justify-end h-12 mt-4">
                     @if (app()->getLocale() == '')
-                        <img src="{{ asset('images/do.svg') }}" alt="" class="-mr-2">
+                        <img src="{{ asset('images/do.svg') }}" alt="" class="">
                     @endif
                     @foreach (Config::get('languages') as $lang => $language)
                         @if (app()->getLocale() === $language['flag'])
