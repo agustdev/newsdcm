@@ -4,8 +4,10 @@
         alt="">
     {{--
     </div> --}}
-    <h1 class="h2 text-center mt-5 text-bold text-white uppercase">
-        {{ __('ARMADA DE REPÚBLICA DOMINICANA') }}
+
+    <h1 class="h2 text-center mt-5 text-bold font-black text-white uppercase">
+        {{ __('ARMADA DE REPÚBLICA DOMINICANA') }} 
+
         <br>
         {{ __('DESPACHO RD') }}
     </h1>

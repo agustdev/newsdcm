@@ -467,6 +467,7 @@
                                 <div class="font-bold text-sm mb-2">{{ __('Buques de carga') }}</div>
                                 <p class="text-gray-700 text-sm justificado">
                                     {{ __('Con el objetivo de eficientizar') }}
+
                                 </p>
                             </div>
                             {{-- <div class="px-6 py-4">
