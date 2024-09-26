@@ -743,8 +743,8 @@
                                     
                                     <!-- Item 2 -->
                                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                        <img src="{{ asset('images/trailer.png') }}"
-                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-28 w-28 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                        <img src="{{ asset('images/conduce.png') }}"
+                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-30 w-30 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                             alt="...">
                                         <p class="text-center text-2xl pb-10 -mt-1 font-bold">{{ __('Conduce') }}
                                         </p>
@@ -760,7 +760,7 @@
                                     <!-- Item 4 -->
                                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                         <img src="{{ asset('images/icono whatsapp.png') }}"
-                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-24 w-24 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                                            class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-20 w-20 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                             alt="...">
                                         <p class="text-center text-2xl pb-10 -mt-1 font-bold">{{ __('Asistencia') }}</p>
                                     </div>
