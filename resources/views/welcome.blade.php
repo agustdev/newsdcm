@@ -724,7 +724,7 @@
 
                                     <p class="text-center text-2xl pb-10 -mt-1 font-bold">Descripción del servicio</p>
 
-                                    <p class="text-center text-1xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nibh eros, tincidunt eu condimentum sit amet, sollicitudin quis erat. </p>
+                                    <p class="text-center mx-4 text-1xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nibh eros, tincidunt eu condimentum sit amet, sollicitudin quis erat. </p>
                                 </div>
 
 
