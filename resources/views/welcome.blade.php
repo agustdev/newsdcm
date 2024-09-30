@@ -861,6 +861,38 @@
                         $('#mainmenu, #mobile-menu').slideToggle(90);
                     });
                 });
+
+
+                document.addEventListener('DOMContentLoaded', function () {
+        const carousel = document.querySelector('[data-carousel="slide"]');
+        let interval;
+
+        // Función para iniciar el carrusel
+        function startCarousel() {
+            interval = setInterval(() => {
+                // Mover al siguiente ítem del carrusel cada 3 segundos
+                const nextButton = carousel.querySelector('[data-carousel-next]');
+                if (nextButton) {
+                    nextButton.click();
+                }
+            }, 3000); // Cambia el intervalo según sea necesario
+        }
+
+        // Función para pausar el carrusel
+        function pauseCarousel() {
+            clearInterval(interval);
+        }
+
+        // Iniciar el carrusel cuando se cargue la página
+        startCarousel();
+
+        // Pausar cuando el mouse está sobre el carrusel
+        carousel.addEventListener('mouseenter', pauseCarousel);
+
+        // Reanudar cuando el mouse sale del carrusel
+        carousel.addEventListener('mouseleave', startCarousel);
+    });
+
             </script>
     </body>
 
