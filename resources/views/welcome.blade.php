@@ -724,7 +724,7 @@
 
                                     <p class="text-center text-lg pb-2 -mt-1 font-bold">Descripción del servicio</p>
 
-                                    <p class="text-center mx-4 text-justify" style="font-size: 0.600rem; line-height: 1.25rem;">El Comando Naval de Capitanías de Puertos y Autoridad Marítima de la  Armada de República Dominicana, con el objetivo de eficientizar los servicios de solicitudes de Conduce y Despacho de Embarcaciones, ha decidido poner en funcionamiento la plataforma tecnológica de servicios en línea <span class="font-bold">DESPACHO-RD</span>, con la finalidad de que todos los propietarios de embarcaciones de recreo, puedan realizar sus solicitudes desde cualquier lugar donde se encuentren, ya sea nacional o internacional. </p>
+                                    <p class="mx-4 text-justify" style="font-size: 0.600rem; line-height: 1.25rem;">El Comando Naval de Capitanías de Puertos y Autoridad Marítima de la  Armada de República Dominicana, con el objetivo de eficientizar los servicios de solicitudes de Conduce y Despacho de Embarcaciones, ha decidido poner en funcionamiento la plataforma tecnológica de servicios en línea <span class="font-bold">DESPACHO-RD</span>, con la finalidad de que todos los propietarios de embarcaciones de recreo, puedan realizar sus solicitudes desde cualquier lugar donde se encuentren, ya sea nacional o internacional. </p>
                                 </div>
 
 
