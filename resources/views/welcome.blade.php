@@ -722,9 +722,9 @@
                                         class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-28 w-28 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                         alt="..."> --}}
 
-                                    <p class="text-center text-lg pb-10 -mt-1 font-bold">Descripción del servicio</p>
+                                    <p class="text-center text-lg pb-2 -mt-1 font-bold">Descripción del servicio</p>
 
-                                    <p class="text-center mx-4 text-1xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nibh eros, tincidunt eu condimentum sit amet, sollicitudin quis erat. </p>
+                                    <p class="text-center mx-4 text-justify" style="font-size: 0.600rem; line-height: 1.25rem;">El Comando Naval de Capitanías de Puertos y Autoridad Marítima de la  Armada de República Dominicana, con el objetivo de eficientizar los servicios de solicitudes de Conduce y Despacho de Embarcaciones, ha decidido poner en funcionamiento la plataforma tecnológica de servicios en línea <span class="font-bold">DESPACHO-RD</span>, con la finalidad de que todos los propietarios de embarcaciones de recreo, puedan realizar sus solicitudes desde cualquier lugar donde se encuentren, ya sea nacional o internacional. </p>
                                 </div>
 
 
@@ -794,7 +794,7 @@
 
                             <a href="{{ route('login') }}"
                                 class="px-8 py-4 text-lg text-white bg-blue-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-600">
-                                {{ __('Iniciar Sesión') }}
+                                {{ __('Entrar') }}
                             </a>
 
                         </div>
