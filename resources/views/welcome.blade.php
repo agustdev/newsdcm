@@ -689,7 +689,7 @@
                         <div class="flex justify-center">
                             <h1 class="text-xl font-black lg:hidden -mt-6 mb-4 text-center">
                                 {{ __('ARMADA DE REPÚBLICA
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                DOMINICANA') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                DOMINICANA') }}
                                 <br><span class="text-xl font-black"
                                     style="color: #FFBB10 !important;">{{ __('DESPACHO RD') }}</span>
                             </h1>
@@ -716,33 +716,43 @@
                                         alt="...">
                                     <p class="text-center text-xl pb-10 -mt-1 font-bold">Despacho</p>
                                 </div> --}}
-                                {{-- descripcion del servicio --}}
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    {{-- <img src="{{ asset('images/darse-cuenta.png') }}"
+                                    {{-- descripcion del servicio --}}
+                                    <div class="hidden duration-1000 ease-in-out" data-carousel-item>
+                                        {{-- <img src="{{ asset('images/darse-cuenta.png') }}"
                                         class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-28 w-28 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                         alt="..."> --}}
 
-                                    <p class="text-center text-lg pb-2 -mt-1 font-bold">Descripción del servicio</p>
+                                        <p class="text-center text-lg pb-2 -mt-1 font-bold">Descripción del servicio
+                                        </p>
 
-                                    <p class="mx-4 text-justify" style="font-size: 0.600rem; line-height: 1.25rem;">El Comando Naval de Capitanías de Puertos y Autoridad Marítima de la  Armada de República Dominicana, con el objetivo de eficientizar los servicios de solicitudes de Conduce y Despacho de Embarcaciones, ha decidido poner en funcionamiento la plataforma tecnológica de servicios en línea <span class="font-bold">DESPACHO-RD</span>, con la finalidad de que todos los propietarios de embarcaciones de recreo, puedan realizar sus solicitudes desde cualquier lugar donde se encuentren, ya sea nacional o internacional. </p>
-                                </div>
+                                        <p class="mx-4 text-justify"
+                                            style="font-size: 0.600rem; line-height: 1.25rem;">El Comando Naval de
+                                            Capitanías de Puertos y Autoridad Marítima de la Armada de República
+                                            Dominicana, con el objetivo de eficientizar los servicios de solicitudes de
+                                            Conduce y Despacho de Embarcaciones, ha decidido poner en funcionamiento la
+                                            plataforma tecnológica de servicios en línea <span
+                                                class="font-bold">DESPACHO-RD</span>, con la finalidad de que todos los
+                                            propietarios de embarcaciones de recreo, puedan realizar sus solicitudes
+                                            desde cualquier lugar donde se encuentren, ya sea nacional o internacional.
+                                        </p>
+                                    </div>
 
 
-                                {{-- fin de la descripcion --}}
+                                    {{-- fin de la descripcion --}}
 
 
 
                                     <!-- Item 1 -->
-                                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <div class="hidden duration-1000 ease-in-out" data-carousel-item>
                                         <img src="{{ asset('images/soldier.png') }}"
                                             class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-28 w-28 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                             alt="...">
                                         <p class="text-center text-lg pb-10 -mt-1 font-bold">Aviso para navegantes</p>
                                     </div>
 
-                                    
+
                                     <!-- Item 2 -->
-                                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <div class="hidden duration-1000 ease-in-out" data-carousel-item>
                                         <img src="{{ asset('images/conduce.png') }}"
                                             class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-30 w-30 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                             alt="...">
@@ -750,7 +760,7 @@
                                         </p>
                                     </div>
                                     <!-- Item 3 -->
-                                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <div class="hidden duration-1000 ease-in-out" data-carousel-item>
                                         <img src="{{ asset('images/ship-2.png') }}"
                                             class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-28 w-28 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                             alt="...">
@@ -758,11 +768,12 @@
                                         </p>
                                     </div>
                                     <!-- Item 4 -->
-                                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <div class="hidden duration-1000 ease-in-out" data-carousel-item>
                                         <img src="{{ asset('images/icono whatsapp.png') }}"
                                             class="absolute block max-w-[150px] lg:max-w-[250px] object-contain h-20 w-20 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                             alt="...">
-                                        <p class="text-center text-lg pb-10 -mt-1 font-bold">{{ __('Asistencia') }}</p>
+                                        <p class="text-center text-lg pb-10 -mt-1 font-bold">{{ __('Asistencia') }}
+                                        </p>
                                     </div>
                                 </div>
                                 <!-- comentare los controles del slider por que no quiero borrarlos en caso de necesaitarlo -->
@@ -816,84 +827,10 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
                 integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+            {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
                 integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
-                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-            <script>
-                //             $(document).ready(function(){
-                //   $(".owl-carousel").owlCarousel();
-                // });
-                var owl = $('.owl-carousel');
-                owl.owlCarousel({
-                    items: 1,
-                    loop: true,
-                    margin: 10,
-                    autoplay: true,
-                    autoplayTimeout: 1000,
-                    autoplayHoverPause: true
-                });
-                $('.play').on('click', function() {
-                    owl.trigger('play.owl.autoplay', [1000])
-                })
-                $('.stop').on('click', function() {
-                    owl.trigger('stop.owl.autoplay')
-                })
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
 
-                $('.owl-carousel').owlCarousel({
-                    items: 1,
-                    margin: 10,
-                    autoHeight: true
-                });
-
-
-                // document.getElementById('menu-button').addEventListener('click', function() {
-                //             var menu = document.getElementById('mobile-menu');
-                //             if (menu.classList.contains('hidden')) {
-                //                 menu.classList.remove('hidden');
-                //             } else {
-                //                 menu.classList.add('hidden');
-                //             }
-                //         });
-
-                $(document).ready(function() {
-                    $('#menu-button').on('click', function() {
-                        // $('#mainmenu').slideToggle('fast');
-                        $('#mainmenu, #mobile-menu').slideToggle(90);
-                    });
-                });
-
-
-                document.addEventListener('DOMContentLoaded', function () {
-        const carousel = document.querySelector('[data-carousel="slide"]');
-        let interval;
-
-        // Función para iniciar el carrusel
-        function startCarousel() {
-            interval = setInterval(() => {
-                // Mover al siguiente ítem del carrusel cada 3 segundos
-                const nextButton = carousel.querySelector('[data-carousel-next]');
-                if (nextButton) {
-                    nextButton.click();
-                }
-            }, 3000); // Cambia el intervalo según sea necesario
-        }
-
-        // Función para pausar el carrusel
-        function pauseCarousel() {
-            clearInterval(interval);
-        }
-
-        // Iniciar el carrusel cuando se cargue la página
-        startCarousel();
-
-        // Pausar cuando el mouse está sobre el carrusel
-        carousel.addEventListener('mouseenter', pauseCarousel);
-
-        // Reanudar cuando el mouse sale del carrusel
-        carousel.addEventListener('mouseleave', startCarousel);
-    });
-
-            </script>
     </body>
 
 </html>
