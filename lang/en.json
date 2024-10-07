@@ -478,5 +478,11 @@
     "Naviera": "Shipping company",
     "RNC": "RNC",
     "Razon Social": "Business name",
-    "Correo Electronico Manejador": "Email Handler"
+    "Correo Electronico Manejador": "Email Handler",
+    "Descripción del servicio": "Service Description",
+    "El Comando Naval de Capitanías de Puertos y Autoridad Marítima de la Armada de República Dominicana, con el objetivo de eficientizar los servicios de solicitudes de Conduce y Despacho de Embarcaciones, ha decidido poner en funcionamiento la plataforma tecnológica de servicios en línea DESPACHO-RD, con la finalidad de que todos los propietarios de embarcaciones de recreo, puedan realizar sus solicitudes desde cualquier lugar donde se encuentren, ya sea nacional o internacional": "The Naval Command of Port Captaincies and Maritime Authority of the Navy of the Dominican Republic, with the objective of making the request services for Conduct and Dispatch of Vessels more efficient, has decided to put into operation the technological platform for online services DESPACHO-RD, with the purpose that all owners of recreational boats can make their requests from wherever they are, whether national or international",
+    "Asistencia": "Attendance",
+    "Aviso para Navegantes": "Notice to Boaters",
+    "Entrar": "Enter",
+    "¿Posees una cuenta?": "Do you have an account?"
 }
