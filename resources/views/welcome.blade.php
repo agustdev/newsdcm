@@ -286,9 +286,10 @@
 
         <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
         <script>
-            let currentSlide = 0;
+          let currentSlide = 0;
     const totalSlides = 5; // El número total de slides
-    const intervalTime = 16000; // 5000 milisegundos (5 segundos)
+    const intervalTime = 7000; // 5000 milisegundos (5 segundos)
+    let autoSlideInterval;
 
     // Función para cambiar al siguiente slide
     function changeSlide() {
@@ -303,7 +304,23 @@
     }
 
     // Iniciar el carrusel automáticamente
-    setInterval(changeSlide, intervalTime);
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(changeSlide, intervalTime);
+    }
+
+    // Detener el carrusel
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Escuchar cuando el mouse entra o sale del carrusel
+    const carrouselElement = document.querySelector('[carrousel]');
+
+    carrouselElement.addEventListener('mouseenter', stopAutoSlide);
+    carrouselElement.addEventListener('mouseleave', startAutoSlide);
+
+    // Iniciar el carrusel cuando la página carga
+    startAutoSlide();
         </script>
     </body>
 
