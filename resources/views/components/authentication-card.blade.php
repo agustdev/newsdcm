@@ -1,4 +1,4 @@
-<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-blue-950">
+<div class="bg-center bg-[url({{ asset('images/sea1.jpg') }})] min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
     <div>
         {{ $logo }}
     </div>
