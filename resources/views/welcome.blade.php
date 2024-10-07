@@ -285,7 +285,26 @@
 
 
         <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
-        <script></script>
+        <script>
+            let currentSlide = 0;
+    const totalSlides = 5; // El número total de slides
+    const intervalTime = 5000; // 5000 milisegundos (5 segundos)
+
+    // Función para cambiar al siguiente slide
+    function changeSlide() {
+        // Desactivar el slide actual
+        document.getElementById(`slide-${currentSlide}`).checked = false;
+
+        // Mover al siguiente slide
+        currentSlide = (currentSlide + 1) % totalSlides;
+
+        // Activar el nuevo slide
+        document.getElementById(`slide-${currentSlide}`).checked = true;
+    }
+
+    // Iniciar el carrusel automáticamente
+    setInterval(changeSlide, intervalTime);
+        </script>
     </body>
 
 </html>
