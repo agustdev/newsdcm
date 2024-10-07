@@ -221,7 +221,7 @@
                     <div class="slide-content text-white">
 
                         <p class="text-center text-lg pb-2 -mt-1 font-bold">Navegantes</p>
-                        <img src="{{ asset('images/soldier.png') }}" class="h-24 w-24 md:h-48 md:w-48 " alt="...">
+                        <img src="{{ asset('images/soldier.png') }}" class="h-32 w-32 md:h-48 md:w-48 " alt="...">
 
                     </div>
                     <label for="slide-2" class="forward text-white hover:text-black">▶</label>
@@ -233,7 +233,7 @@
                     <div class="slide-content  text-white">
 
                         <p class="text-center text-lg pb-2 -mt-1 font-bold">Conduce</p>
-                        <img src="{{ asset('images/conduce.png') }}" class="h-24 w-24 md:h-48 md:w-48 " alt="...">
+                        <img src="{{ asset('images/conduce.png') }}" class="h-32 w-32 md:h-48 md:w-48 " alt="...">
 
                     </div>
                     <label for="slide-3" class="forward text-white hover:text-black">▶</label>
@@ -245,7 +245,7 @@
                     <div class="slide-content text-white">
 
                         <p class="text-center text-lg pb-2 -mt-1 font-bold">Despacho</p>
-                        <img src="{{ asset('images/ship-2.png') }}" class="h-24 w-24 md:h-48 md:w-48 " alt="...">
+                        <img src="{{ asset('images/ship-2.png') }}" class="h-32 w-32 md:h-48 md:w-48 " alt="...">
 
                     </div>
                     <label for="slide-4" class="forward text-white hover:text-black">▶</label>
@@ -257,7 +257,7 @@
                     <div class="slide-content text-white">
 
                         <p class="text-center text-lg pb-2 -mt-1 font-bold">Asistencia</p>
-                        <img src="{{ asset('images/icono whatsapp.png') }}" class="h-24 w-24 md:h-48 md:w-48 "
+                        <img src="{{ asset('images/icono whatsapp.png') }}" class="h-32 w-32 md:h-48 md:w-48 "
                             alt="...">
 
                     </div>
@@ -288,7 +288,7 @@
         <script>
             let currentSlide = 0;
     const totalSlides = 5; // El número total de slides
-    const intervalTime = 5000; // 5000 milisegundos (5 segundos)
+    const intervalTime = 16000; // 5000 milisegundos (5 segundos)
 
     // Función para cambiar al siguiente slide
     function changeSlide() {
