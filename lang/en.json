@@ -471,5 +471,12 @@
     "INFORMACIÓN DEL DESPACHO": "DISPATCH INFORMATION",
     "OTRO TELÉFONO": "ANOTHER PHONE",
     "TIPO DE EMBARCACIÓN": "TYPE OF BOAT",
-    "MOVIMIENTOS A SOLICITAR": "MOVEMENTS TO REQUEST"
+    "MOVIMIENTOS A SOLICITAR": "MOVEMENTS TO REQUEST",
+    "Propietario": "Owner",
+    "Posees una cuenta": "Do you have an account",
+    "Términos y condiciones del servicio": "Terms and conditions of the service",
+    "Naviera": "Shipping company",
+    "RNC": "RNC",
+    "Razon Social": "Business name",
+    "Correo Electronico Manejador": "Email Handler"
 }

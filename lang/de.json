@@ -297,5 +297,12 @@
     "INFORMACIÓN DEL DESPACHO": "VERSANDINFORMATIONEN",
     "OTRO TELÉFONO": "EIN ANDERES TELEFON",
     "TIPO DE EMBARCACIÓN": "BOOTSTYP",
-    "MOVIMIENTOS A SOLICITAR": "BEWEGUNGEN AUF ANFRAGE"
+    "MOVIMIENTOS A SOLICITAR": "BEWEGUNGEN AUF ANFRAGE",
+    "Propietario": "Eigentümer",
+    "Posees una cuenta": "Hast du einen Account",
+    "Términos y condiciones del servicio": "Allgemeine Geschäftsbedingungen des Dienstes",
+    "Naviera": "Versandunternehmen",
+    "RNC": "RNC",
+    "Razon Social": "Firmenname",
+    "Correo Electronico Manejador": "E-Mail-Handler"
 }

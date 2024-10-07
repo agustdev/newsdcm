@@ -297,5 +297,12 @@
     "INFORMACIÓN DEL DESPACHO": "ИНФОРМАЦИЯ О ОТПРАВКЕ",
     "OTRO TELÉFONO": "ДРУГОЙ ТЕЛЕФОН",
     "TIPO DE EMBARCACIÓN": "ТИП ЛОДКИ",
-    "MOVIMIENTOS A SOLICITAR": "ДВИЖЕНИЯ ПО ЗАПРОСУ"
+    "MOVIMIENTOS A SOLICITAR": "ДВИЖЕНИЯ ПО ЗАПРОСУ",
+    "Propietario": "Владелец",
+    "Posees una cuenta": "У тебя есть аккаунт",
+    "Términos y condiciones del servicio": "Условия предоставления услуги",
+    "Naviera": "Транспортная компания",
+    "RNC": "РНК",
+    "Razon Social": "Наименование фирмы",
+    "Correo Electronico Manejador": "Обработчик электронной почты"
 }
