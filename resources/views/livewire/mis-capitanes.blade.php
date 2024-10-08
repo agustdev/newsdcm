@@ -3,12 +3,12 @@
         <thead class="bg-blue-900">
             <tr class="text-white">
                 <th></th>
-                <th>Nombre</th>
-                <th>Documento de Identidad</th>
-                <th>Nacionalidad</th>
-                <th>Contacto</th>
-                <th>Fecha Registro</th>
-                <th>Acciones</th>
+                <th>{{ __('Nombre') }}</th>
+                <th>{{ __('Documento de Identidad') }}</th>
+                <th>{{ __('Nacionalidad') }}</th>
+                <th>{{ __('Contacto') }}</th>
+                <th>{{ __('Fecha Registro') }}</th>
+                <th>{{ __('Acciones') }}</th>
             </tr>
         </thead>
         <tbody>
