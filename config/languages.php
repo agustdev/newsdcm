@@ -29,5 +29,10 @@ return [
         'display' => 'DEUTSCH',
         'flag' => 'de',
         'image' => 'de.svg'
+    ],
+    'zh' => [
+        'display' => 'CHINO',
+        'flag' => 'zh',
+        'image' => 'zh.svg'
     ]
 ];
