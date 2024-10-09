@@ -217,8 +217,10 @@
                     <label for="slide-0" class="back text-white hover:text-black">◀</label>
                     <div class="slide-content text-white">
 
+
                         <p class="text-center text-lg pb-2 -mt-1 font-bold">{{ __('Aviso para Navegantes') }}</p>
                         <img src="{{ asset('images/soldier.png') }}" class="h-24 w-24 md:h-48 md:w-48 " alt="...">
+
 
                     </div>
                     <label for="slide-2" class="forward text-white hover:text-black">▶</label>
@@ -241,8 +243,10 @@
                     <label for="slide-2" class="back text-white hover:text-black">◀</label>
                     <div class="slide-content text-white">
 
+
                         <p class="text-center text-lg pb-2 -mt-1 font-bold">{{ __('Despacho') }}</p>
                         <img src="{{ asset('images/ship-2.png') }}" class="h-24 w-24 md:h-48 md:w-48 " alt="...">
+
 
                     </div>
                     <label for="slide-4" class="forward text-white hover:text-black">▶</label>
@@ -253,8 +257,10 @@
                     <label for="slide-3" class="back text-white hover:text-black">◀</label>
                     <div class="slide-content text-white">
 
+
                         <p class="text-center text-lg pb-2 -mt-1 font-bold">{{ __('Asistencia') }}</p>
                         <img src="{{ asset('images/icono whatsapp.png') }}" class="h-24 w-24 md:h-48 md:w-48 "
+
                             alt="...">
 
                     </div>
@@ -283,9 +289,12 @@
 
         <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
         <script>
-            let currentSlide = 0;
-            const totalSlides = 5; // El número total de slides
-            const intervalTime = 5000; // 5000 milisegundos (5 segundos)
+
+          let currentSlide = 0;
+    const totalSlides = 5; // El número total de slides
+    const intervalTime = 7000; // 5000 milisegundos (5 segundos)
+    let autoSlideInterval;
+
 
             // Función para cambiar al siguiente slide
             function changeSlide() {
@@ -299,8 +308,26 @@
                 document.getElementById(`slide-${currentSlide}`).checked = true;
             }
 
-            // Iniciar el carrusel automáticamente
-            setInterval(changeSlide, intervalTime);
+
+    // Iniciar el carrusel automáticamente
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(changeSlide, intervalTime);
+    }
+
+    // Detener el carrusel
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Escuchar cuando el mouse entra o sale del carrusel
+    const carrouselElement = document.querySelector('[carrousel]');
+
+    carrouselElement.addEventListener('mouseenter', stopAutoSlide);
+    carrouselElement.addEventListener('mouseleave', startAutoSlide);
+
+    // Iniciar el carrusel cuando la página carga
+    startAutoSlide();
+
         </script>
     </body>
 
