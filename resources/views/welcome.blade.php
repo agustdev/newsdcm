@@ -288,7 +288,7 @@
         <script>
           let currentSlide = 0;
     const totalSlides = 4; // El número total de slides
-    const intervalTime = 7000; // 5000 milisegundos (5 segundos)
+    const intervalTime = 7000; // 5000 milisegundos (7 segundos)
     let autoSlideInterval;
 
     // Función para cambiar al siguiente slide
