@@ -191,23 +191,38 @@
 
 
                 <div class="flex justify-center text-white">
-                    <h1 class="text-xl font-black -mt-6 mb-4 text-center">
-                        {{ __('ARMADA DE REPÚBLICA DOMINICANA') }}<br><span class="text-xl font-semibold">DESPACHO
-                            RD</span></h1>
+                    <h1 class="text-xl font-black -mt-6 mb-4 text-center">ARMADA DE REPÚBLICA
+                        DOMINICANA <br><span class="text-xl font-semibold">DESPACHO RD</span></h1>
                 </div>
             </div>
 
             <section carrousel>
-
+{{-- 
                 <input id="slide-0" name="carrousel" type="radio" checked />
                 <div class="slide">
                     <label for="slide-4" class="back text-white hover:text-black">◀</label>
                     <div class="slide-content text-white">
-                        <p class="text-center text-lg pb-2 -mt-1 font-bold">{{ __('Descripción del servicio') }}</p>
+                        <p class="text-center text-lg pb-2 -mt-1 font-bold">Descripción del servicio</p>
 
-                        <p class="mx-12 md:mx-20 text-justify toddler md:text-xl" style="">
-                            {{ __('El Comando Naval de Capitanías de Puertos y Autoridad Marítima de la Armada de República Dominicana, con el objetivo de eficientizar los servicios de solicitudes de Conduce y Despacho de Embarcaciones, ha decidido poner en funcionamiento la plataforma tecnológica de servicios en línea DESPACHO-RD, con la finalidad de que todos los propietarios de embarcaciones de recreo, puedan realizar sus solicitudes desde cualquier lugar donde se encuentren, ya sea nacional o internacional') }}.
-                        </p>
+                        <p class="mx-12 md:mx-20 text-justify toddler md:text-xl" style="">El Comando Naval de
+                            Capitanías de Puertos y Autoridad Marítima de la Armada de República Dominicana, con el
+                            objetivo de eficientizar los servicios de solicitudes de Conduce y Despacho de
+                            Embarcaciones, ha decidido poner en funcionamiento la plataforma tecnológica de servicios en
+                            línea <span class="font-bold">DESPACHO-RD</span>, con la finalidad de que todos los
+                            propietarios de embarcaciones de recreo, puedan realizar sus solicitudes desde cualquier
+                            lugar donde se encuentren, ya sea nacional o internacional. </p>
+                    </div>
+                    <label for="slide-1" class="forward text-white hover:text-black">▶</label>
+                </div> --}}
+
+                <input id="slide-0" name="carrousel" type="radio" checked />
+                <div class="slide">
+                    <label for="slide-3" class="back text-white hover:text-black">◀</label>
+                    <div class="slide-content text-white">
+
+                        <p class="text-center text-lg pb-2 -mt-1 font-bold">Navegantes</p>
+                        <img src="{{ asset('images/soldier.png') }}" class="h-32 w-32 md:h-48 md:w-48 " alt="...">
+
                     </div>
                     <label for="slide-1" class="forward text-white hover:text-black">▶</label>
                 </div>
@@ -215,12 +230,10 @@
                 <input id="slide-1" name="carrousel" type="radio" />
                 <div class="slide">
                     <label for="slide-0" class="back text-white hover:text-black">◀</label>
-                    <div class="slide-content text-white">
+                    <div class="slide-content  text-white">
 
-
-                        <p class="text-center text-lg pb-2 -mt-1 font-bold">{{ __('Aviso para Navegantes') }}</p>
-                        <img src="{{ asset('images/soldier.png') }}" class="h-24 w-24 md:h-48 md:w-48 " alt="...">
-
+                        <p class="text-center text-lg pb-2 -mt-1 font-bold">Conduce</p>
+                        <img src="{{ asset('images/conduce.png') }}" class="h-32 w-32 md:h-48 md:w-48 " alt="...">
 
                     </div>
                     <label for="slide-2" class="forward text-white hover:text-black">▶</label>
@@ -229,10 +242,10 @@
                 <input id="slide-2" name="carrousel" type="radio" />
                 <div class="slide">
                     <label for="slide-1" class="back text-white hover:text-black">◀</label>
-                    <div class="slide-content  text-white">
+                    <div class="slide-content text-white">
 
-                        <p class="text-center text-lg pb-2 -mt-1 font-bold">{{ __('Conduce') }}</p>
-                        <img src="{{ asset('images/conduce.png') }}" class="h-24 w-24 md:h-48 md:w-48 " alt="...">
+                        <p class="text-center text-lg pb-2 -mt-1 font-bold">Despacho</p>
+                        <img src="{{ asset('images/ship-2.png') }}" class="h-32 w-32 md:h-48 md:w-48 " alt="...">
 
                     </div>
                     <label for="slide-3" class="forward text-white hover:text-black">▶</label>
@@ -243,24 +256,8 @@
                     <label for="slide-2" class="back text-white hover:text-black">◀</label>
                     <div class="slide-content text-white">
 
-
-                        <p class="text-center text-lg pb-2 -mt-1 font-bold">{{ __('Despacho') }}</p>
-                        <img src="{{ asset('images/ship-2.png') }}" class="h-24 w-24 md:h-48 md:w-48 " alt="...">
-
-
-                    </div>
-                    <label for="slide-4" class="forward text-white hover:text-black">▶</label>
-                </div>
-
-                <input id="slide-4" name="carrousel" type="radio" />
-                <div class="slide">
-                    <label for="slide-3" class="back text-white hover:text-black">◀</label>
-                    <div class="slide-content text-white">
-
-
-                        <p class="text-center text-lg pb-2 -mt-1 font-bold">{{ __('Asistencia') }}</p>
-                        <img src="{{ asset('images/icono whatsapp.png') }}" class="h-24 w-24 md:h-48 md:w-48 "
-
+                        <p class="text-center text-lg pb-2 -mt-1 font-bold">Asistencia</p>
+                        <img src="{{ asset('images/icono whatsapp.png') }}" class="h-32 w-32 md:h-48 md:w-48 "
                             alt="...">
 
                     </div>
@@ -278,7 +275,7 @@
 
                 <a href="{{ route('login') }}"
                     class="px-8 py-4 text-lg text-white bg-blue-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-600">
-                    {{ __('Entrar') }}
+                    Entrar
                 </a>
 
             </div>
@@ -289,25 +286,22 @@
 
         <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
         <script>
-
           let currentSlide = 0;
-    const totalSlides = 5; // El número total de slides
+    const totalSlides = 4; // El número total de slides
     const intervalTime = 7000; // 5000 milisegundos (5 segundos)
     let autoSlideInterval;
 
+    // Función para cambiar al siguiente slide
+    function changeSlide() {
+        // Desactivar el slide actual
+        document.getElementById(`slide-${currentSlide}`).checked = false;
 
-            // Función para cambiar al siguiente slide
-            function changeSlide() {
-                // Desactivar el slide actual
-                document.getElementById(`slide-${currentSlide}`).checked = false;
+        // Mover al siguiente slide
+        currentSlide = (currentSlide + 1) % totalSlides;
 
-                // Mover al siguiente slide
-                currentSlide = (currentSlide + 1) % totalSlides;
-
-                // Activar el nuevo slide
-                document.getElementById(`slide-${currentSlide}`).checked = true;
-            }
-
+        // Activar el nuevo slide
+        document.getElementById(`slide-${currentSlide}`).checked = true;
+    }
 
     // Iniciar el carrusel automáticamente
     function startAutoSlide() {
@@ -327,7 +321,6 @@
 
     // Iniciar el carrusel cuando la página carga
     startAutoSlide();
-
         </script>
     </body>
 
