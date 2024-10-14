@@ -323,5 +323,7 @@
     "Tipo de documento": "Тип документа",
     "Telefono": "Телефон",
     "Cancelar": "Отмена",
-    "Aceptar": "Принимать"
+    "Aceptar": "Принимать",
+    "¿Olvidaste tu contraseña? Ningún problema. Simplemente háganos saber su dirección de correo electrónico y le enviaremos un enlace para restablecer su contraseña que le permitirá elegir una nueva": "Забыли пароль? Без проблем. Просто сообщите нам свой адрес электронной почты, и мы вышлем вам ссылку для сброса пароля, которая позволит вам выбрать новый",
+    "Enlace para restablecer contraseña de correo electrónico": "Ссылка для сброса пароля электронной почты"
 }

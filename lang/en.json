@@ -497,5 +497,7 @@
     "Tipo de documento": "Type of document",
     "Telefono": "Telephone",
     "Cancelar": "Cancel",
-    "Aceptar": "Accept"
+    "Aceptar": "Accept",
+    "¿Olvidaste tu contraseña? Ningún problema. Simplemente háganos saber su dirección de correo electrónico y le enviaremos un enlace para restablecer su contraseña que le permitirá elegir una nueva": "Forgot your password? No problem. Just let us know your email address and we'll send you a password reset link that will allow you to choose a new one",
+    "Enlace para restablecer contraseña de correo electrónico": "Email Password Reset Link"
 }

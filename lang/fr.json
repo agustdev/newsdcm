@@ -323,5 +323,7 @@
     "Tipo de documento": "Type de document",
     "Telefono": "Téléphone",
     "Cancelar": "Annuler",
-    "Aceptar": "Accepter"
+    "Aceptar": "Accepter",
+    "¿Olvidaste tu contraseña? Ningún problema. Simplemente háganos saber su dirección de correo electrónico y le enviaremos un enlace para restablecer su contraseña que le permitirá elegir una nueva": "Vous avez oublié votre mot de passe ? Aucun problème. Indiquez-nous simplement votre adresse e-mail et nous vous enverrons un lien de réinitialisation de mot de passe qui vous permettra d'en choisir un nouveau",
+    "Enlace para restablecer contraseña de correo electrónico": "Lien pour réinitialiser le mot de passe de messagerie"
 }
