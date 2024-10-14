@@ -325,5 +325,6 @@
     "Cancelar": "取消",
     "Aceptar": "阿塞塔雷",
     "¿Olvidaste tu contraseña? Ningún problema. Simplemente háganos saber su dirección de correo electrónico y le enviaremos un enlace para restablecer su contraseña que le permitirá elegir una nueva": "忘记密码了吗？没问题。只需告诉我们您的电子邮件地址，我们就会向您发送一个密码重置链接，您可以通过该链接选择一个新密码",
-    "Enlace para restablecer contraseña de correo electrónico": "重置电子邮件密码的链接"
+    "Enlace para restablecer contraseña de correo electrónico": "重置电子邮件密码的链接",
+    "Estas credenciales no coinciden con nuestros registros.": ""
 }

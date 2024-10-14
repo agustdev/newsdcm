@@ -191,13 +191,15 @@
 
 
                 <div class="flex justify-center text-white">
-                    <h1 class="text-xl font-black -mt-6 mb-4 text-center">ARMADA DE REPÚBLICA
-                        DOMINICANA <br><span class="text-xl font-semibold">DESPACHO RD</span></h1>
+                    <h1 class="text-xl font-black -mt-6 mb-4 text-center">
+                        {{ __('ARMADA DE REPÚBLICA DOMINICANA') }}
+                        <br><span class="text-xl font-semibold">DESPACHO RD</span>
+                    </h1>
                 </div>
             </div>
 
             <section carrousel>
-{{-- 
+                {{-- 
                 <input id="slide-0" name="carrousel" type="radio" checked />
                 <div class="slide">
                     <label for="slide-4" class="back text-white hover:text-black">◀</label>
@@ -220,7 +222,7 @@
                     <label for="slide-3" class="back text-white hover:text-black">◀</label>
                     <div class="slide-content text-white">
 
-                        <p class="text-center text-lg pb-2 -mt-1 font-bold">Navegantes</p>
+                        <p class="text-center text-lg pb-2 -mt-1 font-bold">{{ __('Aviso para Navegantes') }}</p>
                         <img src="{{ asset('images/soldier.png') }}" class="h-32 w-32 md:h-48 md:w-48 " alt="...">
 
                     </div>
@@ -232,7 +234,7 @@
                     <label for="slide-0" class="back text-white hover:text-black">◀</label>
                     <div class="slide-content  text-white">
 
-                        <p class="text-center text-lg pb-2 -mt-1 font-bold">Conduce</p>
+                        <p class="text-center text-lg pb-2 -mt-1 font-bold">{{ __('Conduce') }}</p>
                         <img src="{{ asset('images/conduce.png') }}" class="h-32 w-32 md:h-48 md:w-48 " alt="...">
 
                     </div>
@@ -244,7 +246,7 @@
                     <label for="slide-1" class="back text-white hover:text-black">◀</label>
                     <div class="slide-content text-white">
 
-                        <p class="text-center text-lg pb-2 -mt-1 font-bold">Despacho</p>
+                        <p class="text-center text-lg pb-2 -mt-1 font-bold">{{ __('Despacho') }}</p>
                         <img src="{{ asset('images/ship-2.png') }}" class="h-32 w-32 md:h-48 md:w-48 " alt="...">
 
                     </div>
@@ -256,7 +258,7 @@
                     <label for="slide-2" class="back text-white hover:text-black">◀</label>
                     <div class="slide-content text-white">
 
-                        <p class="text-center text-lg pb-2 -mt-1 font-bold">Asistencia</p>
+                        <p class="text-center text-lg pb-2 -mt-1 font-bold">{{ __('Asistencia') }}</p>
                         <img src="{{ asset('images/icono whatsapp.png') }}" class="h-32 w-32 md:h-48 md:w-48 "
                             alt="...">
 
@@ -275,7 +277,7 @@
 
                 <a href="{{ route('login') }}"
                     class="px-8 py-4 text-lg text-white bg-blue-500 font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg hover:bg-blue-600">
-                    Entrar
+                    {{ __('Entrar') }}
                 </a>
 
             </div>
@@ -286,41 +288,41 @@
 
         <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
         <script>
-          let currentSlide = 0;
-    const totalSlides = 4; // El número total de slides
-    const intervalTime = 7000; // 5000 milisegundos (7 segundos)
-    let autoSlideInterval;
+            let currentSlide = 0;
+            const totalSlides = 4; // El número total de slides
+            const intervalTime = 7000; // 5000 milisegundos (7 segundos)
+            let autoSlideInterval;
 
-    // Función para cambiar al siguiente slide
-    function changeSlide() {
-        // Desactivar el slide actual
-        document.getElementById(`slide-${currentSlide}`).checked = false;
+            // Función para cambiar al siguiente slide
+            function changeSlide() {
+                // Desactivar el slide actual
+                document.getElementById(`slide-${currentSlide}`).checked = false;
 
-        // Mover al siguiente slide
-        currentSlide = (currentSlide + 1) % totalSlides;
+                // Mover al siguiente slide
+                currentSlide = (currentSlide + 1) % totalSlides;
 
-        // Activar el nuevo slide
-        document.getElementById(`slide-${currentSlide}`).checked = true;
-    }
+                // Activar el nuevo slide
+                document.getElementById(`slide-${currentSlide}`).checked = true;
+            }
 
-    // Iniciar el carrusel automáticamente
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(changeSlide, intervalTime);
-    }
+            // Iniciar el carrusel automáticamente
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(changeSlide, intervalTime);
+            }
 
-    // Detener el carrusel
-    function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-    }
+            // Detener el carrusel
+            function stopAutoSlide() {
+                clearInterval(autoSlideInterval);
+            }
 
-    // Escuchar cuando el mouse entra o sale del carrusel
-    const carrouselElement = document.querySelector('[carrousel]');
+            // Escuchar cuando el mouse entra o sale del carrusel
+            const carrouselElement = document.querySelector('[carrousel]');
 
-    carrouselElement.addEventListener('mouseenter', stopAutoSlide);
-    carrouselElement.addEventListener('mouseleave', startAutoSlide);
+            carrouselElement.addEventListener('mouseenter', stopAutoSlide);
+            carrouselElement.addEventListener('mouseleave', startAutoSlide);
 
-    // Iniciar el carrusel cuando la página carga
-    startAutoSlide();
+            // Iniciar el carrusel cuando la página carga
+            startAutoSlide();
         </script>
     </body>
 
