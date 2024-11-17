@@ -112,14 +112,17 @@
         {{-- <script src="{{ asset('assets/js/pages/demo.datatable-init.js') }}"></script> --}}
 
         <script>
-            let flag = '{{ app()->getLocale() }}'
-            let lenguages = '{{ app()->getLocale() }}'.toUpperCase();
+            let flag = '{{ !empty(app()->getLocale()) ? app()->getLocale() : 'es' }}'
+            let lenguages = flag.toUpperCase();
 
             let url = flag == 'ru' ? `https://cdn.datatables.net/plug-ins/1.12.0/i18n/${flag}.json` :
                 `https://cdn.datatables.net/plug-ins/1.12.0/i18n/${flag}-${lenguages}.json`;
 
             $(document).ready(function() {
                 var table = $('#table-despacho').DataTable({
+                    order: [
+                        [0, 'desc']
+                    ],
                     ordering: true,
                     columnDefs: [{
                         orderable: false,
