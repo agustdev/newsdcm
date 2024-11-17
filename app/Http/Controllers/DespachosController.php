@@ -74,6 +74,9 @@ class DespachosController extends Controller
             'nombre' => $request->nombre,
             'color' => $request->color,
             'fecha' => $request->fecha,
+            'marca_modelo_motor' => $request->marca_modelo_motor,
+            'caballos_fuerza_motor' => $request->caballos_fuerza_motor,
+            'no_motor' => $request->no_motor,
             'tipo_movimiento' => 'D',
             'estado' => 'Enviado',
             'estado_alerta' => 'N/A',
@@ -86,6 +89,7 @@ class DespachosController extends Controller
         $capitan = CapitanesRegistrados::where('id', $request->capitan)->first();
 
         Capitanes::create([
+            'tipo_documento' => $capitan->tipo_documento,
             'documento' => $capitan->documento,
             'nombre' => $capitan->nombre,
             'nacionalidad' => $capitan->nacionalidad,
