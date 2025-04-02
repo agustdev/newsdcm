@@ -26,7 +26,8 @@ class ConsultasController extends Controller
             CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_HTTPHEADER => array(
                 'Content-Type: application/json',
-                'authentication: eyJ1c2VybmFtZSI6IjAwMDAwMDAwMDAwIiwicGFzc3dvcmQiOiJAcm1AZEAyMDI0ISIsImlzQXBwVXNlciI6ImZhbHNlIn0='
+                'authentication: eyJ1c2VybmFtZSI6IjAwMDAwMDAwMDAwIiwicGFzc3dvcmQiOiJAcm1AZEAyMDI0ISIsImlzQXBwVXNlciI6ImZhbHNlIn0=',
+                'Origin: https://armada.mil.do'
             ),
         ));
 
@@ -34,6 +35,7 @@ class ConsultasController extends Controller
         curl_close($curl);
 
         $resp = json_decode($response, true);
+
         // obteniendo el token autentication para poder usar la consulta de la cedula
         $tokenAuth = $resp['accessToken'];
         $documento = $request->documento;
@@ -50,11 +52,13 @@ class ConsultasController extends Controller
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_HTTPHEADER => array(
+                'Origin: https://armada.mil.do',
                 'Authorization: Bearer ' . $tokenAuth
             ),
         ));
 
         $response_ced = curl_exec($curl_c);
+        // return $response_ced;
         curl_close($curl_c);
         $resp_c = json_decode($response_ced, true);
         $datos = array();
@@ -65,9 +69,7 @@ class ConsultasController extends Controller
         return json_encode($datos);
     }
 
-    public function consult_passport(Request $request)
-    {
-    }
+    public function consult_passport(Request $request) {}
 
     public function consultar_embarcacion(Request $request)
     {

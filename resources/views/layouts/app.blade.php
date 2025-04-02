@@ -47,7 +47,6 @@
         <div class="content">
             <!-- Topbar Start -->
             <div class="navbar-custom">
-
                 <ul class="list-unstyled topbar-menu float-end mb-0">
                     {{-- <li class="dropdown notification-list d-lg-none">
                         <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#"
@@ -213,6 +212,21 @@
                                 @yield('breadcrumbs')
                             </div>
                             <h4 class="page-title">
+                                @if (!empty(get_msj_alert()))
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="blink_me mt-3 alert alert-warning">
+                                                <strong style="margin-bottom: -10px;">{!! get_msj_alert()['Restriccion']->motivo !!},
+                                                </strong>
+                                                <p style="margin-top: -45px;">
+                                                    @foreach (get_msj_alert()['Destinos'] as $destinos)
+                                                        {{ $destinos->descripcion }},
+                                                    @endforeach
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                                 @if (isset($header))
                                     {{ $header }}
                                 @endif

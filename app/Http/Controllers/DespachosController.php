@@ -31,7 +31,7 @@ class DespachosController extends Controller
     public function create()
     {
         $ultimo_mov = auth()->user()->movimientos()->orderBy('id', 'DESC')->first();
-        $destinos = Destinos::all();
+        $destinos = Destinos::where('despachos', 0)->get();
         $embarcaciones = auth()->user()->embarcaciones()
             ->whereRaw('fecha_validez >= CURDATE()')
             ->get();
@@ -46,9 +46,10 @@ class DespachosController extends Controller
         $matricula = $_POST['emb'];
         $embarcacion = auth()->user()->embarcaciones()->where('matricula', '=', $matricula)->first();
         $ultimo_mov = auth()->user()->movimientos()->orderBy('id', 'DESC')->first();
-        $destinos = Destinos::all();
+        $destinos = Destinos::where('despachos', 0)->get();
         $nacionalidades = Nacionalidades::all();
-        return view('movimientos.despachos.create_post', compact('ultimo_mov', 'embarcacion', 'destinos', 'nacionalidades'));
+        $capitanesreg = CapitanesRegistrados::join('capitanes_reg_usuarios', 'cap_id', 'capitanes_registrados.id')->where('user_id', auth()->user()->id)->get();
+        return view('movimientos.despachos.create_post', compact('ultimo_mov', 'embarcacion', 'destinos', 'nacionalidades', 'capitanesreg'));
         // return dd($embarcacion);
     }
 

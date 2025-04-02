@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>@yield('titulo', 'Titulo Modulo') | SISCODEM</title>
+        <title>@yield('titulo', 'Titulo Modulo') | DESPACHOS ARD</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta
             content="Sistema Administrativo de Conduce y Despacho | Comando Naval de Capitania de Puertos y Autoridad Maritima"
@@ -51,6 +51,16 @@
             .page-item.active .page-link {
                 background-color: #1089FF !important;
                 border-color: #1089FF !important;
+            }
+
+            .blink_me {
+                animation: blinker 2s linear infinite;
+            }
+
+            @keyframes blinker {
+                50% {
+                    opacity: 0.2;
+                }
             }
         </style>
         <!-- Scripts -->
