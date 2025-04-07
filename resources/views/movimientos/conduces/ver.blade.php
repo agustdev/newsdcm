@@ -226,10 +226,12 @@
                     $estados = ['Rechazado', 'En proceso', 'Cancelado', 'Enviado'];
                 @endphp
                 @if (!in_array($conduce->estado, $estados))
-                    <a href="#"
-                        class="inline-flex items-center justify-center px-4 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 transition ease-in-out duration-150 disabled:opacity-25">{{ __('Previsualizar') }}</a>
-                    <a href="#"
-                        class="inline-flex items-center justify-center px-4 py-2 bg-yellow-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-600 active:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 transition ease-in-out duration-150">{{ __('Descargar PDF') }}</a>
+                    <form target="_blank" method="POST" action="{{ route('movimientos.pdf', $conduce) }}"
+                        class="d-inline">
+                        @csrf
+                        <button type="submit"
+                            class="inline-flex items-center justify-center px-4 py-2 bg-yellow-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-600 active:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 transition ease-in-out duration-150">{{ __('Descargar PDF') }}</button>
+                    </form>
                 @endif
             </div>
         </div>

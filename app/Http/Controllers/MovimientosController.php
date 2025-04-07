@@ -45,6 +45,7 @@ class MovimientosController extends Controller
         $response = curl_exec($curl);
         curl_close($curl);
         echo $response;
+
         // $data = $movimiento->with(['conductor', 'vehiculo'])->where('id', $movimiento->id)->first();
         // "'" . str_replace("[", "", $data) . "'";
         // echo "'" . json_encode($data) . "'";

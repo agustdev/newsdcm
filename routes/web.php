@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 Route::post('lang_change', [LangController::class, 'switchLang'])->name('lang.switch');
 Route::post('/consulta_cedula', [ConsultasController::class, 'consultar'])->name('consultar.cedula');
+Route::post('/consulta_capitan', [ConsultasController::class, 'consultar_capitanes'])->name('consultar.capitan');
 Route::get('/consulta_pasaporte', [ConsultasController::class, 'consult_passport'])->name('consultar.pasaporte');
 Route::get('/verificacion/{solicitud}/solicitud', [ConsultasController::class, 'verificacionSolicitud'])->name('verificacion.solicitud');
 
@@ -35,6 +36,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::post('/consulta_embarcacion', [ConsultasController::class, 'consultar_embarcacion'])->name('consulta.embarcacion');
     Route::post('get/municipios', [ConsultasController::class, 'get_municipios'])->name('get.municipios');
+
+    Route::post('get/perimetros', [ConsultasController::class, 'get_perimetros'])->name('get.perimetros');
 
     Route::post('get/comandancia', [ConsultasController::class, 'get_comandancia'])->name('get.comandancia');
 

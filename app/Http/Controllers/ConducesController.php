@@ -71,13 +71,18 @@ class ConducesController extends Controller
             'nombre' => $request->nombre,
             'color' => $request->color_emb,
             'fecha' => $request->fecha_salida,
+            'marca_modelo_motor' => $request->marca_modelo_motor,
+            'caballos_fuerza_motor' => $request->caballos_fuerza_motor,
+            'no_motor' => $request->no_motor,
             'tipo_movimiento' => 'C',
             'estado' => 'Enviado',
             'estado_alerta' => 'N/A',
             'emb_id' => $embarcacion->id,
             'user_id' => auth()->user()->id,
             'vcode' => strtoupper(substr(md5(Str::uuid()->toString()), 1, 6)),
-            'url_id' => Str::uuid()->toString()
+            'url_id' => Str::uuid()->toString(),
+            'idsalida' => $provincia[0],
+            'idllegada' => $provincia_salida[0],
         ]);
         $vehiculo = Vehiculos::create([
             'marca' => $request->marca,
@@ -87,7 +92,7 @@ class ConducesController extends Controller
             'provincia' => $provincia[1],
             'municipio' => $request->municipio,
             'provincia_salida' => $provincia_salida[1],
-            'municipio_salida' => $request->municipiosalida,
+            'Municipio_salida' => $request->municipiosalida,
             'sector' => $request->sector,
             'calle' => $request->calle,
             'observacion' => $request->observacion,

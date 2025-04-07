@@ -212,11 +212,11 @@
                                 @yield('breadcrumbs')
                             </div>
                             <h4 class="page-title">
-                                @if (!empty(get_msj_alert()))
+                                @if (!empty(get_msj_alert()['Restriccion']->motivo))
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="blink_me mt-3 alert alert-warning">
-                                                <strong style="margin-bottom: -10px;">{!! get_msj_alert()['Restriccion']->motivo !!},
+                                            <div class="blink_me mt-3 alert alert-danger">
+                                                <strong style="margin-bottom: -10px;">{!! !empty(get_msj_alert()['Restriccion']->motivo) ? get_msj_alert()['Restriccion']->motivo : '' !!},
                                                 </strong>
                                                 <p style="margin-top: -45px;">
                                                     @foreach (get_msj_alert()['Destinos'] as $destinos)

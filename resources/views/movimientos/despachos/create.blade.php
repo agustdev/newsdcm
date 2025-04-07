@@ -43,7 +43,7 @@
                                     placeholder="MATRICULA" name="matricula" /> --}}
 
                                 <select name="matricula" class="form-select emb_matricula rounded-md"
-                                    id="floatinMatricula">
+                                    id="floatinMatricula" required>
                                     @if ($embarcaciones->count() > 0)
                                         <option value="">- {{ __('Seleccione') }} -</option>
                                         @foreach ($embarcaciones as $embarcacion)
@@ -159,12 +159,15 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select class="form-select rounded-md" name="lugar_salida" id="floatingSelect">
+                                <select class="form-select rounded-md" name="lugar_salida"
+                                    id="floatingSelectLugarSalida" required>
                                     <option>- {{ __('Seleccione') }} -</option>
                                     @foreach ($destinos as $dest)
-                                        <option value="{{ $dest->id }}|{{ $dest->descripcion }}">
-                                            {{ $dest->descripcion }}
-                                        </option>
+                                        @if ($dest->id != 13)
+                                            <option value="{{ $dest->id }}|{{ $dest->descripcion }}">
+                                                {{ $dest->descripcion }}
+                                            </option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 <label style="font-size: 10px;" for="floatingSelect">{{ __('LUGAR SALIDA') }}</label>
@@ -173,7 +176,8 @@
 
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select class="form-select rounded-md" name="lugar_destino" id="floatingSelect">
+                                <select class="form-select rounded-md" name="lugar_destino"
+                                    id="floatingSelectDestino" required>
                                     <option>-{{ __('Seleccione') }}-</option>
                                     @foreach ($destinos as $dest)
                                         <option value="{{ $dest->id }}|{{ $dest->descripcion }}">
@@ -183,6 +187,17 @@
                                 </select>
                                 <label style="font-size: 10px;"
                                     for="floatingSelect">{{ __('LUGAR DESTINO') }}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-2 hidden detalle_d">
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <select class="form-select rounded-md" name="detalle_destino"
+                                    id="floatingSelectPerimetro">
+                                    <option>-{{ __('Seleccione') }}-</option>
+                                </select>
+                                <label style="font-size: 10px;" for="floatingSelect">{{ __('PERIMETRO') }}</label>
                             </div>
                         </div>
                     </div>
@@ -370,8 +385,57 @@
                 });
             });
 
+            // lugar de salida
+            $("#floatingSelectLugarSalida").change(function() {
+                var salida = $(this).val();
+                const idp = salida.split("|");
+                $.post("{{ route('get.perimetros') }}", {
+                    salida_id: idp[0],
+                    _token: $('input[name="_token"]').val()
+                }, function(data) {
+                    json = $.parseJSON(data);
+                    $("#floatingSelectPerimetro").empty();
+                    $("#floatingSelectPerimetro").append(
+                        "<option value=''>- {{ __('Seleccione') }} -</option>");
+                    // iterando los resultados encontrados
+                    // $.each(data, function(index, field){
+                    for (var i = 0; i < json.length; i++) {
+                        console.log(json[i].description);
+                        $("#floatingSelectPerimetro").append("<option value='" + json[i].description +
+                            "'>" + json[i].description + "</option>");
+                    }
+                    // });
+                });
+                // // adquirir nombre de la comandancia
+                // $.post("{{ route('get.comandancia') }}", {
+                //     idprovincia: idp[0],
+                //     _token: $('input[name="_token"]').val()
+                // }, function(data) {
+                //     json = $.parseJSON(data);
+                //     $(".comandancia").empty();
+                //     // iterando los resultados encontrados
+                //     // $.each(data, function(index, field){
+                //     console.log(json[0]);
+                //     $(".comandancia").val(json[0].descripcion);
+                //     $(".idcomandancia").val(json[0].idcomandancia);
+
+                //     // });
+                // });
+            });
+
+            // verificar que el lugar de destino sea perimetro costeros
+            $("#floatingSelectDestino").change(function() {
+                var destino = $(this).val();
+                const idd = destino.split("|");
+                if (idd[0] == 13) {
+                    $(".detalle_d").slideDown();
+                } else {
+                    $(".detalle_d").slideUp();
+                }
+            });
+
             $('input').prop('required', true);
-            $('select').prop('required', true);
+            // $('select').prop('required', true);
 
             $('[required]').css({
                 'border-left': '2px solid red'

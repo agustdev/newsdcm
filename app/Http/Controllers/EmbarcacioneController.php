@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Embarcaciones;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EmbarcacioneController extends Controller
 {
@@ -13,6 +14,15 @@ class EmbarcacioneController extends Controller
     public function index()
     {
         return view('embarcaciones.index');
+    }
+
+    public static function inteligencias($matricula)
+    {
+        $inteligencia = DB::table('inteligencias')
+            ->where('matricula_embarcacion', $matricula)
+            ->where('estado', 'Activa')
+            ->first();
+        return $inteligencia;
     }
 
     /**

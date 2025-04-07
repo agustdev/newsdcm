@@ -84,7 +84,10 @@ class DespachosController extends Controller
             'emb_id' => $embarcacion->id,
             'user_id' => auth()->user()->id,
             'vcode' => strtoupper(substr(md5(Str::uuid()->toString()), 1, 6)),
-            'url_id' => Str::uuid()->toString()
+            'url_id' => Str::uuid()->toString(),
+            'idsalida' => $salida[0],
+            'idllegada' => $destino[0],
+            'detalle_destino' => $request->detalle_destino
         ]);
 
         $capitan = CapitanesRegistrados::where('id', $request->capitan)->first();

@@ -325,5 +325,7 @@
     "Cancelar": "Annuler",
     "Aceptar": "Accepter",
     "¿Olvidaste tu contraseña? Ningún problema. Simplemente háganos saber su dirección de correo electrónico y le enviaremos un enlace para restablecer su contraseña que le permitirá elegir una nueva": "Vous avez oublié votre mot de passe ? Aucun problème. Indiquez-nous simplement votre adresse e-mail et nous vous enverrons un lien de réinitialisation de mot de passe qui vous permettra d'en choisir un nouveau",
-    "Enlace para restablecer contraseña de correo electrónico": "Lien pour réinitialiser le mot de passe de messagerie"
+    "Enlace para restablecer contraseña de correo electrónico": "Lien pour réinitialiser le mot de passe de messagerie",
+    "Si no ves tu embarcación favor comunicarte con el comando naval de capitanías de puerto y autoridad marítima.": "Si vous ne voyez pas votre navire, veuillez contacter le commandement naval des capitaines de port et les autorités maritimes.",
+    "PERIMETRO": "PÉRIMÈTRE"
 }

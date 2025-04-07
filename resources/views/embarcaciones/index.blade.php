@@ -1,3 +1,6 @@
+@php
+    use App\Http\Controllers\EmbarcacioneController;
+@endphp
 <x-app-layout>
     @section('titulo', __('Listado de mis embarcaciones'))
     @push('css')
@@ -14,7 +17,10 @@
     <div class="alert alert-info">
         <h2 class="h4">
             <i class="mdi mdi-folder-information mdi-24px"></i>
-            {!! __('Esta es la lista de tus embarcaciones') !!}
+            {!! __('Esta es la lista de tus embarcaciones') !!} <br>
+            {!! __(
+                'Si no ves tu embarcación favor comunicarte con el comando naval de capitanías de puerto y autoridad marítima.',
+            ) !!}
         </h2>
     </div>
     <div class="row">
@@ -25,6 +31,9 @@
             $emb_internacionales = auth()->user()->embarcaciones_internacionales;
         @endphp
         @foreach ($embarcaciones as $emb)
+            @php
+                $inteligencia = EmbarcacioneController::inteligencias($emb->matricula);
+            @endphp
             <div class="col-xxl-3 col-lg-6">
                 {{-- listado de las embarcaciones disponibles por usuario --}}
                 <div
@@ -84,14 +93,20 @@
                             <small class="badge bg-warning me-1 py-1">{{ 0 }}</small>
                         </h3>
                         <div class="d-grid mt-2 col-lg-12">
-                            @if (strtotime($emb->fecha_validez->format('d-m-Y')) >= strtotime(\Carbon\Carbon::now()->format('d-m-Y')))
-                                <button type="button"
-                                    class="items-center px-3 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 block"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#option-mov-modal-{{ $emb->id }}">{{ __('SOLICITAR') }}</button>
+                            @if (empty($inteligencia))
+                                @if (strtotime($emb->fecha_validez->format('d-m-Y')) >= strtotime(\Carbon\Carbon::now()->format('d-m-Y')))
+                                    <button type="button"
+                                        class="items-center px-3 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 block"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#option-mov-modal-{{ $emb->id }}">{{ __('SOLICITAR') }}</button>
+                                @else
+                                    <button type="button" disabled
+                                        class="items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 disabled:opacity-25 block">{{ __('SOLICITAR') }}</button>
+                                @endif
                             @else
-                                <button type="button" disabled
-                                    class="items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 disabled:opacity-25 block">{{ __('SOLICITAR') }}</button>
+                                <button title="Esta embarcacion tiene un impedimento de solicitud" type="button"
+                                    disabled
+                                    class="items-center px-3 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:bg-red-700 active:bg-red-900 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 disabled:opacity-25 block">{{ __('SOLICITAR') }}</button>
                             @endif
                         </div>
                     </div>

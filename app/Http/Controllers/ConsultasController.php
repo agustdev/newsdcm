@@ -7,6 +7,7 @@ use App\Models\Comandancias;
 use App\Models\Embarcaciones;
 use App\Models\Movimientos;
 use App\Models\Municipios;
+use App\Models\PerimetroCostero;
 use Illuminate\Http\Request;
 
 class ConsultasController extends Controller
@@ -81,6 +82,58 @@ class ConsultasController extends Controller
         return !empty($embarcacion) ? $embarcacion->toJson() : $nodata;
     }
 
+    public function consultar_capitanes(Request $request)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://armada.mide.gob.do/api/auth/login',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'authentication: eyJ1c2VybmFtZSI6IjAwMDAwMDAwMDAwIiwicGFzc3dvcmQiOiJAcm1AZEAyMDI0ISIsImlzQXBwVXNlciI6ImZhbHNlIn0=',
+                'Origin: https://armada.mil.do'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        curl_close($curl);
+
+        $resp = json_decode($response, true);
+
+        // obteniendo el token autentication para poder usar la consulta de la cedula
+        $tokenAuth = $resp['accessToken'];
+        $documento = $request->documento;
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://armada.mide.gob.do/api/GenteDeMar/detalles?cedula=' . $documento,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => array(
+                'Origin: https://armada.mil.do',
+                'Authorization: Bearer ' . $tokenAuth
+            ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        echo $response;
+    }
+
     public function verificacionSolicitud(Movimientos $solicitud)
     {
         return view('movimientos.validacion', compact('solicitud'));
@@ -90,6 +143,12 @@ class ConsultasController extends Controller
     {
         $municipios = Municipios::where('id_prov', $request->idprovincia)->get();
         return $municipios->toJson();
+    }
+
+    public function get_perimetros(Request $request)
+    {
+        $perimetros = PerimetroCostero::where('salida_id', $request->salida_id)->get();
+        return $perimetros->toJson();
     }
 
     public function get_comandancia(Request $request)
