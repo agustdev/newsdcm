@@ -19,7 +19,7 @@
             <i class="mdi mdi-folder-information mdi-24px"></i>
             {!! __('Esta es la lista de tus embarcaciones') !!} <br>
             {!! __(
-                'Si no ves tu embarcación favor comunicarte con el comando naval de capitanías de puerto y autoridad marítima.',
+                'Si no ves tu embarcación favor comunicarte con el Comando Naval de Capitanías de Puerto y Autoridad Marítima.',
             ) !!}
         </h2>
     </div>
@@ -100,13 +100,12 @@
                                         data-bs-toggle="modal"
                                         data-bs-target="#option-mov-modal-{{ $emb->id }}">{{ __('SOLICITAR') }}</button>
                                 @else
-                                    <button type="button" disabled
-                                        class="items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 disabled:opacity-25 block">{{ __('SOLICITAR') }}</button>
+                                    <button type="button"
+                                        class="norequest items-center px-3 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-600 focus:bg-gray-600 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 disabled:opacity-25 block">{{ __('SOLICITAR') }}</button>
                                 @endif
                             @else
                                 <button title="Esta embarcacion tiene un impedimento de solicitud" type="button"
-                                    disabled
-                                    class="items-center px-3 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:bg-red-700 active:bg-red-900 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 disabled:opacity-25 block">{{ __('SOLICITAR') }}</button>
+                                    class="norequest items-center px-3 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:bg-red-700 active:bg-red-900 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 disabled:opacity-25 block">{{ __('SOLICITAR') }}</button>
                             @endif
                         </div>
                     </div>
@@ -279,5 +278,19 @@
             </div>
         @endforeach
     </div>
+
+    @push('js')
+        <script type="text/javascript">
+            $('.norequest').on('click', function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'No puedes realizar solicitudes a esta embarcación',
+                    text: "Favor contacte con el Comando Naval de Capitania de Puertos para mayor información",
+                    confirmButtonColor: '#1089FF',
+                    confirmButtonText: 'Aceptar',
+                });
+            });
+        </script>
+    @endpush
 
 </x-app-layout>

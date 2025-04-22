@@ -14,8 +14,8 @@
                     class="{{ $errors->has('tipo_documento') ? 'is-invalid' : '' }} form-control mb-2 rounded-md block w-full mt-2 uppercase tipo_documento"
                     wire:model='tipo_documento'>
                     <option value="cedula">{{ __('Cédula') }}</option>
-                    <option value="pasaporte">{{ __('Pasaporte') }}</option>
-                    <option value="carnet_navegante">{{ __('Carnet Navegante') }}</option>
+                    {{-- <option value="pasaporte">{{ __('Pasaporte') }}</option> --}}
+                    {{-- <option value="carnet_navegante">{{ __('Carnet Navegante') }}</option> --}}
                 </select>
 
             </div>
@@ -75,7 +75,7 @@
                             },
                             success: function(data) {
                                 json = $.parseJSON(data);
-                                console.log(json.nombre)
+                                console.log(json)
                                 if (json.nombre != '') {
                                     $('.nombre_capitan').val(json.nombre + ' ' + json.apellido);
                                     $('.nombre_capitan').attr('readonly', true);
