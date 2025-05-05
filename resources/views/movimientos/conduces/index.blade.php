@@ -142,7 +142,7 @@
         @if (Session::get('msj'))
             <script>
                 Swal.fire(
-                    'Buen trabajo!', 'Se ha enviado la solicitud con exito', 'success'
+                    'Solicitud recibida', 'La autorización sera enviada dentro de las 24 horas', 'success'
                 )
             </script>
         @endif
@@ -150,7 +150,7 @@
         @if (Session::has('cancel'))
             <script>
                 Swal.fire(
-                    'Buen trabajo!', 'Se ha cancelado la solicitud con exito', 'success'
+                    'Solicitud cancelada!', 'Se ha cancelado la solicitud con exito', 'success'
                 )
             </script>
         @endif

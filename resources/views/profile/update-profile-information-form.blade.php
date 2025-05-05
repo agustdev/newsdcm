@@ -93,6 +93,14 @@
                 @endif
             @endif
         </div>
+
+        <!-- Telefono -->
+        <div class="col-lg-12">
+            <x-label for="telefono" value="{{ __('Telefono') }}" />
+            <x-input id="telefono" type="text" wire:model.defer="state.telefono" autocomplete="telefono" />
+
+            <x-input-error for="telefono" class="mt-2" />
+        </div>
     </x-slot>
 
     <x-slot name="actions">

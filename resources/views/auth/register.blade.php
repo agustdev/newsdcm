@@ -53,7 +53,11 @@
                         <x-input id="apellido" class="block mt-1 w-full apellido" type="text" name="apellido"
                             :value="old('apellido')" required autocomplete="apellido" />
                     </div>
-
+                    <div>
+                        <x-label for="telefono" value="{{ __('Telefono') }}" />
+                        <x-input id="telefono" class="block mt-1 w-full telefono" type="text" name="telefono"
+                            :value="old('telefono')" required autocomplete="telefono" />
+                    </div>
                     <div class="mt-4">
                         <x-label for="email" value="{{ __('Email') }}" />
                         <x-input id="email" class="block mt-1 w-full" type="email" name="email"

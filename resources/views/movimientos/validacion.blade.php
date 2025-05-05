@@ -152,7 +152,7 @@
                             <span class="">{{ $solicitud->nombre }}</span>
                         </div>
                         <div class="">
-                            <span class="header-title d-inline text-black"><strong>No Chasis:</strong></span>
+                            <span class="header-title d-inline text-black"><strong>No. Casco:</strong></span>
                             <span class="">{{ $solicitud->numero_casco }}</span>
                         </div>
                         <div class="">
