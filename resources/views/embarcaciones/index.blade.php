@@ -63,7 +63,7 @@
                                 <p style="">{{ __('MATRÍCULA') }}: {{ $emb->matricula }} </p>
                             </div>
                             <div class="border-bottom text-dark border-secondary mt-2 text-center">
-                                <p style="">{{ __('CHASIS') }}: {{ $emb->no_chasis }} </p>
+                                <p style="">{{ __('NO. CASCO') }}: {{ $emb->no_chasis }} </p>
                             </div>
 
                         </div>
