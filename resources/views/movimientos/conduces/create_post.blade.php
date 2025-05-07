@@ -158,7 +158,8 @@
                                 <input type="text" class="form-control telefono2 rounded-md"
                                     id="floatingTelefono2Conductor" placeholder="OTRO TELÉFONO DEL CONDUCTOR"
                                     name="telefono_conductor_otro" value="" />
-                                <label style="font-size: 10px;" for="floatingTelefono2Conductor">{{ __('OTRO TELÉFONO') }}</label>
+                                <label style="font-size: 10px;"
+                                    for="floatingTelefono2Conductor">{{ __('OTRO TELÉFONO') }}</label>
                             </div>
                         </div>
                     </div>
@@ -226,8 +227,10 @@
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="date" class="form-control rounded-md" id="floatingFechaSalida"
-                                    placeholder="FECHA SALIDA" name="fecha_salida" min="{{ date('Y-m-d') }}" />
+                                <input type="datetime-local" class="form-control rounded-md" id="floatingFechaSalida"
+                                    placeholder="FECHA SALIDA" name="fecha_salida"
+                                    min="{{ date('Y-m-d') . 'T' . date('h:i') }}"
+                                    max="{{ date('Y-m-d', strtotime('+10 Days')) . 'T' . date('h:i') }}" />
                                 <label style="font-size: 10px;" for="floatingFechaSalida">FECHA SALIDA</label>
                             </div>
                         </div>
