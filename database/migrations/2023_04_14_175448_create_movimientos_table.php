@@ -30,6 +30,7 @@ return new class extends Migration
             $table->integer('idsalida');
             $table->integer('idllegada');
             $table->string('detalle_destino')->nullable();
+            $table->datetime('fecha_llegada')->default('NOW()');
             $table->string('vcode', 10);
             $table->uuid('url_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
