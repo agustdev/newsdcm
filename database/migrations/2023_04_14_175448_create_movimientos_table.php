@@ -27,8 +27,8 @@ return new class extends Migration
             $table->string('estado_alerta')->comment('Estado de la alerta');
             $table->unsignedBigInteger('emb_id');
             $table->unsignedBigInteger('user_id');
-            $table->integer('idsalida');
-            $table->integer('idllegada');
+            $table->integer('idsalida')->default(1);
+            $table->integer('idllegada')->default(2);
             $table->string('detalle_destino')->nullable();
             $table->string('vcode', 10);
             $table->uuid('url_id');
