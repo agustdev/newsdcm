@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('destinos', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion');
+            $table->integer('despachos');
+            $table->integer('conduces');
             $table->timestamps();
         });
     }
