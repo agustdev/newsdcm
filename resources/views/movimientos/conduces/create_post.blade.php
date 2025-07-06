@@ -228,10 +228,11 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="datetime-local" class="form-control rounded-md" id="floatingFechaSalida"
-                                    placeholder="FECHA SALIDA" name="fecha_salida"
+                                    placeholder="FECHA Y HORA DE SALIDA" name="fecha_salida"
                                     min="{{ date('Y-m-d') . 'T' . date('h:i') }}"
                                     max="{{ date('Y-m-d', strtotime('+10 Days')) . 'T' . date('h:i') }}" />
-                                <label style="font-size: 10px;" for="floatingFechaSalida">FECHA SALIDA</label>
+                                <label style="font-size: 10px;"
+                                    for="floatingFechaSalida">{{ __('FECHA Y HORA DE SALIDA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">

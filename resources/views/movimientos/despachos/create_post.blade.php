@@ -131,7 +131,8 @@
                                 <input type="datetime-local" class="form-control rounded-md" id="floatingFecha"
                                     placeholder="FECHA" name="fecha" min="{{ date('Y-m-d') . 'T' . date('h:i') }}"
                                     max="{{ date('Y-m-d', strtotime('+10 Days')) . 'T' . date('h:i') }}" />
-                                <label style="font-size: 10px;" for="floatingFecha">{{ __('FECHA SALIDA') }}</label>
+                                <label style="font-size: 10px;"
+                                    for="floatingFecha">{{ __('FECHA Y HORA DE ZARPE') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -150,7 +151,16 @@
                                 <label style="font-size: 10px;" for="floatingSelect">{{ __('LUGAR SALIDA') }}</label>
                             </div>
                         </div>
-
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="datetime-local" class="form-control rounded-md" id="floatingFecha"
+                                    placeholder="FECHA" name="fecha_llegada"
+                                    min="{{ date('Y-m-d') . 'T' . date('h:i') }}"
+                                    max="{{ date('Y-m-d', strtotime('+10 Days')) . 'T' . date('h:i') }}" />
+                                <label style="font-size: 10px;"
+                                    for="floatingFecha">{{ __('FECHA Y HORA DE ARRIBO') }}</label>
+                            </div>
+                        </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select rounded-md" name="lugar_destino"
@@ -199,9 +209,47 @@
 
                     </div>
                 </div>
-
             </div>
-
+            <div class="card shadow-xl">
+                <div class="card-header bg-blue-900">
+                    <div class="text-white" role="alert">
+                        <strong>{{ __('INFORMACIÓN DE TRIPULANTES Y PASAJEROS') }}</strong>
+                    </div>
+                </div>
+                <div class="card-body shadow-xl">
+                    <div class="row g-2">
+                        <div class="col-lg">
+                            <div class="alert alert-info font-semibold">
+                                Favor cargar documento de tripulantes en formato PDF, JPG, PNG o XLSX
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="form-floating mb-2">
+                                <input type="file" class="form-control rounded-md"
+                                    id="floatinDocumentoTripulantes" placeholder="Cargar documento"
+                                    name="tripulantes" name="tripulantes" required />
+                                <label style="font-size: 10px;"
+                                    for="floatinDocumentoTripulantes">{{ __('Cargar documento') }}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-2">
+                        <div class="col-lg">
+                            <div class="alert alert-info font-semibold">
+                                Favor cargar documento de pasajeros en formato PDF, JPG, PNG o XLSX
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="form-floating mb-2">
+                                <input type="file" class="form-control rounded-md" id="floatinDocumentoPasajeros"
+                                    placeholder="Cargar documento" name="pasajeros" name="pasajeros" required />
+                                <label style="font-size: 10px;"
+                                    for="floatinDocumentoPasajeros">{{ __('Cargar documento') }}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="card shadow-xl">
                 <div class="card-header bg-blue-900">
                     <div class="text-white" role="alert">
@@ -223,9 +271,7 @@
                 </div>
 
                 <div class="card-body shadow-xl">
-                    <div class="row g-2">
 
-                    </div>
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating mb-2">
