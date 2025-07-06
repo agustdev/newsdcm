@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('movimientos', function (Blueprint $table) {
             $table->id();
             $table->dateTime('fecha')->comment('Fecha de salida');
-            $table->dateTime('fecha_llegada')->comment('Fecha de llegada de la embarcación');
+            $table->dateTime('fecha_llegada')->default('NOW()')->comment('Fecha de llegada de la embarcación');
             $table->enum('tipo_movimiento', ['D', 'C'])->comment('D => Despacho, C => Conduce');
             $table->string('nombre')->comment('Nombre de la embarcación');
             $table->string('matricula')->comment('Matricula de la embarcación');
@@ -30,7 +30,6 @@ return new class extends Migration
             $table->integer('idsalida');
             $table->integer('idllegada');
             $table->string('detalle_destino')->nullable();
-            $table->datetime('fecha_llegada')->default('NOW()');
             $table->string('vcode', 10);
             $table->uuid('url_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
