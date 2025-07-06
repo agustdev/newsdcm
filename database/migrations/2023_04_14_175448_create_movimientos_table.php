@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('movimientos', function (Blueprint $table) {
             $table->id();
             $table->dateTime('fecha')->comment('Fecha de salida');
-            $table->dateTime('fecha_llegada')->default('NOW()')->comment('Fecha de llegada de la embarcación');
+            $table->dateTime('fecha_llegada')->default(date("Y-m-d H:i:s"))->comment('Fecha de llegada de la embarcación');
             $table->enum('tipo_movimiento', ['D', 'C'])->comment('D => Despacho, C => Conduce');
             $table->string('nombre')->comment('Nombre de la embarcación');
             $table->string('matricula')->comment('Matricula de la embarcación');
