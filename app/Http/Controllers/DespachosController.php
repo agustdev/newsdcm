@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Capitanes;
 use App\Models\CapitanesRegistrados;
 use App\Models\Destinos;
+use App\Models\DocumentoCargadoPasajeros;
+use App\Models\DocumentoCargadoTripulantes;
 use App\Models\Embarcaciones;
 use App\Models\Movimientos;
 use App\Models\Nacionalidades;
@@ -106,6 +108,33 @@ class DespachosController extends Controller
             'mov_id' => $mov->id,
             'dest_sa_id' => $salida[0],
             'dest_ll_id' => $destino[0]
+        ]);
+        // documento lista de pasajeros
+        if ($request->hasFile('pasajeros')) {
+            $pasajeros = $request->file('pasajeros');
+            $nombreArchivoPasajeros = 'pasajeros_' . $mov->id . '_' . time() . '.' . $pasajeros->getClientOriginalExtension();
+            $pathp = $pasajeros->storeAs('public/pasajeros', $nombreArchivoPasajeros);
+        }
+        // documento lista de tripulantes
+        if ($request->hasFile('tripulantes')) {
+            $tripulantes = $request->file('tripulantes');
+            $nombreArchivoTripulantes = 'tripulantes_' . $mov->id . '_' . time() . '.' . $tripulantes->getClientOriginalExtension();
+            $patht = $tripulantes->storeAs('public/tripulantes', $nombreArchivoTripulantes);
+        }
+
+        DocumentoCargadoPasajeros::create([
+            'mime_type' => $pasajeros->getClientMimeType(),
+            'file_name' => $nombreArchivoPasajeros,
+            'file_path' => $pathp,
+            'userid' => auth()->user()->id,
+            'mov_id' => $mov->id,
+        ]);
+        DocumentoCargadoTripulantes::create([
+            'mime_type' => $pasajeros->getClientMimeType(),
+            'file_name' => $nombreArchivoTripulantes,
+            'file_path' => $patht,
+            'mov_id' => $mov->id,
+            'userid' => auth()->user()->id,
         ]);
 
         return redirect()->route('movimientos.despachos.index')->with('msj', 'Solicitud creada con exito.');
