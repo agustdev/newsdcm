@@ -155,7 +155,8 @@
                                 <input type="datetime-local" class="form-control rounded-md" id="floatingFecha"
                                     placeholder="FECHA" name="fecha" min="{{ date('Y-m-d') . 'T' . date('h:i') }}"
                                     max="{{ date('Y-m-d', strtotime('+10 Days')) . 'T' . date('h:i') }}" />
-                                <label style="font-size: 10px;" for="floatingFecha">{{ __('FECHA SALIDA') }}</label>
+                                <label style="font-size: 10px;"
+                                    for="floatingFecha">{{ __('FECHA Y HORA DE ZARPE') }}</label>
                             </div>
                         </div>
                         <div class="col-md">

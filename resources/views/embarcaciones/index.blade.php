@@ -67,14 +67,14 @@
                             </div>
 
                         </div>
-                        <p class="text-muted mt-3">
+                        {{-- <p class="text-muted mt-3">
                             <a data-bs-toggle="modal" data-bs-target="#option-pic-modal-{{ $emb->id }}"
                                 href="#"
                                 class="fotosemb bg-azulito text-white hover:bg-blue-700  focus:outline-none focus:ring-4 focus:ring-blue-400 font-medium rounded-lg text-sm px-2 py-2.5 me-2 mb-2">
                                 <i class="mdi mdi-camera"></i>
                                 {{ __('Fotos') }}
                             </a>
-                        </p>
+                        </p> --}}
                     </div>
                     <div class="card-footer">
                         <small>{{ __('Ultima solicitud') }}:
@@ -94,18 +94,23 @@
                         </h3>
                         <div class="d-grid mt-2 col-lg-12">
                             @if (empty($inteligencia))
-                                @if (strtotime($emb->fecha_validez->format('d-m-Y')) >= strtotime(\Carbon\Carbon::now()->format('d-m-Y')))
-                                    <button type="button"
-                                        class="items-center px-3 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 block"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#option-mov-modal-{{ $emb->id }}">{{ __('SOLICITAR') }}</button>
+                                @if ($emb->manual != 1)
+                                    @if (strtotime($emb->fecha_validez->format('d-m-Y')) >= strtotime(\Carbon\Carbon::now()->format('d-m-Y')))
+                                        <button type="button"
+                                            class="items-center px-3 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 block"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#option-mov-modal-{{ $emb->id }}">{{ __('SOLICITAR') }}</button>
+                                    @else
+                                        <button type="button"
+                                            class="norequest items-center px-3 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-600 focus:bg-gray-600 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 disabled:opacity-25 block">{{ __('SOLICITAR') }}</button>
+                                    @endif
                                 @else
-                                    <button type="button"
-                                        class="norequest items-center px-3 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-600 focus:bg-gray-600 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 disabled:opacity-25 block">{{ __('SOLICITAR') }}</button>
+                                    <button title="Esta embarcacion tiene un impedimento de solicitud" type="button"
+                                        class="manualonly items-center px-3 py-2 bg-yellow-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-700 focus:bg-yellow-700 active:bg-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 disabled:opacity-25 block">{{ __('SOLICITAR') }}</button>
                                 @endif
                             @else
                                 <button title="Esta embarcacion tiene un impedimento de solicitud" type="button"
-                                    class="norequest items-center px-3 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:bg-red-700 active:bg-red-900 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 disabled:opacity-25 block">{{ __('SOLICITAR') }}</button>
+                                    class="impediment items-center px-3 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 focus:bg-red-700 active:bg-red-900 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 disabled:opacity-25 block">{{ __('SOLICITAR') }}</button>
                             @endif
                         </div>
                     </div>
@@ -284,7 +289,27 @@
             $('.norequest').on('click', function(e) {
                 e.preventDefault();
                 Swal.fire({
-                    title: 'No puedes realizar solicitudes a esta embarcación',
+                    title: 'No puedes realizar solicitudes a esta embarcación matricula vencida',
+                    text: "Favor contacte con el Comando Naval de Capitania de Puertos para mayor información",
+                    confirmButtonColor: '#1089FF',
+                    confirmButtonText: 'Aceptar',
+                });
+            });
+
+            $('.manualonly').on('click', function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'No puedes realizar solicitudes digitales a esta embarcación',
+                    text: "Favor contacte con el Comando Naval de Capitania de Puertos para mayor información",
+                    confirmButtonColor: '#1089FF',
+                    confirmButtonText: 'Aceptar',
+                });
+            });
+
+            $('.impediment').on('click', function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Upps no se puede realizar solicitudes a esta embarcación',
                     text: "Favor contacte con el Comando Naval de Capitania de Puertos para mayor información",
                     confirmButtonColor: '#1089FF',
                     confirmButtonText: 'Aceptar',
