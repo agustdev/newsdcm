@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\PasajerosImport;
+use App\Imports\TripulantesImport;
 use App\Models\Capitanes;
 use App\Models\CapitanesRegistrados;
 use App\Models\Destinos;
@@ -13,6 +15,7 @@ use App\Models\Nacionalidades;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DespachosController extends Controller
 {
@@ -65,7 +68,9 @@ class DespachosController extends Controller
             'numero_casco' => 'required',
             'nombre' => 'required',
             'color' => 'required',
-            'fecha' => 'required'
+            'fecha' => 'required',
+            'pasajeros' => 'required|mimes:pdf,jpg,png,csv,xlsx',
+            'tripulantes' => 'required|mimes:pdf,jpg,png,csv,xlsx',
         ]);
         $embarcacion = auth()->user()->embarcaciones()->where('matricula', '=', $request->matricula)->first();
         $salida = explode("|", $request->lugar_salida);
@@ -89,7 +94,8 @@ class DespachosController extends Controller
             'url_id' => Str::uuid()->toString(),
             'idsalida' => $salida[0],
             'idllegada' => $destino[0],
-            'detalle_destino' => $request->detalle_destino
+            'detalle_destino' => $request->detalle_destino,
+            'fecha_llegada' => $request->fecha_llegada,
         ]);
 
         $capitan = CapitanesRegistrados::where('id', $request->capitan)->first();
@@ -114,12 +120,20 @@ class DespachosController extends Controller
             $pasajeros = $request->file('pasajeros');
             $nombreArchivoPasajeros = 'pasajeros_' . $mov->id . '_' . time() . '.' . $pasajeros->getClientOriginalExtension();
             $pathp = $pasajeros->storeAs('public/pasajeros', $nombreArchivoPasajeros);
+            if ($pasajeros->getClientOriginalExtension() == 'csv' || $pasajeros->getClientOriginalExtension() == 'xlsx') {
+                // Importar los pasajeros desde el archivo
+                Excel::import(new PasajerosImport($mov->id), $pasajeros);
+            }
         }
         // documento lista de tripulantes
         if ($request->hasFile('tripulantes')) {
             $tripulantes = $request->file('tripulantes');
             $nombreArchivoTripulantes = 'tripulantes_' . $mov->id . '_' . time() . '.' . $tripulantes->getClientOriginalExtension();
             $patht = $tripulantes->storeAs('public/tripulantes', $nombreArchivoTripulantes);
+            if ($tripulantes->getClientOriginalExtension() == 'csv' || $tripulantes->getClientOriginalExtension() == 'xlsx') {
+                // Importar los tripulantes desde el archivo
+                Excel::import(new TripulantesImport($mov->id), $tripulantes);
+            }
         }
 
         DocumentoCargadoPasajeros::create([

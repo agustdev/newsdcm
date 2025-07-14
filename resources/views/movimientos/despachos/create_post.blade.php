@@ -14,6 +14,7 @@
         <form action="{{ route('movimientos.despachos.store') }}" method="POST" class="form-inline" autocomplete="off"
             enctype="multipart/form-data">
             @csrf
+            <x-validation-errors></x-validation-errors>
             <div class="card shadow-xl">
                 <div class="card-header bg-blue-900">
                     <div class="text-white" role="alert">
@@ -228,7 +229,8 @@
                             <div class="form-floating mb-2">
                                 <input type="file" class="form-control rounded-md"
                                     id="floatinDocumentoTripulantes" placeholder="Cargar documento"
-                                    name="tripulantes" name="tripulantes" required />
+                                    name="tripulantes" name="tripulantes" required
+                                    accept=".pdf,.png,.jpg,.csv,.xlsx" />
                                 <label style="font-size: 10px;"
                                     for="floatinDocumentoTripulantes">{{ __('Cargar documento') }}</label>
                             </div>
@@ -243,7 +245,8 @@
                         <div class="col-lg">
                             <div class="form-floating mb-2">
                                 <input type="file" class="form-control rounded-md" id="floatinDocumentoPasajeros"
-                                    placeholder="Cargar documento" name="pasajeros" name="pasajeros" required />
+                                    placeholder="Cargar documento" name="pasajeros" name="pasajeros" required
+                                    accept=".pdf,.png,.jpg,.csv,.xlsx" />
                                 <label style="font-size: 10px;"
                                     for="floatinDocumentoPasajeros">{{ __('Cargar documento') }}</label>
                             </div>
