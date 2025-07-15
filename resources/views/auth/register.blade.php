@@ -41,17 +41,25 @@
                             <div class="text-sm text-red-600">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="propietarios">
+                        <div>
+                            <x-label for="name" value="{{ __('Nombre') }} *" />
+                            <x-input id="name" class="block mt-1 w-full nombre" type="text" name="name"
+                                :value="old('name')" required autocomplete="name" />
+                        </div>
 
-                    <div>
-                        <x-label for="name" value="{{ __('Nombre') }} *" />
-                        <x-input id="name" class="block mt-1 w-full nombre" type="text" name="name"
-                            :value="old('name')" required autocomplete="name" />
+                        <div>
+                            <x-label for="apellido" value="{{ __('Apellido') }} *" />
+                            <x-input id="apellido" class="block mt-1 w-full apellido" type="text" name="apellido"
+                                :value="old('apellido')" required autocomplete="apellido" />
+                        </div>
                     </div>
-
-                    <div>
-                        <x-label for="apellido" value="{{ __('Apellido') }} *" />
-                        <x-input id="apellido" class="block mt-1 w-full apellido" type="text" name="apellido"
-                            :value="old('apellido')" required autocomplete="apellido" />
+                    <div class="empresas hidden">
+                        <div>
+                            <x-label for="empresa" value="{{ __('Razon Social') }} *" />
+                            <x-input id="empresa" class="block mt-1 w-full empresa" type="text" name="empresa"
+                                :value="old('empresa')" required autocomplete="empresa" />
+                        </div>
                     </div>
                     <div>
                         <x-label for="telefono" value="{{ __('Telefono') }} *" />
