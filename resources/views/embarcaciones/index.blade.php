@@ -24,7 +24,6 @@
         </h2>
     </div>
     <div class="row">
-
         {{-- {{ dd(auth()->user()->embarcaciones) }} --}}
         @php
             $embarcaciones = auth()->user()->embarcaciones->where('internacional', 0);
@@ -262,7 +261,6 @@
                     <div class="card-footer">
                         <small>{{ __('Ultima solicitud') }}:
                             {{ !empty($embi->movimiento->last()) ? $embi->movimiento->last()->created_at->diffForHumans() : '' }}</small>
-
                         <h3 class="mt-0 mb-1 ">
                             <strong>{{ __('Solicitudes realizadas') }}:</strong>
                             <small class="badge bg-warning me-1 py-1">{{ 0 }}</small>

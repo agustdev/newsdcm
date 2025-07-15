@@ -65,22 +65,22 @@ class User extends Authenticatable
     // Crear un accesor para filtrar el campo documento por tipo de documento
     public function getDocumentoAttribute($value)
     {
-        return preg_replace('/[^0-9]/', '', $value);
+        return preg_replace('/-/', '', $value);
     }
-    // public function getDocumentoFormateadoAttribute()
-    // {
-    //     $raw = $this->documento;
+    public function getDocumentoFormateadoAttribute()
+    {
+        $raw = $this->documento;
 
-    //     // Formato típico dominicano: 3-7-1 (ej. cédula o RNC)
-    //     if (strlen($raw) === 11) {
-    //         return substr($raw, 0, 3) . '-' .
-    //             substr($raw, 3, 7) . '-' .
-    //             substr($raw, 10, 1);
-    //     }
+        // Formato típico dominicano: 3-7-1 (ej. cédula o RNC)
+        if (strlen($raw) === 11) {
+            return substr($raw, 0, 3) . '-' .
+                substr($raw, 3, 7) . '-' .
+                substr($raw, 10, 1);
+        }
 
-    //     // Si no cumple 11 dígitos, lo devuelve tal cual
-    //     return $raw;
-    // }
+        // Si no cumple 11 dígitos, lo devuelve tal cual
+        return $raw;
+    }
     // relacion uno a muchos
     public function movimientos()
     {
@@ -95,9 +95,8 @@ class User extends Authenticatable
     public function embarcaciones()
     {
         return $this->hasMany(Embarcaciones::class, 'no_documento')
-            ->whereRaw("REPLACE(no_documento, '-', '') = ?", [
-                $this->documento // ← ya está sin guiones
-            ]);
+            ->orWhere('no_documento', $this->documento)
+            ->orWhere('no_documento', $this->documento_formateado);
     }
 
     public function embarcaciones_internacionales()

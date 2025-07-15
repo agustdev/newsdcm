@@ -25,7 +25,7 @@
                     class="{{ $errors->has('documento') ? 'is-invalid' : '' }} block w-full mt-2 uppercase documento"
                     wire:model='documento'></x-input>
             </div>
-            <div class="mt-3 uppercase" wire:ignore>
+            <div class="mt-3 uppercase">
                 <x-label class="text-1xl">{{ __('Nombre') }}</x-label>
                 <x-input wire:model='nombre'
                     class="{{ $errors->has('nombre') ? 'is-invalid' : '' }} block w-full mt-2 uppercase nombre_capitan"></x-input>
