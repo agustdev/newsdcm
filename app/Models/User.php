@@ -62,6 +62,8 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    // Crear un accesor para filtrar el campo documento por tipo de documento
+
     // relacion uno a muchos
     public function movimientos()
     {
