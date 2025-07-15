@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="mt-4">
-                        <x-label for="documento" value="{{ __('No documento') }}" />
+                        <x-label for="documento" value="{{ __('No documento') }} *" />
                         <x-input id="documento" class="block mt-1 w-full documento" type="text" name="documento"
                             :value="old('documento')" required autofocus autocomplete="Cédula" />
                         @error('documento')
@@ -43,23 +43,23 @@
                     </div>
 
                     <div>
-                        <x-label for="name" value="{{ __('Nombre') }}" />
+                        <x-label for="name" value="{{ __('Nombre') }} *" />
                         <x-input id="name" class="block mt-1 w-full nombre" type="text" name="name"
                             :value="old('name')" required autocomplete="name" />
                     </div>
 
                     <div>
-                        <x-label for="apellido" value="{{ __('Apellido') }}" />
+                        <x-label for="apellido" value="{{ __('Apellido') }} *" />
                         <x-input id="apellido" class="block mt-1 w-full apellido" type="text" name="apellido"
                             :value="old('apellido')" required autocomplete="apellido" />
                     </div>
                     <div>
-                        <x-label for="telefono" value="{{ __('Telefono') }}" />
+                        <x-label for="telefono" value="{{ __('Telefono') }} *" />
                         <x-input id="telefono" class="block mt-1 w-full telefono" type="text" name="telefono"
                             :value="old('telefono')" required autocomplete="telefono" />
                     </div>
                     <div class="mt-4">
-                        <x-label for="email" value="{{ __('Email') }}" />
+                        <x-label for="email" value="{{ __('Email') }} *" />
                         <x-input id="email" class="block mt-1 w-full" type="email" name="email"
                             :value="old('email')" required autocomplete="username" />
                         @error('email')

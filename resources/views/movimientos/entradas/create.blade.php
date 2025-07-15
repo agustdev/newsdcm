@@ -93,14 +93,16 @@
                             <div class="form-floating">
                                 <input type="number" class="form-control eslora rounded-md" id="floatinEslora"
                                     placeholder="ESLORA" name="eslora" required />
-                                <label style="font-size: 10px;" for="floatinEslora">{{ __('ESLORA') }}</label>
+                                <label style="font-size: 10px;" for="floatinEslora">{{ __('ESLORA') }}
+                                    ({{ __('PIES') }})</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating">
                                 <input type="number" class="form-control nombre_emb rounded-md" id="floatingManga"
                                     placeholder="MANGA" name="manga" required />
-                                <label style="font-size: 10px;" for="floatingManga">{{ __('MANGA') }}</label>
+                                <label style="font-size: 10px;" for="floatingManga">{{ __('MANGA') }}
+                                    ({{ __('PIES') }})</label>
                             </div>
                         </div>
 
@@ -108,7 +110,8 @@
                             <div class="form-floating">
                                 <input type="number" class="form-control puntal rounded-md" id="floatingPuntal"
                                     placeholder="PUNTAL" name="puntal" required />
-                                <label style="font-size: 10px;" for="floatingNumeroCasco">{{ __('PUNTAL') }}</label>
+                                <label style="font-size: 10px;" for="floatingNumeroCasco">{{ __('PUNTAL') }}
+                                    ({{ __('PIES') }})</label>
                             </div>
                         </div>
                     </div>
