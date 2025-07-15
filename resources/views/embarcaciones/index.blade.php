@@ -25,7 +25,7 @@
     </div>
     <div class="row">
 
-        {{-- {{ dd(auth()->user()->movimientos) }} --}}
+        {{-- {{ dd(auth()->user()->embarcaciones) }} --}}
         @php
             $embarcaciones = auth()->user()->embarcaciones->where('internacional', 0);
             $emb_internacionales = auth()->user()->embarcaciones_internacionales;
