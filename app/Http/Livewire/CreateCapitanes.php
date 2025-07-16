@@ -12,13 +12,28 @@ class CreateCapitanes extends Component
 {
     public $open = false;
     public $tipo_documento = 'cedula', $documento, $nombre, $nacionalidad, $telefono;
-
+    protected $listeners = ['setNombreCapitan', 'setNacionalidades'];
     protected $rules = [
         'nombre' => 'required',
         'nacionalidad' => 'required',
         'documento' => 'required',
         'telefono' => 'required'
     ];
+
+    public function setNombreCapitan($nombre)
+    {
+        $this->nombre = $nombre;
+    }
+    public function setNacionalidades($nacionalidad)
+    {
+        $this->nacionalidad = $nacionalidad;
+    }
+
+    public function updatedDocumento()
+    {
+        $this->emit('consultarCapitan');
+    }
+
     public function update()
     {
         $this->validate();
