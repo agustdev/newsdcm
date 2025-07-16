@@ -83,7 +83,6 @@
                             },
                             success: function(data) {
                                 json = $.parseJSON(data);
-                                console.log(json)
                                 if (json.nombre != '') {
                                     // $('.nombre_capitan').val(json.nombre + ' ' + json.apellido);
                                     Livewire.emit('setNombreCapitan', json.nombre + ' ' + json

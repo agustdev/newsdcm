@@ -67,7 +67,7 @@ class ConsultasController extends Controller
         $newDate = date('Y-m-d', $oldDate);
         $otrosDatos = Capitanes::where('documento', $documento)->first();
         $datos[] = array('nacionalidad' => !empty($otrosDatos) ? $otrosDatos->nacionalidad : '', 'nombres' => trim(ucfirst($resp_c['nombres'])), 'apellidos' => trim(ucfirst($resp_c['apellido1'])) . ' ' . trim(ucfirst($resp_c['apellido2'])));
-        return response()->json($datos);
+        return json_encode($datos);
     }
 
     public function consult_passport(Request $request) {}
