@@ -59,7 +59,7 @@ class EntradasController extends Controller
             'no_chasis' => $request->numero_casco,
             'color' => $request->color,
             'material_casco' => $request->material_casco,
-            'fecha_validez' => Carbon::parse($request->fecha_llegada)->addDays(30),
+            'fecha_validez' => Carbon::parse($request->fecha_llegada)->addDays(90),
             'capacidad_personas' => $request->cantidad_pasajeros,
             'capacidad_tripulantes' => $request->cantidad_tripulantes,
             'tipo_motor' => $request->tipo_motor,
@@ -76,6 +76,7 @@ class EntradasController extends Controller
             'puerto_registro' => $request->puerto_salida,
             'nombre_propietario' => $request->nombre_capitan,
             'no_documento' => $request->documento_cap,
+            'user_id' => auth()->user()->id,
             'impedimento' => 0
         ]);
 

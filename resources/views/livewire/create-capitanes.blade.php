@@ -104,7 +104,7 @@
 
                         });
                     } else if (tipo == 'pasaporte') {
-                        // uso del endpoint pasaporte
+                        // uso del endpoint migracion
                     }
 
                 });

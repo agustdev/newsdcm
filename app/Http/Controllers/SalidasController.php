@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Capitanes;
 use App\Models\Destinos;
 use App\Models\Embarcaciones;
+use App\Models\EmbarcacionesInternacionales;
 use App\Models\Movimientos;
+use App\Models\MovimientosInternacionales;
 use App\Models\Salidas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -58,11 +60,34 @@ class SalidasController extends Controller
         //     'color' => 'required',
         //     'fecha_llegada' => 'required'
         // ]);
-        $embarcacion = Embarcaciones::where('id', $request->emb_id)->first();
-        $embarcacion->inter_estado = 1;
-        $embarcacion->update();
+        $embarcacion = EmbarcacionesInternacionales::create([
+            'matricula' => $request->matricula,
+            'nombre' => $request->nombre,
+            'no_chasis' => $request->numero_casco,
+            'color' => $request->color,
+            'material_casco' => $request->material_casco,
+            'fecha_validez' => Carbon::parse($request->fecha_llegada)->addDays(30),
+            'capacidad_personas' => $request->cantidad_pasajeros,
+            'capacidad_tripulantes' => $request->cantidad_tripulantes,
+            'tipo_motor' => $request->tipo_motor,
+            'marca_modelo_motor' => $request->marca_modelo_motor,
+            'caballos_fuerza_motor' => $request->caballos_fuerza_motor,
+            'no_motor' => $request->no_motor,
+            'estatus' => 'A',
+            'eslora' => $request->eslora,
+            'manga' => $request->manga,
+            'puntal' => $request->puntal,
+            'tipo_embarcacion' => $request->tipo_embarcacion,
+            'tipo_uso' => $request->tipo_uso,
+            'pais_procedencia' => $request->pais_procedencia,
+            'puerto_registro' => $request->puerto_salida,
+            'nombre_propietario' => $request->nombre_capitan,
+            'no_documento' => $request->documento_cap,
+            'user_id' => auth()->user()->id,
+            'impedimento' => 0
+        ]);
 
-        $mov = Movimientos::create([
+        $mov = MovimientosInternacionales::create([
             'matricula' => $request->matricula,
             'numero_casco' => $request->numero_casco,
             'nombre' => $request->nombre,

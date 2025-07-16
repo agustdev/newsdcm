@@ -56,13 +56,15 @@
                         <div class="grid grid-cols-1 gap-3">
 
                             <div class="border-bottom text-dark border-secondary mt-2 text-center">
-                                <p style="">{{ __('NOMBRE') }}: {{ $emb->nombre }} </p>
+                                <p style=""><strong>{{ __('NOMBRE') }}:</strong> {{ $emb->nombre }} </p>
                             </div>
                             <div class="border-bottom text-dark border-secondary mt-2 text-center">
-                                <p style="">{{ __('MATRÍCULA') }}: {{ $emb->matricula }} </p>
+                                <p style=""><strong>{{ __('MATRÍCULA') }}:</strong> {{ $emb->matricula }} </p>
                             </div>
                             <div class="border-bottom text-dark border-secondary mt-2 text-center">
-                                <p style="">{{ __('NO. CASCO') }}: {{ $emb->no_chasis }} </p>
+                                <p style=""><strong>{{ __('PUERTO REGISTRO') }}:</strong>
+                                    {{ strtoupper($emb->estacionamiento) }}
+                                </p>
                             </div>
 
                         </div>
@@ -89,7 +91,7 @@
 
                         <h3 class="mt-0 mb-1 ">
                             <strong>{{ __('Solicitudes realizadas') }}:</strong>
-                            <small class="badge bg-warning me-1 py-1">{{ 0 }}</small>
+                            <small class="badge bg-blue-900 me-1 py-1">{{ $emb->movimiento->count() }}</small>
                         </h3>
                         <div class="d-grid mt-2 col-lg-12">
                             @if (empty($inteligencia))

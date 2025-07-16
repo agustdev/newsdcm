@@ -49,7 +49,7 @@ class DespachosController extends Controller
     public function create_with_post()
     {
         $matricula = $_POST['emb'];
-        $embarcacion = auth()->user()->embarcaciones()->where('matricula', '=', $matricula)->first();
+        $embarcacion = auth()->user()->embarcaciones->where('matricula', $matricula)->first();
         $ultimo_mov = auth()->user()->movimientos()->orderBy('id', 'DESC')->first();
         $destinos = Destinos::where('despachos', 0)->get();
         $nacionalidades = Nacionalidades::all();
