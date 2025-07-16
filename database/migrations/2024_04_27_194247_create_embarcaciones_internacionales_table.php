@@ -38,6 +38,8 @@ return new class extends Migration
             $table->boolean('proceso_migratorio')->default(0)->comment('Indicativo si los pasajros tendra proceso migratorio o no');
             $table->enum('estatus', ['A', 'I'])->default('A')->comment('Estado de la matricula de la embarcacion');
             $table->integer('impedimento')->length(5)->unsigned();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
