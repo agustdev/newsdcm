@@ -142,12 +142,9 @@
 
     </head>
 
-    <body class="bg-center md:h-screen md:bg-no-repeat md:bg-cover bg-[url('images/sea1.jpg')]">
-
+    <body class="bg-center md:h-screen md:bg-no-repeat md:bg-cover bg-[url('images/fotoplaya2.png')]">
         <!-- div principal -->
         <div class="principal">
-
-
             <div class="grid grid-cols-3 md:grid-cols-4 mx-6 justify-center mb-5">
                 <div class="flex justify-end h-12 mt-4 md:mr-4 md:col-span-3">
                     @if (app()->getLocale() == '')

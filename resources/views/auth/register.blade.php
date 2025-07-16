@@ -7,7 +7,6 @@
         <x-validation-errors class="mb-4" />
 
         <div class="p-2">
-
             <div class="w-full">
                 {{-- propietarios --}}
                 <form method="POST" action="{{ route('register') }}">
