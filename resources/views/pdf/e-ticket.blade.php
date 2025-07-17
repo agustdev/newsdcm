@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>DOCUMENTO ETICKET {{ $entrada->nombre }}, {{ $entrada->vcode }}</title>
+        <title>DOCUMENTO E-CLEREANCE {{ $entrada->nombre }}, {{ $entrada->vcode }}</title>
         <style>
             @page {
                 size: 10cm 17cm;
@@ -39,7 +39,7 @@
                 <strong>(SISCODEM)</strong>
             </div><br>
             <strong>ENTRADA INTERNACIONAL</strong><br>
-            <strong>E-TICKET</strong>
+            <strong>E-CLEREANCE</strong>
         </div>
         <div class="qr">
             <img src="data:image/svg+xml;base64,{{ base64_encode(QrCode::size(300)->generate(route('verificacion.solicitud', $entrada))) }}"
@@ -49,13 +49,14 @@
             </p>
         </div>
         <div class="informacion">
-
             EMBARCACION: {{ $entrada->nombre }}<br>
             MATRICULA: {{ $entrada->matricula }}<br>
             NUMERO CASCO: {{ $entrada->numero_casco }}<br>
             COLOR: {{ $entrada->color }}<br>
-            PAIS: {{ $entrada->capitan_internacional->lugar_salida }}<br>
+            PAIS DE PROCEDENCIA: {{ $entrada->capitan_internacional->pais_procedencia }}<br>
             PUERTO LLEGADA: {{ $entrada->capitan_internacional->lugar_destino }}
+            PAIS DESTINO: REPUBLICA DOMINICANA<br>
+            PUERTO DE LLEGADA: {{ $entrada->capitan_internacional->lugar_destino }}<br>
         </div>
     </body>
 

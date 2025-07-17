@@ -105,7 +105,7 @@
                         <div class="md:text-center">
                             <span
                                 class="header-title d-inline text-black"><strong>{{ __('Número de solicitud') }}:</strong></span>
-                            <span>{{ $solicitud->id }}</span>
+                            <span>{{ $solicitud->vcode }}</span>
                         </div>
                         <div class="md:text-center">
                             <span class="header-title d-inline text-black"><strong>Fecha de solicitud:</strong></span>
