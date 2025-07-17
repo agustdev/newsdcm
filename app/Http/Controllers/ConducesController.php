@@ -6,6 +6,7 @@ use App\Models\Capitanes;
 use App\Models\Conductores;
 use App\Models\Destinos;
 use App\Models\Embarcaciones;
+use App\Models\Inteligencias;
 use App\Models\Movimientos;
 use App\Models\Provincias;
 use App\Models\Vehiculos;
@@ -33,7 +34,10 @@ class ConducesController extends Controller
         $ultimo_mov = auth()->user()->movimientos()->orderBy('id', 'DESC')->first();
         $provincias = Provincias::all();
         $embarcaciones = auth()->user()->embarcaciones->filter(function ($item) {
-            return $item->fecha_validez >= now()->toDateString() && $item->impedimento == 0 && $item->manual == 0;
+            $registroActivo = Inteligencias::where('matricula_embarcacion', $item->matricula)
+                ->where('estado', '=', 'Activa')
+                ->exists();
+            return $item->fecha_validez >= now()->toDateString() && $item->impedimento == 0 && $item->manual == 0 && !$registroActivo;
         });
         return view('movimientos.conduces.create', compact('ultimo_mov', 'provincias', 'embarcaciones'));
         // return $embarcaciones;
