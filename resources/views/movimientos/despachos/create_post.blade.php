@@ -238,7 +238,7 @@
                     <div class="row g-2">
                         <div class="col-lg">
                             <div class="alert alert-info font-semibold">
-                                Favor cargar documento de tripulantes en formato PDF, JPG, PNG o XLSX
+                                {{ __('Favor cargar documento de tripulantes en formato PDF, JPG, PNG o XLSX') }}
                             </div>
                         </div>
                         <div class="col-lg">
@@ -255,7 +255,7 @@
                     <div class="row g-2">
                         <div class="col-lg">
                             <div class="alert alert-info font-semibold">
-                                Favor cargar documento de pasajeros en formato PDF, JPG, PNG o XLSX
+                                {{ __('Favor cargar documento de pasajeros en formato PDF, JPG, PNG o XLSX') }}
                             </div>
                         </div>
                         <div class="col-lg">
