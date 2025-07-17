@@ -329,7 +329,11 @@
     "Si no ves tu embarcación favor comunicarte con el comando naval de capitanías de puerto y autoridad marítima.": "Если вы не видите свое судно, обратитесь в военно-морское командование, к капитанам портов и морским властям.",
     "PERIMETRO": "ПЕРИМЕТР",
     "NO. CASCO": "NO. ШЛЕМ",
+    "INFORMACIÓN DE TRIPULANTES Y PASAJEROS": "ИНФОРМАЦИЯ О ЧЛЕНАХ ЭКИПАЖА И ПАССАЖИРАХ",
     "PUERTO REGISTRO": "ПОРТ РЕГИСТРАЦИИ",
     "CANTIDAD DE NACIONALES": "КОЛИЧЕСТВО ГРАЖДАН",
-    "CANTIDAD DE EXTRANJEROS": "КОЛИЧЕСТВО ИНОСТРАНЦЕВ"
+    "CANTIDAD DE EXTRANJEROS": "КОЛИЧЕСТВО ИНОСТРАНЦЕВ",
+    "Favor cargar documento de tripulantes en formato PDF, JPG, PNG o XLSX": "Пожалуйста, загрузите документ членов экипажа в формате PDF, JPG, PNG или XLSX",
+    "Favor cargar documento de pasajeros en formato PDF, JPG, PNG o XLSX": "Пожалуйста, загрузите документ пассажиров в формате PDF, JPG, PNG или XLSX",
+    "Cargar documento": "Загрузить документ"
 }

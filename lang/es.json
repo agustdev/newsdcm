@@ -200,7 +200,11 @@
     "If you don't see your vessel, please contact the naval command of the port captaincies and maritime authority.": "Si no ves tu embarcación favor comunicarte con el comando naval de capitanías de puerto y autoridad marítima.",
     "PERIMETER": "PERIMETRO",
     "NO. HELMET": "NO. CASCO",
+    "CREW AND PASSENGER INFORMATION": "INFORMACIÓN DE TRIPULANTES Y PASAJEROS",
     "PORT REGISTRY": "PUER5TO DE REGISTRO",
     "NUMBER OF NATIONALS": "CANTIDAD DE NACIONALES",
-    "NUMBER OF FOREIGNERS": "CANTIDAD DE EXTRANJEROS"
+    "NUMBER OF FOREIGNERS": "CANTIDAD DE EXTRANJEROS",
+    "Please upload crew document in PDF, JPG, PNG or XLSX format": "Favor cargar documento de tripulantes en formato PDF, JPG, PNG o XLSX",
+    "Please upload passenger document in PDF, JPG, PNG or XLSX format": "Favor cargar documento de pasajeros en formato PDF, JPG, PNG o XLSX",
+    "Upload document": "Cargar documento"
 }

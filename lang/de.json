@@ -329,7 +329,11 @@
     "Si no ves tu embarcación favor comunicarte con el comando naval de capitanías de puerto y autoridad marítima.": "Sollten Sie Ihr Schiff nicht sehen, wenden Sie sich bitte an die Marineführung, Hafenkapitäne und Seebehörden.",
     "PERIMETRO": "PERIMETER",
     "NO. CASCO": "NO. HELM",
+    "INFORMACIÓN DE TRIPULANTES Y PASAJEROS": "INFORMATIONEN ZU BESATZUNG UND PASSAGIEREN",
     "PUERTO REGISTRO": "REGISTRIERUNGSHAFEN",
     "CANTIDAD DE NACIONALES": "ANZAHL DER NATIONALEN",
-    "CANTIDAD DE EXTRANJEROS": "ANZAHL DER AUSLÄNDER"
+    "CANTIDAD DE EXTRANJEROS": "ANZAHL DER AUSLÄNDER",
+    "Favor cargar documento de tripulantes en formato PDF, JPG, PNG o XLSX": "Bitte laden Sie das Dokument der Besatzungsmitglieder im PDF-, JPG-, PNG- oder XLSX-Format hoch",
+    "Favor cargar documento de pasajeros en formato PDF, JPG, PNG o XLSX": "Bitte laden Sie das Passagierdokument im PDF-, JPG-, PNG- oder XLSX-Format hoch",
+    "Cargar documento": "Dokument hochladen"
 }
