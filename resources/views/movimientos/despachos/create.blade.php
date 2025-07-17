@@ -231,7 +231,23 @@
                                     for="floatinMatricula">{{ __('CANTIDAD DE PASAJEROS') }}</label>
                             </div>
                         </div>
-
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control rounded-md" id="floatingNombreEmbarcacion"
+                                    placeholder="CANTIDAD DE NACIONALES" name="cant_nacionales" />
+                                <label style="font-size: 10px;"
+                                    for="floatingNombreEmbarcacion">{{ __('CANTIDAD DE NACIONALES') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control rounded-md" id="floatinMatricula"
+                                    placeholder="CANTIDAD DE EXTRANJEROS" name="cant_extranjeros"
+                                    name="cantidad_pasajeros" />
+                                <label style="font-size: 10px;"
+                                    for="floatinMatricula">{{ __('CANTIDAD DE EXTRANJEROS') }}</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -319,18 +335,21 @@
                             <div class="form-floating mb-2">
                                 <select name="motivo_viaje" class="form-select rounded-md" id="" required>
                                     <option value="">- {{ __('Seleccione motivo del viaje') }} -</option>
-                                    <option value="TURISTICO">{{ __('TURÍSTICO') }}</option>
+                                    <option value="ATRAQUE">{{ __('ATRAQUE') }}</option>
+                                    <option value="BUCEO">{{ __('BUCEO') }}</option>
+                                    <option value="CARGA">{{ __('CARGA') }}</option>
                                     <option value="DEPORTIVO">{{ __('DEPORTIVO') }}</option>
                                     <option value="LANCHA_PRACTICO">{{ __('LANCHA PRÁCTICO') }}</option>
-                                    <option value="CARGA">{{ __('CARGA') }}</option>
-                                    <option value="ATRAQUE">{{ __('ATRAQUE') }}</option>
                                     <option value="PASAJERO">{{ __('PASAJERO') }}</option>
                                     <option value="PESCA">{{ __('PESCA') }}</option>
+                                    <option value="RECREO">{{ __('RECREO') }}</option>
+                                    <option value="REMOLQUE">{{ __('REMOLQUE') }}</option>
                                     <option value="TRANSPORTE_COMBUSTIBLE">{{ __('TRANSPORTE DE COMBUSTIBLE') }}
                                     </option>
-                                    <option value="REMOLQUE">{{ __('REMOLQUE') }}</option>
-                                    <option value="BUCEO">{{ __('BUCEO') }}</option>
-                                    <option value="RECREO">{{ __('RECREO') }}</option>
+                                    <option value="TURISTICO">{{ __('TURÍSTICO') }}</option>
+                                    <option value="TURISTICO COMERCIAL">{{ __('TURÍSTICO COMERCIAL') }}</option>
+                                    <option value="TURISTICO PRIVADO">{{ __('TURÍSTICO PRIVADO') }}</option>
+
                                 </select>
                                 <label style="font-size: 10px;"
                                     for="floatinMatricula">{{ __('MOTIVO DEL VIAJE') }}</label>
