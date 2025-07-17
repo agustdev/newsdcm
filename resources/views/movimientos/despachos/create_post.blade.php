@@ -323,7 +323,7 @@
                                     <option value="TURISTICO">{{ __('TURÍSTICO') }}</option>
                                     <option value="TURISTICO COMERCIAL">{{ __('TURISTICO COMERCIAL') }}</option>
                                     <option value="TURISTICO PRIVADO">{{ __('TURISTICO PRIVADO') }}</option>
-
+                                    <option value="OTRO DESTINO">OTRO DESTINO</option>
                                 </select>
                                 <label style="font-size: 10px;"
                                     for="floatinMatricula">{{ __('MOTIVO DEL VIAJE') }}</label>

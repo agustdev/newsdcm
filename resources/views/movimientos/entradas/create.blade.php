@@ -38,7 +38,6 @@
                 </div>
                 <div class="card-body">
                     <div class="row g-2">
-
                         <div class="col-md">
                             <div class="form-floating">
                                 <input type="text" class="form-control matricula rounded-md" id="floatinMatricula"
@@ -105,7 +104,6 @@
                                     ({{ __('PIES') }})</label>
                             </div>
                         </div>
-
                         <div class="col-md">
                             <div class="form-floating">
                                 <input type="number" class="form-control puntal rounded-md" id="floatingPuntal"
@@ -127,9 +125,9 @@
                                 <select name="tipo_embarcacion" id="" class="form-select rounded-md"
                                     required>
                                     <option value="">- {{ __('Seleccione') }} -</option>
+                                    <option value="CATAMARAN">{{ __('CATAMARAN') }}</option>
                                     <option value="VELERO">{{ __('VELERO') }}</option>
                                     <option value="YATE">{{ __('YATE') }}</option>
-                                    <option value="CATAMARAN">{{ __('CATAMARAN') }}</option>
                                 </select>
                                 <label style="font-size: 10px;"
                                     for="floatinEslora">{{ __('TIPO DE EMBARCACIÓN') }}</label>
@@ -139,17 +137,22 @@
                             <div class="form-floating mb-2">
                                 <select name="tipo_uso" id="" class="form-select rounded-md" required>
                                     <option value="">- {{ __('Seleccione') }} -</option>
+                                    <option value="ARTEFACTO NAVAL">ARTEFACTO NAVAL</option>
+                                    <option value="CARGA SECA">CARGA SECA</option>
                                     <option value="DRAGA">DRAGA</option>
                                     <option value="DEPORTIVA">DEPORTIVA</option>
                                     <option value="ESPECIAL">ESPECIAL</option>
                                     <option value="LANCHA PRACTICO">LANCHA PRÁCTICO</option>
-                                    <option value="CARGA SECA">CARGA SECA</option>
-                                    <option value="TANQUERO">TANQUERO</option>
+                                    <option value="PESCA">PESCA</option>
                                     <option value="PLATAFORMA">PLATAFORMA</option>
                                     <option value="RECREATIVA">RECREATIVA</option>
-                                    <option value="ARTEFACTO NAVAL">ARTEFACTO NAVAL</option>
-                                    <option value="PESCA">PESCA</option>
+                                    <option value="RECREO">{{ __('RECREO') }}</option>
                                     <option value="REMOLCADOR">REMOLCADOR</option>
+                                    <option value="TANQUERO">TANQUERO</option>
+                                    <option value="TURISTICO">{{ __('TURÍSTICO') }}</option>
+                                    <option value="TURISTICO COMERCIAL">{{ __('TURÍSTICO COMERCIAL') }}</option>
+                                    <option value="TURISTICO PRIVADO">{{ __('TURÍSTICO PRIVADO') }}</option>
+                                    <option value="OTRO DESTINO">OTRO DESTINO</option>
                                 </select>
                                 <label style="font-size: 10px;"
                                     for="floatingEmbarcacion">{{ __('TIPO DE USO') }}</label>
