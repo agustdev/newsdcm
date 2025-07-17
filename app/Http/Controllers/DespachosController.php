@@ -10,6 +10,7 @@ use App\Models\Destinos;
 use App\Models\DocumentoCargadoPasajeros;
 use App\Models\DocumentoCargadoTripulantes;
 use App\Models\Embarcaciones;
+use App\Models\Inteligencias;
 use App\Models\Movimientos;
 use App\Models\Nacionalidades;
 use Carbon\Carbon;
@@ -37,9 +38,12 @@ class DespachosController extends Controller
     {
         $ultimo_mov = auth()->user()->movimientos()->orderBy('id', 'DESC')->first();
         $destinos = Destinos::where('despachos', 0)->get();
-        $embarcaciones = auth()->user()->embarcaciones()
-            ->whereRaw('fecha_validez >= CURDATE()')
-            ->get();
+        $embarcaciones = auth()->user()->embarcaciones->filter(function ($item) {
+            $registroActivo = Inteligencias::where('matricula_embarcacion', $item->matricula)
+                ->where('estado', '=', 'Activa')
+                ->exists();
+            return $item->fecha_validez >= now()->toDateString() && $item->impedimento == 0 && $item->manual == 0 && !$registroActivo;
+        });
         $nacionalidades = Nacionalidades::all();
         $capitanesreg = CapitanesRegistrados::join('capitanes_reg_usuarios', 'cap_id', 'capitanes_registrados.id')->where('user_id', auth()->user()->id)->get();
         return view('movimientos.despachos.create', compact('ultimo_mov', 'destinos', 'embarcaciones', 'nacionalidades', 'capitanesreg'));
@@ -96,6 +100,8 @@ class DespachosController extends Controller
             'idllegada' => $destino[0],
             'detalle_destino' => $request->detalle_destino,
             'fecha_llegada' => $request->fecha_llegada,
+            'cant_nacionales' => $request->cant_nacionales,
+            'cant_extranjeros' => $request->cant_extranjeros,
         ]);
 
         $capitan = CapitanesRegistrados::where('id', $request->capitan)->first();

@@ -32,8 +32,9 @@ class ConducesController extends Controller
     {
         $ultimo_mov = auth()->user()->movimientos()->orderBy('id', 'DESC')->first();
         $provincias = Provincias::all();
-        $embarcaciones = Embarcaciones::whereRaw('fecha_validez >= CURDATE()')
-            ->get();
+        $embarcaciones = auth()->user()->embarcaciones->filter(function ($item) {
+            return $item->fecha_validez >= now()->toDateString() && $item->impedimento == 0 && $item->manual == 0;
+        });
         return view('movimientos.conduces.create', compact('ultimo_mov', 'provincias', 'embarcaciones'));
         // return $embarcaciones;
     }
@@ -41,7 +42,7 @@ class ConducesController extends Controller
     public function create_with_post()
     {
         $matricula = $_POST['emb'];
-        $embarcacion = auth()->user()->embarcaciones()->where('matricula', '=', $matricula)->first();
+        $embarcacion = auth()->user()->embarcaciones->where('matricula', '=', $matricula)->first();
         $ultimo_mov = auth()->user()->movimientos()->orderBy('id', 'DESC')->first();
         $provincias = Provincias::all();
 
@@ -60,7 +61,7 @@ class ConducesController extends Controller
             'color' => 'required',
             'fecha_salida' => 'required'
         ]);
-        $embarcacion = auth()->user()->embarcaciones()->where('matricula', '=', $request->matricula)->first();
+        $embarcacion = auth()->user()->embarcaciones->where('matricula', '=', $request->matricula)->first();
         $provincia = explode("|", $request->provincia);
         $provincia_salida = explode("|", $request->provinciasalida);
         // $municipio = explode("|", $request->municipio);

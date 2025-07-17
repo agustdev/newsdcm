@@ -22,4 +22,8 @@ class Embarcaciones extends Model
     {
         return $this->hasMany(Conductores::class, 'emb_id');
     }
+    public function inteligencia()
+    {
+        return $this->hasOne(Inteligencias::class, 'matricula_embarcacion', 'matricula')->where('estado', 'Activa');
+    }
 }
