@@ -143,7 +143,8 @@
         @if (Session::get('msj'))
             <script>
                 Swal.fire(
-                    'Buen trabajo!', 'Se ha enviado la solicitud con exito', 'success'
+                    '¡SOLICITUD DE DESPACHO!',
+                    'Su solicitud ha sido recibida, la autorización será enviada dentro de un plazo de 24 horas', 'success'
                 )
             </script>
         @endif

@@ -190,7 +190,8 @@
 
                 <div class="flex justify-center text-white">
                     <h1 class="text-xl font-black -mt-6 mb-4 text-center">
-                        {{ __('ARMADA DE REPÚBLICA DOMINICANA') }}
+                        {{ __('ARMADA DE REPÚBLICA DOMINICANA') }}<br>
+                        {{ __('SISTEMA DE CONDUCE Y DESPACHO DE EMBARCACIONES') }}
                         <br><span class="text-xl font-semibold">DESPACHO RD</span>
                     </h1>
                 </div>

@@ -142,7 +142,8 @@
         @if (Session::get('msj'))
             <script>
                 Swal.fire(
-                    'Solicitud recibida', 'La autorización sera enviada dentro de las 24 horas', 'success'
+                    '¡SOLICITUD DE CONDUCE!',
+                    'Su solicitud ha sido recibida, la autorización será enviada dentro de un plazo de 24 horas', 'success'
                 )
             </script>
         @endif

@@ -6,8 +6,8 @@
     </div> --}}
 
     <h1 class="h2 text-center mt-5 text-bold font-black text-white uppercase">
-        {{ __('ARMADA DE REPÚBLICA DOMINICANA') }} 
-
+        {{ __('ARMADA DE REPÚBLICA DOMINICANA') }}<br>
+        {{ __('SISTEMA DE CONDUCE Y DESPACHO DE EMBARCACIONES') }}
         <br>
         {{ __('DESPACHO RD') }}
     </h1>
