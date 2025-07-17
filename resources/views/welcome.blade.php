@@ -142,7 +142,8 @@
 
     </head>
 
-    <body class="bg-center md:h-screen md:bg-no-repeat md:bg-cover bg-[url('images/fotoplaya2.png')]">
+    <body
+        class="bg-center md:h-screen md:bg-no-repeat bg-no-repeat bg-cover md:bg-cover bg-[url('images/fotoplaya2.png')]">
         <!-- div principal -->
         <div class="principal">
             <div class="grid grid-cols-3 md:grid-cols-4 mx-6 justify-center mb-5">
