@@ -167,8 +167,8 @@
                                     <option>- {{ __('Seleccione') }} -</option>
                                     @foreach ($destinos as $dest)
                                         @if ($dest->id != 13)
-                                            <option value="{{ $dest->id }}|{{ $dest->descripcion }}">
-                                                {{ $dest->descripcion }}
+                                            <option value="{{ $dest->id }}|{{ strtoupper($dest->descripcion) }}">
+                                                {{ strtoupper($dest->descripcion) }}
                                             </option>
                                         @endif
                                     @endforeach
