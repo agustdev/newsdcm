@@ -147,7 +147,7 @@ class ConsultasController extends Controller
 
     public function get_perimetros(Request $request)
     {
-        $perimetros = PerimetroCostero::where('salida_id', $request->salida_id)->get();
+        $perimetros = PerimetroCostero::where('salida_id', $request->salida_id)->orderBy('description', 'asc')->get();
         return $perimetros->toJson();
     }
 
