@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>DOCUMENTO ETICKET {{ $salida->nombre }}, {{ $salida->vcode }}</title>
+        <title>DOCUMENTO E-CLEREANCE {{ $salida->nombre }}, {{ $salida->vcode }}</title>
         <style>
             @page {
                 size: 10cm 17cm;
@@ -36,10 +36,10 @@
                 <strong>ARMADA DE REPÚBLICA DOMINICANA</strong><br><br>
                 <strong>COMANDO NAVAL DE CAPITANIAS DE PUERTOS Y AUTORIDAD MARITIMA</strong><br><br>
                 <strong>SISTEMA CONDUCE Y DESPACHO DE EMBARCACIONES</strong><br>
-                <strong>(SISCODEM)</strong>
+                <strong>(DESPACHORD)</strong>
             </div><br>
             <strong>SALIDA INTERNACIONAL</strong><br>
-            <strong>E-TICKET</strong>
+            <strong>E-CLEREANCE</strong>
         </div>
         <div class="qr">
             <img src="data:image/svg+xml;base64,{{ base64_encode(QrCode::size(300)->generate(route('verificacion.solicitud', $salida))) }}"
