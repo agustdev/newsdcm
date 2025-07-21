@@ -177,9 +177,9 @@
                     <div class="form-floating mb-2">
                         <select class="form-select tipo_documento rounded-md" name="tipo_documento"
                             id="floatingSelect">
-                            <option>- {{ __('Seleccione') }} -</option>
+                            {{-- <option>- {{ __('Seleccione') }} -</option> --}}
                             <option value="cedula">{{ __('Cédula') }}</option>
-                            <option value="pasaporte">{{ __('Pasaporte') }}</option>
+                            {{-- <option value="pasaporte">{{ __('Pasaporte') }}</option> --}}
                         </select>
                         <label style="font-size: 10px;" for="floatinMatricula">{{ __('TIPO DE DOCUMENTO') }}</label>
                     </div>
@@ -587,6 +587,16 @@
 
             $('[required]').css({
                 'border-left': '2px solid red'
+            });
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                $('.documento').mask('000-0000000-0', {
+                    placeholder: '000-0000000-0'
+                });
+                $('.telefono1, .telefono2').mask('(000) 000-0000', {
+                    placeholder: '(000) 000-0000'
+                });
             });
         </script>
     @endpush

@@ -66,7 +66,6 @@
         </x-slot>
     </x-dialog-modal>
     @push('js')
-        <script src="{{ asset('assets/js/jQueryMaskPlugin/dist/jquery.mask.min.js') }}"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 // $('.documento').mask('000-0000000-0', {
