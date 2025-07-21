@@ -28,8 +28,14 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
+        if (isset($input['empresa']) && $input['empresa'] != '') {
+            $nombre =  $input['empresa'];
+        } else {
+            $nombre = $input['name'] . ' ' . $input['apellido'];
+        }
+
         return User::create([
-            'name' => $input['name'] . ' ' . $input['apellido'],
+            'name' => $nombre,
             'email' => $input['email'],
             'documento' => $input['documento'],
             'telefono' => $input['telefono'],

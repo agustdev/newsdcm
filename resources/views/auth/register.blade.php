@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="mt-4">
-                        <x-label for="documento" value="{{ __('No documento') }} *" />
+                        <x-label id="label_documento" for="documento" value="{{ __('No documento') }} *" />
                         <x-input id="documento" class="block mt-1 w-full documento" type="text" name="documento"
                             :value="old('documento')" required autofocus autocomplete="Cédula" />
                         @error('documento')
@@ -164,9 +164,12 @@
                 if ($(this).val() == 'rnc') {
                     $('.empresas').removeClass('hidden');
                     $('.propietarios').addClass('hidden');
+                    $('#label_documento').text('No. RNC *');
                 } else {
                     $('.empresas').addClass('hidden');
                     $('.propietarios').removeClass('hidden');
+                    $('#label_documento').text('No. documento *');
+
                 }
             });
         </script>
