@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 Route::post('lang_change', [LangController::class, 'switchLang'])->name('lang.switch');
 Route::post('/consulta_cedula', [ConsultasController::class, 'consultar'])->name('consultar.cedula');
+Route::post('/consulta_rnc', [ConsultasController::class, 'consultar_rnc'])->name('consultar.rnc');
 Route::post('/consulta_capitan', [ConsultasController::class, 'consultar_capitanes'])->name('consultar.capitan');
 Route::get('/consulta_pasaporte', [ConsultasController::class, 'consult_passport'])->name('consultar.pasaporte');
 Route::get('/verificacion/{solicitud}/solicitud', [ConsultasController::class, 'verificacionSolicitud'])->name('verificacion.solicitud');

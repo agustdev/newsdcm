@@ -114,20 +114,24 @@
                 var documento = $(this).val();
                 var tipo = $('.tipo_documento').val();
                 if (documento != '') {
-                    $.post("{{ route('consultar.cedula') }}", {
-                        documento: documento,
-                        tipo: tipo,
-                        _token: $('input[name="_token"]').val()
-                    }, function(data) {
-                        json = $.parseJSON(data);
-                        if (json[0].nombres != '') {
-                            $('.nombre').val(json[0].nombres);
-                            $('.apellido').val(json[0].apellidos);
-                        } else {
-                            $('.nombre').attr('readonly', false).val('');
-                            $('.apellido').attr('readonly', false).val('');
-                        }
-                    });
+                    if (tipo == 'cedula') {
+                        $.post("{{ route('consultar.cedula') }}", {
+                            documento: documento,
+                            tipo: tipo,
+                            _token: $('input[name="_token"]').val()
+                        }, function(data) {
+                            json = $.parseJSON(data);
+                            if (json[0].nombres != '') {
+                                $('.nombre').val(json[0].nombres);
+                                $('.apellido').val(json[0].apellidos);
+                            } else {
+                                $('.nombre').attr('readonly', false).val('');
+                                $('.apellido').attr('readonly', false).val('');
+                            }
+                        });
+                    } else {
+                        // query for rnc
+                    }
                 }
             });
 
@@ -153,6 +157,17 @@
             // click cancel unmark checkbox
             $('.accept_c').on('click', function() {
                 $('#accept-terms').attr('checked', false)
+            });
+
+            // toggle between propietarios and empresas
+            $('.tipo_documento').on('change', function() {
+                if ($(this).val() == 'rnc') {
+                    $('.empresas').removeClass('hidden');
+                    $('.propietarios').addClass('hidden');
+                } else {
+                    $('.empresas').addClass('hidden');
+                    $('.propietarios').removeClass('hidden');
+                }
             });
         </script>
     @endpush

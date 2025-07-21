@@ -70,6 +70,11 @@ class ConsultasController extends Controller
         return json_encode($datos);
     }
 
+    public function consultar_rnc(Request $request)
+    {
+        return 'Prueba';
+    }
+
     public function consult_passport(Request $request) {}
 
     public function consultar_embarcacion(Request $request)
