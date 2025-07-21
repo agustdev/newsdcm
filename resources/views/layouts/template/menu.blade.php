@@ -55,7 +55,9 @@
             <span>{{ __('Salidas Internacionales') }}</span>
         </a>
     </li>
-
+    <li>
+        <a href="#" class="side-nav-link"><i class="uil-bell"></i> {{ __('Notificación de arribo') }}</a>
+    </li>
 
     <li class="side-nav-item">
         <a href="{{ route('logout') }}" class="side-nav-link"
