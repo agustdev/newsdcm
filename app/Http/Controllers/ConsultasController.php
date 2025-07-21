@@ -79,8 +79,7 @@ class ConsultasController extends Controller
 
     public function consultar_embarcacion(Request $request)
     {
-        $embarcacion = auth()->user()->embarcaciones()->where('matricula', '=', $request->matricula)
-            ->whereRaw('fecha_validez >= CURDATE()')
+        $embarcacion = auth()->user()->embarcaciones->where('matricula', '=', $request->matricula)
             ->first();
 
         $nodata = json_encode(array('matricula' => ''));

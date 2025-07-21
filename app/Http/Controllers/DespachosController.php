@@ -45,7 +45,7 @@ class DespachosController extends Controller
             return $item->fecha_validez >= now()->toDateString() && $item->impedimento == 0 && $item->manual == 0 && !$registroActivo;
         });
         $nacionalidades = Nacionalidades::all();
-        $capitanesreg = CapitanesRegistrados::join('capitanes_reg_usuarios', 'cap_id', 'capitanes_registrados.id')->where('user_id', auth()->user()->id)->get();
+        $capitanesreg = CapitanesRegistrados::join('capitanes_reg_usuarios', 'cap_id', 'capitanes_registrados.id')->where('capitanes_reg_usuarios.user_id', auth()->user()->id)->get();
         return view('movimientos.despachos.create', compact('ultimo_mov', 'destinos', 'embarcaciones', 'nacionalidades', 'capitanesreg'));
         // return $embarcaciones;
     }
