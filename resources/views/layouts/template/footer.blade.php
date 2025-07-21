@@ -25,6 +25,7 @@
         });
     });
 </script>
+<script></script>
 @stack('modals')
 @stack('js')
 

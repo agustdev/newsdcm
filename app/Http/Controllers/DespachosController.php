@@ -57,7 +57,7 @@ class DespachosController extends Controller
         $ultimo_mov = auth()->user()->movimientos()->orderBy('id', 'DESC')->first();
         $destinos = Destinos::where('despachos', 0)->get();
         $nacionalidades = Nacionalidades::all();
-        $capitanesreg = CapitanesRegistrados::join('capitanes_reg_usuarios', 'cap_id', 'capitanes_registrados.id')->where('user_id', auth()->user()->id)->get();
+        $capitanesreg = CapitanesRegistrados::join('capitanes_reg_usuarios', 'cap_id', 'capitanes_registrados.id')->where('capitanes_reg_usuarios.user_id', auth()->user()->id)->get();
         return view('movimientos.despachos.create_post', compact('ultimo_mov', 'embarcacion', 'destinos', 'nacionalidades', 'capitanesreg'));
         // return dd($embarcacion);
     }
@@ -101,7 +101,12 @@ class DespachosController extends Controller
             'detalle_destino' => $request->detalle_destino,
             'fecha_llegada' => $request->fecha_llegada,
             'cant_nacionales' => $request->cant_nacionales,
-            'cant_extranjeros' => $request->cant_extranjeros,
+            'cant_extranjeros' => $request->cant_extranjeros
+        ]);
+
+        // actualizar embarcacion para que no se pueda volver a despachar
+        $embarcacion->update([
+            'estado_movimiento' => 1 //Solicitud abierta
         ]);
 
         $capitan = CapitanesRegistrados::where('id', $request->capitan)->first();
