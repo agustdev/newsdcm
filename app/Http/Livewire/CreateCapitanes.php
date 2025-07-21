@@ -7,18 +7,27 @@ use Illuminate\Support\Str;
 use App\Models\Nacionalidades;
 use App\Models\CapitanesRegistrados;
 use App\Models\CapitanesRegUsuarios;
+use Illuminate\Validation\Rule;
 
 class CreateCapitanes extends Component
 {
     public $open = false;
     public $tipo_documento = 'cedula', $documento, $nombre, $nacionalidad, $telefono;
     protected $listeners = ['setNombreCapitan', 'setNacionalidades'];
-    protected $rules = [
-        'nombre' => 'required',
-        'nacionalidad' => 'required',
-        'documento' => 'required',
-        'telefono' => 'required'
-    ];
+    protected function rules()
+    {
+        return [
+            'nombre' => 'required',
+            'nacionalidad' => 'required',
+            'documento' => [
+                'required',
+                Rule::unique('capitanes_registrados')->where(function ($query) {
+                    return $query->where('user_id', auth()->id());
+                }),
+            ],
+            'telefono' => 'required',
+        ];
+    }
 
     public function setNombreCapitan($nombre)
     {
@@ -42,7 +51,8 @@ class CreateCapitanes extends Component
             'tipo_documento' => $this->tipo_documento,
             'documento' => $this->documento,
             'telefono' => $this->telefono,
-            'nacionalidad' => Str::upper($this->nacionalidad)
+            'nacionalidad' => Str::upper($this->nacionalidad),
+            'user_id' => auth()->user()->id
         ]);
 
         CapitanesRegUsuarios::create([
