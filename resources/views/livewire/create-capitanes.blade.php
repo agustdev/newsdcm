@@ -54,7 +54,8 @@
             </div>
             <div class="mt-3 uppercase">
                 <x-label class="text-1xl">{{ __('Telefono') }}</x-label>
-                <x-input class="{{ $errors->has('telefono') ? 'is-invalid' : '' }} block w-full mt-2 uppercase"
+                <x-input
+                    class="{{ $errors->has('telefono') ? 'is-invalid' : '' }} block w-full mt-2 uppercase telefono"
                     wire:model.defer='telefono'></x-input>
             </div>
         </x-slot>
@@ -65,6 +66,17 @@
         </x-slot>
     </x-dialog-modal>
     @push('js')
+        <script src="{{ asset('assets/js/jQueryMaskPlugin/dist/jquery.mask.min.js') }}"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // $('.documento').mask('000-0000000-0', {
+                //     placeholder: '000-0000000-0'
+                // });
+                $('.telefono').mask('(000) 000-0000', {
+                    placeholder: '(000) 000-0000'
+                });
+            });
+        </script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 $(document).on("focusout", ".documento", function() {
