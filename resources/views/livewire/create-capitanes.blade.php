@@ -24,6 +24,9 @@
                 <x-input
                     class="{{ $errors->has('documento') ? 'is-invalid' : '' }} block w-full mt-2 uppercase documento"
                     wire:model.defer='documento'></x-input>
+                @error('documento')
+                    <span class="error" style="color: red;">{{ $message }}</span>
+                @enderror
             </div>
             <div class="spin-cap" style="display: none;">
                 <svg class="animate-spin h-5 w-5 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none"

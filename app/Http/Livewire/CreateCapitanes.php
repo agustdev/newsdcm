@@ -14,6 +14,11 @@ class CreateCapitanes extends Component
     public $open = false;
     public $tipo_documento = 'cedula', $documento, $nombre, $nacionalidad, $telefono;
     protected $listeners = ['setNombreCapitan', 'setNacionalidades'];
+    public $messages = [
+        'nombre.required' => 'El nombre es obligatorio.',
+        'documento.required' => 'El documento es obligatorio.',
+        'documento.unique' => 'El número de documento de identidad ya está registrado para este usuario.',
+    ];
     protected function rules()
     {
         return [
