@@ -17,13 +17,15 @@
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Si, ya llego!"
+            confirmButtonText: "Si!",
+            cancelButtonText: "No!"
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire({
                     title: "Arribo notificado!",
-                    text: "Ha realizado la notificación de arribo de su embarcación.",
-                    icon: "success"
+                    text: "Ha realizado la notificación de arribo.",
+                    icon: "success",
+                    confirmButtonColor: "#3085d6",
                 });
             }
         });
@@ -55,8 +57,8 @@
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Si, ya zarpo!",
-            cancelButtonText: "No, he zarpado"
+            confirmButtonText: "Si!",
+            cancelButtonText: "No!"
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire({
