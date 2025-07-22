@@ -7,41 +7,74 @@
 
 @livewireScripts
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-{{-- pregunta en caso de ser solo una embarcacion --}}
-<script>
-    Swal.fire({
-        title: "Su embarcacion llego?",
-        text: "Favor indicar el arribo por esta via!",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Si, ya llego!"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire({
-                title: "Arribo notificado!",
-                text: "Ha realizado la notificación de arribo de su embarcación.",
-                icon: "success"
-            });
-        }
-    });
-</script>
-{{-- pregunta en caso de ser mas de una embarcacion --}}
-<script>
-    Swal.fire({
-        title: "Realice los arribos correspondientes",
-        text: "Detectamos que tiene varias embarcaciones en movimiento y segun las solicitudes ya deben estar en su destino, favor notificar el arribo de cada una de ellas.",
-        icon: "info",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Si lo hare",
-        cancelButtonText: "No, gracias"
-    }).then((result) => {
-        // redirigir a la pagina de notificaciones
-    });
-</script>
+@if (get_emb_request_today()->where('estado_movimiento', 2)->count() == 1)
+    {{-- pregunta en caso de ser solo una embarcacion --}}
+    <script>
+        Swal.fire({
+            title: "¿Su embarcación arribo?",
+            text: "Favor indicar el arribo por esta via!",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, ya llego!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Arribo notificado!",
+                    text: "Ha realizado la notificación de arribo de su embarcación.",
+                    icon: "success"
+                });
+            }
+        });
+    </script>
+@elseif(get_emb_request_today()->where('estado_movimiento', 2)->count() > 1)
+    {{-- pregunta en caso de ser mas de una embarcacion --}}
+    <script>
+        Swal.fire({
+            title: "Realice los arribos correspondientes",
+            text: "Detectamos que tiene varias embarcaciones en movimiento y segun las solicitudes ya deben estar en su destino, favor notificar el arribo de cada una de ellas.",
+            icon: "info",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si lo hare",
+            cancelButtonText: "No, gracias"
+        }).then((result) => {
+            // redirigir a la pagina de notificaciones
+        });
+    </script>
+@endif
+@if (get_emb_request_today()->where('estado_movimiento', 1)->count() == 1)
+    {{-- alerta de solicitud pendiente --}}
+    <script>
+        Swal.fire({
+            title: "¿Su embarcación zarpo?",
+            // text: "Favor indicar el zarpe por esta via!",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, ya zarpo!",
+            cancelButtonText: "No, he zarpado"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Zarpe notificado!",
+                    text: "Ha realizado la notificación de zarpe de su embarcación.",
+                    icon: "success"
+                });
+            }
+            if (result.isDismissed) {
+                Swal.fire({
+                    title: "Zarpe no notificado!",
+                    text: "No ha realizado la notificación de zarpe de su embarcación.",
+                    icon: "info"
+                });
+            }
+        });
+    </script>
+@endif
 <script>
     Livewire.on('alert', function(message) {
         const Toast = Swal.mixin({
