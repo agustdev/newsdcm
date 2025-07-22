@@ -31,7 +31,7 @@ return [
         'image' => 'de.svg'
     ],
     'zh' => [
-        'display' => 'CHINO',
+        'display' => 'MANDARIN',
         'flag' => 'zh',
         'image' => 'zh.svg'
     ]
