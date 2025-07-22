@@ -64,6 +64,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('movimientos/{movimiento}/pdf', [MovimientosController::class, 'generate_pdf'])->name('movimientos.pdf');
     Route::post('movimientos/{movimiento}/preview', [MovimientosController::class, 'generate_pdf'])->name('movimientos.preview');
 
+    Route::get('notificaciones', [MovimientosController::class, 'notificaciones'])->name('notificaciones');
     // modulo para navieras
     Route::resource('navieras/usuarios', UsuariosNavierasController::class)->names('usuarios.navieras');
     Route::get('navieras/solicitudes/entradas', [MovimientosNavierasController::class, 'entradasNavieras'])->name('solicitudes.navieras.entradas');

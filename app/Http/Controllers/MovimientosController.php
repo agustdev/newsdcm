@@ -58,6 +58,12 @@ class MovimientosController extends Controller
         echo "'" . json_encode($data) . "'";
     }
 
+    public function notificaciones()
+    {
+        // Aquí puedes implementar la lógica para manejar las notificaciones
+        return view('notificaciones_arribo.index');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

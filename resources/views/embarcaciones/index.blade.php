@@ -97,22 +97,31 @@
                             @if (empty($inteligencia))
                                 @if ($emb->manual != 1)
                                     @if (strtotime($emb->fecha_validez->format('d-m-Y')) >= strtotime(\Carbon\Carbon::now()->format('d-m-Y')))
-                                        @if ($emb->estado_movimiento == 0)
+                                        @if ($emb->estado_movimiento == 0 || $emb->estado_movimiento == 3)
                                             <button type="button"
                                                 class="items-center px-3 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 block"
                                                 data-bs-toggle="modal"
                                                 data-bs-target="#option-mov-modal-{{ $emb->id }}">{{ __('SOLICITAR') }}
                                             </button>
-                                        @else
+                                        @elseif ($emb->estado_movimiento == 1)
                                             <!-- Botón con spinner -->
-
                                             <button type="button"
-                                                class="items-center px-3 py-2 bg-yellow-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-700 focus:bg-yellow-700 active:bg-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 block">
+                                                class="items-center px-3 py-2 bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:bg-green-700 active:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 block">
                                                 <span v-if="cargando">
                                                     <div
                                                         class="animate-spin rounded-full h-3 w-3 border-b-2 border-white inline-block mr-2">
                                                     </div>
-                                                    En movmiento...
+                                                    Solicitud abierta...
+                                                </span>
+                                            </button>
+                                        @elseif ($emb->estado_movimiento == 2)
+                                            <button type="button"
+                                                class="moving items-center px-3 py-2 bg-yellow-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-700 focus:bg-yellow-700 active:bg-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 block">
+                                                <span v-if="cargando">
+                                                    <div
+                                                        class="animate-spin rounded-full h-3 w-3 border-b-2 border-white inline-block mr-2">
+                                                    </div>
+                                                    En movimiento...
                                                 </span>
                                             </button>
                                         @endif
@@ -297,13 +306,27 @@
                 </div>
             </div>
         @endforeach
+
+
+        <?php
+        
+        $fechaInicio = \Carbon\Carbon::parse('2024-07-15');
+        $fechaFin = \Carbon\Carbon::parse('2024-07-20');
+        
+        $diferenciaEnDias = $fechaInicio->diffInDays($fechaFin);
+        
+        echo 'La diferencia en días es: ' . $diferenciaEnDias; // Salida: 5
+        
+        ?>
     </div>
 
     @push('js')
+        {{-- acciones segun estatus del boton de las embarcaciones --}}
         <script type="text/javascript">
             $('.norequest').on('click', function(e) {
                 e.preventDefault();
                 Swal.fire({
+                    icon: "error",
                     title: 'No puedes realizar solicitudes a esta embarcación matricula vencida',
                     text: "Favor contacte con el Comando Naval de Capitania de Puertos para mayor información",
                     confirmButtonColor: '#1089FF',
@@ -314,6 +337,7 @@
             $('.manualonly').on('click', function(e) {
                 e.preventDefault();
                 Swal.fire({
+                    icon: "info",
                     title: 'No puedes realizar solicitudes digitales a esta embarcación',
                     text: "Favor contacte con el Comando Naval de Capitania de Puertos para mayor información",
                     confirmButtonColor: '#1089FF',
@@ -324,8 +348,19 @@
             $('.impediment').on('click', function(e) {
                 e.preventDefault();
                 Swal.fire({
+                    icon: "error",
                     title: 'Upps no se puede realizar solicitudes a esta embarcación',
                     text: "Favor contacte con el Comando Naval de Capitania de Puertos para mayor información",
+                    confirmButtonColor: '#1089FF',
+                    confirmButtonText: 'Aceptar',
+                });
+            });
+            $('.moving').on('click', function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    icon: "info",
+                    title: 'No puede realizar otra solicitud en este momento',
+                    text: "Verifique si ya realizó la notificación de llegada de la embarcación a su destino en la reciente solicitud que realizó.",
                     confirmButtonColor: '#1089FF',
                     confirmButtonText: 'Aceptar',
                 });

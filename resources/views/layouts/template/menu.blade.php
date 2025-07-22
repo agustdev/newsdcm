@@ -56,7 +56,8 @@
         </a>
     </li>
     <li>
-        <a href="#" class="side-nav-link"><i class="uil-bell"></i> {{ __('Notificación de arribo') }}</a>
+        <a href="{{ route('notificaciones') }}" class="side-nav-link"><i class="uil-bell"></i>
+            {{ __('Notificaciones') }}</a>
     </li>
 
     <li class="side-nav-item">
