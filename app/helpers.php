@@ -35,20 +35,24 @@ if (!function_exists('get_msj_alert')) {
     }
 }
 
-if (!function_exists('get_emb_arribo')) {
-    function get_emb_arribo($matricula)
+if (!function_exists('get_emb_request_today')) {
+    function get_emb_request_today()
     {
-        $embarcacion = Embarcaciones::where('user_id', auth()->id())
-            ->where('matricula', $matricula)
-            ->where('estado_movimiento', 2)
-            ->count();
+        $embarcacion = Movimientos::join('embarcaciones', 'movimientos.matricula', 'embarcaciones.matricula')
+            ->where('user_id', auth()->id())
+            ->whereRaw('CAST(fecha_llegada AS DATE) = CAST(NOW() AS DATE)')
+            ->where('movimientos.estado', 'Aprobado');
         return $embarcacion;
     }
+}
 
-    // $fechaActual = Carbon::parse('2025-07-15');
-    // $fechaLlegada = Carbon::parse('2025-07-20');
-
-    // $diferenciaEnDias = $fechaLlegada->diffInDays($fechaActual);
-
-    // echo "Diferencia en días: " . $diferenciaEnDias . "\n";
+if (!function_exists('get_emb_request_next_days')) {
+    function get_emb_request_next_days()
+    {
+        $embarcacion = Movimientos::join('embarcaciones', 'movimientos.matricula', 'embarcaciones.matricula')
+            ->where('user_id', auth()->id())
+            ->whereRaw('CAST(fecha_llegada AS DATE) > CAST(NOW() AS DATE)')
+            ->where('estado_movimiento', 2);
+        return $embarcacion;
+    }
 }
