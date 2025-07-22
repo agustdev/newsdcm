@@ -26,4 +26,9 @@ class Embarcaciones extends Model
     {
         return $this->hasOne(Inteligencias::class, 'matricula_embarcacion', 'matricula')->where('estado', 'Activa');
     }
+
+    public function notificaciones()
+    {
+        return $this->hasMany(NotificacionesArribo::class, 'emb_id');
+    }
 }
