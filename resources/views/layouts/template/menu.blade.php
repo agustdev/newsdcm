@@ -58,8 +58,12 @@
     <li>
         <a href="{{ route('notificaciones') }}" class="side-nav-link">
             <i class="uil-bell"></i>
-            <span class="badge bg-danger float-end">0</span>
-            {{ __('Notificaciones') }}</a>
+            @if (get_emb_request_today()->where('estado_movimiento', 2)->count() > 0)
+                <span
+                    class="badge bg-danger float-end">{{ get_emb_request_today()->where('estado_movimiento', 2)->count() }}</span>
+            @endif
+            {{ __('Notificaciones') }}
+        </a>
     </li>
 
     <li class="side-nav-item">
