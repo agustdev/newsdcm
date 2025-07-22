@@ -56,7 +56,9 @@
         </a>
     </li>
     <li>
-        <a href="{{ route('notificaciones') }}" class="side-nav-link"><i class="uil-bell"></i>
+        <a href="{{ route('notificaciones') }}" class="side-nav-link">
+            <i class="uil-bell"></i>
+            <span class="badge bg-danger float-end">0</span>
             {{ __('Notificaciones') }}</a>
     </li>
 
