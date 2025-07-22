@@ -117,6 +117,11 @@ class ConducesController extends Controller
             'veh_id' => $vehiculo->id
         ]);
 
+        // actualizar embarcacion para que no se pueda volver a despachar
+        $embarcacion->update([
+            'estado_movimiento' => 1 //Solicitud abierta
+        ]);
+
         return redirect()->route('movimientos.conduces.index')->with('msj', 'Solicitud creada con exito.');
         // return $request->all();
     }
@@ -150,6 +155,10 @@ class ConducesController extends Controller
      */
     public function destroy(Movimientos $conduce)
     {
+        $embarcacion = Embarcaciones::where('matricula', '=', $conduce->matricula)->first();
+        $embarcacion->update([
+            'estado_movimiento' => 0 //Solicitud cerrada
+        ]);
         $conduce->update([
             'estado' => 'Cancelado'
         ]);
