@@ -56,3 +56,16 @@ if (!function_exists('get_emb_request_next_days')) {
         return $embarcacion;
     }
 }
+
+if (!function_exists('get_emb_request_all')) {
+    function get_emb_request_all()
+    {
+        $embarcacion = Movimientos::join('embarcaciones', 'movimientos.matricula', 'embarcaciones.matricula')
+            ->select('movimientos.*', 'embarcaciones.estado_movimiento')
+            ->where('user_id', auth()->id())
+            ->where('estado', 'Aprobado')
+            ->whereRaw('CAST(movimientos.fecha_llegada AS DATE) <= CAST(NOW() AS DATE)')
+            ->where('estado_movimiento', 2)->take(1)->orderBy('id', 'desc');
+        return $embarcacion;
+    }
+}

@@ -40,8 +40,8 @@
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Si lo hare",
-            cancelButtonText: "No, gracias"
+            confirmButtonText: "Si!",
+            cancelButtonText: "No!"
         }).then((result) => {
             // redirigir a la pagina de notificaciones
         });

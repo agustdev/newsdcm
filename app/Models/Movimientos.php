@@ -13,7 +13,8 @@ class Movimientos extends Model
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
     protected $casts = [
-        'fecha' => 'date',
+        'fecha' => 'datetime',
+        'fecha_llegada' => 'datetime',
     ];
     // relacion uno a muchos inversa
     public function user()
