@@ -93,6 +93,25 @@
                             <strong>{{ __('Solicitudes realizadas') }}:</strong>
                             <small class="badge bg-blue-900 me-1 py-1">{{ $emb->movimiento->count() }}</small>
                         </h3>
+                        <h3>
+                            Estado de la solicitud:
+                            @if (!$emb->movimiento->isEmpty())
+                                @if ($emb->movimiento->last()->estado == 'Enviado')
+                                    <span
+                                        class="bg-yellow-100 text-black text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-700 dark:text-yellow-300">{{ __('Enviado') }}</span>
+                                @elseif ($emb->movimiento->last()->estado == 'En proceso')
+                                    <span class="badge bg-blue-700 me-1 py-1">{{ __('En proceso') }}</span>
+                                @elseif ($emb->movimiento->last()->estado == 'Aprobado')
+                                    <span class="badge bg-green-700 me-1 py-1">{{ __('Aprobado') }}</span>
+                                @elseif ($emb->movimiento->last()->estado == 'Rechazado')
+                                    <span class="badge bg-red-800 me-1 py-1">{{ __('Rechazado') }}</span>
+                                @elseif ($emb->movimiento->last()->estado == 'Cancelado')
+                                    <span class="badge bg-red-800 me-1 py-1">{{ __('Cancelado') }}</span>
+                                @endif
+                            @else
+                                <span class="badge bg-secondary me-1 py-1">{{ __('Sin solicitudes') }}</span>
+                            @endif
+                        </h3>
                         <div class="d-grid mt-2 col-lg-12">
                             @if (empty($inteligencia))
                                 @if ($emb->manual != 1)
@@ -307,17 +326,6 @@
             </div>
         @endforeach
 
-
-        <?php
-        
-        $fechaInicio = \Carbon\Carbon::parse('2024-07-15');
-        $fechaFin = \Carbon\Carbon::parse('2024-07-20');
-        
-        $diferenciaEnDias = $fechaInicio->diffInDays($fechaFin);
-        
-        echo 'La diferencia en días es: ' . $diferenciaEnDias; // Salida: 5
-        
-        ?>
     </div>
 
     @push('js')

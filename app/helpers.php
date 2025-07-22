@@ -40,13 +40,15 @@ if (!function_exists('get_emb_arribo')) {
     {
         $embarcacion = Embarcaciones::where('user_id', auth()->id())
             ->where('matricula', $matricula)
-            ->first();
+            ->where('estado_movimiento', 2)
+            ->count();
+        return $embarcacion;
     }
 
-    $fechaActual = Carbon::parse('2025-07-15');
-    $fechaLlegada = Carbon::parse('2025-07-20');
+    // $fechaActual = Carbon::parse('2025-07-15');
+    // $fechaLlegada = Carbon::parse('2025-07-20');
 
-    $diferenciaEnDias = $fechaLlegada->diffInDays($fechaActual);
+    // $diferenciaEnDias = $fechaLlegada->diffInDays($fechaActual);
 
     // echo "Diferencia en días: " . $diferenciaEnDias . "\n";
 }
