@@ -20,7 +20,7 @@
                         {{ __('Listado de Solicitudes de Entrada') }}
                         <a href="{{ route('movimientos.entradas.create') }}"
                             class="inline-flex items-center justify-center px-3 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition ease-in-out duration-150 float-end"><i
-                                class="mdi mdi-plus mdi-18px"></i>{{ __('Nueva Solicitud')}}</a>
+                                class="mdi mdi-plus mdi-18px"></i>{{ __('Nueva Solicitud') }}</a>
                     </h2>
                 </div>
 
@@ -33,7 +33,7 @@
                                 <th>{{ __('Matrícula') }}</th>
                                 <th>{{ __('Estado') }}</th>
                                 <th>{{ __('Detalle') }}</th>
-                                <th>{{ __('Fecha solicitud')}}</th>
+                                <th>{{ __('Fecha solicitud') }}</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -109,21 +109,30 @@
 
         <!-- Datatable Init js -->
         {{-- <script src="{{ asset('assets/js/pages/demo.datatable-init.js') }}"></script> --}}
-
+        <script>
+            let flag = '{{ !empty(app()->getLocale()) ? app()->getLocale() : 'es' }}'
+            let lenguages = flag.toUpperCase();
+            let url = flag == 'ru' ? `https://cdn.datatables.net/plug-ins/1.12.0/i18n/${flag}.json` :
+                `https://cdn.datatables.net/plug-ins/1.12.0/i18n/${flag}-${lenguages}.json`;
+        </script>
         <script>
             $(document).ready(function() {
                 var table = $('#table-despacho').DataTable({
+                    order: [
+                        [0, 'desc']
+                    ],
                     ordering: true,
                     columnDefs: [{
-                        orderable: false,
-                        targets: 0
+                        targets: 0,
+                        type: 'num',
+                        orderable: true,
                     }],
                     lengthMenu: [
                         [10, 25, 50, -1],
                         [10, 25, 50, 'Todos'],
                     ],
                     "language": {
-                        "url": "https://cdn.datatables.net/plug-ins/1.12.0/i18n/es-ES.json"
+                        "url": url
                     },
                     "responsive": true,
                 });

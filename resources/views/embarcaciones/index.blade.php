@@ -106,7 +106,7 @@
                                         @elseif ($emb->estado_movimiento == 1)
                                             <!-- Botón con spinner -->
                                             <button type="button"
-                                                class="items-center px-3 py-2 bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:bg-green-700 active:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 block">
+                                                class="request_open items-center px-3 py-2 bg-green-700 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:bg-green-700 active:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 block">
                                                 <span v-if="cargando">
                                                     <div
                                                         class="animate-spin rounded-full h-3 w-3 border-b-2 border-white inline-block mr-2">
@@ -361,6 +361,17 @@
                     icon: "info",
                     title: 'No puede realizar otra solicitud en este momento',
                     text: "Verifique si ya realizó la notificación de llegada de la embarcación a su destino en la reciente solicitud que realizó.",
+                    confirmButtonColor: '#1089FF',
+                    confirmButtonText: 'Aceptar',
+                });
+            });
+
+            $('.request_open').on('click', function(e) {
+                e.preventDefault();
+                Swal.fire({
+                    icon: "info",
+                    title: 'No puede realizar otra solicitud en este momento',
+                    text: "Tiene una solicitud abierta, debe anularla o esperar a que sea aprobada para continuar.",
                     confirmButtonColor: '#1089FF',
                     confirmButtonText: 'Aceptar',
                 });

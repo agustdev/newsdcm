@@ -124,8 +124,9 @@
                     ],
                     ordering: true,
                     columnDefs: [{
-                        orderable: false,
-                        targets: 0
+                        targets: 0,
+                        type: 'num',
+                        orderable: true,
                     }],
                     lengthMenu: [
                         [10, 25, 50, -1],

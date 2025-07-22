@@ -42,7 +42,7 @@ class DespachosController extends Controller
             $registroActivo = Inteligencias::where('matricula_embarcacion', $item->matricula)
                 ->where('estado', '=', 'Activa')
                 ->exists();
-            return $item->fecha_validez >= now()->toDateString() && $item->impedimento == 0 && $item->manual == 0 && !$registroActivo;
+            return $item->fecha_validez >= now()->toDateString() && $item->impedimento == 0 && ($item->estado_movimiento == 0 || $item->estado_movimiento == 4) && $item->manual == 0 && !$registroActivo;
         });
         $nacionalidades = Nacionalidades::all();
         $capitanesreg = CapitanesRegistrados::join('capitanes_reg_usuarios', 'cap_id', 'capitanes_registrados.id')->where('capitanes_reg_usuarios.user_id', auth()->user()->id)->get();
@@ -76,7 +76,7 @@ class DespachosController extends Controller
             'pasajeros' => 'required|mimes:pdf,jpg,png,csv,xlsx',
             'tripulantes' => 'required|mimes:pdf,jpg,png,csv,xlsx',
         ]);
-        $embarcacion = auth()->user()->embarcaciones()->where('matricula', '=', $request->matricula)->first();
+        $embarcacion = auth()->user()->embarcaciones->where('matricula', '=', $request->matricula)->first();
         $salida = explode("|", $request->lugar_salida);
         $destino = explode("|", $request->lugar_destino);
         // dd($embarcacion);
@@ -195,6 +195,10 @@ class DespachosController extends Controller
      */
     public function destroy(Movimientos $despacho)
     {
+        $embarcacion = Embarcaciones::where('matricula', '=', $despacho->matricula)->first();
+        $embarcacion->update([
+            'estado_movimiento' => 0 //Solicitud cerrada
+        ]);
         $despacho->update([
             'estado' => 'Cancelado'
         ]);

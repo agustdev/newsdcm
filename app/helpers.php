@@ -1,8 +1,10 @@
 <?php
 
 use App\Models\Destinos;
+use App\Models\Embarcaciones;
 use App\Models\Movimientos;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 if (!function_exists('get_all_count_solicitudes')) {
     function get_all_count_solicitudes()
@@ -31,4 +33,20 @@ if (!function_exists('get_msj_alert')) {
         }
         return ['Destinos' => $destinos, 'Restriccion' => $restriccion];
     }
+}
+
+if (!function_exists('get_emb_arribo')) {
+    function get_emb_arribo($matricula)
+    {
+        $embarcacion = Embarcaciones::where('user_id', auth()->id())
+            ->where('matricula', $matricula)
+            ->first();
+    }
+
+    $fechaActual = Carbon::parse('2025-07-15');
+    $fechaLlegada = Carbon::parse('2025-07-20');
+
+    $diferenciaEnDias = $fechaLlegada->diffInDays($fechaActual);
+
+    // echo "Diferencia en días: " . $diferenciaEnDias . "\n";
 }
