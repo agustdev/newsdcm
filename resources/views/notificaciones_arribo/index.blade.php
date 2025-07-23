@@ -16,6 +16,16 @@
         <div class="col-lg-12">
             <div class="card shadow-xl">
                 <div class="card-header">
+                    <h2 class="h3 text-slate-600">Notificaciones de zarpe</h2>
+                </div>
+                <div class="card-body">
+                    @livewire('tabla-notificaciones-zarpe')
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card shadow-xl">
+                <div class="card-header">
                     <h2 class="h3 text-slate-600">Notificaciones de arribo</h2>
                 </div>
                 <div class="card-body">
