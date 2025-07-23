@@ -58,9 +58,10 @@
     <li>
         <a href="{{ route('notificaciones') }}" class="side-nav-link">
             <i class="uil-bell"></i>
-            @if (get_emb_request_today()->where('estado_movimiento', 2)->count() > 0)
+            @if (get_emb_request_today()->where('estado_movimiento', 2)->count() > 0 ||
+                    get_emb_request_zarpe()->where('estado_movimiento', 1)->count() > 0)
                 <span
-                    class="badge bg-danger float-end">{{ get_emb_request_today()->where('estado_movimiento', 2)->count() }}</span>
+                    class="badge bg-danger float-end">{{ get_emb_request_today()->where('estado_movimiento', 2)->count() + get_emb_request_zarpe()->where('estado_movimiento', 1)->count() }}</span>
             @endif
             {{ __('Notificaciones') }}
         </a>

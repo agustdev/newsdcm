@@ -13,25 +13,35 @@
         </h2>
     </div>
     <div class="row">
-        <div class="col-lg-12">
-            <div class="card shadow-xl">
-                <div class="card-header">
-                    <h2 class="h3 text-slate-600">Notificaciones de zarpe</h2>
-                </div>
-                <div class="card-body">
-                    @livewire('tabla-notificaciones-zarpe')
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-12">
-            <div class="card shadow-xl">
-                <div class="card-header">
-                    <h2 class="h3 text-slate-600">Notificaciones de arribo</h2>
-                </div>
-                <div class="card-body">
-                    @livewire('tabla-notificaciones')
+        @if (get_emb_request_zarpe()->count() > 0)
+            <div class="col-lg-12">
+                <div class="card shadow-xl">
+                    <div class="card-header">
+                        <h2 class="h3 text-slate-600">Notificaciones de zarpe</h2>
+                    </div>
+                    <div class="card-body">
+                        @livewire('tabla-notificaciones-zarpe')
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
+        @if (get_emb_request_all()->count() > 0)
+            <div class="col-lg-12">
+                <div class="card shadow-xl">
+                    <div class="card-header">
+                        <h2 class="h3 text-slate-600">Notificaciones de arribo</h2>
+                    </div>
+                    <div class="card-body">
+                        @livewire('tabla-notificaciones')
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        @if (get_emb_request_all()->count() == 0 || get_emb_request_zarpe()->count() == 0)
+            <div class="alert alert-warning">
+                Sin notificaciones aun.
+            </div>
+        @endif
     </div>
 </x-app-layout>

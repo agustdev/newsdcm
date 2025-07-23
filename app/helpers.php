@@ -41,7 +41,8 @@ if (!function_exists('get_emb_request_zarpe')) {
         $embarcacion = Movimientos::join('embarcaciones', 'movimientos.matricula', 'embarcaciones.matricula')
             ->where('user_id', auth()->id())
             ->whereRaw('CAST(fecha AS DATE) = CAST(NOW() AS DATE)')
-            ->where('movimientos.estado', 'Aprobado');
+            ->where('movimientos.estado', 'Aprobado')
+            ->where('estado_movimiento', 1);
         return $embarcacion;
     }
 }
@@ -75,8 +76,8 @@ if (!function_exists('get_emb_request_all')) {
             ->select('movimientos.*', 'embarcaciones.estado_movimiento', 'embarcaciones.id')
             ->where('user_id', auth()->id())
             ->where('estado', 'Aprobado')
-            ->whereRaw('CAST(movimientos.fecha_llegada AS DATE) <= CAST(NOW() AS DATE)')
-            ->where('estado_movimiento', 2)->orderBy('embarcaciones.id', 'desc');
+            ->whereRaw('CAST(movimientos.fecha_llegada AS DATE) = CAST(NOW() AS DATE)')
+            ->where('estado_movimiento', 2)->orderBy('fecha_llegada', 'desc');
         return $embarcacion;
     }
 }
