@@ -140,7 +140,7 @@
                                                     <div
                                                         class="animate-spin rounded-full h-3 w-3 border-b-2 border-white inline-block mr-2">
                                                     </div>
-                                                    En movimiento...
+                                                    Navegando...
                                                 </span>
                                             </button>
                                         @endif
