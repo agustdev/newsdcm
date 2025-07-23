@@ -35,6 +35,17 @@ if (!function_exists('get_msj_alert')) {
     }
 }
 
+if (!function_exists('get_emb_request_zarpe')) {
+    function get_emb_request_zarpe()
+    {
+        $embarcacion = Movimientos::join('embarcaciones', 'movimientos.matricula', 'embarcaciones.matricula')
+            ->where('user_id', auth()->id())
+            ->whereRaw('CAST(fecha AS DATE) = CAST(NOW() AS DATE)')
+            ->where('movimientos.estado', 'Aprobado');
+        return $embarcacion;
+    }
+}
+
 if (!function_exists('get_emb_request_today')) {
     function get_emb_request_today()
     {

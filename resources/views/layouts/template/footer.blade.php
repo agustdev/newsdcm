@@ -47,7 +47,7 @@
         });
     </script>
 @endif
-@if (get_emb_request_today()->where('estado_movimiento', 1)->count() == 1)
+@if (get_emb_request_zarpe()->where('estado_movimiento', 1)->count() == 1)
     {{-- alerta de solicitud pendiente --}}
     <script>
         Swal.fire({
