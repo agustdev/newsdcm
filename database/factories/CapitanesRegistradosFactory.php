@@ -21,7 +21,8 @@ class CapitanesRegistradosFactory extends Factory
             'tipo_documento' => 'Cedula',
             'documento' => $this->faker->randomNumber(5),
             'telefono' => $this->faker->randomNumber(5),
-            'nacionalidad' => 'DOMINICANO'
+            'nacionalidad' => 'DOMINICANO',
+            'user_id' => 1
         ];
     }
 }

@@ -94,7 +94,8 @@ class User extends Authenticatable
 
     public function embarcaciones()
     {
-        return $this->hasMany(Embarcaciones::class, 'no_documento')
+        // dd($this->documento);
+        return $this->hasMany(Embarcaciones::class, 'no_documento', 'documento')
             ->orWhere('no_documento', $this->documento)
             ->orWhere('no_documento', $this->documento_formateado);
     }

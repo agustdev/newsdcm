@@ -118,7 +118,7 @@ class ConsultasController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://armada.mide.gob.do/api/GenteDeMar/detalles?cedula=' . $documento,
+            CURLOPT_URL => 'https://armada.mide.gob.do/api/GenteDeMar/operadores?cedula=' . $documento,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

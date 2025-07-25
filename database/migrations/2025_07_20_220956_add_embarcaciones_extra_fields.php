@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('embarcaciones', function (Blueprint $table) {
+            $table->integer('manual')->default(0);
             $table->integer('estado_movimiento')->default(0)->after('manual')->comment('0: No ha salido, 1: zarpo, 2: arribo');
         });
     }

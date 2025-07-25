@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('marca_modelo_motor')->length(100)->comment('Marca del motor de la embarcacion');
             $table->string('caballos_fuerza_motor')->length(10)->comment('Cantidad caballos de fuerza del motor de la embarcacion');
             $table->string('no_motor')->length(100)->comment('Numero del motor');
-            $table->enum('estatus', ['A', 'I'])->comment('Estado de la matricula de la embarcacion');
+            $table->enum('estatus', ['A', 'I', 'E'])->comment('Estado de la matricula de la embarcacion, A =  Activo, I = Inactivo, E = Encautado');
             $table->integer('pies_eslora')->length(40)->default(0);
             $table->integer('pulg_eslora')->length(40)->default(0);
             $table->integer('pies_manga')->length(40)->default(0);
