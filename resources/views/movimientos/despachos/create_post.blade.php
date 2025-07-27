@@ -202,10 +202,25 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="number" class="form-control rounded-md" id="floatinMatricula"
-                                    placeholder="CANTIDAD DE PASAJEROS" name="cantidad_pasajeros"
-                                    name="cantidad_pasajeros" />
+                                    placeholder="CANTIDAD DE PASAJEROS" name="cantidad_pasajeros" />
                                 <label style="font-size: 10px;"
                                     for="floatinMatricula">{{ __('CANTIDAD DE PASAJEROS') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control rounded-md" id="floatingCantidadAdultos"
+                                    placeholder="CANTIDAD DE ADULTOS" name="cant_adultos" />
+                                <label style="font-size: 10px;"
+                                    for="floatingCantidadAdultos">{{ __('CANTIDAD DE ADULTOS') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control rounded-md" id="floatinMatricula"
+                                    placeholder="CANTIDAD DE MENORES" name="cant_menores" />
+                                <label style="font-size: 10px;"
+                                    for="floatinMatricula">{{ __('CANTIDAD DE MENORES') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
@@ -219,8 +234,7 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="number" class="form-control rounded-md" id="floatinMatricula"
-                                    placeholder="CANTIDAD DE EXTRANJEROS" name="cant_extranjeros"
-                                    name="cantidad_pasajeros" />
+                                    placeholder="CANTIDAD DE EXTRANJEROS" name="cant_extranjeros" />
                                 <label style="font-size: 10px;"
                                     for="floatinMatricula">{{ __('CANTIDAD DE EXTRANJEROS') }}</label>
                             </div>
