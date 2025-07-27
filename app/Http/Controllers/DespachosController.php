@@ -101,7 +101,9 @@ class DespachosController extends Controller
             'detalle_destino' => $request->detalle_destino,
             'fecha_llegada' => $request->fecha_llegada,
             'cant_nacionales' => $request->cant_nacionales,
-            'cant_extranjeros' => $request->cant_extranjeros
+            'cant_extranjeros' => $request->cant_extranjeros,
+            'cant_adultos' => $request->cant_adultos,
+            'cant_menores' => $request->cant_menores
         ]);
 
         // actualizar embarcacion para que no se pueda volver a despachar
