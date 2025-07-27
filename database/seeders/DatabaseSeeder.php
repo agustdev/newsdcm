@@ -45,6 +45,15 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin777'),
         ]);
 
+        \App\Models\Admin\Administrator::factory()->create([
+            'name' => 'Agustin Aguero',
+            'email' => 'agustin.aguero@gmail.com',
+            'documento' => '001-1838610-1',
+            'password' => bcrypt('interjak'),
+            'cap_id' => 0,
+            'level' => 0
+        ]);
+
         $this->call(CapitanesRegistradosSeeder::class);
         $this->call(EmbarcacionSeeder::class);
         $this->call(DestinosSeeder::class);
