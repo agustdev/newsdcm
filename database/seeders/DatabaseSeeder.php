@@ -52,5 +52,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CapitanSeeder::class);
         $this->call(VehiculosSeeder::class);
         $this->call(ConductoresSeeder::class);
+        $this->call(NacionalidadesSeeder::class);
     }
 }

@@ -8,6 +8,9 @@
             {{ __('REGISTRAR CAPITAN') }}
         </x-slot>
         <x-slot name="content">
+            <div class="alert alert-danger nodata" style="display: none;">
+                Este documento no existe en nuestros registros
+            </div>
             <div class="mt-3 uppercase">
                 <x-label class="text-1xl">{{ __('Tipo de documento') }}</x-label>
                 <select name="" id=""
@@ -58,6 +61,16 @@
                     class="{{ $errors->has('telefono') ? 'is-invalid' : '' }} block w-full mt-2 uppercase telefono"
                     wire:model.defer='telefono'></x-input>
             </div>
+
+            <div class="mt-3 uppercase">
+                <x-label class="text-1xl">{{ __('Fecha Expiración') }}</x-label>
+                <x-input type="date"
+                    class="{{ $errors->has('fecha_expira') ? 'is-invalid' : '' }} block w-full mt-2 uppercase fecha_expira"
+                    wire:model.defer='fecha_expira'></x-input>
+                @error('fecha_expira')
+                    <span class="error" style="color: red;">{{ $message }}</span>
+                @enderror
+            </div>
         </x-slot>
         <x-slot name="footer">
             <x-danger-button class="mr-3" wire:click="$set('open', false)">{{ __('Cancelar') }}</x-danger-button>
@@ -97,23 +110,46 @@
                             },
                             success: function(data) {
                                 json = $.parseJSON(data);
-                                if (json.nombre != '') {
-                                    // $('.nombre_capitan').val(json.nombre + ' ' + json.apellido);
-                                    Livewire.emit('setNombreCapitan', json.nombre + ' ' + json
-                                        .apellido);
-                                    // $('.nombre_capitan').prop('readonly', true);
+                                if (json?.message) {
+                                    $('button.acept_consult').attr('disabled', true);
                                 } else {
-                                    Livewire.emit('setNombreCapitan', '');
-                                    // $('.nombre_capitan').prop('readonly', false).val('');
-                                }
-                                if (json.nacionalidades != '') {
-                                    Livewire.emit('setNacionalidades', json.nacionalidades);
-                                    // $('.nacionalidad').val(json.nacionalidades);
+                                    if (json.nombre != '') {
+                                        // $('.nombre_capitan').val(json.nombre + ' ' + json.apellido);
+                                        Livewire.emit('setNombreCapitan', json.nombre + ' ' + json
+                                            .apellido);
+                                        // $('.nombre_capitan').prop('readonly', true);
+                                    }
+                                    if (json.nacionalidades != '') {
+                                        Livewire.emit('setNacionalidades', json.nacionalidades);
+                                        // $('.nacionalidad').val(json.nacionalidades);
+                                    }
+                                    if (json.fechaExpiracion != '') {
+                                        Livewire.emit('setFechaExpira', json.fechaExpiracion)
+                                    }
                                 }
                             },
-                            complete: function() {
+                            complete: function(data) {
                                 $(".spin-cap").hide();
-                                $('button.acept_consult').prop('disabled', false);
+                                let respuesta = null;
+
+                                try {
+                                    // Algunos callbacks (como "complete") devuelven un objeto XHR, no el JSON directamente.
+                                    // Intentamos obtener el responseText.
+                                    let raw = data.responseText || data;
+
+                                    respuesta = JSON.parse(raw);
+                                } catch (e) {
+                                    console.warn('La respuesta no es un JSON válido:', data);
+                                }
+
+                                // Si NO hay respuesta válida o viene con message (ej. "no existe"), deshabilitamos el botón
+                                if (!respuesta || respuesta.message) {
+                                    $('div.nodata').slideDown('fast');
+                                    $('button.acept_consult').prop('disabled', true);
+                                } else {
+                                    $('div.nodata').slideUp('fast');
+                                    $('button.acept_consult').prop('disabled', false);
+                                }
                             }
 
                         });

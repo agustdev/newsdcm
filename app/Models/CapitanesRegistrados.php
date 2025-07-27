@@ -9,6 +9,9 @@ class CapitanesRegistrados extends Model
 {
     use HasFactory;
     protected $guarded = ['id', 'created_at', 'updated_at'];
+    protected $casts = [
+        'fecha_expira' => 'date',
+    ];
     public function capitanes_registrados_usuarios()
     {
         return $this->belongsToMany(CapitanesRegUsuarios::class);

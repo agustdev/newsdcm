@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('documento', 15)->comment('Cedula o Pasaporte del capitan');
             $table->string('telefono', 25)->comment('Telefono del capitan');
             $table->string('nacionalidad');
+            $table->date('fecha_expira')->comment('Fecha en la que vence el permiso del capitan');
             $table->timestamps();
         });
     }

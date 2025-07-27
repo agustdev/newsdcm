@@ -30,7 +30,7 @@ class EmbarcacionesFactory extends Factory
             'marca_modelo_motor' => 'Yamaha',
             'caballos_fuerza_motor' => '75 HP',
             'no_motor' => '3',
-            'estatus' => $this->faker->randomElement(['A', 'I']),
+            'estatus' => $this->faker->randomElement(['A', 'I', 'E']),
             'pies_eslora' => $this->faker->randomNumber(2, true),
             'pulg_eslora' => $this->faker->randomNumber(2, true),
             'pies_manga' => $this->faker->randomNumber(2, true),
@@ -42,13 +42,13 @@ class EmbarcacionesFactory extends Factory
             'tipo_embarcacion' => $this->faker->randomElement(['RECREO', 'PESCA', 'TURISMO', 'COMPETENCIA']),
             'tipo_uso' => $this->faker->randomElement(['RECREO', 'PESCA', 'TURISMO', 'COMPETENCIA']),
             'desc_estatus' => $this->faker->randomElement(['Activo', 'Inactivo']),
-            'estacionamiento' => $this->faker->country(),
+            'estacionamiento' => $this->faker->randomElement(['BOCA CHICA', 'SANTO DOMINGO', 'HAINA', 'BAYAHIBE', 'MULTIMODAL CAUCEDO']),
             'tipo_propietario' => $this->faker->randomElement(['P', 'C']),
             'nombre_propietario' => $this->faker->name(),
             'representado_por' => $this->faker->name(),
             'no_documento' => User::all()->random()->documento,
             'dir_propietario' => $this->faker->streetAddress(),
-            'fecha_validez' => now(),
+            'fecha_validez' => now()->addYear(1),
             'impedimento' => $this->faker->randomElement([0, 1])
         ];
     }

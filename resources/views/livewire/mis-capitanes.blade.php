@@ -7,6 +7,7 @@
                 <th>{{ __('Documento de Identidad') }}</th>
                 <th>{{ __('Nacionalidad') }}</th>
                 <th>{{ __('Contacto') }}</th>
+                <th>{{ __('Fecha Expira') }}</th>
                 <th>{{ __('Fecha Registro') }}</th>
                 <th>{{ __('Acciones') }}</th>
             </tr>
@@ -19,11 +20,12 @@
             @foreach ($capitanes as $capi)
                 @foreach ($capi->capitanes_registrados as $cap)
                     <tr>
-                        <td></td>
+                        <td>{{ $loop->iteration }}</td>
                         <td>{{ $cap->nombre }}</td>
                         <td>{{ $cap->documento }}</td>
                         <td>{{ $cap->nacionalidad }}</td>
                         <td>{{ $cap->telefono }}</td>
+                        <td>{{ $cap->fecha_expira->format('d-m-Y') }}</td>
                         <td>{{ $cap->created_at->format('d-m-Y') }}</td>
                         <td>
                             {{-- @livewire('edit-capitanes', ['capitan' => $cap], key($cap->id)) --}}

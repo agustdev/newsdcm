@@ -7,17 +7,19 @@ use Illuminate\Support\Str;
 use App\Models\Nacionalidades;
 use App\Models\CapitanesRegistrados;
 use App\Models\CapitanesRegUsuarios;
+use Carbon\Carbon;
 use Illuminate\Validation\Rule;
 
 class CreateCapitanes extends Component
 {
     public $open = false;
-    public $tipo_documento = 'cedula', $documento, $nombre, $nacionalidad, $telefono;
-    protected $listeners = ['setNombreCapitan', 'setNacionalidades'];
+    public $tipo_documento = 'cedula', $documento, $nombre, $nacionalidad, $telefono, $fecha_expira;
+    protected $listeners = ['setNombreCapitan', 'setNacionalidades', 'setFechaExpira'];
     public $messages = [
         'nombre.required' => 'El nombre es obligatorio.',
         'documento.required' => 'El documento es obligatorio.',
         'documento.unique' => 'El número de documento de identidad ya está registrado para este usuario.',
+        'fecha_expira.after' => 'Este documento está vencido, favor renovar y volver a intentarlo.'
     ];
     protected function rules()
     {
@@ -31,6 +33,7 @@ class CreateCapitanes extends Component
                 }),
             ],
             'telefono' => 'required',
+            'fecha_expira' => 'required|date|after:today',
         ];
     }
 
@@ -41,6 +44,11 @@ class CreateCapitanes extends Component
     public function setNacionalidades($nacionalidad)
     {
         $this->nacionalidad = $nacionalidad;
+    }
+
+    public function setFechaExpira($fecha_expira)
+    {
+        $this->fecha_expira = Carbon::parse($fecha_expira)->format('Y-m-d');
     }
 
     public function updatedDocumento()
@@ -57,6 +65,7 @@ class CreateCapitanes extends Component
             'documento' => $this->documento,
             'telefono' => $this->telefono,
             'nacionalidad' => Str::upper($this->nacionalidad),
+            'fecha_expira' => $this->fecha_expira,
             'user_id' => auth()->user()->id
         ]);
 
@@ -71,7 +80,8 @@ class CreateCapitanes extends Component
             'tipo_documento',
             'documento',
             'nacionalidad',
-            'telefono'
+            'telefono',
+            'fecha_expira'
         ]);
         $this->emitTo('mis-capitanes', 'render');
         $this->emit('alert', 'Capitan agregado con exito');

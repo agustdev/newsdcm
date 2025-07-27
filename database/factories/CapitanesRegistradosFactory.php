@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,6 +23,7 @@ class CapitanesRegistradosFactory extends Factory
             'documento' => $this->faker->randomNumber(5),
             'telefono' => $this->faker->randomNumber(5),
             'nacionalidad' => 'DOMINICANO',
+            'fecha_expira' => Carbon::now(),
             'user_id' => 1
         ];
     }

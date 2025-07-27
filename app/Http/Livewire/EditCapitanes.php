@@ -27,7 +27,13 @@ class EditCapitanes extends Component
         $this->capitan->save();
 
         $this->reset([
-            'open'
+            'open',
+            'nombre',
+            'tipo_documento',
+            'documento',
+            'nacionalidad',
+            'telefono',
+            'fecha_expira'
         ]);
         $this->emitTo('mis-capitanes', 'render');
         $this->emit('alert', 'Capitan modificado con exito');
