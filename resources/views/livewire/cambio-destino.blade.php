@@ -18,9 +18,16 @@
                 </h2>
                 <div class="mt-3 uppercase">
                     <x-label class="text-1xl">{{ __('Destino anterior') }}</x-label>
-                    <x-input
-                        class="{{ $errors->has('telefono') ? 'is-invalid' : '' }} block w-full mt-2 uppercase telefono"
-                        readonly value="{{ $despacho->detalle_destino }}"></x-input>
+                    @if ($despacho->cambiosDestinos()->latest()->first())
+                        <x-input
+                            class="{{ $errors->has('detino_anteriro') ? 'is-invalid' : '' }} block w-full mt-2 uppercase detino_anteriro"
+                            readonly
+                            value="{{ $despacho->cambiosDestinos()->latest()->first()->nuevo_destino }}"></x-input>
+                    @else
+                        <x-input
+                            class="{{ $errors->has('detino_anteriro') ? 'is-invalid' : '' }} block w-full mt-2 uppercase detino_anteriro"
+                            readonly value="{{ $despacho->detalle_destino }}"></x-input>
+                    @endif
                 </div>
                 <div class="mt-3 uppercase">
                     <x-label class="text-1xl">{{ __('Nuevo Destino') }}</x-label>

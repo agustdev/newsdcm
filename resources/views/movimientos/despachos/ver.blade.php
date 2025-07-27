@@ -159,6 +159,30 @@
                             <span
                                 class="">{{ !empty($despacho->capitan) ? $despacho->capitan->lugar_destino : '' }}</span>
                         </div>
+                        <div>
+                            @if ($despacho->cambiosDestinos()->latest()->first())
+                                <div>
+                                    <p class="header-title d-inline text-black">
+                                        <strong>{{ __('Anterior Destino solicitado') }}:</strong>
+                                    </p>
+                                    <span
+                                        class="">{{ !empty($despacho->detalle_destino) ? $despacho->detalle_destino : '' }}</span>
+                                </div>
+                                <div class="mt-2">
+                                    <p class="header-title d-inline text-black">
+                                        <strong>{{ __('Nuevo Destino') }}:</strong>
+                                    </p>
+                                    <span
+                                        class="">{{ $despacho->cambiosDestinos()->latest()->first()->nuevo_destino }}</span>
+                                </div>
+                            @else
+                                <p class="header-title d-inline text-black">
+                                    <strong>{{ __('Detalle destino') }}:</strong>
+                                </p>
+                                <span
+                                    class="">{{ !empty($despacho->detalle_destino) ? $despacho->detalle_destino : '' }}</span>
+                            @endif
+                        </div>
                         <div class="md:col-span-3">
                             <p class="header-title d-inline text-black">
                                 <strong>{{ __('Motivo del viaje') }}:</strong>

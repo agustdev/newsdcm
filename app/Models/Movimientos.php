@@ -42,6 +42,11 @@ class Movimientos extends Model
         return $this->hasOne(Vehiculos::class, 'mov_id');
     }
 
+    public function cambiosDestinos()
+    {
+        return $this->hasMany(CambiosDestinosMovimientos::class, 'mov_id');
+    }
+
     public function getRouteKeyName()
     {
         return 'url_id';
