@@ -38,7 +38,7 @@
             </div>
         @endif
 
-        @if (get_emb_request_all()->count() == 0 || get_emb_request_zarpe()->count() == 0)
+        @if (get_emb_request_all()->count() == 0 && get_emb_request_zarpe()->count() == 0)
             <div class="alert alert-warning">
                 Sin notificaciones aun.
             </div>
