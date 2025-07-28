@@ -50,51 +50,51 @@
 @if (get_emb_request_zarpe()->where('estado_movimiento', 1)->count() == 1)
     {{-- alerta de solicitud pendiente --}}
     <script>
-        Swal.fire({
-            title: "¿Su embarcación zarpo?",
-            // text: "Favor indicar el zarpe por esta via!",
-            icon: "question",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Si!",
-            cancelButtonText: "No!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    title: "Zarpe notificado!",
-                    text: "Ha realizado la notificación de zarpe de su embarcación.",
-                    icon: "success"
-                });
-            }
-            if (result.isDismissed) {
-                Swal.fire({
-                    title: "Zarpe no notificado!",
-                    text: "No ha realizado la notificación de zarpe de su embarcación.",
-                    icon: "info"
-                });
-            }
-        });
+        // Swal.fire({
+        //     title: "¿Su embarcación zarpo?",
+        //     // text: "Favor indicar el zarpe por esta via!",
+        //     icon: "question",
+        //     showCancelButton: true,
+        //     confirmButtonColor: "#3085d6",
+        //     cancelButtonColor: "#d33",
+        //     confirmButtonText: "Si!",
+        //     cancelButtonText: "No!"
+        // }).then((result) => {
+        //     if (result.isConfirmed) {
+        //         Swal.fire({
+        //             title: "Zarpe notificado!",
+        //             text: "Ha realizado la notificación de zarpe de su embarcación.",
+        //             icon: "success"
+        //         });
+        //     }
+        //     if (result.isDismissed) {
+        //         Swal.fire({
+        //             title: "Zarpe no notificado!",
+        //             text: "No ha realizado la notificación de zarpe de su embarcación.",
+        //             icon: "info"
+        //         });
+        //     }
+        // });
     </script>
 @endif
 <script>
-    Livewire.on('alert', function(message) {
-        const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-            }
-        });
-        Toast.fire({
-            icon: "success",
-            title: message
-        });
-    });
+    // Livewire.on('alert', function(message) {
+    //     const Toast = Swal.mixin({
+    //         toast: true,
+    //         position: "top-end",
+    //         showConfirmButton: false,
+    //         timer: 3000,
+    //         timerProgressBar: true,
+    //         didOpen: (toast) => {
+    //             toast.onmouseenter = Swal.stopTimer;
+    //             toast.onmouseleave = Swal.resumeTimer;
+    //         }
+    //     });
+    //     Toast.fire({
+    //         icon: "success",
+    //         title: message
+    //     });
+    // });
 </script>
 @stack('modals')
 @stack('js')
