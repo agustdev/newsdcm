@@ -33,18 +33,18 @@
 @elseif(get_emb_request_today()->where('estado_movimiento', 2)->count() > 1)
     {{-- pregunta en caso de ser mas de una embarcacion --}}
     <script>
-        Swal.fire({
-            title: "Realice los arribos correspondientes",
-            text: "Detectamos que tiene varias embarcaciones en movimiento y segun las solicitudes ya deben estar en su destino, favor notificar el arribo de cada una de ellas.",
-            icon: "info",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Si!",
-            cancelButtonText: "No!"
-        }).then((result) => {
-            // redirigir a la pagina de notificaciones
-        });
+        // Swal.fire({
+        //     title: "Realice los arribos correspondientes",
+        //     text: "Detectamos que tiene varias embarcaciones en movimiento y segun las solicitudes ya deben estar en su destino, favor notificar el arribo de cada una de ellas.",
+        //     icon: "info",
+        //     showCancelButton: true,
+        //     confirmButtonColor: "#3085d6",
+        //     cancelButtonColor: "#d33",
+        //     confirmButtonText: "Si!",
+        //     cancelButtonText: "No!"
+        // }).then((result) => {
+        //     // redirigir a la pagina de notificaciones
+        // });
     </script>
 @endif
 @if (get_emb_request_zarpe()->where('estado_movimiento', 1)->count() == 1)
@@ -78,23 +78,23 @@
     </script>
 @endif
 <script>
-    // Livewire.on('alert', function(message) {
-    //     const Toast = Swal.mixin({
-    //         toast: true,
-    //         position: "top-end",
-    //         showConfirmButton: false,
-    //         timer: 3000,
-    //         timerProgressBar: true,
-    //         didOpen: (toast) => {
-    //             toast.onmouseenter = Swal.stopTimer;
-    //             toast.onmouseleave = Swal.resumeTimer;
-    //         }
-    //     });
-    //     Toast.fire({
-    //         icon: "success",
-    //         title: message
-    //     });
-    // });
+    Livewire.on('alert', function(message) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        Toast.fire({
+            icon: "success",
+            title: message
+        });
+    });
 </script>
 @stack('modals')
 @stack('js')
