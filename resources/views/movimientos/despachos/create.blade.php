@@ -363,6 +363,7 @@
                                     <option value="TURISTICO">{{ __('TURÍSTICO') }}</option>
                                     <option value="TURISTICO COMERCIAL">{{ __('TURÍSTICO COMERCIAL') }}</option>
                                     <option value="TURISTICO PRIVADO">{{ __('TURÍSTICO PRIVADO') }}</option>
+                                    {{-- <option value="TURISTICO PRIVADO">{{ __('TURÍSTICO PRIVADO') }}</option> --}}
                                     <option value="OTRO DESTINO">OTRO DESTINO</option>
                                 </select>
                                 <label style="font-size: 10px;"
