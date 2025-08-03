@@ -17,7 +17,7 @@
                 $capitanes = auth()->user()->capitanes_registrados_usuarios;
             @endphp
 
-            @foreach ($capitanes as $capi)
+            @forelse ($capitanes as $capi)
                 @foreach ($capi->capitanes_registrados as $cap)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
@@ -35,7 +35,9 @@
                         </td>
                     </tr>
                 @endforeach
-            @endforeach
+            @empty
+                <div class="alert alert-warning">No se han registrado capitanes</div>
+            @endforelse
         </tbody>
     </table>
 </div>

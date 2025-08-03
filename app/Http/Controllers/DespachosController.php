@@ -67,16 +67,21 @@ class DespachosController extends Controller
      */
     public function store(Request $request)
     {
+        $embarcacion = auth()->user()->embarcaciones->where('matricula', '=', $request->matricula)->first();
+
+        $maxPersonas = $embarcacion->capacidad_personas;
+        $maxTripulantes = $embarcacion->capacidad_tripulantes;
+
         $request->validate([
             'matricula' => 'required',
             'numero_casco' => 'required',
             'nombre' => 'required',
             'color' => 'required',
             'fecha' => 'required',
-            'pasajeros' => 'required|mimes:pdf,jpg,png,csv,xlsx',
-            'tripulantes' => 'required|mimes:pdf,jpg,png,csv,xlsx',
+            'cantidad_tripulantes' => 'required|numeric|min:1|max:' . $maxTripulantes,
+            'cantidad_pasajeros' => 'required|numeric|min:1|max:' . $maxPersonas
         ]);
-        $embarcacion = auth()->user()->embarcaciones->where('matricula', '=', $request->matricula)->first();
+
         $salida = explode("|", $request->lugar_salida);
         $destino = explode("|", $request->lugar_destino);
         // dd($embarcacion);
@@ -111,7 +116,7 @@ class DespachosController extends Controller
             'estado_movimiento' => 1 //Solicitud abierta
         ]);
 
-        $capitan = CapitanesRegistrados::where('id', $request->capitan)->first();
+        $capitan = CapitanesRegistrados::where('documento', '=', $request->capitan)->first();
 
         Capitanes::create([
             'tipo_documento' => $capitan->tipo_documento,
@@ -137,6 +142,14 @@ class DespachosController extends Controller
                 // Importar los pasajeros desde el archivo
                 Excel::import(new PasajerosImport($mov->id), $pasajeros);
             }
+
+            DocumentoCargadoPasajeros::create([
+                'mime_type' => $pasajeros->getClientMimeType(),
+                'file_name' => $nombreArchivoPasajeros,
+                'file_path' => $pathp,
+                'userid' => auth()->user()->id,
+                'mov_id' => $mov->id,
+            ]);
         }
         // documento lista de tripulantes
         if ($request->hasFile('tripulantes')) {
@@ -147,22 +160,15 @@ class DespachosController extends Controller
                 // Importar los tripulantes desde el archivo
                 Excel::import(new TripulantesImport($mov->id), $tripulantes);
             }
-        }
 
-        DocumentoCargadoPasajeros::create([
-            'mime_type' => $pasajeros->getClientMimeType(),
-            'file_name' => $nombreArchivoPasajeros,
-            'file_path' => $pathp,
-            'userid' => auth()->user()->id,
-            'mov_id' => $mov->id,
-        ]);
-        DocumentoCargadoTripulantes::create([
-            'mime_type' => $pasajeros->getClientMimeType(),
-            'file_name' => $nombreArchivoTripulantes,
-            'file_path' => $patht,
-            'mov_id' => $mov->id,
-            'userid' => auth()->user()->id,
-        ]);
+            DocumentoCargadoTripulantes::create([
+                'mime_type' => $pasajeros->getClientMimeType(),
+                'file_name' => $nombreArchivoTripulantes,
+                'file_path' => $patht,
+                'mov_id' => $mov->id,
+                'userid' => auth()->user()->id,
+            ]);
+        }
 
         return redirect()->route('movimientos.despachos.index')->with('msj', 'Solicitud creada con exito.');
     }

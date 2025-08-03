@@ -102,7 +102,7 @@
         @if (Session::has('cancel'))
             <script>
                 Swal.fire(
-                    'Buen trabajo!', 'Se ha cancelado la solicitud con exito', 'success'
+                    'SOLICITUD DE DESPACHO!', 'Se ha cancelado la solicitud con exito', 'success'
                 )
             </script>
         @endif

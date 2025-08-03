@@ -1,7 +1,7 @@
 <div>
     <!-- Password -->
     <div class="mt-4">
-        <x-label for="password" value="{{ __('Contraseña') }}" />
+        <x-label for="password" value="{{ __('Contraseña') }} *" />
     </div>
     <div class="flex mt-1 mb-2">
         <div class="relative flex-1 col-span-4" x-data="{ show: true }">

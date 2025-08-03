@@ -40,26 +40,26 @@
                             <div class="text-sm text-red-600">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="propietarios">
-                        <div>
-                            <x-label for="name" value="{{ __('Nombre') }} *" />
-                            <x-input id="name" class="block mt-1 w-full nombre" type="text" name="name"
-                                :value="old('name')" required autocomplete="name" />
-                        </div>
+                    <div>
+                        <x-label for="name" value="{{ __('Nombre') }} *" />
+                        <x-input id="name" class="block mt-1 w-full nombre" type="text" name="name"
+                            :value="old('name')" required autocomplete="name" />
+                    </div>
 
+                    <div class="propietarios">
                         <div>
                             <x-label for="apellido" value="{{ __('Apellido') }} *" />
                             <x-input id="apellido" class="block mt-1 w-full apellido" type="text" name="apellido"
                                 :value="old('apellido')" required autocomplete="apellido" />
                         </div>
                     </div>
-                    <div class="empresas hidden">
+                    {{-- <div class="empresas hidden">
                         <div>
                             <x-label for="empresa" value="{{ __('Razon Social') }} *" />
                             <x-input id="empresa" class="block mt-1 w-full empresa" type="text" name="empresa"
-                                :value="old('empresa')" required autocomplete="empresa" />
+                                :value="old('empresa')" autocomplete="empresa" />
                         </div>
-                    </div>
+                    </div> --}}
                     <div>
                         <x-label for="telefono" value="{{ __('Telefono') }} *" />
                         <x-input id="telefono" class="block mt-1 w-full telefono" type="text" name="telefono"
@@ -129,8 +129,35 @@
                                 $('.apellido').attr('readonly', false).val('');
                             }
                         });
-                    } else {
+                    } else if (tipo == 'rnc') {
                         // query for rnc
+                        $.post("{{ route('consultar.rnc') }}", {
+                            documento: documento,
+                            tipo: tipo,
+                            _token: $('input[name="_token"]').val()
+                        }, function(data) {
+                            json = $.parseJSON(data);
+                            if (json[0].razon_social != '') {
+                                $('.nombre').val(json[0].razon_social);
+                            } else {
+                                $('.nombre').attr('readonly', false).val('');
+                            }
+                        });
+                    } else if (tipo == 'pasaporte') {
+                        // $.post("{{ route('consultar.pasaporte') }}", {
+                        //     documento: documento,
+                        //     tipo: tipo,
+                        //     _token: $('input[name="_token"]').val()
+                        // }, function(data) {
+                        //     json = $.parseJSON(data);
+                        //     if (json[0].nombres != '') {
+                        //         $('.nombre').val(json[0].nombres);
+                        //         $('.apellido').val(json[0].apellidos);
+                        //     } else {
+                        //         $('.nombre').attr('readonly', false).val('');
+                        //         $('.apellido').attr('readonly', false).val('');
+                        //     }
+                        // });
                     }
                 }
             });

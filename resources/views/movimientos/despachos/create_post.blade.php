@@ -194,7 +194,8 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="number" class="form-control rounded-md" id="floatingNombreEmbarcacion"
-                                    placeholder="CANTIDAD DE TRIPULANTES" name="cantidad_tripulantes" />
+                                    placeholder="CANTIDAD DE TRIPULANTES" name="cantidad_tripulantes"
+                                    max="{{ $embarcacion->capacidad_tripulantes }}" />
                                 <label style="font-size: 10px;"
                                     for="floatingNombreEmbarcacion">{{ __('CANTIDAD DE TRIPULANTES') }}</label>
                             </div>
@@ -202,7 +203,8 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="number" class="form-control rounded-md" id="floatinMatricula"
-                                    placeholder="CANTIDAD DE PASAJEROS" name="cantidad_pasajeros" />
+                                    placeholder="CANTIDAD DE PASAJEROS" name="cantidad_pasajeros"
+                                    max="{{ $embarcacion->capacidad_personas }}" />
                                 <label style="font-size: 10px;"
                                     for="floatinMatricula">{{ __('CANTIDAD DE PASAJEROS') }}</label>
                             </div>

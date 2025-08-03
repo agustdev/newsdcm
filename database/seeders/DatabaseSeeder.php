@@ -18,14 +18,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'Agustin Aguero',
             'email' => 'agustin.aguero@gmail.com',
             'documento' => '001-1838610-1',
-            'is_admin' => '0',
             'password' => bcrypt('interjak'),
         ]);
         \App\Models\User::factory()->create([
             'name' => 'Starboy',
             'email' => 'nikolazt98@gmail.com',
             'documento' => '001-1838610-1',
-            'is_admin' => '0',
             'password' => bcrypt('elfindesemana'),
         ]);
 
@@ -33,7 +31,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Operador',
             'email' => 'kalan_88@hotmail.com',
             'documento' => '00118386101',
-            'is_admin' => '1',
             'password' => bcrypt('interjak')
         ]);
 
@@ -41,7 +38,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Jodir Jimenez',
             'email' => 'jodirjb@gmail.com',
             'documento' => '402-3986185-5',
-            'is_admin' => '0',
             'password' => bcrypt('admin777'),
         ]);
 

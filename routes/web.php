@@ -42,6 +42,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::post('get/comandancia', [ConsultasController::class, 'get_comandancia'])->name('get.comandancia');
 
+    Route::post('get/destinoSalida', [ConsultasController::class, 'get_destino_salida'])->name('get.destino.salida');
+
     Route::resource('despachos', DespachosController::class)->names('movimientos.despachos');
     Route::post('despachos/post', [DespachosController::class, 'create_with_post'])->name('despachos.createpost');
 

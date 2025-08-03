@@ -216,16 +216,18 @@
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="number" class="form-control rounded-md" id="floatingNombreEmbarcacion"
-                                    placeholder="CANTIDAD DE TRIPULANTES" name="cantidad_tripulantes" />
+                                <input type="number" class="form-control rounded-md cantidad_tripulantes"
+                                    id="floatingNombreEmbarcacion" placeholder="CANTIDAD DE TRIPULANTES"
+                                    name="cantidad_tripulantes" max="" />
                                 <label style="font-size: 10px;"
                                     for="floatingNombreEmbarcacion">{{ __('CANTIDAD DE TRIPULANTES') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="number" class="form-control rounded-md" id="floatinMatricula"
-                                    placeholder="CANTIDAD DE PASAJEROS" name="cantidad_pasajeros" />
+                                <input type="number" class="form-control rounded-md cantidad_pasajeros"
+                                    id="floatinMatricula" placeholder="CANTIDAD DE PASAJEROS"
+                                    name="cantidad_pasajeros" max="" />
                                 <label style="font-size: 10px;"
                                     for="floatinMatricula">{{ __('CANTIDAD DE PASAJEROS') }}</label>
                             </div>
@@ -283,8 +285,7 @@
                             <div class="form-floating mb-2">
                                 <input type="file" class="form-control rounded-md"
                                     id="floatinDocumentoTripulantes" placeholder="Cargar documento"
-                                    name="tripulantes" name="tripulantes" required
-                                    accept=".pdf,.png,.jpg,.csv,.xlsx" />
+                                    name="tripulantes" name="tripulantes" accept=".pdf,.png,.jpg,.csv,.xlsx" />
                                 <label style="font-size: 10px;"
                                     for="floatinDocumentoTripulantes">{{ __('Cargar documento') }}</label>
                             </div>
@@ -299,7 +300,7 @@
                         <div class="col-lg">
                             <div class="form-floating mb-2">
                                 <input type="file" class="form-control rounded-md" id="floatinDocumentoPasajeros"
-                                    placeholder="Cargar documento" name="pasajeros" name="pasajeros" required
+                                    placeholder="Cargar documento" name="pasajeros" name="pasajeros"
                                     accept=".pdf,.png,.jpg,.csv,.xlsx" />
                                 <label style="font-size: 10px;"
                                     for="floatinDocumentoPasajeros">{{ __('Cargar documento') }}</label>
@@ -464,6 +465,26 @@
                         $(".caballos_motor").val(json.caballos_fuerza_motor);
                         $(".caballos_motor").val($(".caballos_motor").val().toUpperCase());
                         $(".numero_motor").val(json.no_motor);
+                        $(".cantidad_tripulantes").attr('max', json.capacidad_tripulantes);
+                        $(".cantidad_pasajeros").attr('max', json.capacidad_personas);
+
+                        // 👉 Segunda consulta POST usando el dato de la primera (por ejemplo, la matrícula)
+                        $.post("{{ route('get.destino.salida') }}", {
+                                matricula: json
+                                    .matricula, // o el campo que necesites enviar
+                                _token: $('meta[name="csrf-token"]').attr(
+                                    'content') // CSRF token si es Laravel
+                            },
+                            function(response) {
+                                // jsonL = $.parseJSON(response);
+                                // // Aquí manejas la respuesta de la segunda consulta
+                                // // Ejemplo: llenar un campo adicional
+                                // if (jsonL.lugar_destino != '') {
+                                //     $("#floatingSelectLugarSalida").val(
+                                //         jsonL.dest_ll_id + '|' + jsonL.lugar_destino);
+                                //     // $("#floatingSelectLugarSalida").change();
+                                // }
+                            });
                     },
                     complete: function() {
                         $(".spin-matricula").css('display', 'none');
@@ -521,7 +542,7 @@
                 }
             });
 
-            $('input').prop('required', true);
+            $('input[type="text"], input[type="number"], input[type="datetime-local"]').prop('required', true);
             // $('select').prop('required', true);
 
             $('[required]').css({

@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('tipo_documento')->default('cedula')->comment('Tipo de documento, por defecto cédula');
             $table->string('documento', 40);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('comandancia_id')->default(0)->comment('Identificador de las comandancias siempre y cuando sea solo admin');
-            $table->enum('is_admin', [0, 1])->comment('0 = Off, 1 = on');
+            // $table->integer('comandancia_id')->default(0)->comment('Identificador de las comandancias siempre y cuando sea solo admin');
+            // $table->enum('is_admin', [0, 1])->comment('0 = Off, 1 = on');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();

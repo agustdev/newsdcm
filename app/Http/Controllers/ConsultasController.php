@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Capitanes;
 use App\Models\Comandancias;
+use App\Models\Destinos;
 use App\Models\Embarcaciones;
 use App\Models\Movimientos;
 use App\Models\Municipios;
@@ -159,5 +160,15 @@ class ConsultasController extends Controller
     {
         $comandancia = Comandancias::where('idprovincia', $request->idprovincia)->get();
         return $comandancia->toJson();
+    }
+
+    public function get_destino_salida(Request $request)
+    {
+        $ultimo_mov = auth()->user()->movimientos()->where('matricula', '=', $request->matricula)
+            ->orderBy('id', 'DESC')
+            ->first()
+            ?->capitan?->first();
+        $nodata = json_encode(array('mov' => ''));
+        return !empty($ultimo_mov) ? $ultimo_mov->toJson() : $nodata;
     }
 }
