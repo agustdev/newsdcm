@@ -38,6 +38,7 @@ return new class extends Migration
             $table->boolean('proceso_migratorio')->default(0)->comment('Indicativo si los pasajros tendra proceso migratorio o no');
             $table->enum('estatus', ['A', 'I'])->default('A')->comment('Estado de la matricula de la embarcacion');
             $table->integer('impedimento')->length(5)->unsigned();
+            $table->date('fecha_validez')->comment('Fecha de validez de la matricula de la embarcacion');
             $table->timestamps();
         });
     }

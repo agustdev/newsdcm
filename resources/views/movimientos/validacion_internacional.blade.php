@@ -158,16 +158,16 @@
                         <div class="">
                             <span class="header-title d-inline text-black"><strong>Capacidad maxima de
                                     tripulantes:</strong></span>
-                            <span class="">{{ $solicitud->embarcacion->capacidad_tripulantes }}</span>
+                            <span class="">{{ $solicitud->capitan_internacional->cantidad_tripulantes }}</span>
                         </div>
                         <div class="">
                             <span class="header-title d-inline text-black"><strong>Capacidad maxima de
                                     pasajeros:</strong></span>
-                            <span class="">{{ $solicitud->embarcacion->capacidad_personas }}</span>
+                            <span class="">{{ $solicitud->capitan_internacional->cantidad_pasajeros }}</span>
                         </div>
                         <div class="">
                             <span class="header-title d-inline text-black"><strong>Tipo de tripulación:</strong></span>
-                            <span class="">{{ $solicitud->embarcacion->tipo_embarcacion }}</span>
+                            <span class="">{{ $solicitud->embarcacion_internacional->tipo_embarcacion }}</span>
                         </div>
                     </div>
                 </div>
