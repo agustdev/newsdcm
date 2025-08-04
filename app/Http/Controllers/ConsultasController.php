@@ -7,6 +7,7 @@ use App\Models\Comandancias;
 use App\Models\Destinos;
 use App\Models\Embarcaciones;
 use App\Models\Movimientos;
+use App\Models\MovimientosInternacionales;
 use App\Models\Municipios;
 use App\Models\PerimetroCostero;
 use Illuminate\Http\Request;
@@ -142,6 +143,11 @@ class ConsultasController extends Controller
     public function verificacionSolicitud(Movimientos $solicitud)
     {
         return view('movimientos.validacion', compact('solicitud'));
+    }
+
+    public function verificacionSolicitudInternacional(MovimientosInternacionales $solicitud)
+    {
+        return view('movimientos.validacion_internacional', compact('solicitud'));
     }
 
     public function get_municipios(Request $request)

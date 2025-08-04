@@ -26,6 +26,7 @@ Route::post('/consulta_rnc', [ConsultasController::class, 'consultar_rnc'])->nam
 Route::post('/consulta_capitan', [ConsultasController::class, 'consultar_capitanes'])->name('consultar.capitan');
 Route::get('/consulta_pasaporte', [ConsultasController::class, 'consult_passport'])->name('consultar.pasaporte');
 Route::get('/verificacion/{solicitud}/solicitud', [ConsultasController::class, 'verificacionSolicitud'])->name('verificacion.solicitud');
+Route::get('/verificacion/{solicitud}/solicitud/entradainternacional', [ConsultasController::class, 'verificacionSolicitudInternacional'])->name('verificacion.solicitud.internacional');
 
 // views sdcm 
 Route::group(['middleware' => ['auth', 'verified']], function () {

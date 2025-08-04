@@ -46,8 +46,9 @@
                             @php
                                 $estados = ['Aprobado', 'Rechazado', 'En proceso', 'Cancelado'];
                             @endphp
-
-                            @livewire('cambio-destino', ['despacho' => $desp], key($desp->id))
+                            @if ($desp->estado != 'Cancelado')
+                                @livewire('cambio-destino', ['despacho' => $desp], key($desp->id))
+                            @endif
 
                             @if (!in_array($desp->estado, $estados))
                                 <form id="despacho-cancel" action="{{ route('movimientos.despachos.destroy', $desp) }}"

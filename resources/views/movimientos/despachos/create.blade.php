@@ -339,7 +339,7 @@
                                 <select name="capitan" class="form-select rounded-md" id="" required>
                                     <option value="">- {{ __('Seleccione el capitan designado') }} -</option>
                                     @foreach ($capitanesreg as $capi)
-                                        <option value="{{ $capi->id }}">{{ $capi->nombre }}</option>
+                                        <option value="{{ $capi->documento }}">{{ $capi->nombre }}</option>
                                     @endforeach
                                 </select>
                                 <label style="font-size: 10px;"

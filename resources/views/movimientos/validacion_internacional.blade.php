@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Validación de solicitud</title>
+        <title>Validación de solicitud Internacional</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -84,17 +84,17 @@
             </div>
         </div> --}}
         <div class="mt-24">
-            <h1 class="title text-center text-white">Validación de solicitud</h1>
+            <h1 class="title text-center text-white">Validación de solicitud Internacional</h1>
         </div>
 
         <div class="container mx-auto">
             <div class="card mt-8 mb-2 shadow-xl">
                 <div class="card-header bg-slate-200">
                     <span class=""><strong>Detalle tipo movimiento:</strong>
-                        @if ($solicitud->tipo_movimiento == 'D')
-                            Despacho
+                        @if ($solicitud->tipo_movimiento == 'E')
+                            Entrada
                         @else
-                            Conduce
+                            Salida
                         @endif
                     </span>
 

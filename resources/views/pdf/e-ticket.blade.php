@@ -33,17 +33,18 @@
     <body>
         <div class="informacion">
             <div>
-                <strong>ARMADA DE REPÚBLICA DOMINICANA</strong><br><br>
-                <strong>COMANDO NAVAL DE CAPITANIAS DE PUERTOS Y AUTORIDAD MARITIMA</strong><br><br>
-                <strong>SISTEMA CONDUCE Y DESPACHO DE EMBARCACIONES</strong><br>
+                <strong style="font-size: 70px;">ARMADA DE REPÚBLICA DOMINICANA</strong><br><br>
+                <strong style="font-size: 45px;">COMANDO NAVAL DE CAPITANIAS DE PUERTOS Y AUTORIDAD
+                    MARITIMA</strong><br><br>
+                <strong style="font-size: 45px;">SISTEMA CONDUCE Y DESPACHO DE EMBARCACIONES</strong><br>
                 <strong>(DESPACHORD)</strong>
             </div><br>
             <strong>ENTRADA INTERNACIONAL</strong><br>
             <strong>E-CLEREANCE</strong>
         </div>
         <div class="qr">
-            <img src="data:image/svg+xml;base64,{{ base64_encode(QrCode::size(300)->generate(route('verificacion.solicitud', $entrada))) }}"
-                width="300">
+            <img src="data:image/svg+xml;base64,{{ base64_encode(QrCode::size(300)->generate(route('verificacion.solicitud.internacional', $entrada))) }}"
+                width="250">
             <p>
                 <strong>CODIGO: {{ $entrada->vcode }}</strong>
             </p>
