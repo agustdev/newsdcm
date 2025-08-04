@@ -181,11 +181,7 @@
                     </div>
                     <div class="card-body">
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                            <div class="">
-                                <span class="header-title d-inline text-black"><strong>Fecha y Hora de
-                                        salida:</strong></span>
-                                <span class="">{{ $solicitud->fecha->format('d-m-Y h:i A') }}</span>
-                            </div>
+
                             <div class="">
                                 <span class="header-title d-inline text-black"><strong>Lugar de salida:</strong></span>
                                 <span class="">{{ $solicitud->capitan_internacional->lugar_salida }}</span>
@@ -199,18 +195,11 @@
                                 <span class="header-title d-inline text-black"><strong>Lugar de destino:</strong></span>
                                 <span class="">{{ $solicitud->capitan_internacional->lugar_destino }}</span>
                             </div>
-                            @if ($solicitud->detalle_destino != '')
-                                <div class="">
-                                    <span class="header-title d-inline text-black"><strong>Detalle
-                                            perimetro:</strong></span>
-                                    <span class="">{{ $solicitud->detalle_destino }}</span>
-                                </div>
-                            @endif
+
                             <div class="">
                                 <span class="header-title d-inline text-black"><strong>Motivo del viaje:</strong></span>
                                 <span class="">{{ $solicitud->capitan_internacional->motivo_viaje }}</span>
                             </div>
-
                             <div class="">
                                 <span class="header-title d-inline text-black"><strong>Cantidad de
                                         tripulantes:</strong></span>
