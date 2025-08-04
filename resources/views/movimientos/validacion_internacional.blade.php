@@ -174,7 +174,7 @@
             </div>
 
 
-            @if ($solicitud->tipo_movimiento == 'D')
+            @if ($solicitud->tipo_movimiento == 'E')
                 <div class="card mt-2 mb-2 shadow-xl">
                     <div class="card-header bg-slate-200">
                         <span class=""><strong>Información del viaje</strong></span>
@@ -188,16 +188,16 @@
                             </div>
                             <div class="">
                                 <span class="header-title d-inline text-black"><strong>Lugar de salida:</strong></span>
-                                <span class="">{{ $solicitud->capitan->lugar_salida }}</span>
+                                <span class="">{{ $solicitud->capitan_internacional->lugar_salida }}</span>
                             </div>
                             <div class="">
                                 <span class="header-title d-inline text-black"><strong>Fecha y Hora de
                                         llegada:</strong></span>
-                                <span class="">{{ $solicitud->fecha_llegada->format('d-m-Y h:i A') }}</span>
+                                <span class="">{{ $solicitud->fecha->format('d-m-Y h:i A') }}</span>
                             </div>
                             <div class="">
                                 <span class="header-title d-inline text-black"><strong>Lugar de destino:</strong></span>
-                                <span class="">{{ $solicitud->capitan->lugar_destino }}</span>
+                                <span class="">{{ $solicitud->capitan_internacional->lugar_destino }}</span>
                             </div>
                             @if ($solicitud->detalle_destino != '')
                                 <div class="">
@@ -208,18 +208,19 @@
                             @endif
                             <div class="">
                                 <span class="header-title d-inline text-black"><strong>Motivo del viaje:</strong></span>
-                                <span class="">{{ $solicitud->capitan->motivo_viaje }}</span>
+                                <span class="">{{ $solicitud->capitan_internacional->motivo_viaje }}</span>
                             </div>
 
                             <div class="">
                                 <span class="header-title d-inline text-black"><strong>Cantidad de
                                         tripulantes:</strong></span>
-                                <span class="">{{ $solicitud->capitan->cantidad_tripulantes }}</span>
+                                <span
+                                    class="">{{ $solicitud->capitan_internacional->cantidad_tripulantes }}</span>
                             </div>
                             <div class="">
                                 <span class="header-title d-inline text-black"><strong>Cantidad de
                                         pasajeros:</strong></span>
-                                <span class="">{{ $solicitud->capitan->cantidad_pasajeros }}</span>
+                                <span class="">{{ $solicitud->capitan_internacional->cantidad_pasajeros }}</span>
                             </div>
                         </div>
                     </div>
@@ -235,51 +236,21 @@
                             <div class="">
                                 <span class="header-title d-inline text-black"><strong>Nombre:</strong></span>
                                 <span
-                                    class="">{{ !empty($solicitud->capitan) ? $solicitud->capitan->nombre : '' }}
+                                    class="">{{ !empty($solicitud->capitan_internacional) ? $solicitud->capitan_internacional->nombre : '' }}
                                 </span>
                             </div>
                             <div class="">
                                 <span class="header-title d-inline text-black"><strong>Documento de
                                         identidad:</strong></span>
                                 <span
-                                    class="">{{ !empty($solicitud->capitan) ? $solicitud->capitan->documento : '' }}</span>
+                                    class="">{{ !empty($solicitud->capitan_internacional) ? $solicitud->capitan_internacional->documento : '' }}</span>
 
                             </div>
                             <div class="">
                                 <span class="header-title d-inline text-black"><strong>Télefono:</strong></span>
                                 <span class="">
-                                    {{ !empty($solicitud->capitan) ? $solicitud->capitan->telefono : '' }}
+                                    {{ !empty($solicitud->capitan_internacional) ? $solicitud->capitan_internacional->telefono : '' }}
                                 </span>
-                            </div>
-                            <div class="">
-                                <span
-                                    class="header-title d-inline text-black"><strong>{{ __('Fecha de salida') }}:</strong></span>
-                                <span class="">{{ $solicitud->fecha->format('d-m-Y') }}</span>
-                            </div>
-                            <div class="">
-                                <span class="header-title d-inline text-black"><strong>Lugar de salida:</strong></span>
-                                <span class="">
-                                    {{ !empty($solicitud->capitan) ? $solicitud->capitan->lugar_salida : '' }}</span>
-                            </div>
-                            <div class="">
-                                <span class="header-title d-inline text-black"><strong>Lugar de
-                                        destino:</strong></span>
-                                <span class="">
-                                    {{ !empty($solicitud->capitan) ? $solicitud->capitan->lugar_destino : '' }}</span>
-                            </div>
-                            @if ($solicitud->detalle_destino != '')
-                                <div>
-                                    <span class="header-title d-inline text-black"><strong>Detalle
-                                            perimetro:</strong></span>
-                                    <span class="">
-                                        {{ !empty($solicitud->capitan) ? $solicitud->detalle_destino : '' }}</span>
-                                </div>
-                            @endif
-                            <div class="sm:col-span-3">
-                                <span class="header-title d-inline text-black"><strong>Motivo del
-                                        viaje:</strong></span>
-                                <span class="">
-                                    {{ !empty($solicitud->capitan) ? $solicitud->capitan->motivo_viaje : '' }}</span>
                             </div>
 
                         </div>
