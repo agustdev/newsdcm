@@ -117,15 +117,18 @@ class EntradasController extends Controller
         ]);
 
         $tripulantes = Tripulantes::where('userid', auth()->user()->id)->get();
-        $tripulantes->toQuery()->update([
-            'mov_id' => $mov->id
-        ]);
+        if (!$tripulantes->isEmpty()) {
+            $tripulantes->toQuery()->update([
+                'mov_id' => $mov->id
+            ]);
+        }
 
         $pasajeros = Pasajeros::where('userid', auth()->user()->id)->get();
-        $pasajeros->toQuery()->update([
-            'mov_id' => $mov->id
-        ]);
-
+        if (!$pasajeros->isEmpty()) {
+            $pasajeros->toQuery()->update([
+                'mov_id' => $mov->id
+            ]);
+        }
         return redirect()->route('movimientos.entradas.index')->with('msj', 'Solicitud creada con exito.');
     }
 
