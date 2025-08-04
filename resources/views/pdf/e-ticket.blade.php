@@ -33,12 +33,12 @@
     <body>
         <div class="informacion">
             <div>
-                <strong style="font-size: 70px;">ARMADA DE REPÚBLICA DOMINICANA</strong><br><br>
+                <strong style="font-size: 55px;">ARMADA DE REPÚBLICA DOMINICANA</strong><br><br>
                 <strong style="font-size: 45px;">COMANDO NAVAL DE CAPITANIAS DE PUERTOS Y AUTORIDAD
                     MARITIMA</strong><br><br>
                 <strong style="font-size: 45px;">SISTEMA CONDUCE Y DESPACHO DE EMBARCACIONES</strong><br>
                 <strong>(DESPACHORD)</strong>
-            </div><br>
+            </div>
             <strong>ENTRADA INTERNACIONAL</strong><br>
             <strong>E-CLEREANCE</strong>
         </div>
@@ -55,7 +55,7 @@
             NUMERO CASCO: {{ $entrada->numero_casco }}<br>
             COLOR: {{ $entrada->color }}<br>
             PAIS DE PROCEDENCIA: {{ $entrada->capitan_internacional->pais_procedencia }}<br>
-            PUERTO LLEGADA: {{ $entrada->capitan_internacional->lugar_destino }}
+            PUERTO LLEGADA: {{ $entrada->capitan_internacional->lugar_destino }}<br>
             PAIS DESTINO: REPUBLICA DOMINICANA<br>
             PUERTO DE LLEGADA: {{ $entrada->capitan_internacional->lugar_destino }}<br>
         </div>
