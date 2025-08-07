@@ -4,22 +4,22 @@
     </div> --}}
     <div class="col-md">
         <div class="form-floating mb-2">
-            <input wire:model.defer='nombre' type="text" class="form-control documento rounded-md" id="floatinDocumento"
-                placeholder="Documento" name="documento" @error('nombre') style="border-left: 2px solid red" @enderror />
-            <label style="font-size: 10px;" for="floatinMatricula">{{ __('NOMBRE') }}</label>
-            @error('nombre')
-                <span class="text-red-600">{{ $message }}</span>
-            @enderror
-        </div>
-    </div>
-
-    <div class="col-md">
-        <div class="form-floating mb-2">
             <input wire:model.defer='documento' type="text" class="form-control nacionalidad rounded-md"
                 id="floatinMatricula" placeholder="name@example.com" name="documento" value=""
                 @error('documento') style="border-left: 2px solid red" @enderror />
             <label style="font-size: 10px;" for="floatinMatricula">{{ __('DOCUMENTO DE IDENTIDAD') }}</label>
             @error('documento')
+                <span class="text-red-600">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
+    <div class="col-md">
+        <div class="form-floating mb-2">
+            <input wire:model.defer='nombre' type="text" class="form-control documento rounded-md"
+                id="floatinDocumento" placeholder="Documento" name="documento"
+                @error('nombre') style="border-left: 2px solid red" @enderror />
+            <label style="font-size: 10px;" for="floatinMatricula">{{ __('NOMBRE') }}</label>
+            @error('nombre')
                 <span class="text-red-600">{{ $message }}</span>
             @enderror
         </div>

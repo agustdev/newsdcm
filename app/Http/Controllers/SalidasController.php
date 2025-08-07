@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Capitanes;
+use App\Models\CapitanesInternacionales;
 use App\Models\Destinos;
 use App\Models\Embarcaciones;
 use App\Models\EmbarcacionesInternacionales;
@@ -101,7 +102,7 @@ class SalidasController extends Controller
             'vcode' => strtoupper(substr(md5(Str::uuid()->toString()), 1, 6)),
             'url_id' => Str::uuid()->toString()
         ]);
-        Capitanes::create([
+        CapitanesInternacionales::create([
             'documento' => $request->documento,
             'nombre' => $request->nombre_capitan,
             'nacionalidad' => $request->nacionalidad,

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ArmasEmbarcaciones;
 use App\Models\CapitanesInternacionales;
 use App\Models\Destinos;
+use App\Models\Embarcaciones;
 use App\Models\EmbarcacionesInternacionales;
 use App\Models\MovimientosInternacionales;
 use App\Models\Nacionalidades;
@@ -52,33 +54,64 @@ class EntradasController extends Controller
             'color' => 'required',
             'fecha_llegada' => 'required'
         ]);
-
-        $embarcacion = EmbarcacionesInternacionales::create([
-            'matricula' => $request->matricula,
-            'nombre' => $request->nombre,
-            'no_chasis' => $request->numero_casco,
-            'color' => $request->color,
-            'material_casco' => $request->material_casco,
-            'fecha_validez' => Carbon::parse($request->fecha_llegada)->addDays(90),
-            'capacidad_personas' => $request->cantidad_pasajeros,
-            'capacidad_tripulantes' => $request->cantidad_tripulantes,
-            'tipo_motor' => $request->tipo_motor,
-            'marca_modelo_motor' => $request->marca_modelo_motor,
-            'caballos_fuerza_motor' => $request->caballos_fuerza_motor,
-            'no_motor' => $request->no_motor,
-            'estatus' => 'A',
-            'eslora' => $request->eslora,
-            'manga' => $request->manga,
-            'puntal' => $request->puntal,
-            'tipo_embarcacion' => $request->tipo_embarcacion,
-            'tipo_uso' => $request->tipo_uso,
-            'pais_procedencia' => $request->pais_procedencia,
-            'puerto_registro' => $request->puerto_salida,
-            'nombre_propietario' => $request->nombre_capitan,
-            'no_documento' => $request->documento_cap,
-            'user_id' => auth()->user()->id,
-            'impedimento' => 0
-        ]);
+        $embI = EmbarcacionesInternacionales::where('matricula', '=', $request->matricula)->first();
+        if (empty($embI)) {
+            $embarcacion = EmbarcacionesInternacionales::create([
+                'matricula' => $request->matricula,
+                'nombre' => $request->nombre,
+                'no_chasis' => $request->numero_casco,
+                'color' => $request->color,
+                'material_casco' => $request->material_casco,
+                'fecha_validez' => Carbon::parse($request->fecha_llegada)->addDays(90),
+                'capacidad_personas' => $request->cantidad_pasajeros,
+                'capacidad_tripulantes' => $request->cantidad_tripulantes,
+                'tipo_motor' => $request->tipo_motor,
+                'marca_modelo_motor' => $request->marca_modelo_motor,
+                'caballos_fuerza_motor' => $request->caballos_fuerza_motor,
+                'no_motor' => $request->no_motor,
+                'estatus' => 'A',
+                'eslora' => $request->eslora,
+                'manga' => $request->manga,
+                'puntal' => $request->puntal,
+                'tipo_embarcacion' => $request->tipo_embarcacion,
+                'tipo_uso' => $request->tipo_uso,
+                'pais_procedencia' => $request->pais_procedencia,
+                'puerto_registro' => $request->puerto_salida,
+                'nombre_propietario' => $request->nombre_capitan,
+                'no_documento' => $request->documento_cap,
+                'user_id' => auth()->user()->id,
+                'impedimento' => 0
+            ]);
+        } else {
+            $embarcacion = EmbarcacionesInternacionales::where('matricula', '=', $request->matricula)->first();
+            $embarcacion->update([
+                'matricula' => $request->matricula,
+                'nombre' => $request->nombre,
+                'no_chasis' => $request->numero_casco,
+                'color' => $request->color,
+                'material_casco' => $request->material_casco,
+                'fecha_validez' => Carbon::parse($request->fecha_llegada)->addDays(90),
+                'capacidad_personas' => $request->cantidad_pasajeros,
+                'capacidad_tripulantes' => $request->cantidad_tripulantes,
+                'tipo_motor' => $request->tipo_motor,
+                'marca_modelo_motor' => $request->marca_modelo_motor,
+                'caballos_fuerza_motor' => $request->caballos_fuerza_motor,
+                'no_motor' => $request->no_motor,
+                'estatus' => 'A',
+                'eslora' => $request->eslora,
+                'manga' => $request->manga,
+                'puntal' => $request->puntal,
+                'tipo_embarcacion' => $request->tipo_embarcacion,
+                'tipo_uso' => $request->tipo_uso,
+                'pais_procedencia' => $request->pais_procedencia,
+                'armas' => $request->cantidad_armas,
+                'puerto_registro' => $request->puerto_salida,
+                'nombre_propietario' => $request->nombre_capitan,
+                'no_documento' => $request->documento_cap,
+                'user_id' => auth()->user()->id,
+                'impedimento' => 0
+            ]);
+        }
 
         $mov = MovimientosInternacionales::create([
             'matricula' => $request->matricula,
@@ -97,6 +130,15 @@ class EntradasController extends Controller
             'vcode' => strtoupper(substr(md5(Str::uuid()->toString()), 1, 6)),
             'url_id' => Str::uuid()->toString()
         ]);
+
+        // Informacion de las armas
+        if ($request->cantidad_armas > 0) {
+            ArmasEmbarcaciones::create([
+                'cantidad' => $request->cantidad_armas,
+                'tipo_armas' => $request->tipo_armas,
+                'mov_inter_id' => $mov->id,
+            ]);
+        }
 
         CapitanesInternacionales::create([
             'tipo_documento' => $request->tipo_documento,

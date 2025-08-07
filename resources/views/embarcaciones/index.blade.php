@@ -264,7 +264,7 @@
                 <div
                     class="card widget-flat border @if (strtotime($embi->fecha_validez->format('d-m-Y')) >= strtotime(\Carbon\Carbon::now()->format('d-m-Y'))) border-custom @else border-custom-red @endif border-5 rounded sombra">
                     <div class="card-body">
-                        <span class="badge bg-info">{{ __('Internacional') }}</span>
+                        <span class="badge text-gray-800">{{ __('Internacional') }}</span>
                         <div class="float-end">
                             <i
                                 class="mdi mdi-ship-wheel mdi-36px widget-icon bg-custom rounded-circle text-warning"></i>
@@ -279,27 +279,16 @@
                                     class="badge bg-danger me-1 h2 py-1">{{ $embi->fecha_validez->format('d-m-Y') }}</small>
                             @endif
                         </h5>
-                        <div class="col-lg-12">
-                            <p class="mb-2 text-muted ">
-                                <span class="badge badge-outline-success me-1 font-weight-bold py-1 block">
-                                    <i class="uil-ship uil-16-plus me-1" style="font-size: 24px;"></i> <span
-                                        style="vertical-align: super; font-size: 16px;">{{ $embi->nombre }}
-                                    </span>
-                                </span>
-                            </p>
-                            <p class="mb-2 text-muted ">
-                                <span class="badge badge-outline-info me-1 py-1 block">
-                                    {{-- <i class="mdi mdi-card-account-details mdi-48px me-1"></i> --}}
-                                    <span style="vertical-align: super; font-size: 14px;">{{ __('MATRICULA') }}:
-                                        {{ $embi->matricula }}</span>
-                                </span>
-                            </p>
-                            <p class="text-muted ">
-                                <span class="badge badge-outline-danger me-1 py-1 block">
-                                    {{-- <i class="mdi mdi-card-text mdi-36px me-1"></i> --}}
-                                    <span style="vertical-align: super; font-size: 14px;">{{ __('CHASIS') }}:
-                                        {{ $embi->no_chasis }}</span>
-                                </span>
+
+                        <div class="border-bottom text-dark border-secondary mt-2 text-center">
+                            <p style=""><strong>{{ __('NOMBRE') }}:</strong> {{ $embi->nombre }} </p>
+                        </div>
+                        <div class="border-bottom text-dark border-secondary mt-2 text-center">
+                            <p style=""><strong>{{ __('MATRÍCULA') }}:</strong> {{ $embi->matricula }} </p>
+                        </div>
+                        <div class="border-bottom text-dark border-secondary mt-2 text-center">
+                            <p style=""><strong>{{ __('PUERTO REGISTRO') }}:</strong>
+                                {{ strtoupper($embi->puerto_registro) }}
                             </p>
                         </div>
                     </div>
@@ -313,7 +302,7 @@
                         <div class="d-grid mt-2 col-lg-12">
                             @if (strtotime($embi->fecha_validez->format('d-m-Y')) >= strtotime(\Carbon\Carbon::now()->format('d-m-Y')))
                                 <button type="button"
-                                    class="items-center px-3 py-2 bg-blue-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 block"
+                                    class="items-center px-3 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 block"
                                     data-bs-toggle="modal"
                                     data-bs-target="#option-mov-modal-{{ $embi->id }}">{{ __('SOLICITAR') }}</button>
                             @else

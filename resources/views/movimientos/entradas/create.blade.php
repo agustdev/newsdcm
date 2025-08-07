@@ -295,7 +295,7 @@
                             <div class="form-floating mb-2">
                                 <input type="number" class="form-control cant-armas rounded-md"
                                     id="floatingCantidadArmas" placeholder="CANTIDAD DE ARMAS" name="cantidad_armas"
-                                    required />
+                                    value="0" />
                                 <label style="font-size: 10px;"
                                     for="floatingCantidadArmas">{{ __('CANTIDAD DE ARMAS') }}</label>
                             </div>
@@ -303,7 +303,7 @@
                         <div class="col-md tarmas" style="display: none;">
                             <div class="form-floating mb-2">
                                 <textarea name="tipo_armas" id="" cols="30" rows="10" placeholder="{{ __('TIPO DE ARMAS') }}"
-                                    class="form-control rounded-md" id="floatingTipoArmas" required></textarea>
+                                    class="form-control rounded-md" id="floatingTipoArmas"></textarea>
                                 <label style="font-size: 10px;"
                                     for="floatingTipoArmas">{{ __('TIPO DE ARMAS') }}</label>
                             </div>
@@ -744,13 +744,18 @@
             $('#armas_si').click(function() {
                 if ($(this).is(':checked')) {
                     $('.carmas').show();
+                    $('.carmas input').attr('required', true);
                     $('.tarmas').show();
+                    $('.tarmas textarea').attr('required', true);
+
                 }
             });
             $('#armas_no').click(function() {
                 if ($(this).is(':checked')) {
                     $('.carmas').hide();
+                    $('.carmas input').attr('required', false);
                     $('.tarmas').hide();
+                    $('.tarmas textarea').attr('required', false);
                 }
             });
         </script>
