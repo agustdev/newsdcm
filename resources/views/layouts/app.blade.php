@@ -108,9 +108,18 @@
                     </li>
 
                 </ul>
-
-                <ul class="list-unstyled topbar-menu float-end mb-0 mt-2">
-
+                <ul class="list-unstyled topbar-menu flex items-center float-end mb-0 mt-1 space-x-4">
+                    <li class="banderas flex items-center">
+                        @if (app()->getLocale() == '')
+                            <img src="{{ asset('images/do.svg') }}" alt="DO" width="48px" height="48px">
+                        @endif
+                        @foreach (Config::get('languages') as $lang => $language)
+                            @if (app()->getLocale() === $language['flag'])
+                                <img src="{{ asset('images/' . $language['image']) }}"
+                                    alt="{{ $language['display'] }}" width="48px" height="48px">
+                            @endif
+                        @endforeach
+                    </li>
                     <li class="dropdown notification-list">
                         <form action="{{ route('lang.switch') }}" method="POST">
                             @csrf
@@ -145,7 +154,8 @@
                     <div class="dropdown-menu dropdown-menu-animated dropdown-lg" id="search-dropdown">
                         <!-- item-->
                         <div class="dropdown-header noti-title">
-                            <h5 class="text-overflow mb-2">Found <span class="text-danger">17</span> results</h5>
+                            <h5 class="text-overflow mb-2">Found <span class="text-danger">17</span> results
+                            </h5>
                         </div>
 
                         <!-- item-->
