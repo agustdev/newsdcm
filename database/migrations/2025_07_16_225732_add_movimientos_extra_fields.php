@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('movimientos', function (Blueprint $table) {
-            $table->integer('cant_nacionales')->default(0);
-            $table->integer('cant_extranjeros')->default(0);
-            $table->integer('cant_adultos')->default(0);
-            $table->integer('cant_menores')->default(0);
+            $table->integer('cant_nacionales')->default(0)->nullable();
+            $table->integer('cant_extranjeros')->default(0)->nullable();
+            $table->integer('cant_adultos')->default(0)->nullable();
+            $table->integer('cant_menores')->default(0)->nullable();
         });
     }
 

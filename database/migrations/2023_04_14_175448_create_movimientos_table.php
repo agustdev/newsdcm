@@ -28,6 +28,7 @@ return new class extends Migration
             $table->unsignedBigInteger('emb_id');
             $table->unsignedBigInteger('user_id');
             $table->integer('idsalida')->default(1);
+            $table->string('detalle_salida')->nullable();
             $table->integer('idllegada')->default(2);
             $table->string('detalle_destino')->nullable();
             $table->string('vcode', 10);
