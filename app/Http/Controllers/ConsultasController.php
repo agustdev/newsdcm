@@ -152,7 +152,7 @@ class ConsultasController extends Controller
 
     public function get_municipios(Request $request)
     {
-        $municipios = Municipios::where('id_prov', $request->idprovincia)->get();
+        $municipios = Municipios::where('id_prov', $request->idprovincia)->orderBy('descripcion', 'asc')->get();
         return $municipios->toJson();
     }
 
