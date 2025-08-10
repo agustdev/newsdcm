@@ -58,5 +58,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VehiculosSeeder::class);
         $this->call(ConductoresSeeder::class);
         $this->call(NacionalidadesSeeder::class);
+        $this->call(ProvinciasSeeder::class);
+        $this->call(MunicipiosSeeder::class);
     }
 }

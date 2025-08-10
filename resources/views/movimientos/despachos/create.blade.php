@@ -173,9 +173,22 @@
                                         @endif
                                     @endforeach
                                 </select>
-                                <label style="font-size: 10px;" for="floatingSelect">{{ __('LUGAR SALIDA') }}</label>
+                                <label style="font-size: 10px;"
+                                    for="floatingSelectLugarSalida">{{ __('LUGAR SALIDA') }}</label>
                             </div>
                         </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <select class="form-select rounded-md" name="detalle_salida"
+                                    id="floatingSelectLugarSalidaEspecifico" required>
+                                    <option>- {{ __('Seleccione') }} -</option>
+                                </select>
+                                <label style="font-size: 10px;"
+                                    for="floatingSelectLugarSalidaEspecifico">{{ __('LUGAR SALIDA ESPECIFICO') }}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="datetime-local" class="form-control rounded-md" id="floatingFecha"
@@ -198,60 +211,62 @@
                                     @endforeach
                                 </select>
                                 <label style="font-size: 10px;"
-                                    for="floatingSelect">{{ __('LUGAR DESTINO') }}</label>
+                                    for="floatingSelectDestino">{{ __('LUGAR DESTINO') }}</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="row g-2 hidden detalle_d">
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select rounded-md" name="detalle_destino"
-                                    id="floatingSelectPerimetro">
+                                    id="floatingSelectPerimetro" required>
                                     <option>-{{ __('Seleccione') }}-</option>
                                 </select>
-                                <label style="font-size: 10px;" for="floatingSelect">{{ __('PERIMETRO') }}</label>
+                                <label style="font-size: 10px;"
+                                    for="floatingSelectPerimetro">{{ __('LUGAR DE DESTINO ESPECIFICO') }}</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-2">
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control rounded-md cantidad_tripulantes"
+                                    id="floatingCantidadTripulantes" placeholder="CANTIDAD DE TRIPULANTES"
+                                    name="cantidad_tripulantes" min="1" value="0" />
+                                <label style="font-size: 10px;"
+                                    for="floatingCantidadTripulantes">{{ __('CANTIDAD DE TRIPULANTES') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="number" class="form-control rounded-md cantidad_pasajeros"
+                                    id="floatingCantidadPasajeros" placeholder="CANTIDAD DE PASAJEROS"
+                                    name="cantidad_pasajeros" min="1" value="0" />
+                                <label style="font-size: 10px;"
+                                    for="floatingCantidadPasajeros">{{ __('CANTIDAD DE PASAJEROS') }}</label>
                             </div>
                         </div>
                     </div>
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="number" class="form-control rounded-md cantidad_tripulantes"
-                                    id="floatingNombreEmbarcacion" placeholder="CANTIDAD DE TRIPULANTES"
-                                    name="cantidad_tripulantes" max="" />
-                                <label style="font-size: 10px;"
-                                    for="floatingNombreEmbarcacion">{{ __('CANTIDAD DE TRIPULANTES') }}</label>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="number" class="form-control rounded-md cantidad_pasajeros"
-                                    id="floatinMatricula" placeholder="CANTIDAD DE PASAJEROS"
-                                    name="cantidad_pasajeros" max="" />
-                                <label style="font-size: 10px;"
-                                    for="floatinMatricula">{{ __('CANTIDAD DE PASAJEROS') }}</label>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
                                 <input type="number" class="form-control rounded-md" id="floatingCantidadAdultos"
-                                    placeholder="CANTIDAD DE ADULTOS" name="cant_adultos" />
+                                    placeholder="CANTIDAD DE ADULTOS" name="cant_adultos" value="0" />
                                 <label style="font-size: 10px;"
                                     for="floatingCantidadAdultos">{{ __('CANTIDAD DE ADULTOS') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="number" class="form-control rounded-md" id="floatinMatricula"
-                                    placeholder="CANTIDAD DE MENORES" name="cant_menores" />
+                                <input type="number" class="form-control rounded-md" id="floatingCantidadMenores"
+                                    placeholder="CANTIDAD DE MENORES" name="cant_menores" value="0" />
                                 <label style="font-size: 10px;"
-                                    for="floatinMatricula">{{ __('CANTIDAD DE MENORES') }}</label>
+                                    for="floatingCantidadMenores">{{ __('CANTIDAD DE MENORES') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="number" class="form-control rounded-md" id="floatingNombreEmbarcacion"
-                                    placeholder="CANTIDAD DE NACIONALES" name="cant_nacionales" />
+                                    placeholder="CANTIDAD DE NACIONALES" name="cant_nacionales" value="0" />
                                 <label style="font-size: 10px;"
                                     for="floatingNombreEmbarcacion">{{ __('CANTIDAD DE NACIONALES') }}</label>
                             </div>
@@ -259,7 +274,7 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="number" class="form-control rounded-md" id="floatinMatricula"
-                                    placeholder="CANTIDAD DE EXTRANJEROS" name="cant_extranjeros" />
+                                    placeholder="CANTIDAD DE EXTRANJEROS" name="cant_extranjeros" value="0" />
                                 <label style="font-size: 10px;"
                                     for="floatinMatricula">{{ __('CANTIDAD DE EXTRANJEROS') }}</label>
                             </div>
@@ -272,6 +287,10 @@
                 <div class="card-header bg-blue-900">
                     <div class="text-white" role="alert">
                         <strong>{{ __('INFORMACIÓN DE TRIPULANTES Y PASAJEROS') }}</strong>
+                        <a href="#"
+                            class="float-end px-2 py-1 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 transition ease-in-out duration-150 disabled:opacity-25"><i
+                                class="mdi mdi-download"></i> Descargar
+                            plantilla</a>
                     </div>
                 </div>
                 <div class="card-body shadow-xl">
@@ -502,51 +521,98 @@
                     _token: $('input[name="_token"]').val()
                 }, function(data) {
                     json = $.parseJSON(data);
-                    $("#floatingSelectPerimetro").empty();
-                    $("#floatingSelectPerimetro").append(
+                    $("#floatingSelectLugarSalidaEspecifico").empty();
+                    $("#floatingSelectLugarSalidaEspecifico").append(
                         "<option value=''>- {{ __('Seleccione') }} -</option>");
                     // iterando los resultados encontrados
                     // $.each(data, function(index, field){
                     for (var i = 0; i < json.length; i++) {
-                        console.log(json[i].description);
-                        $("#floatingSelectPerimetro").append("<option value='" + json[i].description +
+                        $("#floatingSelectLugarSalidaEspecifico").append("<option value='" + json[i]
+                            .description +
                             "'>" + json[i].description + "</option>");
                     }
                     // });
                 });
-                // // adquirir nombre de la comandancia
-                // $.post("{{ route('get.comandancia') }}", {
-                //     idprovincia: idp[0],
-                //     _token: $('input[name="_token"]').val()
-                // }, function(data) {
-                //     json = $.parseJSON(data);
-                //     $(".comandancia").empty();
-                //     // iterando los resultados encontrados
-                //     // $.each(data, function(index, field){
-                //     console.log(json[0]);
-                //     $(".comandancia").val(json[0].descripcion);
-                //     $(".idcomandancia").val(json[0].idcomandancia);
 
-                //     // });
-                // });
             });
 
             // verificar que el lugar de destino sea perimetro costeros
             $("#floatingSelectDestino").change(function() {
                 var destino = $(this).val();
                 const idd = destino.split("|");
+                var salida = $("#floatingSelectLugarSalida").val();
+                const ids = salida.split("|");
+                // $(".detalle_d").next('select').next('label').text(idd[1]);
                 if (idd[0] == 13) {
-                    $(".detalle_d").slideDown();
+                    $.post("{{ route('get.perimetros') }}", {
+                        salida_id: ids[0],
+                        _token: $('input[name="_token"]').val()
+                    }, function(data) {
+                        json = $.parseJSON(data);
+                        $("#floatingSelectPerimetro").empty();
+                        $("#floatingSelectPerimetro").append(
+                            "<option value=''>- {{ __('Seleccione') }} -</option>");
+                        // iterando los resultados encontrados
+                        // $.each(data, function(index, field){
+                        for (var i = 0; i < json.length; i++) {
+                            $("#floatingSelectPerimetro").append("<option value='" + json[i]
+                                .description +
+                                "'>" + json[i].description + "</option>");
+                        }
+                        // });
+                    });
                 } else {
-                    $(".detalle_d").slideUp();
+                    $.post("{{ route('get.perimetros') }}", {
+                        salida_id: idd[0],
+                        _token: $('input[name="_token"]').val()
+                    }, function(data) {
+                        json = $.parseJSON(data);
+                        $("#floatingSelectPerimetro").empty();
+                        $("#floatingSelectPerimetro").append(
+                            "<option value=''>- {{ __('Seleccione') }} -</option>");
+                        // iterando los resultados encontrados
+                        // $.each(data, function(index, field){
+                        for (var i = 0; i < json.length; i++) {
+                            $("#floatingSelectPerimetro").append("<option value='" + json[i]
+                                .description +
+                                "'>" + json[i].description + "</option>");
+                        }
+                        // });
+                    });
                 }
             });
 
-            $('input[type="text"], input[type="number"], input[type="datetime-local"]').prop('required', true);
+            $('input').prop('required', true);
             // $('select').prop('required', true);
 
             $('[required]').css({
                 'border-left': '2px solid red'
+            });
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const tripulantes = document.getElementById('floatingCantidadTripulantes');
+                const pasajeros = document.getElementById('floatingCantidadPasajeros');
+                const adultos = document.getElementById('floatingCantidadAdultos');
+                const menores = document.getElementById('floatingCantidadMenores');
+
+                function calcularMenores() {
+                    const t = parseInt(tripulantes.value) || 0;
+                    const p = parseInt(pasajeros.value) || 0;
+                    const a = parseInt(adultos.value) || 0;
+
+                    const total = t + p;
+                    const m = total - a;
+
+                    // Mostrar solo si hay datos
+                    menores.value = (total && a >= 0) ? Math.max(0, m) : '';
+                }
+
+                // Recalcular cuando cambie cualquiera de los tres campos
+                tripulantes.addEventListener('input', calcularMenores);
+                pasajeros.addEventListener('input', calcularMenores);
+                adultos.addEventListener('input', calcularMenores);
             });
         </script>
     @endpush

@@ -102,6 +102,7 @@ class DespachosController extends Controller
             'vcode' => strtoupper(substr(md5(Str::uuid()->toString()), 1, 6)),
             'url_id' => Str::uuid()->toString(),
             'idsalida' => $salida[0],
+            'detalle_salida' => $request->detalle_salida,
             'idllegada' => $destino[0],
             'detalle_destino' => $request->detalle_destino,
             'fecha_llegada' => $request->fecha_llegada,
