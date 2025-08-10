@@ -154,8 +154,8 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="datetime-local" class="form-control rounded-md" id="floatingFecha"
-                                    placeholder="FECHA" name="fecha" min="{{ date('Y-m-d') . 'T' . date('h:i') }}"
-                                    max="{{ date('Y-m-d', strtotime('+10 Days')) . 'T' . date('h:i') }}" />
+                                    placeholder="FECHA" min="{{ date('Y-m-d') . 'T06:00' }}"
+                                    max="{{ date('Y-m-d', strtotime('+10 Days')) . 'T18:00' }}" name="fecha" />
                                 <label style="font-size: 10px;"
                                     for="floatingFecha">{{ __('FECHA Y HORA DE ZARPE') }}</label>
                             </div>
@@ -191,10 +191,9 @@
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="datetime-local" class="form-control rounded-md" id="floatingFecha"
-                                    placeholder="FECHA" name="fecha_llegada"
-                                    min="{{ date('Y-m-d') . 'T' . date('h:i') }}"
-                                    max="{{ date('Y-m-d', strtotime('+10 Days')) . 'T' . date('h:i') }}" />
+                                <input type="datetime-local" class="form-control rounded-md" id="floatingFechaArribo"
+                                    placeholder="FECHA" name="fecha_llegada" min="{{ date('Y-m-d') . 'T06:00' }}"
+                                    max="{{ date('Y-m-d', strtotime('+10 Days')) . 'T18:00' }}" />
                                 <label style="font-size: 10px;"
                                     for="floatingFecha">{{ __('FECHA Y HORA DE ARRIBO') }}</label>
                             </div>
@@ -614,6 +613,159 @@
                 pasajeros.addEventListener('input', calcularMenores);
                 adultos.addEventListener('input', calcularMenores);
             });
+        </script>
+        <script>
+            (() => {
+                const input = document.getElementById('floatingFecha');
+
+                const pad = (n) => String(n).padStart(2, '0');
+
+                // Parse "YYYY-MM-DDTHH:mm" to an object (no timezone shenanigans)
+                function parseDateTimeLocal(str) {
+                    if (!str) return null;
+                    const [datePart, timePart] = str.split('T');
+                    if (!datePart || !timePart) return null;
+                    const [year, month, day] = datePart.split('-').map(Number);
+                    const [hour, minute] = timePart.split(':').map(Number);
+                    return {
+                        year,
+                        month,
+                        day,
+                        hour,
+                        minute
+                    };
+                }
+
+                // Format object back to "YYYY-MM-DDTHH:mm"
+                function formatDateTimeLocal(obj) {
+                    return `${obj.year}-${pad(obj.month)}-${pad(obj.day)}T${pad(obj.hour)}:${pad(obj.minute)}`;
+                }
+
+                // Clamp time-of-day to the allowed window (06:00 - 18:00) and then clamp to min/max if provided
+                function clampToAllowed(value) {
+                    if (!value) return value;
+                    const p = parseDateTimeLocal(value);
+                    if (!p) return value;
+
+                    // Clamp hour/minute to 06:00 - 18:00
+                    if (p.hour < 6) {
+                        p.hour = 6;
+                        p.minute = 0;
+                    } else if (p.hour > 18 || (p.hour === 18 && p.minute > 0)) {
+                        p.hour = 18;
+                        p.minute = 0;
+                    }
+
+                    let candidate = formatDateTimeLocal(p);
+
+                    // Respect HTML min/max if set (string compare works because format is zero-padded)
+                    if (input.min && candidate < input.min) candidate = input.min;
+                    if (input.max && candidate > input.max) candidate = input.max;
+
+                    return candidate;
+                }
+
+                input.addEventListener('input', function() {
+                    const orig = this.value;
+                    const fixed = clampToAllowed(orig);
+                    if (fixed && fixed !== orig) {
+                        // Si quieres notificar al usuario en lugar de sobrescribir, aquí podrías mostrar un mensaje.
+                        this.value = fixed;
+                    }
+                });
+
+                // Validación final en el submit (por si el usuario manipula fuera del input)
+                if (input.form) {
+                    input.form.addEventListener('submit', function(e) {
+                        const v = input.value;
+                        if (!v) return;
+                        const p = parseDateTimeLocal(v);
+                        if (!p) return;
+                        const outside =
+                            p.hour < 6 || p.hour > 18 || (p.hour === 18 && p.minute > 0);
+                        if (outside) {
+                            e.preventDefault();
+                            alert('La hora debe estar entre 06:00 y 18:00.');
+                        }
+                    });
+                }
+            })();
+
+            (() => {
+                const input = document.getElementById('floatingFechaArribo');
+
+                const pad = (n) => String(n).padStart(2, '0');
+
+                // Parse "YYYY-MM-DDTHH:mm" to an object (no timezone shenanigans)
+                function parseDateTimeLocal(str) {
+                    if (!str) return null;
+                    const [datePart, timePart] = str.split('T');
+                    if (!datePart || !timePart) return null;
+                    const [year, month, day] = datePart.split('-').map(Number);
+                    const [hour, minute] = timePart.split(':').map(Number);
+                    return {
+                        year,
+                        month,
+                        day,
+                        hour,
+                        minute
+                    };
+                }
+
+                // Format object back to "YYYY-MM-DDTHH:mm"
+                function formatDateTimeLocal(obj) {
+                    return `${obj.year}-${pad(obj.month)}-${pad(obj.day)}T${pad(obj.hour)}:${pad(obj.minute)}`;
+                }
+
+                // Clamp time-of-day to the allowed window (06:00 - 18:00) and then clamp to min/max if provided
+                function clampToAllowed(value) {
+                    if (!value) return value;
+                    const p = parseDateTimeLocal(value);
+                    if (!p) return value;
+
+                    // Clamp hour/minute to 06:00 - 18:00
+                    if (p.hour < 6) {
+                        p.hour = 6;
+                        p.minute = 0;
+                    } else if (p.hour > 18 || (p.hour === 18 && p.minute > 0)) {
+                        p.hour = 18;
+                        p.minute = 0;
+                    }
+
+                    let candidate = formatDateTimeLocal(p);
+
+                    // Respect HTML min/max if set (string compare works because format is zero-padded)
+                    if (input.min && candidate < input.min) candidate = input.min;
+                    if (input.max && candidate > input.max) candidate = input.max;
+
+                    return candidate;
+                }
+
+                input.addEventListener('input', function() {
+                    const orig = this.value;
+                    const fixed = clampToAllowed(orig);
+                    if (fixed && fixed !== orig) {
+                        // Si quieres notificar al usuario en lugar de sobrescribir, aquí podrías mostrar un mensaje.
+                        this.value = fixed;
+                    }
+                });
+
+                // Validación final en el submit (por si el usuario manipula fuera del input)
+                if (input.form) {
+                    input.form.addEventListener('submit', function(e) {
+                        const v = input.value;
+                        if (!v) return;
+                        const p = parseDateTimeLocal(v);
+                        if (!p) return;
+                        const outside =
+                            p.hour < 6 || p.hour > 18 || (p.hour === 18 && p.minute > 0);
+                        if (outside) {
+                            e.preventDefault();
+                            alert('La hora debe estar entre 06:00 y 18:00.');
+                        }
+                    });
+                }
+            })();
         </script>
     @endpush
 
