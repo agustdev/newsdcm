@@ -407,6 +407,13 @@
 
         </form>
     </div>
+    @push('css')
+        <style>
+            input.is-invalid {
+                border: 2px solid red;
+            }
+        </style>
+    @endpush
     @push('js')
         <script>
             // Initiate an Ajax request on button click
@@ -615,157 +622,91 @@
             });
         </script>
         <script>
-            (() => {
-                const input = document.getElementById('floatingFecha');
+            document.addEventListener("DOMContentLoaded", function() {
+                const fechaInput = document.getElementById("floatingFecha");
+                const now = new Date();
+                let minDateTime, maxDateTime;
 
-                const pad = (n) => String(n).padStart(2, '0');
+                const horasMin = 6; // 6:00 AM
+                const horasMax = 18; // 6:00 PM
 
-                // Parse "YYYY-MM-DDTHH:mm" to an object (no timezone shenanigans)
-                function parseDateTimeLocal(str) {
-                    if (!str) return null;
-                    const [datePart, timePart] = str.split('T');
-                    if (!datePart || !timePart) return null;
-                    const [year, month, day] = datePart.split('-').map(Number);
-                    const [hour, minute] = timePart.split(':').map(Number);
-                    return {
-                        year,
-                        month,
-                        day,
-                        hour,
-                        minute
-                    };
+                // Si ya pasó la hora máxima de hoy, arrancamos desde mañana a las 6 AM
+                if (now.getHours() >= horasMax) {
+                    minDateTime = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, horasMin, 0);
+                } else if (now.getHours() < horasMin) {
+                    minDateTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), horasMin, 0);
+                } else {
+                    minDateTime = now;
                 }
 
-                // Format object back to "YYYY-MM-DDTHH:mm"
-                function formatDateTimeLocal(obj) {
-                    return `${obj.year}-${pad(obj.month)}-${pad(obj.day)}T${pad(obj.hour)}:${pad(obj.minute)}`;
-                }
+                // Máximo: 10 días desde minDateTime, hasta las 6 PM
+                maxDateTime = new Date(minDateTime.getFullYear(), minDateTime.getMonth(), minDateTime.getDate() + 10,
+                    horasMax, 0);
 
-                // Clamp time-of-day to the allowed window (06:00 - 18:00) and then clamp to min/max if provided
-                function clampToAllowed(value) {
-                    if (!value) return value;
-                    const p = parseDateTimeLocal(value);
-                    if (!p) return value;
+                // Formato correcto para datetime-local (YYYY-MM-DDTHH:mm)
+                const formatDateTime = (date) => {
+                    return date.toISOString().slice(0, 16);
+                };
 
-                    // Clamp hour/minute to 06:00 - 18:00
-                    if (p.hour < 6) {
-                        p.hour = 6;
-                        p.minute = 0;
-                    } else if (p.hour > 18 || (p.hour === 18 && p.minute > 0)) {
-                        p.hour = 18;
-                        p.minute = 0;
+                fechaInput.min = formatDateTime(minDateTime);
+                fechaInput.max = formatDateTime(maxDateTime);
+
+                // Validación visual y corrección automática
+                fechaInput.addEventListener("input", function() {
+                    const selected = new Date(this.value);
+                    if (selected.getHours() < horasMin || selected.getHours() >= horasMax) {
+                        this.style.border = "2px solid red";
+                    } else {
+                        this.style.border = "";
                     }
 
-                    let candidate = formatDateTimeLocal(p);
-
-                    // Respect HTML min/max if set (string compare works because format is zero-padded)
-                    if (input.min && candidate < input.min) candidate = input.min;
-                    if (input.max && candidate > input.max) candidate = input.max;
-
-                    return candidate;
-                }
-
-                input.addEventListener('input', function() {
-                    const orig = this.value;
-                    const fixed = clampToAllowed(orig);
-                    if (fixed && fixed !== orig) {
-                        // Si quieres notificar al usuario en lugar de sobrescribir, aquí podrías mostrar un mensaje.
-                        this.value = fixed;
-                    }
+                    if (selected < minDateTime) this.value = formatDateTime(minDateTime);
+                    if (selected > maxDateTime) this.value = formatDateTime(maxDateTime);
                 });
+            });
 
-                // Validación final en el submit (por si el usuario manipula fuera del input)
-                if (input.form) {
-                    input.form.addEventListener('submit', function(e) {
-                        const v = input.value;
-                        if (!v) return;
-                        const p = parseDateTimeLocal(v);
-                        if (!p) return;
-                        const outside =
-                            p.hour < 6 || p.hour > 18 || (p.hour === 18 && p.minute > 0);
-                        if (outside) {
-                            e.preventDefault();
-                            alert('La hora debe estar entre 06:00 y 18:00.');
-                        }
-                    });
-                }
-            })();
+            document.addEventListener("DOMContentLoaded", function() {
+                const fechaInput = document.getElementById("floatingFechaArribo");
+                const now = new Date();
+                let minDateTime, maxDateTime;
 
-            (() => {
-                const input = document.getElementById('floatingFechaArribo');
+                const horasMin = 6; // 6:00 AM
+                const horasMax = 18; // 6:00 PM
 
-                const pad = (n) => String(n).padStart(2, '0');
-
-                // Parse "YYYY-MM-DDTHH:mm" to an object (no timezone shenanigans)
-                function parseDateTimeLocal(str) {
-                    if (!str) return null;
-                    const [datePart, timePart] = str.split('T');
-                    if (!datePart || !timePart) return null;
-                    const [year, month, day] = datePart.split('-').map(Number);
-                    const [hour, minute] = timePart.split(':').map(Number);
-                    return {
-                        year,
-                        month,
-                        day,
-                        hour,
-                        minute
-                    };
+                // Si ya pasó la hora máxima de hoy, arrancamos desde mañana a las 6 AM
+                if (now.getHours() >= horasMax) {
+                    minDateTime = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, horasMin, 0);
+                } else if (now.getHours() < horasMin) {
+                    minDateTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), horasMin, 0);
+                } else {
+                    minDateTime = now;
                 }
 
-                // Format object back to "YYYY-MM-DDTHH:mm"
-                function formatDateTimeLocal(obj) {
-                    return `${obj.year}-${pad(obj.month)}-${pad(obj.day)}T${pad(obj.hour)}:${pad(obj.minute)}`;
-                }
+                // Máximo: 10 días desde minDateTime, hasta las 6 PM
+                maxDateTime = new Date(minDateTime.getFullYear(), minDateTime.getMonth(), minDateTime.getDate() + 10,
+                    horasMax, 0);
 
-                // Clamp time-of-day to the allowed window (06:00 - 18:00) and then clamp to min/max if provided
-                function clampToAllowed(value) {
-                    if (!value) return value;
-                    const p = parseDateTimeLocal(value);
-                    if (!p) return value;
+                // Formato correcto para datetime-local (YYYY-MM-DDTHH:mm)
+                const formatDateTime = (date) => {
+                    return date.toISOString().slice(0, 16);
+                };
 
-                    // Clamp hour/minute to 06:00 - 18:00
-                    if (p.hour < 6) {
-                        p.hour = 6;
-                        p.minute = 0;
-                    } else if (p.hour > 18 || (p.hour === 18 && p.minute > 0)) {
-                        p.hour = 18;
-                        p.minute = 0;
+                fechaInput.min = formatDateTime(minDateTime);
+                fechaInput.max = formatDateTime(maxDateTime);
+
+                // Validación visual y corrección automática
+                fechaInput.addEventListener("input", function() {
+                    const selected = new Date(this.value);
+                    if (selected.getHours() < horasMin || selected.getHours() >= horasMax) {
+                        this.style.border = "2px solid red";
+                    } else {
+                        this.style.border = "";
                     }
 
-                    let candidate = formatDateTimeLocal(p);
-
-                    // Respect HTML min/max if set (string compare works because format is zero-padded)
-                    if (input.min && candidate < input.min) candidate = input.min;
-                    if (input.max && candidate > input.max) candidate = input.max;
-
-                    return candidate;
-                }
-
-                input.addEventListener('input', function() {
-                    const orig = this.value;
-                    const fixed = clampToAllowed(orig);
-                    if (fixed && fixed !== orig) {
-                        // Si quieres notificar al usuario en lugar de sobrescribir, aquí podrías mostrar un mensaje.
-                        this.value = fixed;
-                    }
+                    if (selected < minDateTime) this.value = formatDateTime(minDateTime);
+                    if (selected > maxDateTime) this.value = formatDateTime(maxDateTime);
                 });
-
-                // Validación final en el submit (por si el usuario manipula fuera del input)
-                if (input.form) {
-                    input.form.addEventListener('submit', function(e) {
-                        const v = input.value;
-                        if (!v) return;
-                        const p = parseDateTimeLocal(v);
-                        if (!p) return;
-                        const outside =
-                            p.hour < 6 || p.hour > 18 || (p.hour === 18 && p.minute > 0);
-                        if (outside) {
-                            e.preventDefault();
-                            alert('La hora debe estar entre 06:00 y 18:00.');
-                        }
-                    });
-                }
-            })();
+            });
         </script>
     @endpush
 

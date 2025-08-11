@@ -33,13 +33,14 @@ class ConducesController extends Controller
     {
         $ultimo_mov = auth()->user()->movimientos()->orderBy('id', 'DESC')->first();
         $provincias = Provincias::all();
+        $destinos = Destinos::all();
         $embarcaciones = auth()->user()->embarcaciones->filter(function ($item) {
             $registroActivo = Inteligencias::where('matricula_embarcacion', $item->matricula)
                 ->where('estado', '=', 'Activa')
                 ->exists();
             return $item->fecha_validez >= now()->toDateString() && $item->impedimento == 0 && $item->manual == 0 && !$registroActivo;
         });
-        return view('movimientos.conduces.create', compact('ultimo_mov', 'provincias', 'embarcaciones'));
+        return view('movimientos.conduces.create', compact('ultimo_mov', 'provincias', 'embarcaciones', 'destinos'));
         // return $embarcaciones;
     }
 
@@ -76,6 +77,7 @@ class ConducesController extends Controller
             'nombre' => $request->nombre,
             'color' => $request->color_emb,
             'fecha' => $request->fecha_salida,
+            'fecha_llegada' => $request->fecha_llegada,
             'marca_modelo_motor' => $request->marca_modelo_motor,
             'caballos_fuerza_motor' => $request->caballos_fuerza_motor,
             'no_motor' => $request->no_motor,
@@ -88,6 +90,8 @@ class ConducesController extends Controller
             'url_id' => Str::uuid()->toString(),
             'idsalida' => $provincia[0],
             'idllegada' => $provincia_salida[0],
+            'detalle_salida' => $request->detalle_salida,
+            'detalle_destino' => $request->detalle_destino,
         ]);
         $vehiculo = Vehiculos::create([
             'marca' => $request->marca,

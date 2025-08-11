@@ -60,5 +60,6 @@ class DatabaseSeeder extends Seeder
         $this->call(NacionalidadesSeeder::class);
         $this->call(ProvinciasSeeder::class);
         $this->call(MunicipiosSeeder::class);
+        $this->call(CapitaniaSeeder::class);
     }
 }

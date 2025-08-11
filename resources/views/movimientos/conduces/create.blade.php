@@ -12,7 +12,6 @@
 
     {{-- formulario de solicitud de despacho --}}
     <div class="row g-2">
-
         <form action="{{ route('movimientos.conduces.store') }}" method="POST" class="form-inline" autocomplete="off">
             @csrf
             {{-- primera tarjeta --}}
@@ -134,7 +133,6 @@
 
                     {{-- fin de lugar de destino --}}
 
-
                 </div>
 
             </div>
@@ -142,9 +140,6 @@
             <input type="hidden" name="user" value="{{ auth()->user()->id }}">
             <input type="hidden" name="comandancia" class="comandancia" value="">
             <input type="hidden" name="idcomandancia" class="idcomandancia" value="">
-
-
-
     </div>
 
 
@@ -243,8 +238,15 @@
             <div class="row">
                 <div class="col-md">
                     <div class="form-floating mb-2">
+                        <input type="text" class="form-control placa rounded-md" id="floatingPlaca"
+                            placeholder="PLACA" name="placa" />
+                        <label style="font-size: 10px;" for="floatingPlaca">{{ __('PLACA') }}</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating mb-2">
                         <input type="text" class="form-control marca rounded-md" id="floatingMarcaModelo"
-                            placeholder="NOMBRE DE LA EMBARCACIÓN" name="marca" required />
+                            placeholder="{{ __('MARCA Y MODELO') }}" name="marca" required />
                         <label style="font-size: 10px;" for="floatingMarcaModelo">{{ __('MARCA Y MODELO') }}</label>
                     </div>
                 </div>
@@ -260,13 +262,6 @@
                         <input type="number" class="form-control year rounded-md" id="floatingYear"
                             placeholder="AÑO" name="year" />
                         <label style="font-size: 10px;" for="floatingYear">{{ __('AÑO') }}</label>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="form-floating mb-2">
-                        <input type="text" class="form-control placa rounded-md" id="floatingPlaca"
-                            placeholder="PLACA" name="placa" />
-                        <label style="font-size: 10px;" for="floatingPlaca">{{ __('PLACA') }}</label>
                     </div>
                 </div>
             </div>
@@ -303,12 +298,55 @@
                 <div class="col-md">
                     <div class="form-floating mb-2">
                         <input type="datetime-local" class="form-control rounded-md" id="floatingFechaSalida"
-                            placeholder="FECHA SALIDA" name="fecha_salida"
-                            min="{{ date('Y-m-d') . 'T' . date('h:i') }}"
-                            max="{{ date('Y-m-d', strtotime('+10 Days')) . 'T' . date('h:i') }}" />
+                            placeholder="FECHA SALIDA" name="fecha_salida" min="{{ date('Y-m-d') . 'T06:00' }}"
+                            max="{{ date('Y-m-d', strtotime('+10 Days')) . 'T06:00' }}" />
                         <label style="font-size: 10px;" for="floatingFechaSalida">{{ __('FECHA SALIDA') }}</label>
                     </div>
                 </div>
+                <div class="col-md">
+                    <div class="">
+                        <h3 class="mb-2 mt-2 bold text-black">¿{{ __('ESTA SALIENDO DE PUERTO') }}?</h3>
+                        <input type="radio" name='salpuerto' id="si_puerto" value="Si"
+                            class="w-4 h-4 text-blue-900 bg-gray-100 border-gray-300 focus:ring-blue-600  focus:ring-2 ">
+                        <label for="no_puerto">{{ __('Si') }}</label>
+                        <input type="radio" name='salpuerto' id="no_puerto" value="No" checked
+                            class="w-4 h-4 text-blue-900 bg-gray-100 border-gray-300 focus:ring-blue-600 focus:ring-2 ">
+                        <label for="armas_no">{{ __('No') }}</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="salida_puerto hidden">
+                        <div class="form-floating mb-2">
+                            <select class="form-select rounded-md" name="lugar_salida"
+                                id="floatingSelectLugarSalida">
+                                <option>- {{ __('Seleccione') }} -</option>
+                                @foreach ($destinos as $dest)
+                                    @if ($dest->id != 13)
+                                        <option value="{{ $dest->id }}|{{ strtoupper($dest->descripcion) }}">
+                                            {{ strtoupper($dest->descripcion) }}
+                                        </option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            <label style="font-size: 10px;"
+                                for="floatingSelectLugarSalida">{{ __('LUGAR SALIDA') }}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="salida_puerto hidden">
+                        <div class="form-floating mb-2">
+                            <select class="form-select rounded-md" name="detalle_salida"
+                                id="floatingSelectLugarSalidaEspecifico">
+                                <option>- {{ __('Seleccione') }} -</option>
+                            </select>
+                            <label style="font-size: 10px;"
+                                for="floatingSelectLugarSalidaEspecifico">{{ __('LUGAR SALIDA ESPECIFICO') }}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md">
                     <div class="form-floating mb-2">
                         <select class="form-select rounded-md" name="provinciasalida"
@@ -334,8 +372,6 @@
                             for="floatingSelectMunicipioSalida">{{ __('MUNICIPIO') }}</label>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-md">
                     <div class="form-floating mb-2">
                         <input type="text" class="form-control rounded-md" id="floatingCalle"
@@ -376,6 +412,15 @@
             <div class="row">
                 <div class="col-md">
                     <div class="form-floating mb-2">
+                        <input type="datetime-local" class="form-control rounded-md" id="floatingFechaLlegada"
+                            placeholder="FECHA" name="fecha_llegada" min="{{ date('Y-m-d') . 'T' . date('h:i') }}"
+                            max="{{ date('Y-m-d', strtotime('+10 Days')) . 'T' . date('h:i') }}" />
+                        <label style="font-size: 10px;"
+                            for="floatingFechaLlegada">{{ __('FECHA Y HORA DE LLEGADA') }}</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating mb-2">
                         <select class="form-select rounded-md" name="provincia" id="floatingSelectProvincia">
                             <option>- {{ __('Seleccione') }} -</option>
                             @foreach ($provincias as $prov)
@@ -387,7 +432,6 @@
                         <label style="font-size: 10px;" for="floatingSelectProvincia">{{ __('PROVINCIA') }}</label>
                     </div>
                 </div>
-
                 <div class="col-md">
                     <div class="form-floating mb-2">
                         <select class="form-select rounded-md" name="municipio" id="floatingSelectMunicipio">
@@ -396,6 +440,52 @@
                         <label style="font-size: 10px;" for="floatingSelectMunicipio">{{ __('MUNICIPIO') }}</label>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <div class="">
+                        <h3 class="mb-2 mt-2 bold text-black">¿{{ __('LLEGARA A PUERTO') }}?</h3>
+                        <input type="radio" name='llegapuerto' id="si_llegapuerto" value="Si"
+                            class="w-4 h-4 text-blue-900 bg-gray-100 border-gray-300 focus:ring-blue-600  focus:ring-2 ">
+                        <label for="no_puerto">{{ __('Si') }}</label>
+                        <input type="radio" name='llegapuerto' id="no_llegapuerto" value="No" checked
+                            class="w-4 h-4 text-blue-900 bg-gray-100 border-gray-300 focus:ring-blue-600 focus:ring-2 ">
+                        <label for="armas_no">{{ __('No') }}</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="llegada_puerto hidden">
+                        <div class="form-floating mb-2">
+                            <select class="form-select rounded-md" name="lugar_destino" id="floatingSelectDestino"
+                                required>
+                                <option>-{{ __('Seleccione') }}-</option>
+                                @foreach ($destinos as $dest)
+                                    @if ($dest->id != 13)
+                                        <option value="{{ $dest->id }}|{{ strtoupper($dest->descripcion) }}">
+                                            {{ strtoupper($dest->descripcion) }}
+                                        </option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            <label style="font-size: 10px;"
+                                for="floatingSelectDestino">{{ __('LUGAR DESTINO') }}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="llegada_puerto hidden">
+                        <div class="form-floating mb-2">
+                            <select class="form-select rounded-md" name="detalle_destino"
+                                id="floatingSelectPerimetro">
+                                <option value="">-{{ __('Seleccione') }}-</option>
+                            </select>
+                            <label style="font-size: 10px;"
+                                for="floatingSelectPerimetro">{{ __('LUGAR DE DESTINO ESPECIFICO') }}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
                 <div class="col-md">
                     <div class="form-floating mb-2">
                         <input type="text" class="form-control rounded-md" id="floatingSector"
@@ -403,13 +493,11 @@
                         <label style="font-size: 10px;" for="floatingSector">{{ __('SECTOR') }}</label>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-md">
                     <div class="form-floating mb-2">
                         <input type="text" class="form-control rounded-md" id="floatingCalle"
-                            placeholder="{{ __('CALLE') }}" name="calle" />
-                        <label style="font-size: 10px;" for="floatingCalle">{{ __('CALLE') }}</label>
+                            placeholder="{{ __('DIRECCION') }}" name="calle" />
+                        <label style="font-size: 10px;" for="floatingCalle">{{ __('DIRECCION') }}</label>
                     </div>
                 </div>
             </div>
@@ -442,7 +530,13 @@
     </form>
 
     </div>
-
+    @push('css')
+        <style>
+            input.is-invalid {
+                border: 2px solid red;
+            }
+        </style>
+    @endpush
     @push('js')
         <script>
             // Initiate an Ajax request on button click
@@ -582,9 +676,79 @@
                 });
             });
 
-            $('input').prop('required', true);
-            $('select').prop('required', true);
+            // lugar de salida
+            $("#floatingSelectLugarSalida").change(function() {
+                var salida = $(this).val();
+                const idp = salida.split("|");
+                $.post("{{ route('get.perimetros') }}", {
+                    salida_id: idp[0],
+                    _token: $('input[name="_token"]').val()
+                }, function(data) {
+                    json = $.parseJSON(data);
+                    $("#floatingSelectLugarSalidaEspecifico").empty();
+                    $("#floatingSelectLugarSalidaEspecifico").append(
+                        "<option value=''>- {{ __('Seleccione') }} -</option>");
+                    // iterando los resultados encontrados
+                    // $.each(data, function(index, field){
+                    for (var i = 0; i < json.length; i++) {
+                        $("#floatingSelectLugarSalidaEspecifico").append("<option value='" + json[i]
+                            .description +
+                            "'>" + json[i].description + "</option>");
+                    }
+                    // });
+                });
 
+            });
+
+            // verificar que el lugar de destino sea perimetro costeros
+            $("#floatingSelectDestino").change(function() {
+                var destino = $(this).val();
+                const idd = destino.split("|");
+                var salida = $("#floatingSelectLugarSalida").val();
+                const ids = salida.split("|");
+                // $(".detalle_d").next('select').next('label').text(idd[1]);
+                if (idd[0] == 13) {
+                    $.post("{{ route('get.perimetros') }}", {
+                        salida_id: ids[0],
+                        _token: $('input[name="_token"]').val()
+                    }, function(data) {
+                        json = $.parseJSON(data);
+                        $("#floatingSelectPerimetro").empty();
+                        $("#floatingSelectPerimetro").append(
+                            "<option value=''>- {{ __('Seleccione') }} -</option>");
+                        // iterando los resultados encontrados
+                        // $.each(data, function(index, field){
+                        for (var i = 0; i < json.length; i++) {
+                            $("#floatingSelectPerimetro").append("<option value='" + json[i]
+                                .description +
+                                "'>" + json[i].description + "</option>");
+                        }
+                        // });
+                    });
+                } else {
+                    $.post("{{ route('get.perimetros') }}", {
+                        salida_id: idd[0],
+                        _token: $('input[name="_token"]').val()
+                    }, function(data) {
+                        json = $.parseJSON(data);
+                        $("#floatingSelectPerimetro").empty();
+                        $("#floatingSelectPerimetro").append(
+                            "<option value=''>- {{ __('Seleccione') }} -</option>");
+                        // iterando los resultados encontrados
+                        // $.each(data, function(index, field){
+                        for (var i = 0; i < json.length; i++) {
+                            $("#floatingSelectPerimetro").append("<option value='" + json[i]
+                                .description +
+                                "'>" + json[i].description + "</option>");
+                        }
+                        // });
+                    });
+                }
+            });
+
+            $('input[type=text], input[type=datetime-local]').prop('required', true);
+            $('select').prop('required', true);
+            $('#floatinObservacion').prop('required', false);
             $('[required]').css({
                 'border-left': '2px solid red'
             });
@@ -597,6 +761,120 @@
                 $('.telefono1, .telefono2').mask('(000) 000-0000', {
                     placeholder: '(000) 000-0000'
                 });
+            });
+        </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const fechaInput = document.getElementById("floatingFechaSalida");
+                const now = new Date();
+                let minDateTime, maxDateTime;
+
+                const horasMin = 6; // 6:00 AM
+                const horasMax = 18; // 6:00 PM
+
+                // Si ya pasó la hora máxima de hoy, arrancamos desde mañana a las 6 AM
+                if (now.getHours() >= horasMax) {
+                    minDateTime = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, horasMin, 0);
+                } else if (now.getHours() < horasMin) {
+                    minDateTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), horasMin, 0);
+                } else {
+                    minDateTime = now;
+                }
+
+                // Máximo: 10 días desde minDateTime, hasta las 6 PM
+                maxDateTime = new Date(minDateTime.getFullYear(), minDateTime.getMonth(), minDateTime.getDate() + 10,
+                    horasMax, 0);
+
+                // Formato correcto para datetime-local (YYYY-MM-DDTHH:mm)
+                const formatDateTime = (date) => {
+                    return date.toISOString().slice(0, 16);
+                };
+
+                fechaInput.min = formatDateTime(minDateTime);
+                fechaInput.max = formatDateTime(maxDateTime);
+
+                // Validación visual y corrección automática
+                fechaInput.addEventListener("input", function() {
+                    const selected = new Date(this.value);
+                    if (selected.getHours() < horasMin || selected.getHours() >= horasMax) {
+                        this.style.border = "2px solid red";
+                    } else {
+                        this.style.border = "";
+                    }
+
+                    if (selected < minDateTime) this.value = formatDateTime(minDateTime);
+                    if (selected > maxDateTime) this.value = formatDateTime(maxDateTime);
+                });
+            });
+
+            document.addEventListener("DOMContentLoaded", function() {
+                const fechaInput = document.getElementById("floatingFechaLlegada");
+                const now = new Date();
+                let minDateTime, maxDateTime;
+
+                const horasMin = 6; // 6:00 AM
+                const horasMax = 18; // 6:00 PM
+
+                // Si ya pasó la hora máxima de hoy, arrancamos desde mañana a las 6 AM
+                if (now.getHours() >= horasMax) {
+                    minDateTime = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, horasMin, 0);
+                } else if (now.getHours() < horasMin) {
+                    minDateTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), horasMin, 0);
+                } else {
+                    minDateTime = now;
+                }
+
+                // Máximo: 10 días desde minDateTime, hasta las 6 PM
+                maxDateTime = new Date(minDateTime.getFullYear(), minDateTime.getMonth(), minDateTime.getDate() + 10,
+                    horasMax, 0);
+
+                // Formato correcto para datetime-local (YYYY-MM-DDTHH:mm)
+                const formatDateTime = (date) => {
+                    return date.toISOString().slice(0, 16);
+                };
+
+                fechaInput.min = formatDateTime(minDateTime);
+                fechaInput.max = formatDateTime(maxDateTime);
+
+                // Validación visual y corrección automática
+                fechaInput.addEventListener("input", function() {
+                    const selected = new Date(this.value);
+                    if (selected.getHours() < horasMin || selected.getHours() >= horasMax) {
+                        this.style.border = "2px solid red";
+                    } else {
+                        this.style.border = "";
+                    }
+
+                    if (selected < minDateTime) this.value = formatDateTime(minDateTime);
+                    if (selected > maxDateTime) this.value = formatDateTime(maxDateTime);
+                });
+            });
+
+            $('#si_puerto').click(function() {
+                if ($(this).is(':checked')) {
+                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', true);
+                    $('.salida_puerto').slideDown();
+                }
+            });
+            $('#no_puerto').click(function() {
+                if ($(this).is(':checked')) {
+                    $('.salida_puerto').slideUp();
+                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', false);
+                }
+            });
+
+            $('#si_llegapuerto').click(function() {
+                if ($(this).is(':checked')) {
+                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', true);
+                    $('.llegada_puerto').slideDown();
+                }
+            });
+            $('#no_llegapuerto').click(function() {
+                if ($(this).is(':checked')) {
+                    $('.llegada_puerto').slideUp();
+                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', false);
+                }
             });
         </script>
     @endpush
