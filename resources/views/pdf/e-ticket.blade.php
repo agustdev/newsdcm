@@ -6,8 +6,8 @@
         <title>DOCUMENTO E-CLEREANCE {{ $entrada->nombre }}, {{ $entrada->vcode }}</title>
         <style>
             @page {
-                size: 10cm 17cm;
-                /* margin: 0px 0px 0px 0px !important; */
+                size: 14cm 20cm;
+                margin: 30px 0px 0px 0px !important;
                 padding: 0px 0px 0px 0px !important;
             }
 
@@ -33,9 +33,11 @@
     <body>
         <div class="informacion">
             <div>
-                <strong style="font-size: 55px;">ARMADA DE REPÚBLICA DOMINICANA</strong><br><br>
-                <strong style="font-size: 45px;">COMANDO NAVAL DE CAPITANIAS DE PUERTOS Y AUTORIDAD
-                    MARITIMA</strong><br><br>
+                <img src="{{ asset('images/logo-ard-new.png') }}" alt="" width="250"><br>
+                <strong>REPÚBLICA DOMINICANA</strong><br>
+                <strong style="font-size: 40PX;">"COMANDO NAVAL DE CAPITANIAS DE PUERTOS Y AUTORIDAD
+                    MARITIMA"</strong><br>
+                <div style="font-size: 45px;">ARMADA DE REPÚBLICA DOMINICANA</div><br>
                 <strong style="font-size: 45px;">SISTEMA CONDUCE Y DESPACHO DE EMBARCACIONES</strong><br>
                 <strong>(DESPACHORD)</strong>
             </div>
@@ -44,7 +46,7 @@
         </div>
         <div class="qr">
             <img src="data:image/svg+xml;base64,{{ base64_encode(QrCode::size(300)->generate(route('verificacion.solicitud.internacional', $entrada))) }}"
-                width="250">
+                width="300">
             <p>
                 <strong>CODIGO: {{ $entrada->vcode }}</strong>
             </p>
@@ -55,9 +57,16 @@
             NUMERO CASCO: {{ $entrada->numero_casco }}<br>
             COLOR: {{ $entrada->color }}<br>
             PAIS DE PROCEDENCIA: {{ $entrada->capitan_internacional->pais_procedencia }}<br>
+            CAPITAN: {{ $entrada->capitan_internacional->nombre }}<br>
+            @if ($entrada->capitan_internacional->tipo_documento == 'Pasaporte')
+                NUMERO DE PASAPORTE: {{ $entrada->capitan_internacional->documento }}<br>
+            @else
+                NUMERO DE CEDULA: {{ $entrada->capitan_internacional->documento }}<br>
+            @endif
+            NUMERO DE TELEFONO: {{ $entrada->capitan_internacional->telefono }}<br>
+            FECHA DE LLEGADA: {{ $entrada->fecha->format('d-m-Y') }}<br>
             PUERTO LLEGADA: {{ $entrada->capitan_internacional->lugar_destino }}<br>
-            PAIS DESTINO: REPUBLICA DOMINICANA<br>
-            PUERTO DE LLEGADA: {{ $entrada->capitan_internacional->lugar_destino }}<br>
+            PAIS DESTINO: REPUBLICA DOMINICANA
         </div>
     </body>
 

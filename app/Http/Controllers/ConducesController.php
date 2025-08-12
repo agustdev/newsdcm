@@ -50,8 +50,9 @@ class ConducesController extends Controller
         $embarcacion = auth()->user()->embarcaciones->where('matricula', '=', $matricula)->first();
         $ultimo_mov = auth()->user()->movimientos()->orderBy('id', 'DESC')->first();
         $provincias = Provincias::all();
+        $destinos = Destinos::all();
 
-        return view('movimientos.conduces.create_post', compact('ultimo_mov', 'embarcacion', 'provincias'));
+        return view('movimientos.conduces.create_post', compact('ultimo_mov', 'embarcacion', 'provincias', 'destinos'));
     }
 
     /**

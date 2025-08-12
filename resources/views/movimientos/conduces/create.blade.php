@@ -765,90 +765,272 @@
         </script>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                const fechaInput = document.getElementById("floatingFechaSalida");
-                const now = new Date();
-                let minDateTime, maxDateTime;
+            document.addEventListener('DOMContentLoaded', function() {
+                const fechaInput = document.getElementById('floatingFechaSalida');
+                const horasMin = 6; // 06:00
+                const horasMax = 18; // 18:00 (permitimos exactamente 18:00, minutos > 0 no)
 
-                const horasMin = 6; // 6:00 AM
-                const horasMax = 18; // 6:00 PM
+                // CONFIG: Cambia esto según prefieras:
+                // - preventPastSelections = true  -> min será "ahora" si estamos entre 06:00-18:00 (evita seleccionar horas pasadas del día)
+                // - preventPastSelections = false -> min será hoy 06:00 (si estamos antes de 18:00), permitiendo elegir horas desde las 06:00.
+                const preventPastSelections =
+                    false; // <--- cambia a `true` si quieres forzar min = ahora cuando estemos dentro del rango
+                const autoCorrectOnInvalid =
+                    true; // <--- si true corrige automáticamente a la hora permitida más cercana
 
-                // Si ya pasó la hora máxima de hoy, arrancamos desde mañana a las 6 AM
-                if (now.getHours() >= horasMax) {
-                    minDateTime = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, horasMin, 0);
-                } else if (now.getHours() < horasMin) {
-                    minDateTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), horasMin, 0);
-                } else {
-                    minDateTime = now;
+                const pad = (n) => String(n).padStart(2, '0');
+
+                // Formatea una Date (local) a "YYYY-MM-DDTHH:mm" evitando toISOString() que introduce offsets UTC.
+                function formatLocalDate(d) {
+                    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
                 }
 
-                // Máximo: 10 días desde minDateTime, hasta las 6 PM
-                maxDateTime = new Date(minDateTime.getFullYear(), minDateTime.getMonth(), minDateTime.getDate() + 10,
-                    horasMax, 0);
+                const now = new Date();
+                let minDate, maxDate;
 
-                // Formato correcto para datetime-local (YYYY-MM-DDTHH:mm)
-                const formatDateTime = (date) => {
-                    return date.toISOString().slice(0, 16);
-                };
+                // Lógica para minDate:
+                // - Si ya pasó la hora máxima de hoy (>= 18), min = mañana 06:00
+                // - Si preventPastSelections && estamos entre 06 y 18 => min = ahora
+                // - En otro caso => min = hoy 06:00
+                if (now.getHours() >= horasMax) {
+                    minDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, horasMin, 0, 0, 0);
+                } else if (preventPastSelections && now.getHours() >= horasMin) {
+                    // min = ahora (se respeta minutos actuales)
+                    minDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now
+                        .getMinutes(), 0, 0);
+                } else {
+                    // min = hoy 06:00
+                    minDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), horasMin, 0, 0, 0);
+                }
 
-                fechaInput.min = formatDateTime(minDateTime);
-                fechaInput.max = formatDateTime(maxDateTime);
+                // Max: 10 días desde minDate, con hora hasta 18:00
+                maxDate = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate() + 10, horasMax, 0, 0,
+                    0);
 
-                // Validación visual y corrección automática
-                fechaInput.addEventListener("input", function() {
-                    const selected = new Date(this.value);
-                    if (selected.getHours() < horasMin || selected.getHours() >= horasMax) {
-                        this.style.border = "2px solid red";
-                    } else {
-                        this.style.border = "";
+                fechaInput.min = formatLocalDate(minDate);
+                fechaInput.max = formatLocalDate(maxDate);
+
+                // Parseo manual "YYYY-MM-DDTHH:mm" a objeto para evitar conversiones de zona
+                function parseDateTimeLocal(str) {
+                    if (!str) return null;
+                    const [datePart, timePart] = str.split('T');
+                    if (!datePart || !timePart) return null;
+                    const [y, m, d] = datePart.split('-').map(Number);
+                    const [h, mi] = timePart.split(':').map(Number);
+                    return {
+                        y,
+                        m,
+                        d,
+                        h,
+                        mi
+                    };
+                }
+
+                function formatObj(o) {
+                    return `${o.y}-${pad(o.m)}-${pad(o.d)}T${pad(o.h)}:${pad(o.mi)}`;
+                }
+
+                // Clamp a la franja horaria permitida y luego a min/max (devuelve string listo para asignar)
+                function clampToAllowed(obj) {
+                    // clampa horas al rango 06:00 - 18:00 (18:00 permitido con minutos = 0)
+                    if (obj.h < horasMin) {
+                        obj.h = horasMin;
+                        obj.mi = 0;
+                    } else if (obj.h > horasMax || (obj.h === horasMax && obj.mi > 0)) {
+                        obj.h = horasMax;
+                        obj.mi = 0;
                     }
 
-                    if (selected < minDateTime) this.value = formatDateTime(minDateTime);
-                    if (selected > maxDateTime) this.value = formatDateTime(maxDateTime);
+                    const s = formatObj(obj);
+                    if (fechaInput.min && s < fechaInput.min) return fechaInput.min;
+                    if (fechaInput.max && s > fechaInput.max) return fechaInput.max;
+                    return s;
+                }
+
+                // Chequeo principal: si está fuera de la ventana 06:00-18:00 o fuera de min/max
+                function isOutsideAllowed(str) {
+                    if (!str) return false;
+                    const o = parseDateTimeLocal(str);
+                    if (!o) return false;
+                    if (o.h < horasMin) return true;
+                    if (o.h > horasMax) return true;
+                    if (o.h === horasMax && o.mi > 0) return true; // 18:01 no permitido
+                    if (fechaInput.min && str < fechaInput.min) return true;
+                    if (fechaInput.max && str > fechaInput.max) return true;
+                    return false;
+                }
+
+                fechaInput.addEventListener('input', function() {
+                    const val = this.value;
+                    if (!val) {
+                        this.classList.remove('is-invalid');
+                        return;
+                    }
+
+                    if (isOutsideAllowed(val)) {
+                        this.classList.add('is-invalid');
+                        if (autoCorrectOnInvalid) {
+                            const obj = parseDateTimeLocal(val);
+                            const corrected = clampToAllowed(obj);
+                            if (corrected && corrected !== val) {
+                                this.value = corrected; // asigna string corregido
+                            }
+                            // si con la corrección queda válido, quitar el error visual
+                            if (!isOutsideAllowed(this.value)) this.classList.remove('is-invalid');
+                        }
+                    } else {
+                        this.classList.remove('is-invalid');
+                    }
                 });
+
+                // Validación final en submit
+                if (fechaInput.form) {
+                    fechaInput.form.addEventListener('submit', function(e) {
+                        const v = fechaInput.value;
+                        if (!v || isOutsideAllowed(v)) {
+                            e.preventDefault();
+                            alert(
+                                'La fecha y hora deben estar entre 06:00 y 18:00 y dentro del rango permitido.'
+                            );
+                        }
+                    });
+                }
+
+                // FIN
             });
 
-            document.addEventListener("DOMContentLoaded", function() {
-                const fechaInput = document.getElementById("floatingFechaLlegada");
-                const now = new Date();
-                let minDateTime, maxDateTime;
+            document.addEventListener('DOMContentLoaded', function() {
+                const fechaInput = document.getElementById('floatingFechaLlegada');
+                const horasMin = 6; // 06:00
+                const horasMax = 18; // 18:00 (permitimos exactamente 18:00, minutos > 0 no)
 
-                const horasMin = 6; // 6:00 AM
-                const horasMax = 18; // 6:00 PM
+                // CONFIG: Cambia esto según prefieras:
+                // - preventPastSelections = true  -> min será "ahora" si estamos entre 06:00-18:00 (evita seleccionar horas pasadas del día)
+                // - preventPastSelections = false -> min será hoy 06:00 (si estamos antes de 18:00), permitiendo elegir horas desde las 06:00.
+                const preventPastSelections =
+                    false; // <--- cambia a `true` si quieres forzar min = ahora cuando estemos dentro del rango
+                const autoCorrectOnInvalid =
+                    true; // <--- si true corrige automáticamente a la hora permitida más cercana
 
-                // Si ya pasó la hora máxima de hoy, arrancamos desde mañana a las 6 AM
-                if (now.getHours() >= horasMax) {
-                    minDateTime = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, horasMin, 0);
-                } else if (now.getHours() < horasMin) {
-                    minDateTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), horasMin, 0);
-                } else {
-                    minDateTime = now;
+                const pad = (n) => String(n).padStart(2, '0');
+
+                // Formatea una Date (local) a "YYYY-MM-DDTHH:mm" evitando toISOString() que introduce offsets UTC.
+                function formatLocalDate(d) {
+                    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
                 }
 
-                // Máximo: 10 días desde minDateTime, hasta las 6 PM
-                maxDateTime = new Date(minDateTime.getFullYear(), minDateTime.getMonth(), minDateTime.getDate() + 10,
-                    horasMax, 0);
+                const now = new Date();
+                let minDate, maxDate;
 
-                // Formato correcto para datetime-local (YYYY-MM-DDTHH:mm)
-                const formatDateTime = (date) => {
-                    return date.toISOString().slice(0, 16);
-                };
+                // Lógica para minDate:
+                // - Si ya pasó la hora máxima de hoy (>= 18), min = mañana 06:00
+                // - Si preventPastSelections && estamos entre 06 y 18 => min = ahora
+                // - En otro caso => min = hoy 06:00
+                if (now.getHours() >= horasMax) {
+                    minDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, horasMin, 0, 0, 0);
+                } else if (preventPastSelections && now.getHours() >= horasMin) {
+                    // min = ahora (se respeta minutos actuales)
+                    minDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now
+                        .getMinutes(), 0, 0);
+                } else {
+                    // min = hoy 06:00
+                    minDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), horasMin, 0, 0, 0);
+                }
 
-                fechaInput.min = formatDateTime(minDateTime);
-                fechaInput.max = formatDateTime(maxDateTime);
+                // Max: 10 días desde minDate, con hora hasta 18:00
+                maxDate = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate() + 10, horasMax, 0, 0,
+                    0);
 
-                // Validación visual y corrección automática
-                fechaInput.addEventListener("input", function() {
-                    const selected = new Date(this.value);
-                    if (selected.getHours() < horasMin || selected.getHours() >= horasMax) {
-                        this.style.border = "2px solid red";
-                    } else {
-                        this.style.border = "";
+                fechaInput.min = formatLocalDate(minDate);
+                fechaInput.max = formatLocalDate(maxDate);
+
+                // Parseo manual "YYYY-MM-DDTHH:mm" a objeto para evitar conversiones de zona
+                function parseDateTimeLocal(str) {
+                    if (!str) return null;
+                    const [datePart, timePart] = str.split('T');
+                    if (!datePart || !timePart) return null;
+                    const [y, m, d] = datePart.split('-').map(Number);
+                    const [h, mi] = timePart.split(':').map(Number);
+                    return {
+                        y,
+                        m,
+                        d,
+                        h,
+                        mi
+                    };
+                }
+
+                function formatObj(o) {
+                    return `${o.y}-${pad(o.m)}-${pad(o.d)}T${pad(o.h)}:${pad(o.mi)}`;
+                }
+
+                // Clamp a la franja horaria permitida y luego a min/max (devuelve string listo para asignar)
+                function clampToAllowed(obj) {
+                    // clampa horas al rango 06:00 - 18:00 (18:00 permitido con minutos = 0)
+                    if (obj.h < horasMin) {
+                        obj.h = horasMin;
+                        obj.mi = 0;
+                    } else if (obj.h > horasMax || (obj.h === horasMax && obj.mi > 0)) {
+                        obj.h = horasMax;
+                        obj.mi = 0;
                     }
 
-                    if (selected < minDateTime) this.value = formatDateTime(minDateTime);
-                    if (selected > maxDateTime) this.value = formatDateTime(maxDateTime);
+                    const s = formatObj(obj);
+                    if (fechaInput.min && s < fechaInput.min) return fechaInput.min;
+                    if (fechaInput.max && s > fechaInput.max) return fechaInput.max;
+                    return s;
+                }
+
+                // Chequeo principal: si está fuera de la ventana 06:00-18:00 o fuera de min/max
+                function isOutsideAllowed(str) {
+                    if (!str) return false;
+                    const o = parseDateTimeLocal(str);
+                    if (!o) return false;
+                    if (o.h < horasMin) return true;
+                    if (o.h > horasMax) return true;
+                    if (o.h === horasMax && o.mi > 0) return true; // 18:01 no permitido
+                    if (fechaInput.min && str < fechaInput.min) return true;
+                    if (fechaInput.max && str > fechaInput.max) return true;
+                    return false;
+                }
+
+                fechaInput.addEventListener('input', function() {
+                    const val = this.value;
+                    if (!val) {
+                        this.classList.remove('is-invalid');
+                        return;
+                    }
+
+                    if (isOutsideAllowed(val)) {
+                        this.classList.add('is-invalid');
+                        if (autoCorrectOnInvalid) {
+                            const obj = parseDateTimeLocal(val);
+                            const corrected = clampToAllowed(obj);
+                            if (corrected && corrected !== val) {
+                                this.value = corrected; // asigna string corregido
+                            }
+                            // si con la corrección queda válido, quitar el error visual
+                            if (!isOutsideAllowed(this.value)) this.classList.remove('is-invalid');
+                        }
+                    } else {
+                        this.classList.remove('is-invalid');
+                    }
                 });
+
+                // Validación final en submit
+                if (fechaInput.form) {
+                    fechaInput.form.addEventListener('submit', function(e) {
+                        const v = fechaInput.value;
+                        if (!v || isOutsideAllowed(v)) {
+                            e.preventDefault();
+                            alert(
+                                'La fecha y hora deben estar entre 06:00 y 18:00 y dentro del rango permitido.'
+                                );
+                        }
+                    });
+                }
+
+                // FIN
             });
 
             $('#si_puerto').click(function() {

@@ -171,6 +171,13 @@
                             DATOS DEL VEHÍCULO</span>
                         <div class="col-md">
                             <div class="form-floating">
+                                <input type="text" class="form-control placa rounded-md" id="floatingPlaca"
+                                    placeholder="PLACA" name="placa" />
+                                <label style="font-size: 10px;" for="floatingPlaca">PLACA</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating">
                                 <input type="text" class="form-control marca rounded-md" id="floatingMarcaModelo"
                                     placeholder="NOMBRE DE LA EMBARCACIÓN" name="marca" required />
                                 <label style="font-size: 10px;" for="floatingMarcaModelo">MARCA Y MODELO</label>
@@ -188,13 +195,6 @@
                                 <input type="text" class="form-control year rounded-md" id="floatingYear"
                                     placeholder="AÑO" name="year" />
                                 <label style="font-size: 10px;" for="floatingYear">AÑO</label>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating">
-                                <input type="text" class="form-control placa rounded-md" id="floatingPlaca"
-                                    placeholder="PLACA" name="placa" />
-                                <label style="font-size: 10px;" for="floatingPlaca">PLACA</label>
                             </div>
                         </div>
                     </div>
@@ -224,43 +224,87 @@
                 </div>
 
                 <div class="card-body">
-                    <div class="row g-2">
+                    <div class="row">
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="datetime-local" class="form-control rounded-md" id="floatingFechaSalida"
-                                    placeholder="FECHA Y HORA DE SALIDA" name="fecha_salida"
-                                    min="{{ date('Y-m-d') . 'T' . date('h:i') }}"
-                                    max="{{ date('Y-m-d', strtotime('+10 Days')) . 'T' . date('h:i') }}" />
+                                    placeholder="FECHA SALIDA" name="fecha_salida"
+                                    min="{{ date('Y-m-d') . 'T06:00' }}"
+                                    max="{{ date('Y-m-d', strtotime('+10 Days')) . 'T06:00' }}" />
                                 <label style="font-size: 10px;"
-                                    for="floatingFechaSalida">{{ __('FECHA Y HORA DE SALIDA') }}</label>
+                                    for="floatingFechaSalida">{{ __('FECHA SALIDA') }}</label>
                             </div>
                         </div>
+                        <div class="col-md">
+                            <div class="">
+                                <h3 class="mb-2 mt-2 bold text-black">¿{{ __('ESTA SALIENDO DE PUERTO') }}?</h3>
+                                <input type="radio" name='salpuerto' id="si_puerto" value="Si"
+                                    class="w-4 h-4 text-blue-900 bg-gray-100 border-gray-300 focus:ring-blue-600  focus:ring-2 ">
+                                <label for="no_puerto">{{ __('Si') }}</label>
+                                <input type="radio" name='salpuerto' id="no_puerto" value="No" checked
+                                    class="w-4 h-4 text-blue-900 bg-gray-100 border-gray-300 focus:ring-blue-600 focus:ring-2 ">
+                                <label for="armas_no">{{ __('No') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="salida_puerto hidden">
+                                <div class="form-floating mb-2">
+                                    <select class="form-select rounded-md" name="lugar_salida"
+                                        id="floatingSelectLugarSalida">
+                                        <option>- {{ __('Seleccione') }} -</option>
+                                        @foreach ($destinos as $dest)
+                                            @if ($dest->id != 13)
+                                                <option
+                                                    value="{{ $dest->id }}|{{ strtoupper($dest->descripcion) }}">
+                                                    {{ strtoupper($dest->descripcion) }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                    <label style="font-size: 10px;"
+                                        for="floatingSelectLugarSalida">{{ __('LUGAR SALIDA') }}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="salida_puerto hidden">
+                                <div class="form-floating mb-2">
+                                    <select class="form-select rounded-md" name="detalle_salida"
+                                        id="floatingSelectLugarSalidaEspecifico">
+                                        <option>- {{ __('Seleccione') }} -</option>
+                                    </select>
+                                    <label style="font-size: 10px;"
+                                        for="floatingSelectLugarSalidaEspecifico">{{ __('LUGAR SALIDA ESPECIFICO') }}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select rounded-md" name="provinciasalida"
                                     id="floatingSelectProvinciaSalida">
-                                    <option>- Seleccione -</option>
+                                    <option>- {{ __('Seleccione') }} -</option>
                                     @foreach ($provincias as $prov)
                                         <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
                                             {{ $prov->descripcion }}
                                         </option>
                                     @endforeach
                                 </select>
-                                <label style="font-size: 10px;" for="floatingSelectProvinciaSalida">PROVINCIA
-                                    SALIDA</label>
+                                <label style="font-size: 10px;"
+                                    for="floatingSelectProvinciaSalida">{{ __('PROVINCIA SALIDA') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select rounded-md" name="municipiosalida"
                                     id="floatingSelectMunicipioSalida">
-                                    <option>- Seleccione -</option>
+                                    <option>- {{ __('Seleccione') }} -</option>
                                 </select>
-                                <label style="font-size: 10px;" for="floatingSelectMunicipioSalida">MUNICIPIO</label>
+                                <label style="font-size: 10px;"
+                                    for="floatingSelectMunicipioSalida">{{ __('MUNICIPIO') }}</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <input type="text" class="form-control rounded-md" id="floatingCalle"
@@ -297,55 +341,109 @@
                 </div>
 
                 <div class="card-body">
-                    <div class="row g-2">
+                    <div class="row">
                         <div class="col-md">
-                            <div class="form-floating mb-1">
+                            <div class="form-floating mb-2">
+                                <input type="datetime-local" class="form-control rounded-md"
+                                    id="floatingFechaLlegada" placeholder="FECHA" name="fecha_llegada"
+                                    min="{{ date('Y-m-d') . 'T' . date('h:i') }}"
+                                    max="{{ date('Y-m-d', strtotime('+10 Days')) . 'T' . date('h:i') }}" />
+                                <label style="font-size: 10px;"
+                                    for="floatingFechaLlegada">{{ __('FECHA Y HORA DE LLEGADA') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
                                 <select class="form-select rounded-md" name="provincia" id="floatingSelectProvincia">
-                                    <option>- Seleccione -</option>
+                                    <option>- {{ __('Seleccione') }} -</option>
                                     @foreach ($provincias as $prov)
                                         <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
                                             {{ $prov->descripcion }}
                                         </option>
                                     @endforeach
                                 </select>
-                                <label style="font-size: 10px;" style="font-size: 10px;"
-                                    for="floatingSelectProvincia">PROVINCIA</label>
+                                <label style="font-size: 10px;"
+                                    for="floatingSelectProvincia">{{ __('PROVINCIA') }}</label>
                             </div>
                         </div>
-
                         <div class="col-md">
-                            <div class="form-floating mb-1">
+                            <div class="form-floating mb-2">
                                 <select class="form-select rounded-md" name="municipio" id="floatingSelectMunicipio">
-                                    <option>- Seleccione -</option>
+                                    <option>- {{ __('Seleccione') }} -</option>
                                 </select>
-                                <label style="font-size: 10px;" style="font-size: 10px;"
-                                    for="floatingSelectMunicipio">MUNICIPIO</label>
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control rounded-md" id="floatingSector"
-                                    placeholder="SECTOR" name="sector" />
-                                <label style="font-size: 10px;" style="font-size: 10px;"
-                                    for="floatingSector">SECTOR</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-md">
-                            <div class="form-floating mb-2">
-                                <input type="text" class="form-control rounded-md" id="floatingCalle"
-                                    placeholder="CALLE" name="calle" />
-                                <label style="font-size: 10px;" for="floatingCalle">CALLE</label>
+                                <label style="font-size: 10px;"
+                                    for="floatingSelectMunicipio">{{ __('MUNICIPIO') }}</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md">
-                            <div class="form-floating">
+                            <div class="">
+                                <h3 class="mb-2 mt-2 bold text-black">¿{{ __('LLEGARA A PUERTO') }}?</h3>
+                                <input type="radio" name='llegapuerto' id="si_llegapuerto" value="Si"
+                                    class="w-4 h-4 text-blue-900 bg-gray-100 border-gray-300 focus:ring-blue-600  focus:ring-2 ">
+                                <label for="no_puerto">{{ __('Si') }}</label>
+                                <input type="radio" name='llegapuerto' id="no_llegapuerto" value="No" checked
+                                    class="w-4 h-4 text-blue-900 bg-gray-100 border-gray-300 focus:ring-blue-600 focus:ring-2 ">
+                                <label for="armas_no">{{ __('No') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="llegada_puerto hidden">
+                                <div class="form-floating mb-2">
+                                    <select class="form-select rounded-md" name="lugar_destino"
+                                        id="floatingSelectDestino" required>
+                                        <option>-{{ __('Seleccione') }}-</option>
+                                        @foreach ($destinos as $dest)
+                                            @if ($dest->id != 13)
+                                                <option
+                                                    value="{{ $dest->id }}|{{ strtoupper($dest->descripcion) }}">
+                                                    {{ strtoupper($dest->descripcion) }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                    <label style="font-size: 10px;"
+                                        for="floatingSelectDestino">{{ __('LUGAR DESTINO') }}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="llegada_puerto hidden">
+                                <div class="form-floating mb-2">
+                                    <select class="form-select rounded-md" name="detalle_destino"
+                                        id="floatingSelectPerimetro">
+                                        <option value="">-{{ __('Seleccione') }}-</option>
+                                    </select>
+                                    <label style="font-size: 10px;"
+                                        for="floatingSelectPerimetro">{{ __('LUGAR DE DESTINO ESPECIFICO') }}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="text" class="form-control rounded-md" id="floatingSector"
+                                    placeholder="{{ __('SECTOR') }}" name="sector" />
+                                <label style="font-size: 10px;" for="floatingSector">{{ __('SECTOR') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
+                                <input type="text" class="form-control rounded-md" id="floatingCalle"
+                                    placeholder="{{ __('DIRECCION') }}" name="calle" />
+                                <label style="font-size: 10px;" for="floatingCalle">{{ __('DIRECCION') }}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-floating mb-2">
                                 <input type="text" class="form-control rounded-md" id="floatinObservacion"
                                     placeholder="OBSERVACIÓN" name="observacion" />
-                                <label style="font-size: 10px;" for="floatinObservacion">OBSERVACIÓN</label>
+                                <label style="font-size: 10px;"
+                                    for="floatinObservacion">{{ __('OBSERVACIÓN') }}</label>
                             </div>
                         </div>
                     </div>
@@ -491,8 +589,9 @@
                 }
             });
 
-            $('input').prop('required', true);
+            $('input[type=text], input[type=datetime-local]').prop('required', true);
             $('select').prop('required', true);
+            $('#floatinObservacion').prop('required', false);
 
             $('[required]').css({
                 'border-left': '2px solid red'
@@ -506,6 +605,301 @@
                 $('.telefono1, .telefono2').mask('(000) 000-0000', {
                     placeholder: '(000) 000-0000'
                 });
+            });
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const fechaInput = document.getElementById('floatingFechaSalida');
+                const horasMin = 6; // 06:00
+                const horasMax = 18; // 18:00 (permitimos exactamente 18:00, minutos > 0 no)
+
+                // CONFIG: Cambia esto según prefieras:
+                // - preventPastSelections = true  -> min será "ahora" si estamos entre 06:00-18:00 (evita seleccionar horas pasadas del día)
+                // - preventPastSelections = false -> min será hoy 06:00 (si estamos antes de 18:00), permitiendo elegir horas desde las 06:00.
+                const preventPastSelections =
+                    false; // <--- cambia a `true` si quieres forzar min = ahora cuando estemos dentro del rango
+                const autoCorrectOnInvalid =
+                    true; // <--- si true corrige automáticamente a la hora permitida más cercana
+
+                const pad = (n) => String(n).padStart(2, '0');
+
+                // Formatea una Date (local) a "YYYY-MM-DDTHH:mm" evitando toISOString() que introduce offsets UTC.
+                function formatLocalDate(d) {
+                    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+                }
+
+                const now = new Date();
+                let minDate, maxDate;
+
+                // Lógica para minDate:
+                // - Si ya pasó la hora máxima de hoy (>= 18), min = mañana 06:00
+                // - Si preventPastSelections && estamos entre 06 y 18 => min = ahora
+                // - En otro caso => min = hoy 06:00
+                if (now.getHours() >= horasMax) {
+                    minDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, horasMin, 0, 0, 0);
+                } else if (preventPastSelections && now.getHours() >= horasMin) {
+                    // min = ahora (se respeta minutos actuales)
+                    minDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now
+                        .getMinutes(), 0, 0);
+                } else {
+                    // min = hoy 06:00
+                    minDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), horasMin, 0, 0, 0);
+                }
+
+                // Max: 10 días desde minDate, con hora hasta 18:00
+                maxDate = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate() + 10, horasMax, 0, 0,
+                    0);
+
+                fechaInput.min = formatLocalDate(minDate);
+                fechaInput.max = formatLocalDate(maxDate);
+
+                // Parseo manual "YYYY-MM-DDTHH:mm" a objeto para evitar conversiones de zona
+                function parseDateTimeLocal(str) {
+                    if (!str) return null;
+                    const [datePart, timePart] = str.split('T');
+                    if (!datePart || !timePart) return null;
+                    const [y, m, d] = datePart.split('-').map(Number);
+                    const [h, mi] = timePart.split(':').map(Number);
+                    return {
+                        y,
+                        m,
+                        d,
+                        h,
+                        mi
+                    };
+                }
+
+                function formatObj(o) {
+                    return `${o.y}-${pad(o.m)}-${pad(o.d)}T${pad(o.h)}:${pad(o.mi)}`;
+                }
+
+                // Clamp a la franja horaria permitida y luego a min/max (devuelve string listo para asignar)
+                function clampToAllowed(obj) {
+                    // clampa horas al rango 06:00 - 18:00 (18:00 permitido con minutos = 0)
+                    if (obj.h < horasMin) {
+                        obj.h = horasMin;
+                        obj.mi = 0;
+                    } else if (obj.h > horasMax || (obj.h === horasMax && obj.mi > 0)) {
+                        obj.h = horasMax;
+                        obj.mi = 0;
+                    }
+
+                    const s = formatObj(obj);
+                    if (fechaInput.min && s < fechaInput.min) return fechaInput.min;
+                    if (fechaInput.max && s > fechaInput.max) return fechaInput.max;
+                    return s;
+                }
+
+                // Chequeo principal: si está fuera de la ventana 06:00-18:00 o fuera de min/max
+                function isOutsideAllowed(str) {
+                    if (!str) return false;
+                    const o = parseDateTimeLocal(str);
+                    if (!o) return false;
+                    if (o.h < horasMin) return true;
+                    if (o.h > horasMax) return true;
+                    if (o.h === horasMax && o.mi > 0) return true; // 18:01 no permitido
+                    if (fechaInput.min && str < fechaInput.min) return true;
+                    if (fechaInput.max && str > fechaInput.max) return true;
+                    return false;
+                }
+
+                fechaInput.addEventListener('input', function() {
+                    const val = this.value;
+                    if (!val) {
+                        this.classList.remove('is-invalid');
+                        return;
+                    }
+
+                    if (isOutsideAllowed(val)) {
+                        this.classList.add('is-invalid');
+                        if (autoCorrectOnInvalid) {
+                            const obj = parseDateTimeLocal(val);
+                            const corrected = clampToAllowed(obj);
+                            if (corrected && corrected !== val) {
+                                this.value = corrected; // asigna string corregido
+                            }
+                            // si con la corrección queda válido, quitar el error visual
+                            if (!isOutsideAllowed(this.value)) this.classList.remove('is-invalid');
+                        }
+                    } else {
+                        this.classList.remove('is-invalid');
+                    }
+                });
+
+                // Validación final en submit
+                if (fechaInput.form) {
+                    fechaInput.form.addEventListener('submit', function(e) {
+                        const v = fechaInput.value;
+                        if (!v || isOutsideAllowed(v)) {
+                            e.preventDefault();
+                            alert(
+                                'La fecha y hora deben estar entre 06:00 y 18:00 y dentro del rango permitido.'
+                            );
+                        }
+                    });
+                }
+
+                // FIN
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const fechaInput = document.getElementById('floatingFechaLlegada');
+                const horasMin = 6; // 06:00
+                const horasMax = 18; // 18:00 (permitimos exactamente 18:00, minutos > 0 no)
+
+                // CONFIG: Cambia esto según prefieras:
+                // - preventPastSelections = true  -> min será "ahora" si estamos entre 06:00-18:00 (evita seleccionar horas pasadas del día)
+                // - preventPastSelections = false -> min será hoy 06:00 (si estamos antes de 18:00), permitiendo elegir horas desde las 06:00.
+                const preventPastSelections =
+                    false; // <--- cambia a `true` si quieres forzar min = ahora cuando estemos dentro del rango
+                const autoCorrectOnInvalid =
+                    true; // <--- si true corrige automáticamente a la hora permitida más cercana
+
+                const pad = (n) => String(n).padStart(2, '0');
+
+                // Formatea una Date (local) a "YYYY-MM-DDTHH:mm" evitando toISOString() que introduce offsets UTC.
+                function formatLocalDate(d) {
+                    return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+                }
+
+                const now = new Date();
+                let minDate, maxDate;
+
+                // Lógica para minDate:
+                // - Si ya pasó la hora máxima de hoy (>= 18), min = mañana 06:00
+                // - Si preventPastSelections && estamos entre 06 y 18 => min = ahora
+                // - En otro caso => min = hoy 06:00
+                if (now.getHours() >= horasMax) {
+                    minDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, horasMin, 0, 0, 0);
+                } else if (preventPastSelections && now.getHours() >= horasMin) {
+                    // min = ahora (se respeta minutos actuales)
+                    minDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now
+                        .getMinutes(), 0, 0);
+                } else {
+                    // min = hoy 06:00
+                    minDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), horasMin, 0, 0, 0);
+                }
+
+                // Max: 10 días desde minDate, con hora hasta 18:00
+                maxDate = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate() + 10, horasMax, 0, 0,
+                    0);
+
+                fechaInput.min = formatLocalDate(minDate);
+                fechaInput.max = formatLocalDate(maxDate);
+
+                // Parseo manual "YYYY-MM-DDTHH:mm" a objeto para evitar conversiones de zona
+                function parseDateTimeLocal(str) {
+                    if (!str) return null;
+                    const [datePart, timePart] = str.split('T');
+                    if (!datePart || !timePart) return null;
+                    const [y, m, d] = datePart.split('-').map(Number);
+                    const [h, mi] = timePart.split(':').map(Number);
+                    return {
+                        y,
+                        m,
+                        d,
+                        h,
+                        mi
+                    };
+                }
+
+                function formatObj(o) {
+                    return `${o.y}-${pad(o.m)}-${pad(o.d)}T${pad(o.h)}:${pad(o.mi)}`;
+                }
+
+                // Clamp a la franja horaria permitida y luego a min/max (devuelve string listo para asignar)
+                function clampToAllowed(obj) {
+                    // clampa horas al rango 06:00 - 18:00 (18:00 permitido con minutos = 0)
+                    if (obj.h < horasMin) {
+                        obj.h = horasMin;
+                        obj.mi = 0;
+                    } else if (obj.h > horasMax || (obj.h === horasMax && obj.mi > 0)) {
+                        obj.h = horasMax;
+                        obj.mi = 0;
+                    }
+
+                    const s = formatObj(obj);
+                    if (fechaInput.min && s < fechaInput.min) return fechaInput.min;
+                    if (fechaInput.max && s > fechaInput.max) return fechaInput.max;
+                    return s;
+                }
+
+                // Chequeo principal: si está fuera de la ventana 06:00-18:00 o fuera de min/max
+                function isOutsideAllowed(str) {
+                    if (!str) return false;
+                    const o = parseDateTimeLocal(str);
+                    if (!o) return false;
+                    if (o.h < horasMin) return true;
+                    if (o.h > horasMax) return true;
+                    if (o.h === horasMax && o.mi > 0) return true; // 18:01 no permitido
+                    if (fechaInput.min && str < fechaInput.min) return true;
+                    if (fechaInput.max && str > fechaInput.max) return true;
+                    return false;
+                }
+
+                fechaInput.addEventListener('input', function() {
+                    const val = this.value;
+                    if (!val) {
+                        this.classList.remove('is-invalid');
+                        return;
+                    }
+
+                    if (isOutsideAllowed(val)) {
+                        this.classList.add('is-invalid');
+                        if (autoCorrectOnInvalid) {
+                            const obj = parseDateTimeLocal(val);
+                            const corrected = clampToAllowed(obj);
+                            if (corrected && corrected !== val) {
+                                this.value = corrected; // asigna string corregido
+                            }
+                            // si con la corrección queda válido, quitar el error visual
+                            if (!isOutsideAllowed(this.value)) this.classList.remove('is-invalid');
+                        }
+                    } else {
+                        this.classList.remove('is-invalid');
+                    }
+                });
+
+                // Validación final en submit
+                if (fechaInput.form) {
+                    fechaInput.form.addEventListener('submit', function(e) {
+                        const v = fechaInput.value;
+                        if (!v || isOutsideAllowed(v)) {
+                            e.preventDefault();
+                            alert(
+                                'La fecha y hora deben estar entre 06:00 y 18:00 y dentro del rango permitido.'
+                            );
+                        }
+                    });
+                }
+
+                // FIN
+            });
+
+            $('#si_puerto').click(function() {
+                if ($(this).is(':checked')) {
+                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', true);
+                    $('.salida_puerto').slideDown();
+                }
+            });
+            $('#no_puerto').click(function() {
+                if ($(this).is(':checked')) {
+                    $('.salida_puerto').slideUp();
+                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', false);
+                }
+            });
+
+            $('#si_llegapuerto').click(function() {
+                if ($(this).is(':checked')) {
+                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', true);
+                    $('.llegada_puerto').slideDown();
+                }
+            });
+            $('#no_llegapuerto').click(function() {
+                if ($(this).is(':checked')) {
+                    $('.llegada_puerto').slideUp();
+                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', false);
+                }
             });
         </script>
     @endpush
