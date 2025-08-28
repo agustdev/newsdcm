@@ -193,7 +193,7 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select rounded-md" name="detalle_destino"
-                                    id="floatingSelectPerimetro">
+                                    id="floatingSelectPerimetro" required>
                                     <option>-{{ __('Seleccione') }}-</option>
                                 </select>
                                 <label style="font-size: 10px;"
@@ -241,18 +241,19 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="number" class="form-control rounded-md" id="floatingNombreEmbarcacion"
+                                <input type="number" class="form-control rounded-md" id="floatingCantidadNacionales"
                                     placeholder="CANTIDAD DE NACIONALES" name="cant_nacionales" value="0" />
                                 <label style="font-size: 10px;"
-                                    for="floatingNombreEmbarcacion">{{ __('CANTIDAD DE NACIONALES') }}</label>
+                                    for="floatingCantidadNacionales">{{ __('CANTIDAD DE NACIONALES') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="number" class="form-control rounded-md" id="floatinMatricula"
-                                    placeholder="CANTIDAD DE EXTRANJEROS" name="cant_extranjeros" value="0" />
+                                <input type="number" class="form-control rounded-md"
+                                    id="floatingCantidadExtranjeros" placeholder="CANTIDAD DE EXTRANJEROS"
+                                    name="cant_extranjeros" value="0" />
                                 <label style="font-size: 10px;"
-                                    for="floatinMatricula">{{ __('CANTIDAD DE EXTRANJEROS') }}</label>
+                                    for="floatingCantidadExtranjeros">{{ __('CANTIDAD DE EXTRANJEROS') }}</label>
                             </div>
                         </div>
                     </div>
@@ -262,7 +263,7 @@
                 <div class="card-header bg-blue-900">
                     <div class="text-white" role="alert">
                         <strong>{{ __('INFORMACIÓN DE TRIPULANTES Y PASAJEROS') }}</strong>
-                        <a href="#"
+                        <a download href="{{ asset('template/plantilla_pasajeros_tripulantes.xlsx') }}"
                             class="float-end px-2 py-1 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 transition ease-in-out duration-150 disabled:opacity-25"><i
                                 class="mdi mdi-download"></i> Descargar
                             plantilla</a>
@@ -279,8 +280,7 @@
                             <div class="form-floating mb-2">
                                 <input type="file" class="form-control rounded-md"
                                     id="floatinDocumentoTripulantes" placeholder="Cargar documento"
-                                    name="tripulantes" name="tripulantes" required
-                                    accept=".pdf,.png,.jpg,.csv,.xlsx" />
+                                    name="tripulantes" name="tripulantes" accept=".pdf,.png,.jpg,.csv,.xlsx" />
                                 <label style="font-size: 10px;"
                                     for="floatinDocumentoTripulantes">{{ __('Cargar documento') }}</label>
                             </div>
@@ -295,7 +295,7 @@
                         <div class="col-lg">
                             <div class="form-floating mb-2">
                                 <input type="file" class="form-control rounded-md" id="floatinDocumentoPasajeros"
-                                    placeholder="Cargar documento" name="pasajeros" name="pasajeros" required
+                                    placeholder="Cargar documento" name="pasajeros" name="pasajeros"
                                     accept=".pdf,.png,.jpg,.csv,.xlsx" />
                                 <label style="font-size: 10px;"
                                     for="floatinDocumentoPasajeros">{{ __('Cargar documento') }}</label>
@@ -332,7 +332,7 @@
                                 <select name="capitan" class="form-select rounded-md" id="" required>
                                     <option value="">- {{ __('Seleccione el capitan designado') }} -</option>
                                     @foreach ($capitanesreg as $capi)
-                                        <option value="{{ $capi->id }}">{{ $capi->nombre }}</option>
+                                        <option value="{{ $capi->documento }}">{{ $capi->nombre }}</option>
                                     @endforeach
                                 </select>
                                 <label style="font-size: 10px;"
@@ -494,12 +494,14 @@
                 }
             });
 
-            $('input').prop('required', true);
+            $('input[type=text], input[type=number], input[type=datetime-local]').prop('required', true);
             // $('select').prop('required', true);
 
             $('[required]').css({
                 'border-left': '2px solid red'
             });
+
+            $('input').addClass('uppercase');
         </script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
@@ -787,12 +789,74 @@
                             e.preventDefault();
                             alert(
                                 'La fecha y hora deben estar entre 06:00 y 18:00 y dentro del rango permitido.'
-                                );
+                            );
                         }
                     });
                 }
 
                 // FIN
+            });
+
+            // aplicar maximo de adultos y maximo de menores
+            document.addEventListener('DOMContentLoaded', function() {
+                // Obtén los campos principales
+                const pasajeros = document.getElementById('floatingCantidadPasajeros');
+                const tripulantes = document.getElementById('floatingCantidadTripulantes');
+
+                // Adultos y menores
+                const adultos = document.getElementById('floatingCantidadAdultos');
+                const menores = document.getElementById('floatingCantidadMenores');
+
+                // Extranjeros y nacionales
+                const extranjeros = document.getElementById('floatingCantidadExtranjeros');
+                const nacionales = document.getElementById('floatingCantidadNacionales');
+
+                // Función para obtener el total permitido
+                function obtenerMaxTotal() {
+                    const totalPasajeros = parseInt(pasajeros.value) || 0;
+                    const totalTripulantes = parseInt(tripulantes.value) || 0;
+                    return totalPasajeros + totalTripulantes;
+                }
+
+                // Función para actualizar adultos/menores
+                function actualizarAdultosMenores() {
+                    const maxTotal = obtenerMaxTotal();
+                    const adultosSeleccionados = parseInt(adultos.value) || 0;
+                    const maxMenores = Math.max(0, maxTotal - adultosSeleccionados);
+
+                    adultos.setAttribute('max', maxTotal);
+                    menores.setAttribute('max', maxMenores);
+
+                    if ((parseInt(menores.value) || 0) > maxMenores) {
+                        menores.value = maxMenores;
+                    }
+                }
+
+                // Función para actualizar extranjeros/nacionales
+                function actualizarExtranjerosNacionales() {
+                    const maxTotal = obtenerMaxTotal();
+                    const extranjerosSeleccionados = parseInt(extranjeros.value) || 0;
+                    const maxNacionales = Math.max(0, maxTotal - extranjerosSeleccionados);
+
+                    extranjeros.setAttribute('max', maxTotal);
+                    nacionales.setAttribute('max', maxNacionales);
+
+                    if ((parseInt(nacionales.value) || 0) > maxNacionales) {
+                        nacionales.value = maxNacionales;
+                    }
+                }
+
+                // Asignar eventos a todos los campos que afectan
+                [pasajeros, tripulantes, adultos, extranjeros].forEach(el =>
+                    el.addEventListener('input', () => {
+                        actualizarAdultosMenores();
+                        actualizarExtranjerosNacionales();
+                    })
+                );
+
+                // Inicializar al cargar
+                actualizarAdultosMenores();
+                actualizarExtranjerosNacionales();
             });
         </script>
     @endpush

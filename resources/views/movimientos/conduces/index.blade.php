@@ -42,7 +42,7 @@
                             @foreach ($conduces as $cond)
                                 <tr>
                                     <td>{{ $cond->id }}</td>
-                                    <td>{{ $cond->fecha->format('d-m-Y') }}</td>
+                                    <td>{{ $cond->fecha->format('d-m-Y h:i A') }}</td>
                                     <td>{{ $cond->matricula }}</td>
                                     <td>
                                         @if ($cond->estado == 'Aprobado')
@@ -67,6 +67,7 @@
                                     </td>
                                     <td>
                                         {{ $cond->created_at->format('d-m-Y h:i:s') }}
+
                                     </td>
                                     <td>
                                         <div class="tooltip-container">
@@ -78,7 +79,7 @@
                                             class="inline-flex items-center justify-center px-3 py-2 bg-yellow-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-500 active:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 transition ease-in-out duration-150 edit-desp disabled:opacity-25"
                                             title="Editar"><i class="uil-edit"></i></a> --}}
                                             @endif
-                                            @if (!in_array($cond->estado, $estados))
+                                            @if (!in_array($cond->estado, ['Cancelado', 'Rechazado']))
                                                 <form id="despacho-cancel"
                                                     action="{{ route('movimientos.conduces.destroy', $cond) }}"
                                                     method="POST" class="inline-block cancel">
@@ -86,7 +87,10 @@
                                                     @csrf
                                                     <button type="submit"
                                                         class="inline-flex items-center justify-center px-3 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150"
-                                                        title="Cancelar"><i class="mdi mdi-cancel"></i></button>
+                                                        style="display: {{ now()->diffInHours(\Carbon\Carbon::parse($cond->created_at)) >= 24 ? 'none' : 'block' }}"
+                                                        title="Cancelar"><i class="mdi mdi-cancel"> Cancelar</i>
+                                                        <input type="hidden" name="motivo_cancela" id="motivo_hidden">
+                                                    </button>
                                                 </form>
                                             @endif
                                         </div>
@@ -162,12 +166,29 @@
                 e.preventDefault();
                 Swal.fire({
                     title: '¿Estas seguro de anular esta solicitud?',
+                    html: '<p>Indique el motivo de la cancelación</p><textarea class="form-control uppercase" required name="motivo" id="motivo" cols="30" rows="5" placeholder="Motivo de la cancelación"></textarea>',
                     text: "¡Esta acción no podra ser revertida!",
                     showCancelButton: true,
                     confirmButtonColor: '#1089FF',
                     cancelButtonColor: '#DC2626',
                     confirmButtonText: '¡Si, anular!',
-                    cancelButtonText: 'Cancelar'
+                    cancelButtonText: 'Cancelar',
+                    showLoaderOnConfirm: true,
+                    didOpen: () => {
+                        const textarea = document.getElementById('motivo');
+                        const hidden = document.getElementById('motivo_hidden');
+
+                        if (textarea && hidden) {
+                            textarea.addEventListener('input', function() {
+                                hidden.value = this.value;
+                            });
+                        }
+                    },
+                    preConfirm: () => {
+                        if (document.getElementById('motivo').value == '') {
+                            Swal.showValidationMessage('Se require el motivo de la cancelacion');
+                        }
+                    }
                 }).then((result) => {
                     if (result.isConfirmed) {
                         this.submit();

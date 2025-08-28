@@ -86,14 +86,14 @@ class DespachosController extends Controller
         $destino = explode("|", $request->lugar_destino);
         // dd($embarcacion);
         $mov = Movimientos::create([
-            'matricula' => $request->matricula,
-            'numero_casco' => $request->numero_casco,
-            'nombre' => $request->nombre,
-            'color' => $request->color,
+            'matricula' => $request->matricula ?? 'N/A',
+            'numero_casco' => $request->numero_casco ?? 'N/A',
+            'nombre' => $request->nombre ?? 'N/A',
+            'color' => $request->color ?? 'N/A',
             'fecha' => $request->fecha,
-            'marca_modelo_motor' => $request->marca_modelo_motor,
-            'caballos_fuerza_motor' => $request->caballos_fuerza_motor,
-            'no_motor' => $request->no_motor,
+            'marca_modelo_motor' => $request->marca_modelo_motor ?? 'N/A',
+            'caballos_fuerza_motor' => $request->caballos_fuerza_motor ?? 'N/A',
+            'no_motor' => $request->no_motor ?? 0,
             'tipo_movimiento' => 'D',
             'estado' => 'Enviado',
             'estado_alerta' => 'N/A',
@@ -202,14 +202,15 @@ class DespachosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Movimientos $despacho)
+    public function destroy(Movimientos $despacho, Request $request)
     {
         $embarcacion = Embarcaciones::where('matricula', '=', $despacho->matricula)->first();
         $embarcacion->update([
             'estado_movimiento' => 0 //Solicitud cerrada
         ]);
         $despacho->update([
-            'estado' => 'Cancelado'
+            'estado' => 'Cancelado',
+            'motivo_cancela' => $request->motivo_cancela
         ]);
         return redirect()->route('movimientos.despachos.index')->with('cancel', 'Solicitud creada con exito.');
     }

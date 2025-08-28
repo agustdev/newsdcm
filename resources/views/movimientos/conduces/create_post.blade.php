@@ -117,10 +117,10 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select tipo_documento rounded-md" name="tipo_documento"
-                                    id="floatingSelect">
+                                    id="floatingSelect" required>
                                     {{-- <option>- Seleccione -</option> --}}
                                     <option value="cedula">Cédula</option>
-                                    {{-- <option value="pasaporte">Pasaporte</option> --}}
+                                    <option value="pasaporte">Pasaporte</option>
                                 </select>
                                 <label style="font-size: 10px;" for="floatinMatricula">TIPO DE DOCUMENTO</label>
                             </div>
@@ -271,7 +271,7 @@
                                 <div class="form-floating mb-2">
                                     <select class="form-select rounded-md" name="detalle_salida"
                                         id="floatingSelectLugarSalidaEspecifico">
-                                        <option>- {{ __('Seleccione') }} -</option>
+                                        <option value="">- {{ __('Seleccione') }} -</option>
                                     </select>
                                     <label style="font-size: 10px;"
                                         for="floatingSelectLugarSalidaEspecifico">{{ __('LUGAR SALIDA ESPECIFICO') }}</label>
@@ -283,8 +283,8 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select rounded-md" name="provinciasalida"
-                                    id="floatingSelectProvinciaSalida">
-                                    <option>- {{ __('Seleccione') }} -</option>
+                                    id="floatingSelectProvinciaSalida" required>
+                                    <option value="">- {{ __('Seleccione') }} -</option>
                                     @foreach ($provincias as $prov)
                                         <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
                                             {{ $prov->descripcion }}
@@ -298,8 +298,8 @@
                         <div class="col-md">
                             <div class="form-floating mb-2">
                                 <select class="form-select rounded-md" name="municipiosalida"
-                                    id="floatingSelectMunicipioSalida">
-                                    <option>- {{ __('Seleccione') }} -</option>
+                                    id="floatingSelectMunicipioSalida" required>
+                                    <option value="">- {{ __('Seleccione') }} -</option>
                                 </select>
                                 <label style="font-size: 10px;"
                                     for="floatingSelectMunicipioSalida">{{ __('MUNICIPIO') }}</label>
@@ -307,9 +307,10 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control rounded-md" id="floatingCalle"
+                                <input type="text" class="form-control rounded-md" id="floatingCalleSalida"
                                     placeholder="{{ __('DIRECCION') }}" name="calle_salida" />
-                                <label style="font-size: 10px;" for="floatingCalle">{{ __('DIRECCION') }}</label>
+                                <label style="font-size: 10px;"
+                                    for="floatingCalleSalida">{{ __('DIRECCION') }}</label>
                             </div>
                         </div>
                     </div>
@@ -354,8 +355,9 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select class="form-select rounded-md" name="provincia" id="floatingSelectProvincia">
-                                    <option>- {{ __('Seleccione') }} -</option>
+                                <select class="form-select rounded-md" name="provincia" id="floatingSelectProvincia"
+                                    required>
+                                    <option value="">- {{ __('Seleccione') }} -</option>
                                     @foreach ($provincias as $prov)
                                         <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
                                             {{ $prov->descripcion }}
@@ -363,13 +365,14 @@
                                     @endforeach
                                 </select>
                                 <label style="font-size: 10px;"
-                                    for="floatingSelectProvincia">{{ __('PROVINCIA') }}</label>
+                                    for="floatingSelectProvincia">{{ __('PROVINCIA DESTINO') }}</label>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <select class="form-select rounded-md" name="municipio" id="floatingSelectMunicipio">
-                                    <option>- {{ __('Seleccione') }} -</option>
+                                <select class="form-select rounded-md" name="municipio" id="floatingSelectMunicipio"
+                                    required>
+                                    <option value="">- {{ __('Seleccione') }} -</option>
                                 </select>
                                 <label style="font-size: 10px;"
                                     for="floatingSelectMunicipio">{{ __('MUNICIPIO') }}</label>
@@ -392,7 +395,7 @@
                             <div class="llegada_puerto hidden">
                                 <div class="form-floating mb-2">
                                     <select class="form-select rounded-md" name="lugar_destino"
-                                        id="floatingSelectDestino" required>
+                                        id="floatingSelectDestino">
                                         <option>-{{ __('Seleccione') }}-</option>
                                         @foreach ($destinos as $dest)
                                             @if ($dest->id != 13)
@@ -431,9 +434,10 @@
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-2">
-                                <input type="text" class="form-control rounded-md" id="floatingCalle"
+                                <input type="text" class="form-control rounded-md" id="floatingCalleLlegada"
                                     placeholder="{{ __('DIRECCION') }}" name="calle" />
-                                <label style="font-size: 10px;" for="floatingCalle">{{ __('DIRECCION') }}</label>
+                                <label style="font-size: 10px;"
+                                    for="floatingCalleLlegada">{{ __('DIRECCION') }}</label>
                             </div>
                         </div>
                     </div>
@@ -566,11 +570,17 @@
                     // iterando los resultados encontrados
                     // $.each(data, function(index, field){
                     console.log(json[0]);
-                    $(".comandancia").val(json[0].descripcion);
-                    $(".idcomandancia").val(json[0].idcomandancia);
+                    if (json[0].descripcion == 'ROMANA') {
+                        $(".comandancia").val('CASA DE CAMPO RIO CHAVON');
+                        $(".idcomandancia").val(2);
+                    } else {
+                        $(".comandancia").val(json[0].descripcion);
+                        $(".idcomandancia").val(json[0].idcomandancia);
+                    }
                     // });
                 });
             });
+
             $(document).on({
                 ajaxStart: function() {
                     $(".spin").css('display', 'inline-block');
@@ -589,10 +599,80 @@
                 }
             });
 
-            $('input[type=text], input[type=datetime-local]').prop('required', true);
-            $('select').prop('required', true);
-            $('#floatinObservacion').prop('required', false);
+            // lugar de salida
+            $("#floatingSelectLugarSalida").change(function() {
+                var salida = $(this).val();
+                const idp = salida.split("|");
+                $.post("{{ route('get.perimetros') }}", {
+                    salida_id: idp[0],
+                    _token: $('input[name="_token"]').val()
+                }, function(data) {
+                    json = $.parseJSON(data);
+                    $("#floatingSelectLugarSalidaEspecifico").empty();
+                    $("#floatingSelectLugarSalidaEspecifico").append(
+                        "<option value=''>- {{ __('Seleccione') }} -</option>");
+                    // iterando los resultados encontrados
+                    // $.each(data, function(index, field){
+                    for (var i = 0; i < json.length; i++) {
+                        $("#floatingSelectLugarSalidaEspecifico").append("<option value='" + json[i]
+                            .description +
+                            "'>" + json[i].description + "</option>");
+                    }
+                    // });
+                });
 
+            });
+
+            // verificar que el lugar de destino sea perimetro costeros
+            $("#floatingSelectDestino").change(function() {
+                var destino = $(this).val();
+                const idd = destino.split("|");
+                var salida = $("#floatingSelectLugarSalida").val();
+                const ids = salida.split("|");
+                // $(".detalle_d").next('select').next('label').text(idd[1]);
+                if (idd[0] == 13) {
+                    $.post("{{ route('get.perimetros') }}", {
+                        salida_id: ids[0],
+                        _token: $('input[name="_token"]').val()
+                    }, function(data) {
+                        json = $.parseJSON(data);
+                        $("#floatingSelectPerimetro").empty();
+                        $("#floatingSelectPerimetro").append(
+                            "<option value=''>- {{ __('Seleccione') }} -</option>");
+                        // iterando los resultados encontrados
+                        // $.each(data, function(index, field){
+                        for (var i = 0; i < json.length; i++) {
+                            $("#floatingSelectPerimetro").append("<option value='" + json[i]
+                                .description +
+                                "'>" + json[i].description + "</option>");
+                        }
+                        // });
+                    });
+                } else {
+                    $.post("{{ route('get.perimetros') }}", {
+                        salida_id: idd[0],
+                        _token: $('input[name="_token"]').val()
+                    }, function(data) {
+                        json = $.parseJSON(data);
+                        $("#floatingSelectPerimetro").empty();
+                        $("#floatingSelectPerimetro").append(
+                            "<option value=''>- {{ __('Seleccione') }} -</option>");
+                        // iterando los resultados encontrados
+                        // $.each(data, function(index, field){
+                        for (var i = 0; i < json.length; i++) {
+                            $("#floatingSelectPerimetro").append("<option value='" + json[i]
+                                .description +
+                                "'>" + json[i].description + "</option>");
+                        }
+                        // });
+                    });
+                }
+            });
+
+            $('input[type=text], input[type=datetime-local]').prop('required', true);
+            // $('select').prop('required', true);
+            $('#floatinObservacion').prop('required', false);
+            $('input').addClass('uppercase');
             $('[required]').css({
                 'border-left': '2px solid red'
             });
@@ -878,27 +958,58 @@
 
             $('#si_puerto').click(function() {
                 if ($(this).is(':checked')) {
-                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', true);
+                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', true).css({
+                        'border-left': '2px solid red'
+                    });
                     $('.salida_puerto').slideDown();
+
+                    $('#floatingCalleSalida').attr('required', false).css({
+                        'border-left': '1px solid gray'
+                    });
                 }
             });
+
             $('#no_puerto').click(function() {
                 if ($(this).is(':checked')) {
                     $('.salida_puerto').slideUp();
-                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', false);
+                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', false).css({
+                        'border-left': '0px solid red'
+                    });
+                    $('#floatingCalleSalida').attr('required', true).css({
+                        'border-left': '2px solid red'
+                    });
                 }
             });
 
             $('#si_llegapuerto').click(function() {
                 if ($(this).is(':checked')) {
-                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', true);
+                    $('#floatingSelectDestino, #floatingSelectPerimetro').attr('required', true).css({
+                        'border-left': '2px solid red'
+                    });
                     $('.llegada_puerto').slideDown();
+
+                    $('#floatingSector').attr('required', false).css({
+                        'border-left': '1px solid gray'
+                    });
+
+                    $('#floatingCalleLlegada').attr('required', false).css({
+                        'border-left': '1px solid gray'
+                    });
                 }
             });
+
             $('#no_llegapuerto').click(function() {
                 if ($(this).is(':checked')) {
+                    $('#floatingSelectDestino, #floatingSelectPerimetro').attr('required', false).css({
+                        'border-left': '0px solid red'
+                    });
                     $('.llegada_puerto').slideUp();
-                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', false);
+                    $('#floatingSector').attr('required', true).css({
+                        'border-left': '2px solid red'
+                    });
+                    $('#floatingCalleLlegada').attr('required', false).css({
+                        'border-left': '2px solid red'
+                    });
                 }
             });
         </script>

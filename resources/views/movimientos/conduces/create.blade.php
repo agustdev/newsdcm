@@ -50,7 +50,7 @@
                                 {{-- <input type="text" class="form-control matricula" id="floatinMatricula"
                                     placeholder="MATRICULA" name="matricula" value="" required /> --}}
                                 <select name="matricula" class="form-select emb_matricula rounded-md"
-                                    id="floatinMatricula">
+                                    id="floatinMatricula" required>
                                     @if ($embarcaciones->count() > 0)
                                         <option value="">- {{ __('Seleccione') }} -</option>
                                         @foreach ($embarcaciones as $embarcacion)
@@ -171,10 +171,10 @@
                 <div class="col-md">
                     <div class="form-floating mb-2">
                         <select class="form-select tipo_documento rounded-md" name="tipo_documento"
-                            id="floatingSelect">
+                            id="floatingSelect" required>
                             {{-- <option>- {{ __('Seleccione') }} -</option> --}}
                             <option value="cedula">{{ __('Cédula') }}</option>
-                            {{-- <option value="pasaporte">{{ __('Pasaporte') }}</option> --}}
+                            <option value="pasaporte">{{ __('Pasaporte') }}</option>
                         </select>
                         <label style="font-size: 10px;" for="floatinMatricula">{{ __('TIPO DE DOCUMENTO') }}</label>
                     </div>
@@ -338,7 +338,7 @@
                         <div class="form-floating mb-2">
                             <select class="form-select rounded-md" name="detalle_salida"
                                 id="floatingSelectLugarSalidaEspecifico">
-                                <option>- {{ __('Seleccione') }} -</option>
+                                <option value="">- {{ __('Seleccione') }} -</option>
                             </select>
                             <label style="font-size: 10px;"
                                 for="floatingSelectLugarSalidaEspecifico">{{ __('LUGAR SALIDA ESPECIFICO') }}</label>
@@ -350,7 +350,7 @@
                 <div class="col-md">
                     <div class="form-floating mb-2">
                         <select class="form-select rounded-md" name="provinciasalida"
-                            id="floatingSelectProvinciaSalida">
+                            id="floatingSelectProvinciaSalida" required>
                             <option>- {{ __('Seleccione') }} -</option>
                             @foreach ($provincias as $prov)
                                 <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
@@ -365,7 +365,7 @@
                 <div class="col-md">
                     <div class="form-floating mb-2">
                         <select class="form-select rounded-md" name="municipiosalida"
-                            id="floatingSelectMunicipioSalida">
+                            id="floatingSelectMunicipioSalida" required>
                             <option>- {{ __('Seleccione') }} -</option>
                         </select>
                         <label style="font-size: 10px;"
@@ -374,9 +374,9 @@
                 </div>
                 <div class="col-md">
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control rounded-md" id="floatingCalle"
+                        <input type="text" class="form-control rounded-md" id="floatingCalleSalida"
                             placeholder="{{ __('DIRECCION') }}" name="calle_salida" />
-                        <label style="font-size: 10px;" for="floatingCalle">{{ __('DIRECCION') }}</label>
+                        <label style="font-size: 10px;" for="floatingCalleSalida">{{ __('DIRECCION') }}</label>
                     </div>
                 </div>
             </div>
@@ -421,8 +421,9 @@
                 </div>
                 <div class="col-md">
                     <div class="form-floating mb-2">
-                        <select class="form-select rounded-md" name="provincia" id="floatingSelectProvincia">
-                            <option>- {{ __('Seleccione') }} -</option>
+                        <select class="form-select rounded-md" name="provincia" id="floatingSelectProvincia"
+                            required>
+                            <option value="">- {{ __('Seleccione') }} -</option>
                             @foreach ($provincias as $prov)
                                 <option value="{{ $prov->id }}|{{ $prov->descripcion }}">
                                     {{ $prov->descripcion }}
@@ -434,8 +435,9 @@
                 </div>
                 <div class="col-md">
                     <div class="form-floating mb-2">
-                        <select class="form-select rounded-md" name="municipio" id="floatingSelectMunicipio">
-                            <option>- {{ __('Seleccione') }} -</option>
+                        <select class="form-select rounded-md" name="municipio" id="floatingSelectMunicipio"
+                            required>
+                            <option value="">- {{ __('Seleccione') }} -</option>
                         </select>
                         <label style="font-size: 10px;" for="floatingSelectMunicipio">{{ __('MUNICIPIO') }}</label>
                     </div>
@@ -456,9 +458,8 @@
                 <div class="col-md">
                     <div class="llegada_puerto hidden">
                         <div class="form-floating mb-2">
-                            <select class="form-select rounded-md" name="lugar_destino" id="floatingSelectDestino"
-                                required>
-                                <option>-{{ __('Seleccione') }}-</option>
+                            <select class="form-select rounded-md" name="lugar_destino" id="floatingSelectDestino">
+                                <option value="">-{{ __('Seleccione') }}-</option>
                                 @foreach ($destinos as $dest)
                                     @if ($dest->id != 13)
                                         <option value="{{ $dest->id }}|{{ strtoupper($dest->descripcion) }}">
@@ -495,9 +496,9 @@
                 </div>
                 <div class="col-md">
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control rounded-md" id="floatingCalle"
+                        <input type="text" class="form-control rounded-md" id="floatingCalleLlegada"
                             placeholder="{{ __('DIRECCION') }}" name="calle" />
-                        <label style="font-size: 10px;" for="floatingCalle">{{ __('DIRECCION') }}</label>
+                        <label style="font-size: 10px;" for="floatingCalleLlegada">{{ __('DIRECCION') }}</label>
                     </div>
                 </div>
             </div>
@@ -669,8 +670,14 @@
                     // iterando los resultados encontrados
                     // $.each(data, function(index, field){
                     console.log(json[0]);
-                    $(".comandancia").val(json[0].descripcion);
-                    $(".idcomandancia").val(json[0].idcomandancia);
+                    if (json[0] == 'ROMANA') {
+                        $(".comandancia").val('CASA DE CAMPO RIO CHAVON');
+                        $(".idcomandancia").val(2);
+                    } else {
+
+                        $(".comandancia").val(json[0].descripcion);
+                        $(".idcomandancia").val(json[0].idcomandancia);
+                    }
 
                     // });
                 });
@@ -746,12 +753,15 @@
                 }
             });
 
+            // aplicar required a campos especificos
             $('input[type=text], input[type=datetime-local]').prop('required', true);
-            $('select').prop('required', true);
+            // $('select').prop('required', true);
             $('#floatinObservacion').prop('required', false);
             $('[required]').css({
                 'border-left': '2px solid red'
             });
+
+            $('input').addClass('uppercase');
         </script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -1025,7 +1035,7 @@
                             e.preventDefault();
                             alert(
                                 'La fecha y hora deben estar entre 06:00 y 18:00 y dentro del rango permitido.'
-                                );
+                            );
                         }
                     });
                 }
@@ -1035,27 +1045,58 @@
 
             $('#si_puerto').click(function() {
                 if ($(this).is(':checked')) {
-                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', true);
+                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', true).css({
+                        'border-left': '2px solid red'
+                    });
                     $('.salida_puerto').slideDown();
+
+                    $('#floatingCalleSalida').attr('required', false).css({
+                        'border-left': '1px solid gray'
+                    });
                 }
             });
+
             $('#no_puerto').click(function() {
                 if ($(this).is(':checked')) {
                     $('.salida_puerto').slideUp();
-                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', false);
+                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', false).css({
+                        'border-left': '0px solid red'
+                    });
+                    $('#floatingCalleSalida').attr('required', true).css({
+                        'border-left': '2px solid red'
+                    });
                 }
             });
 
             $('#si_llegapuerto').click(function() {
                 if ($(this).is(':checked')) {
-                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', true);
+                    $('#floatingSelectDestino, #floatingSelectPerimetro').attr('required', true).css({
+                        'border-left': '2px solid red'
+                    });
                     $('.llegada_puerto').slideDown();
+
+                    $('#floatingSector').attr('required', false).css({
+                        'border-left': '1px solid gray'
+                    });
+
+                    $('#floatingCalleLlegada').attr('required', false).css({
+                        'border-left': '1px solid gray'
+                    });
                 }
             });
+
             $('#no_llegapuerto').click(function() {
                 if ($(this).is(':checked')) {
+                    $('#floatingSelectDestino, #floatingSelectPerimetro').attr('required', false).css({
+                        'border-left': '0px solid red'
+                    });
                     $('.llegada_puerto').slideUp();
-                    $('#floatingSelectLugarSalida, #floatingSelectLugarSalidaEspecifico').attr('required', false);
+                    $('#floatingSector').attr('required', true).css({
+                        'border-left': '2px solid red'
+                    });
+                    $('#floatingCalleLlegada').attr('required', false).css({
+                        'border-left': '2px solid red'
+                    });
                 }
             });
         </script>

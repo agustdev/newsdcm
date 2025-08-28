@@ -14,13 +14,13 @@
             @foreach (get_emb_request_all()->get() as $notifica)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $notifica->fecha_llegada->format('d-m-Y h:i A') }}</td>
+                    <td>{{ $notifica->fecha_llegada }}</td>
                     <td>{{ $notifica->matricula }}</td>
                     <td>
-                        {{ $notifica->estado_movimiento }}
+                        {{ $notifica->estado_movimiento == '1' ? 'Listo para zarpar' : 'Listo para arribar' }}
                     </td>
                     <td>
-                        {{ $notifica->created_at->format('d-m-Y h:i A') }}
+                        {{ $notifica->created_at }}
                     </td>
                     <td>
                         <button wire:click="$emit('notificarLLegada', {{ $notifica->emb_id }})"

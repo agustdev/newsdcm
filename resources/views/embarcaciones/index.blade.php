@@ -194,7 +194,7 @@
                                 <input type="hidden" name="emb" value="{{ $emb->matricula }}">
                             </form>
 
-                            <a href="{{ route('salidas.createpost') }}"
+                            {{-- <a href="{{ route('salidas.createpost') }}"
                                 class="items-center px-3 py-2 bg-green-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:bg-green-700 active:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 url_conduce"
                                 onclick="event.preventDefault(); document.getElementById('salidas-form-{{ $emb->id }}').submit();">{{ __('SALIDAS') }}</a>
 
@@ -202,7 +202,7 @@
                                 method="POST" class="d-none">
                                 @csrf
                                 <input type="hidden" name="emb" value="{{ $emb->matricula }}">
-                            </form>
+                            </form> --}}
 
                         </div>
                     </div><!-- /.modal-content -->
@@ -261,7 +261,7 @@
         @foreach ($emb_internacionales as $embi)
             <div class="col-xxl-3 col-lg-6">
                 {{-- listado de las embarcaciones disponibles por usuario --}}
-                <div
+                {{-- <div
                     class="card widget-flat border @if (strtotime($embi->fecha_validez->format('d-m-Y')) >= strtotime(\Carbon\Carbon::now()->format('d-m-Y'))) border-custom @else border-custom-red @endif border-5 rounded sombra">
                     <div class="card-body">
                         <span class="badge text-gray-800">{{ __('Internacional') }}</span>
@@ -311,7 +311,7 @@
                             @endif
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         @endforeach
 

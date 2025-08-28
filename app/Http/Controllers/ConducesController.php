@@ -38,7 +38,7 @@ class ConducesController extends Controller
             $registroActivo = Inteligencias::where('matricula_embarcacion', $item->matricula)
                 ->where('estado', '=', 'Activa')
                 ->exists();
-            return $item->fecha_validez >= now()->toDateString() && $item->impedimento == 0 && $item->manual == 0 && !$registroActivo;
+            return $item->fecha_validez >= now()->toDateString() && $item->impedimento == 0 && ($item->estado_movimiento == 0 || $item->estado_movimiento == 3) && $item->manual == 0 && !$registroActivo;
         });
         return view('movimientos.conduces.create', compact('ultimo_mov', 'provincias', 'embarcaciones', 'destinos'));
         // return $embarcaciones;
@@ -73,15 +73,15 @@ class ConducesController extends Controller
         // $municipio = explode("|", $request->municipio);
         // dd($embarcacion);
         $mov = Movimientos::create([
-            'matricula' => $request->matricula,
-            'numero_casco' => $request->numero_casco,
-            'nombre' => $request->nombre,
-            'color' => $request->color_emb,
+            'matricula' => $request->matricula ?? 'N/A',
+            'numero_casco' => $request->numero_casco ?? 'N/A',
+            'nombre' => $request->nombre ?? 'N/A',
+            'color' => $request->color_emb ?? 'N/A',
             'fecha' => $request->fecha_salida,
             'fecha_llegada' => $request->fecha_llegada,
-            'marca_modelo_motor' => $request->marca_modelo_motor,
-            'caballos_fuerza_motor' => $request->caballos_fuerza_motor,
-            'no_motor' => $request->no_motor,
+            'marca_modelo_motor' => $request->marca_modelo_motor ?? 'N/A',
+            'caballos_fuerza_motor' => $request->caballos_fuerza_motor ?? 'N/A',
+            'no_motor' => $request->no_motor ?? 0,
             'tipo_movimiento' => 'C',
             'estado' => 'Enviado',
             'estado_alerta' => 'N/A',
@@ -91,8 +91,8 @@ class ConducesController extends Controller
             'url_id' => Str::uuid()->toString(),
             'idsalida' => $provincia[0],
             'idllegada' => $provincia_salida[0],
-            'detalle_salida' => $request->detalle_salida,
-            'detalle_destino' => $request->detalle_destino,
+            'detalle_salida' => $request->detalle_salida ?? 'N/A',
+            'detalle_destino' => $request->detalle_destino ?? 'N/A',
         ]);
         $vehiculo = Vehiculos::create([
             'marca' => $request->marca,
@@ -103,15 +103,15 @@ class ConducesController extends Controller
             'municipio' => $request->municipio,
             'provincia_salida' => $provincia_salida[1],
             'Municipio_salida' => $request->municipiosalida,
-            'sector' => $request->sector,
-            'calle' => $request->calle,
+            'sector' => $request->sector ?? 'N/D',
+            'calle' => $request->calle ?? 'N/D',
             'observacion' => $request->observacion,
             'mov_id' => $mov->id,
             'emb_id' => $embarcacion->id,
             'id_provsa' => $provincia_salida[0],
             'id_munsa' => 0,
-            'idcomandancia' => $request->idcomandancia,
-            'comandancia' => $request->comandancia
+            'idcomandancia' => $request->idcomandancia ?? 2,
+            'comandancia' => $request->comandancia ?? 'ROMANA'
         ]);
         Conductores::create([
             'documento' => $request->documento,
@@ -158,14 +158,15 @@ class ConducesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Movimientos $conduce)
+    public function destroy(Movimientos $conduce, Request $request)
     {
         $embarcacion = Embarcaciones::where('matricula', '=', $conduce->matricula)->first();
         $embarcacion->update([
             'estado_movimiento' => 0 //Solicitud cerrada
         ]);
         $conduce->update([
-            'estado' => 'Cancelado'
+            'estado' => 'Cancelado',
+            'motivo_cancela' => $request->motivo_cancela
         ]);
         return redirect()->route('movimientos.conduces.index')->with('cancel', 'Solicitud creada con exito.');
     }

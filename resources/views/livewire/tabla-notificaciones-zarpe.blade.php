@@ -14,10 +14,10 @@
             @foreach (get_emb_request_zarpe()->get() as $zarpe)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $zarpe->fecha->format('d-m-Y h:i A') }}</td>
+                    <td>{{ $zarpe->fecha }}</td>
                     <td>{{ $zarpe->matricula }}</td>
-                    <td>{{ $zarpe->estado_movimiento }}</td>
-                    <td>{{ $zarpe->created_at->format('d-m-Y h:i A') }}</td>
+                    <td>{{ $zarpe->estado_movimiento == 1 ? 'Listo para zarpar' : 'Listo para arribar' }}</td>
+                    <td>{{ $zarpe->created_at }}</td>
                     <td>
                         <button wire:click="$emit('notificarSalida', {{ $zarpe->emb_id }})"
                             class="inline-flex items-center justify-center px-3 py-2 bg-yellow-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-500 active:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 transition ease-in-out duration-150">

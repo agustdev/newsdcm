@@ -33,7 +33,7 @@ class CreateCapitanes extends Component
                 }),
             ],
             'telefono' => 'required',
-            'fecha_expira' => 'required|date|after:today',
+            'fecha_expira' => 'required|date',
         ];
     }
 

@@ -15,7 +15,7 @@
             @foreach ($despachos as $desp)
                 <tr>
                     <td>{{ $desp->id }}</td>
-                    <td>{{ $desp->fecha->format('d-m-Y') }}</td>
+                    <td>{{ $desp->fecha->format('d-m-Y h:i A') }}</td>
                     <td>{{ $desp->matricula }}</td>
                     <td>
                         @if ($desp->estado == 'Aprobado')
@@ -39,7 +39,7 @@
                         </a>
                     </td>
                     <td>
-                        {{ $desp->created_at->format('d-m-Y h:i:s') }}
+                        {{ $desp->created_at->format('d-m-Y h:i A') }}
                     </td>
                     <td>
                         <div class="tooltip-container">
@@ -50,7 +50,7 @@
                                 @livewire('cambio-destino', ['despacho' => $desp], key($desp->id))
                             @endif
 
-                            @if (!in_array($desp->estado, $estados))
+                            @if (!in_array($desp->estado, ['Cancelado', 'Rechazado']))
                                 <form id="despacho-cancel" action="{{ route('movimientos.despachos.destroy', $desp) }}"
                                     method="POST" class="inline-block cancel">
                                     @method('DELETE')
@@ -58,8 +58,9 @@
                                     <button type="submit"
                                         class="inline-flex items-center justify-center px-3 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150"
                                         title="Cancelar"
-                                        style="display: {{ now()->diffInHours(\Carbon\Carbon::parse($desp->created_at)) < 1 ? 'block' : 'none' }}"><i
-                                            class="mdi mdi-cancel"></i></button>
+                                        style="display: {{ now()->diffInHours(\Carbon\Carbon::parse($desp->created_at)) >= 24 ? 'none' : 'block' }}"><i
+                                            class="mdi mdi-cancel"></i> Cancelar</button>
+                                    <input type="hidden" name="motivo_cancela" id="motivo_hidden">
                                 </form>
                             @endif
                         </div>

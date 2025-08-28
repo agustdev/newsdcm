@@ -112,12 +112,29 @@
                 e.preventDefault();
                 Swal.fire({
                     title: '¿Estas seguro de anular esta solicitud?',
+                    html: '<p>Indique el motivo de la cancelación</p><textarea class="form-control uppercase" required name="motivo" id="motivo" cols="30" rows="5" placeholder="Motivo de la cancelación"></textarea>',
                     text: "¡Esta acción no podra ser revertida!",
                     showCancelButton: true,
                     confirmButtonColor: '#1089FF',
                     cancelButtonColor: '#DC2626',
                     confirmButtonText: '¡Si, anular!',
-                    cancelButtonText: 'Cancelar'
+                    cancelButtonText: 'Cancelar',
+                    showLoaderOnConfirm: true,
+                    didOpen: () => {
+                        const textarea = document.getElementById('motivo');
+                        const hidden = document.getElementById('motivo_hidden');
+
+                        if (textarea && hidden) {
+                            textarea.addEventListener('input', function() {
+                                hidden.value = this.value;
+                            });
+                        }
+                    },
+                    preConfirm: () => {
+                        if (document.getElementById('motivo').value == '') {
+                            Swal.showValidationMessage('Se require el motivo de la cancelacion');
+                        }
+                    }
                 }).then((result) => {
                     if (result.isConfirmed) {
                         this.submit();
@@ -125,6 +142,5 @@
                 });
             });
         </script>
-
     @endpush
 </x-app-layout>
