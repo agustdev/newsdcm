@@ -261,7 +261,7 @@
         @foreach ($emb_internacionales as $embi)
             <div class="col-xxl-3 col-lg-6">
                 {{-- listado de las embarcaciones disponibles por usuario --}}
-                {{-- <div
+                <div
                     class="card widget-flat border @if (strtotime($embi->fecha_validez->format('d-m-Y')) >= strtotime(\Carbon\Carbon::now()->format('d-m-Y'))) border-custom @else border-custom-red @endif border-5 rounded sombra">
                     <div class="card-body">
                         <span class="badge text-gray-800">{{ __('Internacional') }}</span>
@@ -304,15 +304,63 @@
                                 <button type="button"
                                     class="items-center px-3 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 block"
                                     data-bs-toggle="modal"
-                                    data-bs-target="#option-mov-modal-{{ $embi->id }}">{{ __('SOLICITAR') }}</button>
+                                    data-bs-target="#option-mov-modal-{{ $embi->id }}-int">{{ __('SOLICITAR') }}</button>
                             @else
                                 <button type="button" disabled
                                     class="items-center px-3 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 disabled:opacity-25 block">{{ __('SOLICITAR') }}</button>
                             @endif
                         </div>
                     </div>
-                </div> --}}
+                </div>
             </div>
+
+            <!-- Standard modal -->
+            <div id="option-mov-modal-{{ $embi->id }}-int" class="modal fade" tabindex="-1" role="dialog"
+                aria-labelledby="standard-modalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header mx-auto">
+                            <h4 class="modal-title h3 uppercase text-black" id="standard-modalLabel">
+                                {{ __('MOVIMIENTOS A SOLICITAR') }}</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-hidden="true"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            {{-- <a href="{{ route('despachos.createpost') }}"
+                                class="items-center px-3 py-2 bg-azulito border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-600 focus:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 url_despacho"
+                                onclick="event.preventDefault(); document.getElementById('despacho-form-{{ $embi->id }}').submit();">{{ __('DESPACHO') }}
+
+                            </a>
+                            <form id="despacho-form-{{ $embi->id }}"
+                                action="{{ route('despachos.createpost') }}" method="POST" class="d-none">
+                                @csrf
+                                <input type="hidden" name="emb" value="{{ $embi->matricula }}">
+                            </form>
+
+                            <a href="{{ route('conduces.createpost') }}"
+                                class="items-center px-3 py-2 bg-yellow-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-yellow-600 focus:bg-yellow-700 active:bg-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 url_conduce"
+                                onclick="event.preventDefault(); document.getElementById('conduce-form-{{ $embi->id }}').submit();">{{ __('CONDUCE') }}</a>
+
+                            <form id="conduce-form-{{ $embi->id }}" action="{{ route('conduces.createpost') }}"
+                                method="POST" class="d-none">
+                                @csrf
+                                <input type="hidden" name="emb" value="{{ $embi->matricula }}">
+                            </form> --}}
+
+                            <a href="{{ route('salidas.createpost') }}"
+                                class="items-center px-3 py-2 bg-green-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:bg-green-700 active:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 transition ease-in-out duration-150 ml-1 url_conduce"
+                                onclick="event.preventDefault(); document.getElementById('salidas-form-{{ $embi->id }}').submit();">{{ __('SALIDAS') }}</a>
+
+                            <form id="salidas-form-{{ $embi->id }}" action="{{ route('salidas.createpost') }}"
+                                method="POST" class="d-none">
+                                @csrf
+                                <input type="hidden" name="emb" value="{{ $embi->matricula }}">
+                            </form>
+
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
         @endforeach
 
     </div>
