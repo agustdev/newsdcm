@@ -31,4 +31,9 @@ class Embarcaciones extends Model
     {
         return $this->hasMany(NotificacionesArribo::class, 'emb_id');
     }
+
+    public function representantes()
+    {
+        return $this->belongsToMany(Representantes::class, 'embarcacion_representante');
+    }
 }

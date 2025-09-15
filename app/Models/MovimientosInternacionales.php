@@ -39,6 +39,11 @@ class MovimientosInternacionales extends Model
         return $this->hasOne(EmbarcacionesInternacionales::class, 'id', 'emb_inter_id');
     }
 
+    public function embarcacion_nacional()
+    {
+        return $this->hasOne(Embarcaciones::class, 'id', 'emb_inter_id');
+    }
+
     public function getRouteKeyName()
     {
         return 'url_id';

@@ -77,6 +77,48 @@
         // });
     </script>
 @endif
+
+@if (auth()->user()->representante && auth()->user()->representante->conciente === 0)
+    {{-- consentimiento de representante --}}
+    <form action="{{ route('consentimiento.representante') }}" method="POST" class="conciente">
+        @csrf
+        @method('POST')
+        <input type="hidden" name="conciente" value="1">
+    </form>
+    <form action="{{ route('consentimiento.representante') }}" method="POST" class="noconciente">
+        @csrf
+        @method('POST')
+        <input type="hidden" name="conciente" value="2">
+    </form>
+    <script>
+        Swal.fire({
+            title: '¡Bienvenido!',
+            html: '<p style="text-align: justify;">Usted fue registrado como representante y tiene responsabilidades sobre las embarcaciones asignadas. Si reconoce esta acción, por favor confirme que está al tanto de sus responsabilidades. De lo contrario, contacte al administrador del sistema.</p>',
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#1089FF",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, estoy al tanto!",
+            cancelButtonText: "No, no estoy al tanto!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.querySelector('.conciente').submit();
+            }
+            if (result.isDismissed) {
+                Swal.fire({
+                    title: "Atención!",
+                    text: "Contacte el administrador del sistema.",
+                    icon: "info",
+                    confirmButtonColor: "#1089FF",
+                    confirmButtonText: "Aceptar"
+                }).then(() => {
+                    document.querySelector('.noconciente').submit();
+                });
+            }
+        });
+    </script>
+@endif
+
 <script>
     Livewire.on('alert', function(message) {
         const Toast = Swal.mixin({

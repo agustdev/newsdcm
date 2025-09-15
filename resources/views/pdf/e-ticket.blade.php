@@ -41,8 +41,12 @@
                 <strong style="font-size: 45px;">SISTEMA CONDUCE Y DESPACHO DE EMBARCACIONES</strong><br>
                 <strong>(DESPACHORD)</strong>
             </div>
-            <strong>ENTRADA INTERNACIONAL</strong><br>
-            <strong>E-CLEREANCE</strong>
+            @if ($entrada->tipo_movimiento == 'S')
+                <strong>SALIDA INTERNACIONAL</strong><br>
+            @else
+                <strong>ENTRADA INTERNACIONAL</strong><br>
+            @endif
+            <strong>E-CLEARANCE</strong>
         </div>
         <div class="qr">
             <img src="data:image/svg+xml;base64,{{ base64_encode(QrCode::size(300)->generate(route('verificacion.solicitud.internacional', $entrada))) }}"
@@ -56,7 +60,11 @@
             MATRICULA: {{ $entrada->matricula }}<br>
             NUMERO CASCO: {{ $entrada->numero_casco }}<br>
             COLOR: {{ $entrada->color }}<br>
-            PAIS DE PROCEDENCIA: {{ $entrada->capitan_internacional->pais_procedencia }}<br>
+            @if ($entrada->tipo_movimiento == 'S')
+                PAIS DESTINO: {{ $entrada->capitan_internacional->pais_procedencia }}<br>
+            @else
+                PAIS PROCEDENCIA: {{ $entrada->capitan_internacional->pais_procedencia }}<br>
+            @endif
             CAPITAN: {{ $entrada->capitan_internacional->nombre }}<br>
             @if ($entrada->capitan_internacional->tipo_documento == 'Pasaporte')
                 NUMERO DE PASAPORTE: {{ $entrada->capitan_internacional->documento }}<br>
@@ -66,7 +74,12 @@
             NUMERO DE TELEFONO: {{ $entrada->capitan_internacional->telefono }}<br>
             FECHA DE LLEGADA: {{ $entrada->fecha->format('d-m-Y') }}<br>
             PUERTO LLEGADA: {{ $entrada->capitan_internacional->lugar_destino }}<br>
-            PAIS DESTINO: REPUBLICA DOMINICANA
+            @if ($entrada->tipo_movimiento == 'S')
+                PAIS DE SALIDA: REPUBLICA DOMINICANA
+            @else
+                PAIS DESTINO: REPUBLICA DOMINICANA
+            @endif
+
         </div>
     </body>
 

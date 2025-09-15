@@ -109,4 +109,21 @@ class User extends Authenticatable
     {
         return $this->hasMany(CapitanesRegUsuarios::class);
     }
+
+    public function representantes()
+    {
+        return $this->hasMany(Representantes::class);
+    }
+
+    public function representante()
+    {
+        return $this->hasOne(Representantes::class, 'documento')->orWhere('documento', $this->documento)
+            ->orWhere('documento', $this->documento_formateado);
+    }
+
+    public function embarcaciones_representadas()
+    {
+        // Retorna colección vacía si no tiene representante
+        return $this->representante ? $this->representante->embarcaciones()->get() : collect();
+    }
 }

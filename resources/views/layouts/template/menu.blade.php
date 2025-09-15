@@ -27,6 +27,16 @@
         </a>
     </li>
 
+    <li class="side-nav-item">
+        <a href="{{ route('representantes.registrados.index') }}" class="side-nav-link">
+            <i class="mdi mdi-account"></i>
+
+            <span>
+                {{ __('Mis Representantes') }}
+            </span>
+        </a>
+    </li>
+
     <li class="side-nav-item {{ request()->is('despachos*') ? 'menuitem-active' : '' }}">
         <a href="{{ route('movimientos.despachos.index') }}"
             class="side-nav-link {{ request()->is('despachos*') ? 'active' : '' }}">

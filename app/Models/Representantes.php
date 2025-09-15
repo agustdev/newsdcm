@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CapitanesInternacionales extends Model
+class Representantes extends Model
 {
     use HasFactory;
+
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    // relación uno a muchos
-    public function movimiento()
+    public function embarcaciones()
     {
-        return $this->belongsTo(MovimientosInternacionales::class, 'emb_inter_id');
+        return $this->belongsToMany(Embarcaciones::class, 'embarcacion_representante', 'representante_id', 'emb_id');
     }
 }

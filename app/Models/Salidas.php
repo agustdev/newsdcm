@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Salidas extends Model
 {
     use HasFactory;
+    protected $casts = ['fecha_llegada'];
 }

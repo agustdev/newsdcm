@@ -11,6 +11,7 @@ use App\Http\Controllers\LangController;
 use App\Http\Controllers\SalidasController;
 use App\Http\Controllers\MovimientosController;
 use App\Http\Controllers\MovimientosNavierasController;
+use App\Http\Controllers\RepresentantesController;
 use App\Http\Controllers\SolicitudesNavierasController;
 use App\Http\Controllers\UsuariosNavierasController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     })->name('acceso.rapido');
 
     Route::resource('capitanes', CapitanesRegistradosController::class)->names('capitanes.registrados');
+    Route::resource('representantes', RepresentantesController::class)->names('representantes.registrados');
 
     Route::post('/consulta_embarcacion', [ConsultasController::class, 'consultar_embarcacion'])->name('consulta.embarcacion');
     Route::post('get/municipios', [ConsultasController::class, 'get_municipios'])->name('get.municipios');
@@ -76,6 +78,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::post('navieras/solicitudes/entradas/store', [MovimientosNavierasController::class, 'entradasNavierasStore'])->name('solicitudes.navieras.entradas.store');
     Route::get('navieras/solicitudes/salidas/create', [MovimientosNavierasController::class, 'salidasNavierasCreate'])->name('solicitudes.navieras.salidas.create');
     Route::post('navieras/solicitudes/salidas/store', [MovimientosNavierasController::class, 'salidasNavierasStore'])->name('solicitudes.navieras.salidas.store');
+
+
+    // consentimiento usuarios
+    Route::post('consentimiento/representacion', [RepresentantesController::class, 'consentimiento'])->name('consentimiento.representante');
 });
 //end views sdcm
 
