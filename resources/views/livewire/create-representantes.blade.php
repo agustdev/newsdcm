@@ -11,7 +11,7 @@
                 @elseif($step === 2)
                     {{ __('Asignar Embarcaciones') }}
                 @elseif($step === 3)
-                    {{ __('Aceptación de las condiciones') }}
+                    <i class="mdi mdi-alert text-red-600 text-4xl mr-2"></i> {{ __('Aviso importante') }}
                 @endif
             </x-slot>
             <x-slot name="content">
@@ -93,19 +93,20 @@
                         <div class="p-3 border rounded bg-gray-50 text-sm text-gray-700 max-h-40 overflow-y-auto">
                             <p><strong>Condiciones del registro:</strong></p>
                             <p class="mt-2 text-justify">
-                                Al confirmar este registro, usted declara que los datos del representante ingresados son
-                                verídicos y que la asignación de embarcaciones ha sido revisada cuidadosamente. Este
-                                registro será utilizado con fines administrativos y de control institucional.
+                                Al confirmar este registro, usted declara que los datos ingresados del representante,
+                                son verídicos y que la asignación de embarcaciones ha sido revisada cuidadosamente. Este
+                                registro será utilizado con fines administrativos y de control institucional. Asimismo,
+                                queda establecido que tanto el propietario de la embarcación como el representante
+                                designado, asumen la responsabilidad de darle el uso correcto a las embarcación
+                                asignadas. En caso de que la misma sea utilizada en actividades delictivas o ilícitas;
+                                ambas partes podrán ser objeto de investigaciones, sanciones administrativas y
+                                consecuencias legales conforme a las leyes y normativas vigentes en la República
+                                Dominicana.
 
-                                Asimismo, queda establecido que tanto el propietario de la embarcación como el
-                                representante designado asumen responsabilidad solidaria por el uso correcto de la
-                                embarcación. En caso de que la misma sea utilizada en actividades delictivas, ilícitas o
-                                sancionatorias, ambas partes podrán ser objeto de investigaciones, sanciones
-                                administrativas o consecuencias legales conforme a la normativa vigente.
                             </p>
                             <p class="mt-2">
-                                Si no está de acuerdo con estas condiciones, puede volver atrás y modificar los datos
-                                antes de finalizar el registro.
+                                En caso de no estar acuerdo con estos términos y condiciones, puede volver atrás y
+                                modificar los datos, antes de finalizar el registro.
                             </p>
                         </div>
 

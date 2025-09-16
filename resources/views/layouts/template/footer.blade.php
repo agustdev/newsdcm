@@ -98,8 +98,8 @@
             showCancelButton: true,
             confirmButtonColor: "#1089FF",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Si, estoy al tanto!",
-            cancelButtonText: "No, no estoy al tanto!"
+            confirmButtonText: "Si, estoy de acuerdo!",
+            cancelButtonText: "No, no estoy de acuerdo!"
         }).then((result) => {
             if (result.isConfirmed) {
                 document.querySelector('.conciente').submit();
